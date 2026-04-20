@@ -7,7 +7,10 @@
       "Bash(npm run *)",
       "Bash(git add *)",
       "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"chore: set production domain to aipedia.com\")",
-      "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"chore: set production domain to ai-pedia.jp\")"
+      "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"chore: set production domain to ai-pedia.jp\")",
+      "Bash(gh --version)",
+      "Bash(git remote *)",
+      "Bash(git push *)"
     ]
   }
 }
