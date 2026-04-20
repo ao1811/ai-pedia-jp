@@ -1,2 +1,1 @@
-# AdSense 承認後、下記の行の `pub-XXXXXXXXXXXXXXXX` を自分のパブリッシャーIDに書き換えてください。
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-6101718288538326, DIRECT, f08c47fec0942fa0
