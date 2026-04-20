@@ -9,47 +9,140 @@ type Props = {
 const { tools } = Astro.props;
 const top3 = tools.slice(0, 3);
 const medals = ['🥇', '🥈', '🥉'];
+const rankLabels = ['Editor\'s Choice', 'Runner-up', 'Top 3'];
 ---
 
 <section class="relative">
   <div class="grid gap-3 sm:grid-cols-3">
     {top3.map((tool, i) => {
       const cat = CATEGORY_LABELS[tool.category];
+      const isHero = i === 0;
+      const stars = Math.round(tool.rating);
       return (
         <a
           href={`/tools/${tool.slug}`}
-          class={`group relative overflow-hidden rounded-2xl border border-white/10 p-5 card-hover ${i === 0 ? 'sm:row-span-2 sm:col-span-2' : ''}`}
+          class={`group relative overflow-hidden rounded-2xl border border-white/10 p-5 card-hover ${isHero ? 'sm:row-span-2 sm:col-span-2 sm:p-8' : ''}`}
         >
-          <div class={`absolute inset-0 bg-gradient-to-br ${tool.accentGradient} opacity-20 group-hover:opacity-30 transition-opacity`}></div>
-          <div class="absolute inset-0 shine opacity-60"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/70 to-transparent"></div>
+          {/* base gradient */}
+          <div class={`absolute inset-0 bg-gradient-to-br ${tool.accentGradient} opacity-25 group-hover:opacity-35 transition-opacity`}></div>
 
+          {/* grid pattern overlay */}
+          <div
+            class="absolute inset-0 opacity-[0.08]"
+            style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 32px 32px;"
+          ></div>
+
+          {/* glowing orbs */}
+          <div class={`absolute -top-24 -right-16 h-64 w-64 rounded-full bg-gradient-to-br ${tool.accentGradient} opacity-40 blur-3xl`}></div>
+          <div class={`absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-gradient-to-tr ${tool.accentGradient} opacity-30 blur-3xl`}></div>
+          {isHero && (
+            <div class={`absolute top-1/2 right-1/3 h-40 w-40 rounded-full bg-gradient-to-r ${tool.accentGradient} opacity-20 blur-2xl animate-pulse`}></div>
+          )}
+
+          {/* huge background emoji (decorative) */}
+          {isHero && (
+            <div class="absolute -right-6 -bottom-10 text-[240px] leading-none opacity-[0.06] select-none pointer-events-none">
+              {tool.logoEmoji}
+            </div>
+          )}
+
+          {/* shine animation */}
+          <div class="absolute inset-0 shine opacity-50"></div>
+
+          {/* dark bottom gradient for text legibility */}
+          <div class="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/60 to-transparent"></div>
+
+          {/* CONTENT */}
           <div class="relative z-10 flex h-full flex-col">
-            <div class="flex items-center justify-between">
-              <span class="text-3xl sm:text-4xl">{medals[i]}</span>
-              <span class="rounded-full border border-white/10 bg-black/30 px-2 py-0.5 text-[10px] tracking-wider text-[#c7cbde] uppercase backdrop-blur">
+            {/* TOP ROW */}
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class={isHero ? 'text-5xl' : 'text-3xl'}>{medals[i]}</span>
+                {isHero && (
+                  <span class="rounded-md bg-gradient-to-r from-amber-300/90 to-orange-400/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-black shadow-lg">
+                    ⚡ {rankLabels[i]}
+                  </span>
+                )}
+              </div>
+              <span class="rounded-full border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] tracking-wider text-[#e6e8ef] uppercase backdrop-blur">
                 {cat.emoji} {cat.ja}
               </span>
             </div>
 
-            <div class={`mt-auto pt-8 ${i === 0 ? 'sm:pt-16' : ''}`}>
-              <div class="flex items-center gap-3">
-                <div class={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${tool.accentGradient} text-2xl shadow-lg shadow-black/50`}>
-                  {tool.logoEmoji}
+            {/* stats row for hero only */}
+            {isHero && (
+              <div class="mt-5 grid grid-cols-3 gap-2">
+                <div class="rounded-lg border border-white/10 bg-black/30 p-3 backdrop-blur">
+                  <div class="text-[10px] uppercase tracking-wider text-[#8a90a8]">評価</div>
+                  <div class="mt-1 flex items-baseline gap-1">
+                    <span class="text-2xl font-extrabold text-white">{tool.rating.toFixed(1)}</span>
+                    <span class="text-[10px] text-[#8a90a8]">/5</span>
+                  </div>
                 </div>
-                <div>
-                  <div class={`font-extrabold tracking-tight ${i === 0 ? 'text-2xl sm:text-3xl' : 'text-xl'}`}>{tool.name}</div>
-                  <div class="text-[11px] text-[#c7cbde]">{tool.vendor}</div>
+                <div class="rounded-lg border border-white/10 bg-black/30 p-3 backdrop-blur">
+                  <div class="text-[10px] uppercase tracking-wider text-[#8a90a8]">人気度</div>
+                  <div class="mt-1 flex items-baseline gap-1">
+                    <span class="text-2xl font-extrabold text-white">{tool.popularityScore}</span>
+                    <span class="text-[10px] text-[#8a90a8]">pts</span>
+                  </div>
+                </div>
+                <div class="rounded-lg border border-white/10 bg-black/30 p-3 backdrop-blur">
+                  <div class="text-[10px] uppercase tracking-wider text-[#8a90a8]">レビュー</div>
+                  <div class="mt-1 flex items-baseline gap-1">
+                    <span class="text-lg font-extrabold text-white">{(tool.reviewCount / 1000).toFixed(0)}k</span>
+                    <span class="text-[10px] text-[#8a90a8]">件</span>
+                  </div>
                 </div>
               </div>
-              <p class={`mt-3 text-[#e6e8ef] text-balance ${i === 0 ? 'text-sm sm:text-base' : 'text-sm line-clamp-2'}`}>
+            )}
+
+            {/* SPACER pushes content down */}
+            <div class={`${isHero ? 'mt-auto pt-10' : 'mt-auto pt-8'}`}>
+              <div class="flex items-center gap-3">
+                <div class={`flex ${isHero ? 'h-14 w-14' : 'h-12 w-12'} items-center justify-center rounded-xl bg-gradient-to-br ${tool.accentGradient} ${isHero ? 'text-3xl' : 'text-2xl'} shadow-lg shadow-black/50 ring-1 ring-white/20`}>
+                  {tool.logoEmoji}
+                </div>
+                <div class="min-w-0">
+                  <div class={`font-extrabold tracking-tight text-white ${isHero ? 'text-2xl sm:text-3xl' : 'text-xl'}`}>{tool.name}</div>
+                  <div class="text-[11px] text-[#e6e8ef]/70">{tool.vendor} · {tool.launchedYear}〜</div>
+                </div>
+              </div>
+
+              <p class={`mt-3 text-balance text-[#e6e8ef] ${isHero ? 'text-sm sm:text-base' : 'text-sm line-clamp-2'}`}>
                 {tool.tagline}
               </p>
-              <div class="mt-4 flex items-center gap-2 text-xs">
-                <span class="inline-flex items-center gap-1 rounded-md border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-amber-200">
-                  ★ <span class="font-bold">{tool.rating.toFixed(1)}</span>
-                </span>
-                <span class="text-[#8a90a8]">{tool.reviewCount.toLocaleString()} レビュー</span>
+
+              {/* Key features tags */}
+              {isHero && (
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  {tool.keyFeatures.slice(0, 5).map((f) => (
+                    <span class="rounded-md border border-white/15 bg-black/30 px-2 py-1 text-[11px] text-[#e6e8ef] backdrop-blur">{f}</span>
+                  ))}
+                </div>
+              )}
+
+              <div class="mt-4 flex items-center justify-between gap-2 text-xs">
+                {!isHero && (
+                  <span class="inline-flex items-center gap-1 rounded-md border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-amber-200">
+                    <span class="tracking-[2px]">{'★'.repeat(stars)}<span class="opacity-30">{'★'.repeat(5 - stars)}</span></span>
+                    <span class="ml-1 font-bold">{tool.rating.toFixed(1)}</span>
+                  </span>
+                )}
+                {!isHero && (
+                  <span class="text-[10px] text-[#e6e8ef]/60">{tool.reviewCount.toLocaleString()} 件</span>
+                )}
+                {isHero && (
+                  <>
+                    <span class="inline-flex items-center gap-1 text-[#e6e8ef]/80 text-xs">
+                      {tool.hasFreePlan && <span class="rounded-md border border-emerald-400/30 bg-emerald-400/10 px-2 py-1 text-emerald-200">無料プラン</span>}
+                      {tool.japanSupport === 'full' && <span class="rounded-md border border-sky-400/30 bg-sky-400/10 px-2 py-1 text-sky-200">🇯🇵 日本語◎</span>}
+                    </span>
+                    <span class="inline-flex items-center gap-1 text-[#e6e8ef] font-semibold text-sm">
+                      詳しく
+                      <svg class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                    </span>
+                  </>
+                )}
               </div>
             </div>
           </div>
