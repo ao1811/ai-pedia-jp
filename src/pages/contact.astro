@@ -1,0 +1,102 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const submitted = Astro.url.searchParams.get('success') === '1';
+const error = Astro.url.searchParams.get('error');
+---
+
+<BaseLayout
+  title="お問い合わせ"
+  description="掲載情報の誤り・修正依頼・お仕事のご相談など、お問い合わせはこちらから。通常2営業日以内に返信いたします。"
+>
+  <article class="mx-auto max-w-2xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">お問い合わせ</h1>
+    <p class="mt-4 text-[15px] leading-relaxed text-[#c7cbde]">
+      掲載情報の誤り・修正依頼、取材・広告掲載のご相談は以下のフォームからお送りください。通常2営業日以内にご返信いたします。
+    </p>
+
+    {submitted && (
+      <div class="mt-6 rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-4 text-sm text-emerald-100">
+        ✓ 送信ありがとうございました。2営業日以内にご返信いたします。
+      </div>
+    )}
+
+    {error && (
+      <div class="mt-6 rounded-xl border border-rose-400/30 bg-rose-400/10 p-4 text-sm text-rose-100">
+        ✕ 送信に失敗しました。時間をおいて再度お試しいただくか、メールでお問い合わせください。
+      </div>
+    )}
+
+    <form
+      method="POST"
+      action="/api/contact"
+      class="mt-8 space-y-5 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6"
+    >
+      <div>
+        <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-[#8a90a8]">お名前 <span class="text-rose-400">*</span></label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          maxlength="100"
+          class="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-[#8a90a8] focus:border-violet-400/50 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
+          placeholder="山田 太郎"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-[#8a90a8]">メールアドレス <span class="text-rose-400">*</span></label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          maxlength="200"
+          class="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-[#8a90a8] focus:border-violet-400/50 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
+          placeholder="you@example.com"
+        />
+      </div>
+
+      <div>
+        <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-[#8a90a8]">種別</label>
+        <select
+          id="subject"
+          name="subject"
+          class="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-white focus:border-violet-400/50 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
+        >
+          <option value="correction">掲載情報の修正依頼</option>
+          <option value="partnership">広告・掲載のご相談</option>
+          <option value="press">取材・プレスリリース</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-[#8a90a8]">お問い合わせ内容 <span class="text-rose-400">*</span></label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="6"
+          maxlength="4000"
+          class="mt-2 w-full rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-white placeholder:text-[#8a90a8] focus:border-violet-400/50 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
+          placeholder="具体的な内容をご記入ください"
+        ></textarea>
+      </div>
+
+      <!-- honeypot -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+      <div class="flex items-center justify-between gap-3">
+        <p class="text-[11px] text-[#8a90a8]">送信により<a href="/privacy" class="underline">プライバシーポリシー</a>に同意したとみなします。</p>
+        <button
+          type="submit"
+          class="rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition whitespace-nowrap"
+        >
+          送信する
+        </button>
+      </div>
+    </form>
+  </article>
+</BaseLayout>

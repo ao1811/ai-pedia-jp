@@ -1,0 +1,60 @@
+---
+import type { Tool } from '@/types/tool';
+import { CATEGORY_LABELS } from '@/types/tool';
+
+type Props = {
+  tools: Tool[];
+};
+
+const { tools } = Astro.props;
+const top3 = tools.slice(0, 3);
+const medals = ['🥇', '🥈', '🥉'];
+---
+
+<section class="relative">
+  <div class="grid gap-3 sm:grid-cols-3">
+    {top3.map((tool, i) => {
+      const cat = CATEGORY_LABELS[tool.category];
+      return (
+        <a
+          href={`/tools/${tool.slug}`}
+          class={`group relative overflow-hidden rounded-2xl border border-white/10 p-5 card-hover ${i === 0 ? 'sm:row-span-2 sm:col-span-2' : ''}`}
+        >
+          <div class={`absolute inset-0 bg-gradient-to-br ${tool.accentGradient} opacity-20 group-hover:opacity-30 transition-opacity`}></div>
+          <div class="absolute inset-0 shine opacity-60"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/70 to-transparent"></div>
+
+          <div class="relative z-10 flex h-full flex-col">
+            <div class="flex items-center justify-between">
+              <span class="text-3xl sm:text-4xl">{medals[i]}</span>
+              <span class="rounded-full border border-white/10 bg-black/30 px-2 py-0.5 text-[10px] tracking-wider text-[#c7cbde] uppercase backdrop-blur">
+                {cat.emoji} {cat.ja}
+              </span>
+            </div>
+
+            <div class={`mt-auto pt-8 ${i === 0 ? 'sm:pt-16' : ''}`}>
+              <div class="flex items-center gap-3">
+                <div class={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${tool.accentGradient} text-2xl shadow-lg shadow-black/50`}>
+                  {tool.logoEmoji}
+                </div>
+                <div>
+                  <div class={`font-extrabold tracking-tight ${i === 0 ? 'text-2xl sm:text-3xl' : 'text-xl'}`}>{tool.name}</div>
+                  <div class="text-[11px] text-[#c7cbde]">{tool.vendor}</div>
+                </div>
+              </div>
+              <p class={`mt-3 text-[#e6e8ef] text-balance ${i === 0 ? 'text-sm sm:text-base' : 'text-sm line-clamp-2'}`}>
+                {tool.tagline}
+              </p>
+              <div class="mt-4 flex items-center gap-2 text-xs">
+                <span class="inline-flex items-center gap-1 rounded-md border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-amber-200">
+                  ★ <span class="font-bold">{tool.rating.toFixed(1)}</span>
+                </span>
+                <span class="text-[#8a90a8]">{tool.reviewCount.toLocaleString()} レビュー</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      );
+    })}
+  </div>
+</section>

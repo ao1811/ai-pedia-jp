@@ -1,0 +1,12 @@
+# Cloudflare Pages 用の設定ファイル
+# 本番デプロイ手順:
+#   1. Cloudflare ダッシュボードで Pages プロジェクトを作成
+#   2. GitHub/GitLab 連携 or `npx wrangler pages deploy dist` で手動デプロイ
+#   3. 環境変数（SLACK_WEBHOOK_URL, RESEND_API_KEY など）を管理画面で設定
+
+name = "ai-tools-ranking"
+compatibility_date = "2025-10-01"
+pages_build_output_dir = "dist"
+
+[build]
+command = "npm run build"

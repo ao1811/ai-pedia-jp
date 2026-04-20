@@ -1,0 +1,40 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-white/5">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 py-10">
+    <div class="grid gap-8 md:grid-cols-3 text-sm">
+      <div>
+        <div class="flex items-center gap-2 font-bold">
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 text-xs">✦</span>
+          AIツール比較ランキング
+        </div>
+        <p class="mt-3 text-[13px] leading-relaxed text-[#8a90a8]">
+          2026年最新版。独自の評価軸で主要AIツールを定量比較。初心者から業務導入まで、あなたに最適な1本を。
+        </p>
+      </div>
+      <div>
+        <div class="text-xs font-semibold uppercase tracking-wider text-[#8a90a8]">メニュー</div>
+        <ul class="mt-3 space-y-1.5">
+          <li><a href="/" class="text-[#c7cbde] hover:text-white">総合ランキング</a></li>
+          <li><a href="/category" class="text-[#c7cbde] hover:text-white">カテゴリ一覧</a></li>
+          <li><a href="/guides" class="text-[#c7cbde] hover:text-white">特集・ガイド</a></li>
+          <li><a href="/about" class="text-[#c7cbde] hover:text-white">運営方針・評価基準</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs font-semibold uppercase tracking-wider text-[#8a90a8]">法務</div>
+        <ul class="mt-3 space-y-1.5">
+          <li><a href="/privacy" class="text-[#c7cbde] hover:text-white">プライバシーポリシー</a></li>
+          <li><a href="/disclosure" class="text-[#c7cbde] hover:text-white">アフィリエイト開示</a></li>
+          <li><a href="/contact" class="text-[#c7cbde] hover:text-white">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-white/5 pt-6 text-xs text-[#8a90a8]">
+      <p>本サイトは一部コンテンツにアフィリエイトリンクを含みます。価格・機能は掲載時点の情報で、最新は各公式サイトをご確認ください。</p>
+      <p class="mt-2">© {year} AIツール比較ランキング</p>
+    </div>
+  </div>
+</footer>

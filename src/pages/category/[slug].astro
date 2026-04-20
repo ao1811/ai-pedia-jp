@@ -1,0 +1,57 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import RankingCard from '@/components/RankingCard.astro';
+import { getToolsByCategory } from '@/data/tools';
+import { CATEGORY_LABELS, type Category } from '@/types/tool';
+
+export function getStaticPaths() {
+  return (Object.keys(CATEGORY_LABELS) as Category[]).map((key) => ({
+    params: { slug: key },
+  }));
+}
+
+const { slug } = Astro.params;
+const cat = CATEGORY_LABELS[slug as Category];
+if (!cat) return Astro.redirect('/404');
+
+const list = getToolsByCategory(slug!);
+const description = `${cat.ja}の最新AIツールランキング。${list.length}件を独自評価軸で比較。あなたの用途に最適な1本が見つかります。`;
+---
+
+<BaseLayout title={`${cat.ja} AIツールランキング`} description={description}>
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <nav class="text-xs text-[#8a90a8]">
+      <a href="/" class="hover:text-white">ホーム</a>
+      <span class="mx-1.5">/</span>
+      <a href="/category" class="hover:text-white">カテゴリ</a>
+      <span class="mx-1.5">/</span>
+      <span class="text-[#c7cbde]">{cat.ja}</span>
+    </nav>
+
+    <div class="mt-6">
+      <div class="flex items-center gap-3">
+        <span class={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${cat.accent} text-3xl shadow-lg shadow-black/30`}>
+          {cat.emoji}
+        </span>
+        <div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+            {cat.ja} ランキング
+          </h1>
+          <p class="mt-1 text-sm text-[#8a90a8]">全 {list.length} ツール ・ スコア上位順</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-3 md:grid-cols-2">
+      {list.map((tool, i) => (
+        <RankingCard tool={tool} rank={i + 1} />
+      ))}
+    </div>
+
+    {list.length === 0 && (
+      <div class="mt-10 rounded-2xl border border-white/5 bg-[#10121a] p-10 text-center text-[#8a90a8]">
+        このカテゴリのツールは現在登録準備中です。
+      </div>
+    )}
+  </section>
+</BaseLayout>

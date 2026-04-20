@@ -1,0 +1,48 @@
+---
+/**
+ * AdSense 広告枠コンポーネント
+ *
+ * 使い方：
+ *   <AdSlot slot="in-article-top" />
+ *
+ * 本番では PUBLIC_ADSENSE_CLIENT / slot ID を .env に設定すると自動で広告が出ます。
+ * 未設定時はプレースホルダーが表示されるので、AdSense審査前のレイアウト確認にも使えます。
+ */
+type Props = {
+  slot: string;
+  className?: string;
+  layout?: 'display' | 'in-article' | 'in-feed';
+};
+
+const { slot, className = '', layout = 'in-article' } = Astro.props;
+
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
+const slotIdKey = `PUBLIC_ADSENSE_SLOT_${slot.toUpperCase().replace(/-/g, '_')}`;
+const slotId = (import.meta.env as Record<string, string | undefined>)[slotIdKey];
+const isActive = Boolean(client && slotId);
+---
+
+<div class={`ad-slot ${className}`} data-ad-slot={slot} aria-label="広告">
+  {isActive ? (
+    <ins
+      class="adsbygoogle block"
+      style="display:block"
+      data-ad-client={client}
+      data-ad-slot={slotId}
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+      data-ad-layout={layout === 'in-article' ? 'in-article' : undefined}
+    ></ins>
+  ) : (
+    <div class="ad-placeholder relative overflow-hidden rounded-xl border border-dashed border-white/10 bg-white/[0.02] p-6 text-center">
+      <div class="text-[10px] uppercase tracking-widest text-[#8a90a8]">広告枠（{slot}）</div>
+      <div class="mt-1 text-xs text-[#8a90a8]/70">AdSense 承認後に自動表示</div>
+    </div>
+  )}
+</div>
+
+{isActive && (
+  <script is:inline>
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+)}

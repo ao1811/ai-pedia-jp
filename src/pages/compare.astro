@@ -1,0 +1,160 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { tools, getToolBySlug } from '@/data/tools';
+import { CATEGORY_LABELS } from '@/types/tool';
+
+const slugs = (Astro.url.searchParams.get('tools') ?? 'chatgpt,claude,gemini')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean)
+  .slice(0, 4);
+
+const selected = slugs
+  .map((s) => getToolBySlug(s))
+  .filter((t): t is NonNullable<ReturnType<typeof getToolBySlug>> => Boolean(t));
+
+const title = selected.length
+  ? `${selected.map((t) => t.name).join(' vs ')} 徹底比較`
+  : 'AIツール横並び比較';
+
+const description = selected.length
+  ? `${selected.map((t) => t.name).join('・')}を料金・機能・日本語対応・評価など主要項目で横並び比較。あなたに合う1本を5分で選べます。`
+  : 'AIツールを最大4つまで並べて徹底比較。スペック・料金・評価を一覧で確認できます。';
+
+const priceLabel = (t: (typeof tools)[number]) => {
+  if (t.hasFreePlan) return '無料プランあり';
+  const m = t.pricing.filter((p) => p.billing === 'monthly');
+  if (!m.length) return '—';
+  const min = Math.min(...m.map((p) => p.amount));
+  return `¥${min.toLocaleString()} /月 〜`;
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <h1 class="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      横並び比較
+    </h1>
+    <p class="mt-3 text-sm text-[#c7cbde]">最大4つのAIツールを同時比較。URLの <code class="rounded bg-white/5 px-1.5 py-0.5 text-xs">?tools=chatgpt,claude</code> で対象を切り替えできます。</p>
+
+    {selected.length === 0 ? (
+      <div class="mt-10 rounded-2xl border border-white/5 bg-[#10121a] p-10 text-center text-[#8a90a8]">
+        比較対象を URL パラメータで指定してください（例: <code class="text-white">?tools=chatgpt,claude,gemini</code>）
+      </div>
+    ) : (
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-white/5">
+        <table class="w-full min-w-[720px] text-sm">
+          <thead>
+            <tr class="border-b border-white/10 bg-white/[0.02]">
+              <th class="sticky left-0 z-10 bg-[#10121a] p-4 text-left text-xs font-semibold uppercase tracking-wider text-[#8a90a8]">項目</th>
+              {selected.map((t) => (
+                <th class="p-4 text-left min-w-[180px]">
+                  <a href={`/tools/${t.slug}`} class="group block">
+                    <div class={`inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${t.accentGradient} text-lg`}>
+                      {t.logoEmoji}
+                    </div>
+                    <div class="mt-2 font-bold text-white group-hover:underline">{t.name}</div>
+                    <div class="text-[11px] text-[#8a90a8]">{t.vendor}</div>
+                  </a>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody class="text-[#c7cbde]">
+            <tr class="border-b border-white/5">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">カテゴリ</td>
+              {selected.map((t) => (
+                <td class="p-4">{CATEGORY_LABELS[t.category].emoji} {CATEGORY_LABELS[t.category].ja}</td>
+              ))}
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">評価</td>
+              {selected.map((t) => (
+                <td class="p-4">
+                  <span class="text-amber-300 tracking-[2px]">{'★'.repeat(Math.round(t.rating))}<span class="opacity-30">{'★'.repeat(5 - Math.round(t.rating))}</span></span>
+                  <span class="ml-2 font-bold text-white">{t.rating.toFixed(1)}</span>
+                </td>
+              ))}
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">料金（下限）</td>
+              {selected.map((t) => (
+                <td class="p-4 font-semibold text-emerald-300">{priceLabel(t)}</td>
+              ))}
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">無料プラン</td>
+              {selected.map((t) => (
+                <td class="p-4">{t.hasFreePlan ? '✓ あり' : '— なし'}</td>
+              ))}
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">日本語対応</td>
+              {selected.map((t) => (
+                <td class="p-4">{t.japanSupport === 'full' ? '🇯🇵 完全対応' : t.japanSupport === 'partial' ? '△ 一部' : '— なし'}</td>
+              ))}
+            </tr>
+            <tr class="border-b border-white/5 align-top">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">主要機能</td>
+              {selected.map((t) => (
+                <td class="p-4">
+                  <div class="flex flex-wrap gap-1">
+                    {t.keyFeatures.slice(0, 5).map((f) => (
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px]">{f}</span>
+                    ))}
+                  </div>
+                </td>
+              ))}
+            </tr>
+            <tr class="border-b border-white/5 align-top">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">メリット</td>
+              {selected.map((t) => (
+                <td class="p-4 text-[13px]">
+                  <ul class="space-y-1">
+                    {t.pros.slice(0, 3).map((p) => <li>✓ {p}</li>)}
+                  </ul>
+                </td>
+              ))}
+            </tr>
+            <tr class="border-b border-white/5 align-top">
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">デメリット</td>
+              {selected.map((t) => (
+                <td class="p-4 text-[13px]">
+                  <ul class="space-y-1">
+                    {t.cons.slice(0, 3).map((c) => <li>✕ {c}</li>)}
+                  </ul>
+                </td>
+              ))}
+            </tr>
+            <tr>
+              <td class="sticky left-0 bg-[#10121a] p-4 text-xs text-[#8a90a8]">公式</td>
+              {selected.map((t) => (
+                <td class="p-4">
+                  <a href={`/tools/${t.slug}`} class="inline-flex items-center gap-1 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-xs hover:bg-white/10">詳細レビュー →</a>
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )}
+
+    <div class="mt-10">
+      <h2 class="text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">人気の比較セット</h2>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="/compare?tools=chatgpt,claude,gemini" class="rounded-xl border border-white/5 bg-white/[0.02] p-4 hover:bg-white/[0.05] transition">
+          <div class="font-semibold">対話AI 3強</div>
+          <div class="text-xs text-[#8a90a8]">ChatGPT vs Claude vs Gemini</div>
+        </a>
+        <a href="/compare?tools=cursor,claude-code,github-copilot" class="rounded-xl border border-white/5 bg-white/[0.02] p-4 hover:bg-white/[0.05] transition">
+          <div class="font-semibold">コーディングAI</div>
+          <div class="text-xs text-[#8a90a8]">Cursor vs Claude Code vs Copilot</div>
+        </a>
+        <a href="/compare?tools=midjourney,runway,elevenlabs" class="rounded-xl border border-white/5 bg-white/[0.02] p-4 hover:bg-white/[0.05] transition">
+          <div class="font-semibold">クリエイター向け</div>
+          <div class="text-xs text-[#8a90a8]">Midjourney・Runway・ElevenLabs</div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

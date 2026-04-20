@@ -1,0 +1,113 @@
+---
+import type { Tool } from '@/types/tool';
+import { CATEGORY_LABELS } from '@/types/tool';
+
+type Props = {
+  tool: Tool;
+  rank: number;
+};
+
+const { tool, rank } = Astro.props;
+const cat = CATEGORY_LABELS[tool.category];
+
+const minPrice = tool.pricing
+  .filter((p) => p.billing === 'monthly')
+  .reduce((min, p) => (p.amount < min ? p.amount : min), Infinity);
+
+const priceLabel = tool.hasFreePlan
+  ? '無料プランあり'
+  : minPrice === Infinity
+    ? '要問合せ'
+    : `月額 ¥${minPrice.toLocaleString()}〜`;
+
+const stars = Math.round(tool.rating);
+
+const rankBadgeClass =
+  rank === 1
+    ? 'bg-gradient-to-br from-amber-300 via-yellow-400 to-orange-500 text-black shadow-[0_0_40px_rgba(250,204,21,0.4)]'
+    : rank === 2
+      ? 'bg-gradient-to-br from-slate-200 via-zinc-300 to-slate-400 text-black shadow-[0_0_30px_rgba(203,213,225,0.25)]'
+      : rank === 3
+        ? 'bg-gradient-to-br from-orange-300 via-amber-500 to-red-500 text-black shadow-[0_0_30px_rgba(251,146,60,0.3)]'
+        : 'bg-white/5 text-[#8a90a8] border border-white/10';
+
+const trendColor =
+  tool.trendDelta > 5
+    ? 'text-emerald-400'
+    : tool.trendDelta > 0
+      ? 'text-emerald-500/80'
+      : tool.trendDelta < 0
+        ? 'text-rose-400'
+        : 'text-[#8a90a8]';
+const trendIcon = tool.trendDelta > 0 ? '▲' : tool.trendDelta < 0 ? '▼' : '━';
+---
+
+<article class="group relative overflow-hidden rounded-2xl border border-white/5 bg-[#10121a]/80 card-hover">
+  <a href={`/tools/${tool.slug}`} class="block p-4 sm:p-5">
+    <div class="flex items-start gap-4">
+      <div class={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl rank-number ${rankBadgeClass}`}>
+        {rank <= 3 ? (
+          <span class="text-3xl leading-none">{rank}</span>
+        ) : (
+          <span class="text-xl">#{rank}</span>
+        )}
+      </div>
+
+      <div class={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${tool.accentGradient} text-2xl shadow-lg shadow-black/40`}>
+        <span class="drop-shadow">{tool.logoEmoji}</span>
+      </div>
+
+      <div class="min-w-0 flex-1">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+          <h3 class="truncate text-base sm:text-lg font-bold tracking-tight text-white">{tool.name}</h3>
+          <span class="text-[11px] text-[#8a90a8]">{tool.vendor}</span>
+          <span class={`ml-auto text-[11px] font-semibold ${trendColor}`}>
+            {trendIcon} {Math.abs(tool.trendDelta)}
+          </span>
+        </div>
+        <p class="mt-1 text-sm leading-relaxed text-[#c7cbde] line-clamp-2 text-balance">
+          {tool.tagline}
+        </p>
+
+        <div class="mt-3 flex flex-wrap items-center gap-2 text-[11px]">
+          <span class="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[#c7cbde]">
+            {cat.emoji} {cat.ja}
+          </span>
+          <span class="inline-flex items-center gap-1 rounded-full border border-amber-400/20 bg-amber-400/10 px-2 py-0.5 text-amber-300">
+            <span class="tracking-[2px]" aria-hidden>
+              {'★'.repeat(stars)}<span class="opacity-30">{'★'.repeat(5 - stars)}</span>
+            </span>
+            <span class="font-semibold">{tool.rating.toFixed(1)}</span>
+            <span class="text-amber-300/70">({tool.reviewCount.toLocaleString()})</span>
+          </span>
+          <span class="inline-flex items-center rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 text-emerald-300">
+            {priceLabel}
+          </span>
+          {tool.japanSupport === 'full' && (
+            <span class="inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/10 px-2 py-0.5 text-sky-300">
+              🇯🇵 日本語◎
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 hidden sm:flex flex-wrap gap-1.5">
+      {tool.keyFeatures.slice(0, 5).map((f) => (
+        <span class="rounded-md bg-white/[0.03] px-2 py-0.5 text-[11px] text-[#8a90a8]">
+          {f}
+        </span>
+      ))}
+    </div>
+
+    <div class="mt-4 flex items-center justify-between text-[12px]">
+      <span class="text-[#8a90a8]">評価詳細を見る</span>
+      <span class="inline-flex items-center gap-1 text-[#c7cbde] group-hover:text-white transition">
+        詳しく見る
+        <svg class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M13 5l7 7-7 7" />
+        </svg>
+      </span>
+    </div>
+  </a>
+</article>

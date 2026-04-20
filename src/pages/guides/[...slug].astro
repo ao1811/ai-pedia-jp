@@ -1,0 +1,188 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import RankingCard from '@/components/RankingCard.astro';
+import { getToolBySlug } from '@/data/tools';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((g) => ({
+    params: { slug: g.id },
+    props: { guide: g },
+  }));
+}
+
+const { guide } = Astro.props;
+const { Content, headings } = await render(guide);
+
+const CATEGORY_JA: Record<string, string> = {
+  comparison: '比較',
+  howto: 'How-to',
+  guide: 'ガイド',
+  review: 'レビュー',
+  trend: 'トレンド',
+};
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+
+const related = guide.data.relatedTools
+  .map((slug) => getToolBySlug(slug))
+  .filter((t): t is NonNullable<ReturnType<typeof getToolBySlug>> => Boolean(t));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: guide.data.title,
+  description: guide.data.description,
+  datePublished: guide.data.publishedAt.toISOString(),
+  dateModified: (guide.data.updatedAt ?? guide.data.publishedAt).toISOString(),
+  author: { '@type': 'Organization', name: guide.data.author },
+  publisher: {
+    '@type': 'Organization',
+    name: 'AIツール比較ランキング',
+  },
+};
+---
+
+<BaseLayout title={guide.data.title} description={guide.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6">
+    <nav class="text-xs text-[#8a90a8]">
+      <a href="/" class="hover:text-white">ホーム</a>
+      <span class="mx-1.5">/</span>
+      <a href="/guides" class="hover:text-white">ガイド</a>
+      <span class="mx-1.5">/</span>
+      <span class="text-[#c7cbde] line-clamp-1">{guide.data.title}</span>
+    </nav>
+
+    <header class="mt-6 overflow-hidden rounded-3xl border border-white/10 relative">
+      <div class={`absolute inset-0 bg-gradient-to-br ${guide.data.heroGradient} opacity-30`}></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/70 to-transparent"></div>
+      <div class="relative p-6 sm:p-10">
+        <div class="flex items-center gap-2 text-xs">
+          <span class="inline-flex items-center gap-1 rounded-full border border-white/20 bg-black/30 px-2.5 py-1 backdrop-blur text-white">
+            {CATEGORY_JA[guide.data.category]}
+          </span>
+          <span class="text-[#c7cbde]">{guide.data.readTimeMin}分で読める</span>
+        </div>
+        <div class="mt-4 text-5xl">{guide.data.heroEmoji}</div>
+        <h1 class="mt-4 text-2xl sm:text-4xl font-extrabold tracking-tight text-white text-balance">
+          {guide.data.title}
+        </h1>
+        <p class="mt-4 text-sm sm:text-base text-[#e6e8ef] text-balance">{guide.data.description}</p>
+        <div class="mt-4 flex items-center gap-3 text-xs text-[#c7cbde]">
+          <span>公開 {fmt(guide.data.publishedAt)}</span>
+          {guide.data.updatedAt && <span>· 更新 {fmt(guide.data.updatedAt)}</span>}
+          <span>· by {guide.data.author}</span>
+        </div>
+      </div>
+    </header>
+
+    <AdSlot slot="in-article-top" className="my-8" />
+
+    <div class="prose-ai mt-8">
+      <Content />
+    </div>
+
+    <AdSlot slot="in-article-bottom" className="my-10" />
+
+    {related.length > 0 && (
+      <section class="mt-12 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+        <h2 class="text-base font-bold">この記事で紹介したツール</h2>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          {related.map((t, i) => (
+            <RankingCard tool={t} rank={i + 1} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="mt-10 mb-4 flex items-center justify-between text-sm">
+      <a href="/guides" class="text-[#c7cbde] hover:text-white">← ガイド一覧</a>
+      <a href="/" class="text-[#c7cbde] hover:text-white">総合ランキング →</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .prose-ai {
+    color: #e6e8ef;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .prose-ai h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .prose-ai h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+  }
+  .prose-ai p {
+    margin: 1rem 0;
+  }
+  .prose-ai ul, .prose-ai ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  .prose-ai ul { list-style: disc; }
+  .prose-ai ol { list-style: decimal; }
+  .prose-ai li { margin: 0.35rem 0; }
+  .prose-ai strong { color: #ffffff; font-weight: 700; }
+  .prose-ai a {
+    color: #c4b5fd;
+    text-decoration: underline;
+    text-decoration-color: rgba(196, 181, 253, 0.4);
+    text-underline-offset: 3px;
+  }
+  .prose-ai a:hover { color: #ffffff; }
+  .prose-ai code {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.875em;
+    font-family: ui-monospace, monospace;
+  }
+  .prose-ai table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 14px;
+  }
+  .prose-ai th, .prose-ai td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+  }
+  .prose-ai th {
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .prose-ai tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .prose-ai blockquote {
+    border-left: 3px solid #7c5cff;
+    padding-left: 1rem;
+    margin: 1.25rem 0;
+    color: #c7cbde;
+    font-style: italic;
+  }
+  .prose-ai hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 2rem 0;
+  }
+</style>

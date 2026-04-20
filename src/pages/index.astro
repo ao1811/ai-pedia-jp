@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import RankingCard from '@/components/RankingCard.astro';
+import HeroTop3 from '@/components/HeroTop3.astro';
+import AdSlot from '@/components/AdSlot.astro';
+import { getRankedTools } from '@/data/tools';
+import { CATEGORY_LABELS } from '@/types/tool';
+import { getCollection } from 'astro:content';
+
+const allTools = getRankedTools();
+const top3 = allTools.slice(0, 3);
+const rest = allTools.slice(3);
+
+const featuredGuides = (await getCollection('guides'))
+  .filter((g) => g.data.featured)
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 3);
+
+const title = 'AIツール比較ランキング';
+const description = '2026年最新版のAIツール総合ランキング。ChatGPT、Claude、Gemini、Cursor など主要ツールを独自評価軸で徹底比較。初心者から業務導入まで、あなたに最適な1本が見つかります。';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <span class="inline-flex items-center gap-1.5 rounded-full border border-violet-400/30 bg-violet-400/10 px-3 py-1 text-violet-300">
+          <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-violet-400 shadow-[0_0_8px_#a78bfa]"></span>
+          2026年4月 最新ランキング
+        </span>
+        <span class="text-[#8a90a8]">毎週更新 ・ 全{allTools.length}ツール</span>
+      </div>
+      <h1 class="text-balance text-3xl sm:text-5xl font-extrabold tracking-tight">
+        今、本当に<span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-orange-300 bg-clip-text text-transparent">使えるAI</span>はこれだ。
+      </h1>
+      <p class="max-w-2xl text-[15px] leading-relaxed text-[#c7cbde] text-balance">
+        主要AIツールを「応答品質 / 日本語精度 / コスパ / 拡張性 / トレンド」の5軸で評価。
+        利用シーン別に、あなたにとっての最適解を数字で示します。
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <div class="mb-4 flex items-baseline justify-between">
+        <h2 class="text-lg font-bold tracking-tight">🏆 TOP 3</h2>
+        <span class="text-xs text-[#8a90a8]">総合スコア上位</span>
+      </div>
+      <HeroTop3 tools={top3} />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+    <AdSlot slot="display-home-top" />
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-12">
+    <div class="mb-5 flex items-baseline justify-between">
+      <h2 class="text-lg font-bold tracking-tight">4位 以降のランキング</h2>
+      <a href="/category" class="text-xs text-[#8a90a8] hover:text-white">カテゴリで絞り込む →</a>
+    </div>
+    <div class="grid gap-3 md:grid-cols-2">
+      {rest.map((tool, i) => (
+        <RankingCard tool={tool} rank={i + 4} />
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-16">
+    <div class="mb-5 flex items-baseline justify-between">
+      <h2 class="text-lg font-bold tracking-tight">📚 特集・ガイド</h2>
+      <a href="/guides" class="text-xs text-[#8a90a8] hover:text-white">すべて見る →</a>
+    </div>
+    <div class="grid gap-3 sm:grid-cols-3">
+      {featuredGuides.map((g) => (
+        <a href={`/guides/${g.id}`} class="group relative overflow-hidden rounded-2xl border border-white/5 bg-[#10121a]/80 p-5 card-hover">
+          <div class={`absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br ${g.data.heroGradient} opacity-25 blur-2xl group-hover:opacity-50 transition-opacity`}></div>
+          <div class="relative">
+            <span class="text-3xl">{g.data.heroEmoji}</span>
+            <h3 class="mt-3 text-base font-bold tracking-tight text-balance line-clamp-2">{g.data.title}</h3>
+            <p class="mt-2 text-[13px] text-[#8a90a8] line-clamp-2">{g.data.description}</p>
+            <div class="mt-3 text-[11px] text-[#8a90a8]">{g.data.readTimeMin}分で読める</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-16">
+    <div class="mb-5">
+      <h2 class="text-lg font-bold tracking-tight">カテゴリ別に探す</h2>
+      <p class="mt-1 text-sm text-[#8a90a8]">用途が決まっているなら、カテゴリから最短で最適解へ</p>
+    </div>
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {(Object.entries(CATEGORY_LABELS) as [keyof typeof CATEGORY_LABELS, (typeof CATEGORY_LABELS)[keyof typeof CATEGORY_LABELS]][]).map(([key, c]) => (
+        <a
+          href={`/category/${key}`}
+          class="group relative overflow-hidden rounded-xl border border-white/5 bg-[#10121a]/80 p-4 card-hover"
+        >
+          <div class={`absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br ${c.accent} opacity-20 blur-2xl transition-opacity group-hover:opacity-40`}></div>
+          <div class="relative flex items-center gap-3">
+            <span class="text-2xl">{c.emoji}</span>
+            <div>
+              <div class="font-semibold">{c.ja}</div>
+              <div class="text-[11px] text-[#8a90a8]">詳細 →</div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-16">
+    <div class="rounded-2xl border border-white/5 bg-gradient-to-br from-[#10121a] to-[#161926] p-6 sm:p-10">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight">評価基準は明確に。忖度なしで比較します。</h2>
+          <p class="mt-3 text-sm text-[#c7cbde] leading-relaxed text-balance">
+            ランキングは「応答品質・日本語精度・コスパ・拡張性・トレンド」の5軸。実際の使用ログ、公式スペック、ユーザーレビューをもとに独自スコアを算出しています。アフィリエイトの有無はランキングに影響しません。
+          </p>
+        </div>
+        <a href="/about" class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm hover:bg-white/10 whitespace-nowrap">
+          評価基準を読む
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

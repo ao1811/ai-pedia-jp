@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const axes = [
+  { label: '応答品質', weight: 30, desc: '実ユースケース（Q&A・要約・推論）での回答精度と一貫性。複数プロンプトで手動検証。' },
+  { label: '日本語精度', weight: 20, desc: '日本語の自然さ・ニュアンス理解・誤訳率を定量評価。' },
+  { label: 'コスパ', weight: 20, desc: '月額単価あたりの提供価値。無料枠の実用性も加点。' },
+  { label: '拡張性', weight: 15, desc: 'API・連携・カスタマイズ自由度（プラグイン・MCP・エージェント）。' },
+  { label: 'トレンド', weight: 15, desc: '検索ボリューム・採用企業数・アップデート頻度の成長率。' },
+];
+---
+
+<BaseLayout
+  title="運営方針・評価基準"
+  description="AIツール比較ランキングの評価基準と編集方針。応答品質・日本語精度・コスパ・拡張性・トレンドの5軸で独自スコアを算出しています。"
+>
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <h1 class="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">運営方針・評価基準</h1>
+    <p class="mt-4 text-[15px] leading-relaxed text-[#c7cbde]">
+      本サイトは、乱立するAIツールの中から「本当に使えるもの」を見抜く判断材料を、できるだけフェアに提供することを目的としています。
+      ランキングは下記の5軸による独自スコアで決定しており、アフィリエイト契約の有無・報酬単価は一切考慮していません。
+    </p>
+
+    <section class="mt-8 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-lg font-bold">評価5軸と配点</h2>
+      <div class="mt-4 space-y-3">
+        {axes.map((a) => (
+          <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+            <div class="flex items-baseline justify-between">
+              <div class="font-semibold">{a.label}</div>
+              <div class="text-xs text-[#8a90a8]">配点 <span class="text-white font-bold">{a.weight}%</span></div>
+            </div>
+            <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-white/5">
+              <div class="h-full rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500" style={`width: ${a.weight * 3}%`}></div>
+            </div>
+            <p class="mt-2 text-sm text-[#c7cbde]">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-lg font-bold">編集方針</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li>✓ レビューは原則、編集部が実際に契約・使用した結果をベースに執筆します。</li>
+        <li>✓ 生成AIを下書きに活用する場合も、事実確認と最終編集は人間が担当します。</li>
+        <li>✓ アフィリエイトリンクを含む記事には明示的に開示表記を付けます。</li>
+        <li>✓ 誤情報・古い情報を発見したら、 お問い合わせフォームからご連絡ください。速やかに修正します。</li>
+      </ul>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-lg font-bold">アフィリエイトについて</h2>
+      <p class="mt-3 text-sm text-[#c7cbde] leading-relaxed">
+        本サイトはAmazonアソシエイト、a8.net、もしもアフィリエイト、各種SaaSパートナープログラムに参加しています（予定含む）。
+        紹介リンク経由で契約いただくと、当サイトに成果報酬が発生する場合があります。この報酬はランキング順位・掲載有無・評価スコアには影響しません。
+      </p>
+    </section>
+  </article>
+</BaseLayout>

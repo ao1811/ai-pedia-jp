@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { CATEGORY_LABELS, type Category } from '@/types/tool';
+import { getToolsByCategory } from '@/data/tools';
+
+const entries = (Object.entries(CATEGORY_LABELS) as [Category, (typeof CATEGORY_LABELS)[Category]][]).map(
+  ([key, c]) => ({
+    key,
+    ...c,
+    count: getToolsByCategory(key).length,
+  }),
+);
+---
+
+<BaseLayout
+  title="カテゴリ一覧"
+  description="対話AI・画像生成・動画生成・コーディング・音声合成など、AIツールをカテゴリ別に比較。"
+>
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <h1 class="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      カテゴリから探す
+    </h1>
+    <p class="mt-3 text-sm text-[#c7cbde]">用途が決まっているなら、カテゴリから最短で最適解へ。</p>
+
+    <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {entries.map((c) => (
+        <a
+          href={`/category/${c.key}`}
+          class="group relative overflow-hidden rounded-2xl border border-white/5 bg-[#10121a]/80 p-5 card-hover"
+        >
+          <div class={`absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br ${c.accent} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity`}></div>
+          <div class="relative flex items-center gap-4">
+            <span class="text-3xl">{c.emoji}</span>
+            <div>
+              <div class="text-lg font-bold">{c.ja}</div>
+              <div class="text-xs text-[#8a90a8]">{c.count} ツール登録</div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
