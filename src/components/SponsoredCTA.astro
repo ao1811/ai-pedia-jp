@@ -1,0 +1,110 @@
+---
+/**
+ * スポンサードツール紹介の視覚的CTAバナー。
+ * アフィリエイトURLが設定されているツールについて、記事中や一覧ページで目立つ訴求を行う。
+ *
+ * 使い方：
+ *   <SponsoredCTA slug="value-ai-writer" headline="AI記事作成を効率化" note="編集部も愛用中" />
+ *
+ * 注意：
+ * - アフィリエイトURLが未設定の場合は自動的に非表示
+ * - rel="sponsored noopener" を自動付与（Googleガイドライン遵守）
+ */
+import { getToolBySlug } from '@/data/tools';
+import { getAffiliateUrl, getLinkRel } from '@/data/affiliate';
+import BrandIcon from '@/components/BrandIcon.astro';
+
+type Props = {
+  slug: string;
+  headline?: string;
+  note?: string;
+  cta?: string;
+  variant?: 'default' | 'compact';
+};
+
+const { slug, headline, note, cta, variant = 'default' } = Astro.props;
+const tool = getToolBySlug(slug);
+const aff = tool ? getAffiliateUrl(tool.slug) ?? tool.affiliateUrl : undefined;
+const hide = !tool || !aff;
+
+const linkRel = getLinkRel(true);
+const ctaText = cta ?? (tool?.hasFreePlan ? '無料で試す' : '公式で詳細を見る');
+const displayHeadline = headline ?? tool?.tagline ?? '';
+const priceLabel = tool?.hasFreePlan
+  ? '無料プランあり'
+  : tool && tool.pricing.filter((p) => p.billing === 'monthly').length > 0
+    ? `月額 ¥${Math.min(
+        ...tool.pricing.filter((p) => p.billing === 'monthly').map((p) => p.amount),
+      ).toLocaleString()}〜`
+    : null;
+---
+
+{!hide && tool && aff && (
+  variant === 'compact' ? (
+    <a
+      href={aff}
+      target="_blank"
+      rel={linkRel}
+      class="group my-6 block rounded-xl border border-amber-400/30 bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-rose-500/10 p-4 transition hover:border-amber-400/60 hover:from-amber-500/15"
+    >
+      <div class="flex items-center gap-3">
+        <BrandIcon tool={tool} size="md" />
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center rounded bg-amber-400/20 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-200">PR</span>
+            <span class="text-sm font-bold text-white">{tool.name}</span>
+            {priceLabel && (
+              <span class="text-[11px] text-emerald-300">{priceLabel}</span>
+            )}
+          </div>
+          <div class="mt-0.5 text-[13px] text-[#c7cbde] line-clamp-1">{displayHeadline}</div>
+        </div>
+        <span class="shrink-0 rounded-lg bg-white px-3 py-1.5 text-xs font-bold text-black group-hover:bg-white/90">{ctaText} →</span>
+      </div>
+    </a>
+  ) : (
+    <div class="my-8 overflow-hidden rounded-2xl border border-amber-400/30 bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-rose-500/10 p-1">
+      <div class="rounded-xl bg-[#0b0c12]/70 p-6 backdrop-blur-sm">
+        <div class="flex items-start justify-between gap-4 flex-wrap">
+          <div class="flex items-center gap-3">
+            <BrandIcon tool={tool} size="xl" />
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center rounded bg-amber-400/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-200">スポンサード</span>
+                <span class="text-[11px] text-[#8a90a8]">PR</span>
+              </div>
+              <div class="mt-1 text-lg font-extrabold tracking-tight text-white">{tool.name}</div>
+              <div class="text-[11px] text-[#c7cbde]">{tool.vendor}</div>
+            </div>
+          </div>
+          {note && <span class="text-[11px] text-[#8a90a8]">{note}</span>}
+        </div>
+
+        <p class="mt-4 text-sm leading-relaxed text-[#e6e8ef] text-balance">{displayHeadline}</p>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2 text-[11px]">
+          {priceLabel && (
+            <span class="inline-flex items-center rounded-md border border-emerald-400/30 bg-emerald-400/10 px-2 py-1 text-emerald-200">{priceLabel}</span>
+          )}
+          {tool.japanSupport === 'full' && (
+            <span class="inline-flex items-center rounded-md border border-sky-400/30 bg-sky-400/10 px-2 py-1 text-sky-200">🇯🇵 日本語◎</span>
+          )}
+          <span class="inline-flex items-center rounded-md border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-amber-200">★ {tool.rating.toFixed(1)}</span>
+        </div>
+
+        <a
+          href={aff}
+          target="_blank"
+          rel={linkRel}
+          class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 px-5 py-3 text-sm font-bold text-black hover:opacity-90 transition sm:w-auto"
+        >
+          {ctaText}
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </a>
+        <p class="mt-2 text-[10px] text-[#8a90a8]">※本リンクはアフィリエイトを含みます</p>
+      </div>
+    </div>
+  )
+)}

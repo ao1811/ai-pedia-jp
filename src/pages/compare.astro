@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BrandIcon from '@/components/BrandIcon.astro';
 import { tools, getToolBySlug } from '@/data/tools';
 import { CATEGORY_LABELS } from '@/types/tool';
 
@@ -50,9 +51,7 @@ const priceLabel = (t: (typeof tools)[number]) => {
               {selected.map((t) => (
                 <th class="p-4 text-left min-w-[180px]">
                   <a href={`/tools/${t.slug}`} class="group block">
-                    <div class={`inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${t.accentGradient} text-lg`}>
-                      {t.logoEmoji}
-                    </div>
+                    <BrandIcon tool={t} size="md" />
                     <div class="mt-2 font-bold text-white group-hover:underline">{t.name}</div>
                     <div class="text-[11px] text-[#8a90a8]">{t.vendor}</div>
                   </a>

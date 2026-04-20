@@ -1,6 +1,7 @@
 ---
 import type { Tool } from '@/types/tool';
 import { CATEGORY_LABELS } from '@/types/tool';
+import BrandIcon from '@/components/BrandIcon.astro';
 
 type Props = {
   tools: Tool[];
@@ -39,11 +40,9 @@ const rankLabels = ['Editor\'s Choice', 'Runner-up', 'Top 3'];
             <div class={`absolute top-1/2 right-1/3 h-40 w-40 rounded-full bg-gradient-to-r ${tool.accentGradient} opacity-20 blur-2xl animate-pulse`}></div>
           )}
 
-          {/* huge background emoji (decorative) */}
+          {/* huge background decorative watermark */}
           {isHero && (
-            <div class="absolute -right-6 -bottom-10 text-[240px] leading-none opacity-[0.06] select-none pointer-events-none">
-              {tool.logoEmoji}
-            </div>
+            <div class={`absolute -right-10 -bottom-10 h-64 w-64 rounded-full bg-gradient-to-br ${tool.accentGradient} opacity-20 blur-2xl select-none pointer-events-none`}></div>
           )}
 
           {/* shine animation */}
@@ -99,9 +98,7 @@ const rankLabels = ['Editor\'s Choice', 'Runner-up', 'Top 3'];
             {/* SPACER pushes content down */}
             <div class={`${isHero ? 'mt-auto pt-10' : 'mt-auto pt-8'}`}>
               <div class="flex items-center gap-3">
-                <div class={`flex ${isHero ? 'h-14 w-14' : 'h-12 w-12'} items-center justify-center rounded-xl bg-gradient-to-br ${tool.accentGradient} ${isHero ? 'text-3xl' : 'text-2xl'} shadow-lg shadow-black/50 ring-1 ring-white/20`}>
-                  {tool.logoEmoji}
-                </div>
+                <BrandIcon tool={tool} size={isHero ? '2xl' : 'xl'} />
                 <div class="min-w-0">
                   <div class={`font-extrabold tracking-tight text-white ${isHero ? 'text-2xl sm:text-3xl' : 'text-xl'}`}>{tool.name}</div>
                   <div class="text-[11px] text-[#e6e8ef]/70">{tool.vendor} · {tool.launchedYear}〜</div>

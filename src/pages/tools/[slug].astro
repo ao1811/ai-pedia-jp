@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
+import BrandIcon from '@/components/BrandIcon.astro';
 import { tools, getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl, getLinkRel } from '@/data/affiliate';
 import { CATEGORY_LABELS } from '@/types/tool';
@@ -74,9 +75,7 @@ const jsonLd = {
           </span>
         </div>
         <div class="mt-5 flex items-start gap-4">
-          <div class={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${tool.accentGradient} text-3xl shadow-xl shadow-black/50`}>
-            {tool.logoEmoji}
-          </div>
+          <BrandIcon tool={tool} size="2xl" />
           <div class="min-w-0">
             <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white text-balance">{tool.name}</h1>
             <div class="mt-1 text-sm text-[#c7cbde]">{tool.vendor} ・ {tool.launchedYear}年リリース</div>
@@ -106,13 +105,20 @@ const jsonLd = {
             href={ctaUrl}
             target="_blank"
             rel={linkRel}
-            class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-black hover:bg-white/90 transition"
+            class={
+              isAffiliate
+                ? 'inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 px-5 py-3 font-bold text-black hover:opacity-90 transition'
+                : 'inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-black hover:bg-white/90 transition'
+            }
           >
+            {isAffiliate && (
+              <span class="inline-flex items-center rounded bg-black/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider">PR</span>
+            )}
             公式サイトで{tool.hasFreePlan ? '無料で試す' : '詳細を見る'}
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
           </a>
           {isAffiliate && (
-            <span class="text-[11px] text-[#8a90a8] sm:self-center">※ 本リンクはアフィリエイトを含みます</span>
+            <span class="text-[11px] text-[#8a90a8] sm:self-center">※本リンクはアフィリエイトを含みます</span>
           )}
         </div>
       </div>

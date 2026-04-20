@@ -3,9 +3,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import RankingCard from '@/components/RankingCard.astro';
 import HeroTop3 from '@/components/HeroTop3.astro';
 import AdSlot from '@/components/AdSlot.astro';
+import SponsoredCTA from '@/components/SponsoredCTA.astro';
 import { getRankedTools } from '@/data/tools';
+import { affiliateUrls } from '@/data/affiliate';
 import { CATEGORY_LABELS } from '@/types/tool';
 import { getCollection } from 'astro:content';
+
+const sponsoredSlugs = Object.keys(affiliateUrls).filter((k) => affiliateUrls[k]);
 
 const allTools = getRankedTools();
 const top3 = allTools.slice(0, 3);
@@ -47,6 +51,20 @@ const description = '2026年最新版のAIツール総合ランキング。ChatG
       <HeroTop3 tools={top3} />
     </div>
   </section>
+
+  {sponsoredSlugs.length > 0 && (
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+      <div class="mb-3 flex items-baseline justify-between">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-amber-300">⚡ 今注目のツール</h2>
+        <span class="text-[11px] text-[#8a90a8]">スポンサード表示</span>
+      </div>
+      <div class={`grid gap-4 ${sponsoredSlugs.length > 1 ? 'md:grid-cols-2' : ''}`}>
+        {sponsoredSlugs.map((slug) => (
+          <SponsoredCTA slug={slug} note="編集部ピックアップ" />
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
     <AdSlot slot="display-home-top" />

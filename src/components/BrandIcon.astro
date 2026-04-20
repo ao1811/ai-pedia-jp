@@ -1,0 +1,74 @@
+---
+/**
+ * ツールの公式ブランドアイコンを表示するコンポーネント。
+ *
+ * - Google の favicon API 経由で公式サイトのアイコンを取得
+ * - 画像取得に失敗したら、指定した emoji にフォールバック
+ * - 丸いグラデーション背景内にアイコンを配置（ブランドカラーを活かす）
+ *
+ * 使い方：
+ *   <BrandIcon tool={tool} size="lg" />
+ */
+import type { Tool } from '@/types/tool';
+
+type Props = {
+  tool: Tool;
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+  class?: string;
+};
+
+const { tool, size = 'md', class: extraClass = '' } = Astro.props;
+
+const sizeClasses: Record<NonNullable<Props['size']>, string> = {
+  sm: 'h-8 w-8 text-base',
+  md: 'h-10 w-10 text-xl',
+  lg: 'h-12 w-12 text-2xl',
+  xl: 'h-14 w-14 text-3xl',
+  '2xl': 'h-16 w-16 text-3xl',
+};
+const imgSizeClass: Record<NonNullable<Props['size']>, string> = {
+  sm: 'h-5 w-5',
+  md: 'h-6 w-6',
+  lg: 'h-8 w-8',
+  xl: 'h-9 w-9',
+  '2xl': 'h-10 w-10',
+};
+
+// 公式サイトURLからドメイン抽出
+let domain = '';
+try {
+  domain = new URL(tool.officialUrl).hostname;
+} catch {
+  domain = '';
+}
+
+// 高解像度ファビコン（Googleのfavicon API）を優先し、失敗時はDuckDuckGoへ
+const primaryIcon = domain
+  ? `https://www.google.com/s2/favicons?domain=${domain}&sz=128`
+  : '';
+const fallbackIcon = domain ? `https://icons.duckduckgo.com/ip3/${domain}.ico` : '';
+---
+
+<div
+  class={`relative flex shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${tool.accentGradient} shadow-lg shadow-black/40 ring-1 ring-white/20 ${sizeClasses[size]} ${extraClass}`}
+  aria-label={`${tool.name} ロゴ`}
+>
+  {/* Inner white circle to make brand icon stand out on colored gradient */}
+  <div class={`flex items-center justify-center rounded-lg bg-white/95 ${imgSizeClass[size]} p-0.5`}>
+    {primaryIcon ? (
+      <img
+        src={primaryIcon}
+        alt={`${tool.name} logo`}
+        loading="lazy"
+        width="48"
+        height="48"
+        class="h-full w-full object-contain"
+        data-fallback={fallbackIcon}
+        data-emoji={tool.logoEmoji}
+        onerror="(function(img){if(img.dataset.fallback && img.src !== img.dataset.fallback){img.src = img.dataset.fallback; return;}img.outerHTML = '<span style=\\'font-size:80%;line-height:1\\'>' + img.dataset.emoji + '</span>';})(this)"
+      />
+    ) : (
+      <span class="leading-none">{tool.logoEmoji}</span>
+    )}
+  </div>
+</div>

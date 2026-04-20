@@ -1,6 +1,8 @@
 ---
 import type { Tool } from '@/types/tool';
 import { CATEGORY_LABELS } from '@/types/tool';
+import { getAffiliateUrl } from '@/data/affiliate';
+import BrandIcon from '@/components/BrandIcon.astro';
 
 type Props = {
   tool: Tool;
@@ -9,6 +11,7 @@ type Props = {
 
 const { tool, rank } = Astro.props;
 const cat = CATEGORY_LABELS[tool.category];
+const hasAff = Boolean(getAffiliateUrl(tool.slug) ?? tool.affiliateUrl);
 
 const minPrice = tool.pricing
   .filter((p) => p.billing === 'monthly')
@@ -53,14 +56,17 @@ const trendIcon = tool.trendDelta > 0 ? '▲' : tool.trendDelta < 0 ? '▼' : '�
         )}
       </div>
 
-      <div class={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${tool.accentGradient} text-2xl shadow-lg shadow-black/40`}>
-        <span class="drop-shadow">{tool.logoEmoji}</span>
-      </div>
+      <BrandIcon tool={tool} size="xl" />
 
       <div class="min-w-0 flex-1">
         <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
           <h3 class="truncate text-base sm:text-lg font-bold tracking-tight text-white">{tool.name}</h3>
           <span class="text-[11px] text-[#8a90a8]">{tool.vendor}</span>
+          {hasAff && (
+            <span class="inline-flex items-center gap-1 rounded-md border border-amber-400/40 bg-amber-400/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-200">
+              PR
+            </span>
+          )}
           <span class={`ml-auto text-[11px] font-semibold ${trendColor}`}>
             {trendIcon} {Math.abs(tool.trendDelta)}
           </span>
