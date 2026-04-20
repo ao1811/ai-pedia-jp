@@ -23,7 +23,8 @@
       "mcp__Claude_in_Chrome__javascript_tool",
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: integrate approved a8.net affiliate links \\(Value AI Writer, ConoHa AI Canvas\\) *)",
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: official brand icons via favicon + prominent sponsored CTA *)",
-      "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"fix: hide AdSense placeholder until approved \\(render nothing when not configured\\)\")"
+      "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"fix: hide AdSense placeholder until approved \\(render nothing when not configured\\)\")",
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: rename to 徹底特集・ガイド + add 5 new guides *)"
     ]
   }
 }

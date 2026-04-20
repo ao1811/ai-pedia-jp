@@ -15,7 +15,7 @@ const pathname = Astro.url.pathname;
       <nav class="hidden md:flex items-center gap-1 text-sm">
         <a href="/" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname === '/' ? 'text-white' : 'text-[#8a90a8]'}`}>総合</a>
         <a href="/category" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname.startsWith('/category') ? 'text-white' : 'text-[#8a90a8]'}`}>カテゴリ</a>
-        <a href="/guides" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname.startsWith('/guides') ? 'text-white' : 'text-[#8a90a8]'}`}>ガイド</a>
+        <a href="/guides" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname.startsWith('/guides') ? 'text-white' : 'text-[#8a90a8]'}`}>徹底特集</a>
         <a href="/about" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname === '/about' ? 'text-white' : 'text-[#8a90a8]'}`}>運営方針</a>
       </nav>
       <a href="/" class="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-[#8a90a8] hover:text-white hover:bg-white/10">
