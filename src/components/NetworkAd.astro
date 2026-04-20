@@ -1,0 +1,41 @@
+---
+/**
+ * 汎用 広告ネットワーク用コンポーネント（AdSense以外のクリック・PV連動広告用）。
+ *
+ * 対応ネットワーク（環境変数で切替）：
+ * - 忍者AdMax       : PUBLIC_NINJA_ADMAX_<SLOT名>
+ * - Microsoft Ads  : PUBLIC_MSADS_<SLOT名>
+ * - nend            : PUBLIC_NEND_<SLOT名>
+ *
+ * 使い方：
+ *   <NetworkAd slot="home-rankings-mid" provider="ninja" />
+ *
+ * 広告タグHTMLを環境変数にそのまま貼り付ける想定。
+ * 値が未設定の場合は何も描画しない（レイアウトに影響なし）。
+ */
+type Props = {
+  slot: string;
+  provider?: 'ninja' | 'msads' | 'nend';
+  className?: string;
+};
+
+const { slot, provider = 'ninja', className = '' } = Astro.props;
+
+const envKey = `PUBLIC_${provider.toUpperCase()}_${slot.toUpperCase().replace(/-/g, '_')}`;
+const tag = (import.meta.env as Record<string, string | undefined>)[envKey];
+const isActive = Boolean(tag && tag.trim().length > 0);
+---
+
+{isActive && tag && (
+  <div
+    class={`network-ad ${className}`}
+    data-network={provider}
+    data-slot={slot}
+    aria-label="スポンサー広告"
+  >
+    <div class="flex items-center gap-2 mb-1">
+      <span class="text-[9px] font-bold uppercase tracking-widest text-[#8a90a8]">広告</span>
+    </div>
+    <Fragment set:html={tag} />
+  </div>
+)}

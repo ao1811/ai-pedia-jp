@@ -1,0 +1,65 @@
+---
+/**
+ * Amazon アソシエイト商品紹介カード。
+ *
+ * 使い方：
+ *   <AmazonProductCard asin="B0XXX" title="..." category="AI書籍" />
+ *
+ * - 環境変数 PUBLIC_AMAZON_TRACKING_ID にトラッキングIDを設定すると、クリック時に自動付与
+ * - 未設定ならトラッキングなしで通常の Amazon 商品URLを使用（審査通過後に切替）
+ *
+ * 画像はAmazonの商品画像CDN（images-na.ssl-images-amazon.com）を利用。
+ */
+import { getAmazonLink } from '@/data/amazon';
+
+type Props = {
+  asin: string;
+  title: string;
+  category?: string;
+  description?: string;
+  priceHint?: string;
+};
+
+const { asin, title, category, description, priceHint } = Astro.props;
+const url = getAmazonLink(asin);
+const imageUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.09.LZZZZZZZ.jpg`;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="sponsored noopener"
+  class="group my-4 flex items-center gap-4 rounded-xl border border-white/10 bg-[#10121a] p-4 transition hover:border-amber-400/30 hover:bg-[#161926]"
+>
+  <div class="shrink-0 overflow-hidden rounded-lg bg-white/5">
+    <img
+      src={imageUrl}
+      alt={title}
+      loading="lazy"
+      width="96"
+      height="96"
+      class="h-20 w-20 object-contain"
+      onerror="this.style.display='none'"
+    />
+  </div>
+  <div class="min-w-0 flex-1">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center rounded bg-amber-400/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-200">PR</span>
+      <span class="text-[10px] uppercase tracking-wider text-[#8a90a8]">Amazon</span>
+      {category && <span class="text-[10px] text-[#8a90a8]">· {category}</span>}
+    </div>
+    <div class="mt-1 text-sm font-bold text-white line-clamp-2">{title}</div>
+    {description && (
+      <div class="mt-1 text-[12px] text-[#c7cbde] line-clamp-2">{description}</div>
+    )}
+    <div class="mt-2 flex items-center gap-2 text-[11px]">
+      {priceHint && <span class="text-amber-300 font-semibold">{priceHint}</span>}
+      <span class="ml-auto inline-flex items-center gap-1 text-white group-hover:text-amber-300 transition">
+        Amazonで見る
+        <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M13 5l7 7-7 7" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>

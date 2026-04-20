@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
+import NetworkAd from '@/components/NetworkAd.astro';
 import RankingCard from '@/components/RankingCard.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
 import { getToolBySlug } from '@/data/tools';
@@ -86,6 +87,7 @@ const jsonLd = {
     </header>
 
     <AdSlot slot="in-article-top" className="my-8" />
+    <NetworkAd slot="in-article-top" provider="ninja" className="my-4" />
 
     {sponsoredRelated.length > 0 && (
       <SponsoredCTA slug={sponsoredRelated[0].slug} note="この記事の関連ツール" />
@@ -100,6 +102,7 @@ const jsonLd = {
     ))}
 
     <AdSlot slot="in-article-bottom" className="my-10" />
+    <NetworkAd slot="in-article-bottom" provider="ninja" className="my-6" />
 
     {related.length > 0 && (
       <section class="mt-12 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">

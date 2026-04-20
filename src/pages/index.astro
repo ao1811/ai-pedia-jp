@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import RankingCard from '@/components/RankingCard.astro';
 import HeroTop3 from '@/components/HeroTop3.astro';
 import AdSlot from '@/components/AdSlot.astro';
+import NetworkAd from '@/components/NetworkAd.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
 import { getRankedTools } from '@/data/tools';
 import { affiliateUrls } from '@/data/affiliate';
@@ -164,8 +165,9 @@ const description = '2026年最新版のAIツール総合ランキング。ChatG
     </div>
   </section>
 
-  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10 space-y-4">
     <AdSlot slot="display-home-top" />
+    <NetworkAd slot="home-rankings-mid" provider="ninja" />
   </section>
 
   {/* 4位以降 前半 */}
@@ -206,6 +208,11 @@ const description = '2026年最新版のAIツール総合ランキング。ChatG
       </div>
     </section>
   )}
+
+  {/* フッター前の広告ネットワーク枠 */}
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10">
+    <NetworkAd slot="home-bottom" provider="ninja" />
+  </section>
 
   {/* もっと読む導線 */}
   <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-12">
