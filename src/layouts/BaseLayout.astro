@@ -14,7 +14,7 @@ type Props = {
 const { title, description, canonical, ogImage, noIndex = false } = Astro.props;
 const siteName = 'AIツール比較ランキング';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
-const siteUrl = Astro.site?.toString() ?? 'https://ai-tools-ranking.example.com';
+const siteUrl = Astro.site?.toString() ?? 'https://aipedia.com';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = ogImage ?? `${siteUrl}/og-default.png`;
 const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
