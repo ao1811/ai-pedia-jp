@@ -10,6 +10,7 @@ featured: true
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 9
 tags: ["対話AI", "比較", "ChatGPT", "Claude", "Gemini"]
+amazonProducts: ["chatgpt-strongest-work", "prompt-engineering-oreilly", "chatgpt-business-future"]
 ---
 
 対話型AIの市場は2026年、ついに「3強時代」の様相が固まりました。OpenAI の **ChatGPT**、Anthropic の **Claude**、Google の **Gemini** ——  いずれも一長一短があり、「とりあえず1本」で済ませると必ずどこかで不便が出ます。本記事では、編集部が半年以上にわたり各サービスを実利用した上で、8つの評価項目で徹底比較します。

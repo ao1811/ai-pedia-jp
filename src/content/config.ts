@@ -15,6 +15,7 @@ const guides = defineCollection({
     heroGradient: z.string().default('from-violet-500 to-fuchsia-500'),
     featured: z.boolean().default(false),
     relatedTools: z.array(z.string()).default([]),
+    amazonProducts: z.array(z.string()).default([]),
     readTimeMin: z.number().default(5),
   }),
 });

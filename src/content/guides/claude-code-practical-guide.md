@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["claude-code", "claude"]
 readTimeMin: 10
 tags: ["Claude Code", "CLI", "開発", "エンジニア"]
+amazonProducts: ["claude-code-ai-driven", "claude-code-practical", "claude-code-nonengineer"]
 ---
 
 Claude Code はエンジニアの生産性を根本から変えるツールですが、**CLI ベースで学習曲線がある**ため、最初の1週間で挫折する人が少なくありません。本記事では編集部エンジニアが実運用で得た知見をもとに、**インストールから自律型開発フローまでの最短経路**を解説します。

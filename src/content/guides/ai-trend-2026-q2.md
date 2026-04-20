@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["chatgpt", "claude", "claude-code", "cursor"]
 readTimeMin: 8
 tags: ["トレンド", "2026", "エージェント"]
+amazonProducts: ["claude-code-ai-driven", "chatgpt-business-future"]
 ---
 
 2026年第2四半期、AIツール業界は静かな、しかし決定的な地殻変動の只中にあります。本記事では、いまこの瞬間に起きている3つの大きな変化——**「エージェント化」「マルチモーダル標準化」「オンデバイス化」**の現在地を整理します。

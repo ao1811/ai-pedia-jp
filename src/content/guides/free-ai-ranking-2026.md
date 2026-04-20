@@ -10,6 +10,7 @@ featured: true
 relatedTools: ["chatgpt", "gemini", "claude", "perplexity", "github-copilot", "v0"]
 readTimeMin: 9
 tags: ["無料", "初心者", "コスパ", "2026"]
+amazonProducts: ["chatgpt-strongest-work", "prompt-zero-programming"]
 ---
 
 「AIを使いたいけど、いきなり月額 3,000 円は厳しい」——そんなあなたのために、**2026年時点で完全無料のまま実用レベルで使える AI ツール10選**を、編集部が日常業務で使い倒した体験を基にランキング化しました。

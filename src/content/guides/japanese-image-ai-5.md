@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["midjourney", "chatgpt", "conoha-ai-canvas"]
 readTimeMin: 6
 tags: ["画像生成", "クリエイター", "デザイン"]
+amazonProducts: ["midjourney-basics", "prompt-midjourney-intro"]
 ---
 
 画像生成AIは2026年、ついに「プロも日常的に使う道具」に完全進化しました。しかし日本語プロンプトへの対応、商用利用の可否、コストは各サービスで大きく差があります。本記事では、**日本語圏の実務で本当に使える5本**を紹介します。

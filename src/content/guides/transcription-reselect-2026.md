@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["elevenlabs", "gemini", "notion-ai"]
 readTimeMin: 7
 tags: ["文字起こし", "Notta", "乗り換え", "コスパ"]
+amazonProducts: ["plaud-note-pro", "plaud-note"]
 ---
 
 AI文字起こし市場は、2024年〜2025年のうちに各社サービスが大幅進化しました。2年前に契約したツールをそのまま使い続けている人は、**月額コストの半分で同等以上の品質が得られる**可能性があります。本記事では Notta を軸に、乗り換え判断の基準を整理します。

@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["elevenlabs", "notion-ai", "gemini"]
 readTimeMin: 8
 tags: ["文字起こし", "議事録", "音声"]
+amazonProducts: ["plaud-note", "plaud-note-pro"]
 ---
 
 2026年時点、AI文字起こしは**無料でもほぼ実用レベル**の精度に達しています。しかし会議録・動画字幕・講義メモでは求められる機能が異なるため、用途で選ぶのがベストです。編集部が週次で各ツールを使った結果をベースに、主要5本を比較します。

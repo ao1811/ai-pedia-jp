@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["midjourney", "chatgpt"]
 readTimeMin: 10
 tags: ["Midjourney", "プロンプト", "画像生成", "デザイン"]
+amazonProducts: ["midjourney-basics", "prompt-midjourney-intro"]
 ---
 
 Midjourney v7 は現存する画像生成AIの中で**芸術性と一貫性で頭ひとつ抜けた**存在です。しかし、その真価を引き出すにはプロンプトの作法を知る必要があります。本記事では、プロのクリエイターが実践するテクニックを全公開します。

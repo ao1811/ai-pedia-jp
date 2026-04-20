@@ -10,6 +10,7 @@ featured: true
 relatedTools: ["value-ai-writer", "chatgpt", "claude", "gemini"]
 readTimeMin: 10
 tags: ["ライティング", "SEO", "副業", "ブログ"]
+amazonProducts: ["prompt-beginner", "prompt-midjourney-intro", "note-ai-sidework"]
 ---
 
 AI で記事を書く時代は、もはや「書ける／書けない」ではなく「**どのツールが自分の用途に最適か**」の選択戦へ。特に SEO 記事・アフィリエイト記事・副業ブログでは、選ぶツールで生産性に2〜3倍の差が生まれます。本記事では実務で1か月以上使った6本を徹底比較しました。

@@ -5,8 +5,10 @@ import AdSlot from '@/components/AdSlot.astro';
 import NetworkAd from '@/components/NetworkAd.astro';
 import RankingCard from '@/components/RankingCard.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
+import AmazonProductCard from '@/components/AmazonProductCard.astro';
 import { getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
+import { getProduct } from '@/data/amazon';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -35,6 +37,10 @@ const related = guide.data.relatedTools
   .filter((t): t is NonNullable<ReturnType<typeof getToolBySlug>> => Boolean(t));
 
 const sponsoredRelated = related.filter((t) => Boolean(getAffiliateUrl(t.slug) ?? t.affiliateUrl));
+
+const amazonRecs = (guide.data.amazonProducts ?? [])
+  .map((k) => getProduct(k))
+  .filter((p): p is NonNullable<ReturnType<typeof getProduct>> => Boolean(p));
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -110,6 +116,27 @@ const jsonLd = {
         <div class="mt-4 grid gap-3 sm:grid-cols-2">
           {related.map((t, i) => (
             <RankingCard tool={t} rank={i + 1} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {amazonRecs.length > 0 && (
+      <section class="mt-10 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+        <div class="flex items-baseline justify-between">
+          <h2 class="text-base font-bold">📚 関連書籍・ガジェット（Amazon）</h2>
+          <span class="text-[10px] text-[#8a90a8]">PR</span>
+        </div>
+        <p class="mt-1 text-xs text-[#8a90a8]">この記事の理解をさらに深める書籍・デバイス。</p>
+        <div class="mt-4 space-y-2">
+          {amazonRecs.map((p) => (
+            <AmazonProductCard
+              asin={p.asin}
+              title={p.title}
+              category={p.category}
+              description={p.description}
+              priceHint={p.priceHint}
+            />
           ))}
         </div>
       </section>

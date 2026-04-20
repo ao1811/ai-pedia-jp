@@ -10,6 +10,7 @@ featured: true
 relatedTools: ["cursor", "claude-code", "github-copilot", "v0"]
 readTimeMin: 10
 tags: ["コーディング", "開発", "AI", "Cursor", "Copilot"]
+amazonProducts: ["claude-code-ai-driven", "llm-prompt-github"]
 ---
 
 2026年、ソフトウェア開発の現場は「AIを使わない選択肢がない」時代に突入しました。Cursor・Claude Code・GitHub Copilot・v0 という4本柱の特徴と棲み分けを、編集部エンジニアが現場目線で比較します。

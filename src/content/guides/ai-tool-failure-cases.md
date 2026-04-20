@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["chatgpt", "claude", "notion-ai"]
 readTimeMin: 8
 tags: ["失敗例", "導入", "注意", "トラブル"]
+amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
 ---
 
 AIツールの導入で成果を出す人がいる一方、**お金と時間を無駄にしてしまう人**も同じくらいいます。編集部が取材・見聞きした失敗例から、「これだけは避けよう」という10選を公開します。

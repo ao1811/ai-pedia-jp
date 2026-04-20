@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["notion-ai", "elevenlabs", "gemini"]
 readTimeMin: 8
 tags: ["議事録", "会議", "業務効率化", "チーム"]
+amazonProducts: ["plaud-note", "plaud-note-pro"]
 ---
 
 「議事録を書くために1時間の会議が2時間の作業になる」——これ、日本の会社員の多くが抱える悩みです。AI議事録を導入すれば、**議事録作成の時間がほぼゼロ**に。本記事では、導入から実運用までの完全ガイドを提供します。

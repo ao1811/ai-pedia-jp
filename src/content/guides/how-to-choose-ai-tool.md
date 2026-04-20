@@ -10,6 +10,7 @@ featured: true
 relatedTools: ["chatgpt", "claude", "gemini", "notion-ai"]
 readTimeMin: 7
 tags: ["初心者", "選び方", "入門"]
+amazonProducts: ["prompt-zero-programming", "chatgpt-strongest-work"]
 ---
 
 「AI ツールって結局どれを使えばいいの？」——この疑問に答えるのは、意外と難しいものです。100 を超えるサービスが乱立し、機能差も毎月のように変わる中、本記事では **失敗しない選び方の3原則** を紹介します。

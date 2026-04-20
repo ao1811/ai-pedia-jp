@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["value-ai-writer", "conoha-ai-canvas", "chatgpt", "midjourney"]
 readTimeMin: 9
 tags: ["副業", "AI活用", "初心者", "収益化"]
+amazonProducts: ["ai-side-10man", "note-ai-sidework", "ai-side-30man"]
 ---
 
 「AIで副業したいけど、何から始めればいいか分からない」「楽に稼げると聞いたが本当？」——AI副業に関する情報は玉石混交で、特に初心者が迷いやすい領域です。本記事では **現実的な収益モデルと、月5万円までの具体的なロードマップ** を編集部の体験ベースで解説します。

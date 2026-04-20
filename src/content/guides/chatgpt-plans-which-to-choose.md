@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["chatgpt"]
 readTimeMin: 7
 tags: ["ChatGPT", "プラン", "料金"]
+amazonProducts: ["chatgpt-strongest-work", "chatgpt-gpts-book"]
 ---
 
 ChatGPT には Free・Plus（¥3,000/月）・Pro（¥30,000/月）の3プランがあり、**10倍の料金差に10倍の価値があるか**は用途次第です。本記事では編集部が3プランすべてを使い分けた結果から、あなたに最適なプランを解説します。

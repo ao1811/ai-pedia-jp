@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["perplexity", "gemini", "chatgpt"]
 readTimeMin: 7
 tags: ["AI検索", "Perplexity", "リサーチ", "情報収集"]
+amazonProducts: ["prompt-beginner", "ai-thinking-techniques"]
 ---
 
 「Google 検索は古い、これからは AI検索だ」——こう煽る言説を見かけますが、実務で使うと **Perplexity と Google は補完関係**にあります。本記事では両者の本当の使い分けを、リサーチ業務10年以上の編集部員が解説します。

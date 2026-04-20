@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["chatgpt", "gemini", "claude", "perplexity"]
 readTimeMin: 6
 tags: ["コスト", "節約", "コスパ"]
+amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
 ---
 
 AI ツールへの月額支払いが、気づけば 1 万円を超えている人が増えています。編集部も一時期 ChatGPT Plus + Claude Pro + Gemini Advanced + Midjourney + Perplexity Pro + Cursor Pro と重課金していました。**本当に必要な機能だけを厳選し、年間 10 万円削減した実例**を公開します。

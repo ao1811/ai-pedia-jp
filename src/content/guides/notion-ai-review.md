@@ -10,6 +10,7 @@ featured: false
 relatedTools: ["notion-ai", "chatgpt", "claude"]
 readTimeMin: 8
 tags: ["Notion AI", "レビュー", "業務効率化"]
+amazonProducts: ["ai-thinking-techniques", "chatgpt-strongest-work"]
 ---
 
 Notion AI は「Notion 内のAIアシスタント」として有名ですが、実は ChatGPT との住み分けが難しいツールでもあります。編集部で1ヶ月以上フル活用した結果、**「買うべき人」と「買うべきでない人」が明確に分かれる**ことが分かりました。
