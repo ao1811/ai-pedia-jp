@@ -35,6 +35,7 @@ function listGuideSlugs() {
 
 function buildTargets() {
   const fixed = [
+    { url: '/sns/icon', name: 'icon-512x512' },
     { url: '/sns/intro', name: 'intro-1080x1080' },
     { url: '/sns/ranking', name: 'ranking-1080x1080' },
     { url: '/sns/story', name: 'story-1080x1920' },

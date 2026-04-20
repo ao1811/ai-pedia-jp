@@ -1,0 +1,40 @@
+---
+import SnsLayout from '@/layouts/SnsLayout.astro';
+---
+
+<SnsLayout title="プロフィール画像 512x512" width={512} height={512}>
+  <div class="bg">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="mark">✦</div>
+  </div>
+</SnsLayout>
+
+<style>
+  .bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #7c5cff 0%, #ff5cd3 60%, #fbbf24 140%);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.55;
+  }
+  .glow-1 { width: 320px; height: 320px; background: #ff5cd3; top: -60px; right: -60px; }
+  .glow-2 { width: 280px; height: 280px; background: #7c5cff; bottom: -50px; left: -50px; }
+  .mark {
+    position: relative;
+    font-size: 340px;
+    line-height: 1;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    font-family: system-ui, 'Inter', sans-serif;
+    transform: translateY(-10px);
+  }
+</style>
