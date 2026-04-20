@@ -16,18 +16,23 @@ export type AmazonProduct = {
   priceHint?: string;
 };
 
+// Amazon アソシエイト トラッキングID（公開情報、リンクに埋め込まれる）
+export const AMAZON_TRACKING_ID = 'ai-pedia-22';
+
 export const amazonProducts: Record<string, AmazonProduct> = {
-  // サンプル。実際のASINに差し替えてください。
-  // 'chatgpt-book': {
+  // 商品を追加する場合の書式例：
+  // 'key': {
   //   asin: 'B0XXXXXXXX',
-  //   title: 'ChatGPT 仕事術大全',
+  //   title: '商品タイトル',
   //   category: 'AI書籍',
+  //   description: '短い紹介文',
   //   priceHint: '¥1,650',
   // },
 };
 
 export function getAmazonLink(asin: string): string {
-  const trackingId = (import.meta.env.PUBLIC_AMAZON_TRACKING_ID as string) || '';
+  const trackingId =
+    (import.meta.env.PUBLIC_AMAZON_TRACKING_ID as string) || AMAZON_TRACKING_ID;
   const base = `https://www.amazon.co.jp/dp/${asin}`;
   return trackingId ? `${base}?tag=${trackingId}` : base;
 }
