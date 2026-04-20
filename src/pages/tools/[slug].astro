@@ -2,8 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
 import BrandIcon from '@/components/BrandIcon.astro';
-import { tools, getToolBySlug } from '@/data/tools';
-import { getAffiliateUrl, getLinkRel } from '@/data/affiliate';
+import SponsoredCTA from '@/components/SponsoredCTA.astro';
+import { tools, getToolBySlug, getToolsByCategory } from '@/data/tools';
+import { getAffiliateUrl, getLinkRel, affiliateUrls } from '@/data/affiliate';
 import { CATEGORY_LABELS } from '@/types/tool';
 
 export function getStaticPaths() {
@@ -26,6 +27,13 @@ const linkRel = getLinkRel(isAffiliate);
 
 const rankedTools = [...tools].sort((a, b) => b.popularityScore - a.popularityScore);
 const rank = rankedTools.findIndex((t) => t.slug === tool.slug) + 1;
+
+// 当ツール自体に提携がない場合、同カテゴリでアフィ提携のあるツールを推す（クロスセル）
+const sameCategory = getToolsByCategory(tool.category).filter((t) => t.slug !== tool.slug);
+const crossSellSlug = !isAffiliate
+  ? sameCategory.find((t) => Boolean(getAffiliateUrl(t.slug)))?.slug ??
+    Object.keys(affiliateUrls).find((k) => affiliateUrls[k])
+  : undefined;
 
 // JSON-LD (SEO)
 const jsonLd = {
@@ -175,6 +183,12 @@ const jsonLd = {
         ))}
       </div>
     </section>
+
+    {crossSellSlug && (
+      <div class="mt-8">
+        <SponsoredCTA slug={crossSellSlug} note="代わりの選択肢として" variant="compact" />
+      </div>
+    )}
 
     <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
       <h2 class="text-base font-bold">料金プラン</h2>
