@@ -1,0 +1,228 @@
+---
+import SnsLayout from '@/layouts/SnsLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((g) => ({
+    params: { slug: g.id },
+    props: { guide: g },
+  }));
+}
+
+const { guide } = Astro.props;
+const g = guide.data;
+
+const CATEGORY_JA: Record<string, string> = {
+  comparison: '比較',
+  howto: 'How-to',
+  guide: 'ガイド',
+  review: 'レビュー',
+  trend: 'トレンド',
+};
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+<SnsLayout title={`ガイド: ${g.title}`} width={1080} height={1080}>
+  <div class="bg">
+    <div class={`hero-gradient bg-gradient-to-br ${g.heroGradient}`}></div>
+    <div class="overlay"></div>
+    <div class="grid"></div>
+
+    <div class="inner">
+      <div class="head">
+        <div class="brand">
+          <div class="logo">✦</div>
+          <div class="brand-name">ai-pedia</div>
+        </div>
+        <div class="category">{CATEGORY_JA[g.category] ?? g.category}</div>
+      </div>
+
+      <div class="main">
+        <div class="emoji-big">{g.heroEmoji}</div>
+        <h1 class="title">{g.title}</h1>
+        <p class="desc">{g.description}</p>
+      </div>
+
+      <div class="meta">
+        <div class="meta-item">
+          <span class="meta-icon">📅</span>
+          <span>{fmt(g.publishedAt)}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-icon">⏱</span>
+          <span>{g.readTimeMin}分で読める</span>
+        </div>
+        {g.featured && (
+          <div class="featured-badge">⭐ 編集部おすすめ</div>
+        )}
+      </div>
+
+      <div class="footer">
+        <div class="url">ai-pedia.jp</div>
+        <div class="cta">続きはサイトで →</div>
+      </div>
+    </div>
+  </div>
+</SnsLayout>
+
+<style>
+  .bg {
+    position: absolute;
+    inset: 0;
+    background: #08090d;
+    overflow: hidden;
+  }
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    opacity: 0.45;
+  }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,9,13,0.3) 0%, rgba(8,9,13,0.85) 55%, rgba(8,9,13,0.95) 100%);
+  }
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
+  }
+
+  .inner {
+    position: relative;
+    height: 100%;
+    padding: 64px 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: #fff;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #7c5cff, #ff5cd3);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 36px;
+    font-weight: 900;
+  }
+  .brand-name {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .category {
+    font-size: 20px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+  }
+  .emoji-big {
+    font-size: 140px;
+    line-height: 1;
+    filter: drop-shadow(0 12px 40px rgba(255,92,211,0.3));
+  }
+  .title {
+    font-size: 72px;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin: 0;
+    color: #fff;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .desc {
+    font-size: 26px;
+    line-height: 1.55;
+    color: #d8dcf0;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #d8dcf0;
+  }
+  .meta-icon { font-size: 22px; }
+  .featured-badge {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(251,191,36,0.2), rgba(244,114,182,0.2));
+    border: 1px solid rgba(251,191,36,0.4);
+    color: #fbbf24;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .url {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #a78bfa, #ff5cd3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .cta {
+    font-size: 20px;
+    color: #c7cbde;
+    font-weight: 600;
+  }
+</style>

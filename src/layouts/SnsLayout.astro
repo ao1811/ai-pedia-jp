@@ -1,0 +1,79 @@
+---
+import '@/styles/global.css';
+
+type Props = {
+  title: string;
+  width: number;
+  height: number;
+};
+
+const { title, width, height } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} | SNSテンプレート</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <style define:vars={{ w: `${width}px`, h: `${height}px` }}>
+      :root {
+        color-scheme: dark;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #1a1a1a;
+        min-height: 100vh;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 24px 0;
+      }
+      .sns-help {
+        max-width: var(--w);
+        padding: 12px 16px;
+        background: #0b0c10;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        color: #c7cbde;
+        font-size: 13px;
+        line-height: 1.6;
+        font-family: 'Inter', system-ui, sans-serif;
+      }
+      .sns-help code {
+        background: rgba(255,255,255,0.06);
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #fbbf24;
+      }
+      .sns-canvas {
+        width: var(--w);
+        height: var(--h);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+        font-family: 'Inter', system-ui, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      }
+      @media print {
+        .sns-help { display: none !important; }
+        body { background: transparent !important; padding: 0 !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sns-help">
+      スクショの取り方：DevTools を開く（F12）→ 要素タブで <code>div#canvas</code> を右クリック → <strong>Capture node screenshot</strong>。等倍のPNGが保存されます。
+    </div>
+    <div id="canvas" class="sns-canvas">
+      <slot />
+    </div>
+  </body>
+</html>

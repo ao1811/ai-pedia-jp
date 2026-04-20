@@ -1,0 +1,170 @@
+---
+import SnsLayout from '@/layouts/SnsLayout.astro';
+import { getRankedTools } from '@/data/tools';
+import { getCollection } from 'astro:content';
+
+const toolCount = getRankedTools().length;
+const guideCount = (await getCollection('guides')).length;
+---
+
+<SnsLayout title="サイト紹介 正方形" width={1080} height={1080}>
+  <div class="bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="grid"></div>
+
+    <div class="inner">
+      <div class="brand">
+        <div class="logo">✦</div>
+        <div class="brand-name">ai-pedia</div>
+      </div>
+
+      <h1 class="headline">
+        今、本当に<br />
+        <span class="gradient">使えるAI</span>は<br />
+        これだ。
+      </h1>
+
+      <p class="lead">
+        主要 <strong>{toolCount}</strong> ツールを <strong>5軸</strong> で徹底比較。<br />
+        あなたに最適な1本を、数字で示します。
+      </p>
+
+      <div class="chips">
+        <span class="chip">応答品質</span>
+        <span class="chip">日本語精度</span>
+        <span class="chip">コスパ</span>
+        <span class="chip">拡張性</span>
+        <span class="chip">トレンド</span>
+      </div>
+
+      <div class="footer">
+        <div class="url">ai-pedia.jp</div>
+        <div class="cta">プロフィールのリンクから →</div>
+      </div>
+    </div>
+  </div>
+</SnsLayout>
+
+<style>
+  .bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, #1a1030 0%, #08090d 50%, #000 100%);
+    overflow: hidden;
+  }
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+  }
+  .blob1 { width: 520px; height: 520px; background: #7c5cff; top: -120px; left: -120px; }
+  .blob2 { width: 440px; height: 440px; background: #ff5cd3; bottom: -100px; right: -80px; }
+  .blob3 { width: 360px; height: 360px; background: #ff9a3d; top: 40%; left: 45%; opacity: 0.25; }
+
+  .inner {
+    position: relative;
+    height: 100%;
+    padding: 72px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #7c5cff, #ff5cd3);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 44px;
+    font-weight: 900;
+    box-shadow: 0 12px 40px rgba(255,92,211,0.4);
+  }
+  .brand-name {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .headline {
+    font-size: 108px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin: 0;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #a78bfa, #ff5cd3, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lead {
+    font-size: 28px;
+    line-height: 1.5;
+    color: #d8dcf0;
+    margin: 0;
+  }
+  .lead strong {
+    color: #fff;
+    font-weight: 800;
+    font-size: 34px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 20px;
+    font-weight: 600;
+    color: #e5e7f0;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .url {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    background: linear-gradient(90deg, #a78bfa, #ff5cd3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .cta {
+    font-size: 20px;
+    color: #8a90a8;
+  }
+</style>

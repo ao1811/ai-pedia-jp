@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .astro/
+sns-exports/
 .env
 .env.local
 .DS_Store

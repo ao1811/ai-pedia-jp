@@ -1,0 +1,284 @@
+---
+import SnsLayout from '@/layouts/SnsLayout.astro';
+import { getRankedTools } from '@/data/tools';
+import { getCollection } from 'astro:content';
+
+const allTools = getRankedTools();
+const top3 = allTools.slice(0, 3);
+const guideCount = (await getCollection('guides')).length;
+
+const medals = ['🥇', '🥈', '🥉'];
+---
+
+<SnsLayout title="ストーリー/リール用 縦長" width={1080} height={1920}>
+  <div class="bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="grid"></div>
+
+    <div class="inner">
+      <div class="brand">
+        <div class="logo">✦</div>
+        <div class="brand-name">ai-pedia</div>
+      </div>
+
+      <div class="hero">
+        <div class="tagline-chip">
+          <span class="dot"></span>
+          2026年 最新版
+        </div>
+        <h1 class="headline">
+          今、本当に<br />
+          <span class="gradient">使えるAI</span>は<br />
+          どれ？
+        </h1>
+        <p class="sub">
+          主要 <strong>{allTools.length}</strong> ツールを <strong>5軸</strong> で徹底比較。<br />
+          特集記事 <strong>{guideCount}</strong> 本で、あなたの最適解を案内。
+        </p>
+      </div>
+
+      <div class="top3-section">
+        <div class="section-label">🏆 総合 TOP 3</div>
+        <div class="cards">
+          {top3.map((t, i) => (
+            <div class={`card ${i === 0 ? 'gold' : ''}`}>
+              <div class="rank-badge">
+                <span class="medal">{medals[i]}</span>
+              </div>
+              <div class="tool-emoji">{t.logoEmoji}</div>
+              <div class="tool-info">
+                <div class="tool-name">{t.name}</div>
+                <div class="tool-vendor">{t.vendor}</div>
+              </div>
+              <div class="score-col">
+                <div class="score">{t.popularityScore}</div>
+                <div class="score-cap">SCORE</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="axes">
+        <div class="axes-title">評価は 5 つの軸で</div>
+        <div class="axes-grid">
+          <div class="axis-chip">💬 応答品質</div>
+          <div class="axis-chip">🗾 日本語精度</div>
+          <div class="axis-chip">💰 コスパ</div>
+          <div class="axis-chip">🔌 拡張性</div>
+          <div class="axis-chip">📈 トレンド</div>
+        </div>
+      </div>
+
+      <div class="cta-panel">
+        <div class="cta-main">続きは ai-pedia.jp で</div>
+        <div class="cta-sub">プロフィールのリンクから →</div>
+      </div>
+    </div>
+  </div>
+</SnsLayout>
+
+<style>
+  .bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 10%, #1a1030 0%, #08090d 55%, #000 100%);
+    overflow: hidden;
+  }
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%);
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+  }
+  .blob1 { width: 700px; height: 700px; background: #7c5cff; top: -200px; left: -200px; }
+  .blob2 { width: 600px; height: 600px; background: #ff5cd3; top: 800px; right: -180px; opacity: 0.4; }
+  .blob3 { width: 520px; height: 520px; background: #fbbf24; bottom: -160px; left: -120px; opacity: 0.3; }
+
+  .inner {
+    position: relative;
+    height: 100%;
+    padding: 120px 80px 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    color: #fff;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .logo {
+    width: 84px;
+    height: 84px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #7c5cff, #ff5cd3);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 52px;
+    font-weight: 900;
+    box-shadow: 0 12px 40px rgba(255,92,211,0.4);
+  }
+  .brand-name {
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .hero { display: flex; flex-direction: column; gap: 24px; }
+  .tagline-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    font-size: 24px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: rgba(167,139,250,0.12);
+    border: 1px solid rgba(167,139,250,0.35);
+    color: #c4b5fd;
+    font-weight: 600;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #a78bfa;
+    box-shadow: 0 0 14px #a78bfa;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .headline {
+    font-size: 130px;
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin: 0;
+  }
+  .gradient {
+    background: linear-gradient(90deg, #a78bfa, #ff5cd3, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub {
+    font-size: 30px;
+    line-height: 1.55;
+    color: #d8dcf0;
+    margin: 0;
+  }
+  .sub strong {
+    color: #fff;
+    font-weight: 800;
+    font-size: 36px;
+  }
+
+  .top3-section { display: flex; flex-direction: column; gap: 18px; }
+  .section-label {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .cards { display: flex; flex-direction: column; gap: 14px; }
+  .card {
+    display: grid;
+    grid-template-columns: 72px 90px 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 28px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .card.gold {
+    background: linear-gradient(180deg, rgba(251,191,36,0.14), rgba(251,191,36,0.04));
+    border-color: rgba(251,191,36,0.4);
+  }
+  .rank-badge { text-align: center; }
+  .medal { font-size: 56px; line-height: 1; }
+  .tool-emoji { font-size: 72px; text-align: center; line-height: 1; }
+  .tool-info { display: flex; flex-direction: column; gap: 4px; }
+  .tool-name { font-size: 40px; font-weight: 900; letter-spacing: -0.02em; }
+  .tool-vendor { font-size: 20px; color: #8a90a8; }
+  .score-col { text-align: right; }
+  .score {
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(90deg, #a78bfa, #ff5cd3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.03em;
+  }
+  .score-cap {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: #8a90a8;
+    font-weight: 700;
+  }
+
+  .axes { display: flex; flex-direction: column; gap: 18px; }
+  .axes-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #d8dcf0;
+  }
+  .axes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .axis-chip {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: #e5e7f0;
+  }
+
+  .cta-panel {
+    margin-top: auto;
+    padding: 32px 36px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(255,92,211,0.18));
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .cta-main {
+    font-size: 44px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #a78bfa, #ff5cd3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .cta-sub {
+    font-size: 24px;
+    color: #c7cbde;
+    font-weight: 600;
+  }
+</style>
