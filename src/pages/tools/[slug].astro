@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/AdSlot.astro';
 import BrandIcon from '@/components/BrandIcon.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
+import AmazonRecommendations from '@/components/AmazonRecommendations.astro';
 import { tools, getToolBySlug, getToolsByCategory } from '@/data/tools';
 import { getAffiliateUrl, getLinkRel, affiliateUrls } from '@/data/affiliate';
 import { CATEGORY_LABELS } from '@/types/tool';
@@ -205,6 +206,12 @@ const jsonLd = {
         ))}
       </div>
     </section>
+
+    <AmazonRecommendations
+      tags={[tool.slug, tool.category, ...(tool.keyFeatures ?? []).map(f => f.toLowerCase())]}
+      limit={4}
+      title="📚 このツールを使う人におすすめの本・ガジェット"
+    />
 
     <div class="mt-10 rounded-2xl border border-white/10 bg-gradient-to-br from-[#10121a] to-[#161926] p-6 text-center">
       <div class="text-sm text-[#8a90a8]">まずは試してみる</div>

@@ -6,6 +6,7 @@ import NetworkAd from '@/components/NetworkAd.astro';
 import RankingCard from '@/components/RankingCard.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
 import AmazonProductCard from '@/components/AmazonProductCard.astro';
+import AmazonRecommendations from '@/components/AmazonRecommendations.astro';
 import { getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
 import { getProduct } from '@/data/amazon';
@@ -41,6 +42,13 @@ const sponsoredRelated = related.filter((t) => Boolean(getAffiliateUrl(t.slug) ?
 const amazonRecs = (guide.data.amazonProducts ?? [])
   .map((k) => getProduct(k))
   .filter((p): p is NonNullable<ReturnType<typeof getProduct>> => Boolean(p));
+
+// レコメンド用のタグ集合（記事tags + 関連ツールのslug + カテゴリ）
+const recommendationTags = [
+  ...(guide.data.tags ?? []),
+  ...(guide.data.relatedTools ?? []),
+  guide.data.category,
+];
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -141,6 +149,12 @@ const jsonLd = {
         </div>
       </section>
     )}
+
+    <AmazonRecommendations
+      tags={recommendationTags}
+      exclude={guide.data.amazonProducts ?? []}
+      limit={4}
+    />
 
     <div class="mt-10 mb-4 flex items-center justify-between text-sm">
       <a href="/guides" class="text-[#c7cbde] hover:text-white">← ガイド一覧</a>

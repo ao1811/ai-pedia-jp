@@ -1,0 +1,50 @@
+---
+/**
+ * タグベースで関連商品を自動推薦するセクション。
+ *
+ * 使い方：
+ *   <AmazonRecommendations tags={["chatgpt", "prompt", "beginner"]} exclude={["chatgpt-strongest-work"]} />
+ *
+ * 記事タグ・関連ツール・カテゴリを結合して渡すと、近似する商品を自動選定して表示。
+ */
+import { recommendProducts } from '@/data/amazon';
+import AmazonProductCard from '@/components/AmazonProductCard.astro';
+
+type Props = {
+  tags: string[];
+  exclude?: string[];
+  limit?: number;
+  title?: string;
+  note?: string;
+};
+
+const {
+  tags,
+  exclude = [],
+  limit = 3,
+  title = '📚 この記事を読んだ人におすすめの商品',
+  note = 'タグ・関連ツールに基づく自動レコメンド（PR）',
+} = Astro.props;
+
+const recs = recommendProducts(tags, exclude, limit);
+---
+
+{recs.length > 0 && (
+  <section class="mt-8 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-base font-bold">{title}</h2>
+      <span class="text-[10px] text-[#8a90a8]">{note}</span>
+    </div>
+    <div class="mt-4 grid gap-2 sm:grid-cols-2">
+      {recs.map(({ product }) => (
+        <AmazonProductCard
+          asin={product.asin}
+          title={product.title}
+          category={product.category}
+          description={product.description}
+          priceHint={product.priceHint}
+        />
+      ))}
+    </div>
+  </section>
+)}

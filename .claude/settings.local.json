@@ -31,7 +31,8 @@
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: wire up 忍者AdMax tags for all 4 slots \\(home-rankings-mid, home-bottom, in-article-top, in-article-bottom\\) *)",
       "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"chore: set Amazon Associates tracking ID to ai-pedia-22\")",
       "WebSearch",
-      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: register 20 Amazon products and embed in 21 guide articles *)"
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: register 20 Amazon products and embed in 21 guide articles *)",
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: tag-based Amazon product recommendations + 3 Notion books *)"
     ]
   }
 }
