@@ -11,6 +11,16 @@ relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 9
 tags: ["対話AI", "比較", "ChatGPT", "Claude", "Gemini"]
 amazonProducts: ["chatgpt-strongest-work", "prompt-engineering-oreilly", "chatgpt-business-future"]
+tldr: "迷ったら ChatGPT、コーディングなら Claude、調査と業務効率なら Gemini。2026年4月時点では月3,000円クラスの1本に絞るより、用途で主従を決めて Gemini Free をサブ併用するのが最もコスパが良い。"
+faq:
+  - q: "ChatGPT・Claude・Gemini で一番日本語が自然なのは？"
+    a: "微妙なニュアンスと敬語の使い分けで ChatGPT が一歩リード。Claude は論理的な文章で強く、Gemini はビジネス検索連携時に実用水準です。"
+  - q: "エンジニアにはどれがおすすめ？"
+    a: "コード生成・大規模改修なら Claude、日常のTab補完や小規模実装なら ChatGPT、Google 系サービスとの連携なら Gemini。Claude Code と Cursor の併用が2026年の主流です。"
+  - q: "3つ全部契約するべき？"
+    a: "個人ユースなら1本に絞り、残りは無料枠でサブ利用が合理的。編集部推奨は『メイン1本＋Gemini Free』の2本運用で月3,000円に収まります。"
+  - q: "2026年現在、最も伸びているのはどれ？"
+    a: "ユーザー数の総量は ChatGPT が首位ですが、直近半年の機能アップデート速度と開発者採用率では Claude が最も伸びています。"
 ---
 
 対話型AIの市場は2026年、ついに「3強時代」の様相が固まりました。OpenAI の **ChatGPT**、Anthropic の **Claude**、Google の **Gemini** ——  いずれも一長一短があり、「とりあえず1本」で済ませると必ずどこかで不便が出ます。本記事では、編集部が半年以上にわたり各サービスを実利用した上で、8つの評価項目で徹底比較します。

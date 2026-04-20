@@ -17,6 +17,17 @@ const guides = defineCollection({
     relatedTools: z.array(z.string()).default([]),
     amazonProducts: z.array(z.string()).default([]),
     readTimeMin: z.number().default(5),
+    /** TL;DR（AIO向け：記事冒頭に結論ブロック、Speakable schema対象） */
+    tldr: z.string().optional(),
+    /** FAQ（FAQPage schema 生成、リッチリザルト対応） */
+    faq: z
+      .array(
+        z.object({
+          q: z.string(),
+          a: z.string(),
+        }),
+      )
+      .default([]),
   }),
 });
 

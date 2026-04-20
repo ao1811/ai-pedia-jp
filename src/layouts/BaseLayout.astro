@@ -4,6 +4,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import { GA4_MEASUREMENT_ID } from '@/data/analytics';
 import { ADSENSE_CLIENT } from '@/data/adsense';
+import { ORGANIZATION_SCHEMA, WEBSITE_SCHEMA, SITE } from '@/data/site';
 
 type Props = {
   title: string;
@@ -11,18 +12,46 @@ type Props = {
   canonical?: string;
   ogImage?: string;
   noIndex?: boolean;
+  /** og:type の上書き（記事なら 'article'、ホームやランキングは 'website'） */
+  ogType?: 'website' | 'article';
+  /** 記事向けメタ（ArticleSchema を使うページ） */
+  articleMeta?: {
+    publishedTime?: string;
+    modifiedTime?: string;
+    author?: string;
+    section?: string;
+    tags?: string[];
+  };
+  /** 追加JSON-LD（ページ固有のスキーマを注入） */
+  extraJsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
 
-const { title, description, canonical, ogImage, noIndex = false } = Astro.props;
-const siteName = 'AIツール比較ランキング';
-const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
-const siteUrl = Astro.site?.toString() ?? 'https://ai-pedia.jp';
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  noIndex = false,
+  ogType = 'website',
+  articleMeta,
+  extraJsonLd,
+} = Astro.props;
+
+const siteName = SITE.name;
+const fullTitle = title === siteName ? title : `${title} | ${SITE.shortName}`;
+const siteUrl = Astro.site?.toString() ?? SITE.url;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = ogImage ?? `${siteUrl}/og-default.png`;
 const adsenseClient =
   (import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined) || ADSENSE_CLIENT;
 const ga4Id =
   (import.meta.env.PUBLIC_GA4_MEASUREMENT_ID as string | undefined) || GA4_MEASUREMENT_ID;
+
+const extraSchemas = extraJsonLd
+  ? Array.isArray(extraJsonLd)
+    ? extraJsonLd
+    : [extraJsonLd]
+  : [];
 ---
 
 <!doctype html>
@@ -35,15 +64,39 @@ const ga4Id =
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    {noIndex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    )}
+    <meta name="author" content={articleMeta?.author ?? SITE.author.name} />
+    <meta name="format-detection" content="telephone=no" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={SITE.locale} />
+
+    {ogType === 'article' && articleMeta?.publishedTime && (
+      <meta property="article:published_time" content={articleMeta.publishedTime} />
+    )}
+    {ogType === 'article' && articleMeta?.modifiedTime && (
+      <meta property="article:modified_time" content={articleMeta.modifiedTime} />
+    )}
+    {ogType === 'article' && articleMeta?.author && (
+      <meta property="article:author" content={articleMeta.author} />
+    )}
+    {ogType === 'article' && articleMeta?.section && (
+      <meta property="article:section" content={articleMeta.section} />
+    )}
+    {ogType === 'article' && articleMeta?.tags && articleMeta.tags.map((t) => (
+      <meta property="article:tag" content={t} />
+    ))}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
@@ -52,8 +105,23 @@ const ga4Id =
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title="AIツール比較ランキング RSS" href="/rss.xml" />
-    <link rel="preconnect" href="https://rsms.me/" />
+
+    {/* パフォーマンス最適化 */}
+    <link rel="preconnect" href="https://rsms.me/" crossorigin />
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+    <link rel="dns-prefetch" href="https://adm.shinobi.jp" />
+    <link rel="dns-prefetch" href="https://px.a8.net" />
+    <link rel="dns-prefetch" href="https://images-na.ssl-images-amazon.com" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    {/* サイト全体の Entity（Organization + WebSite） */}
+    <script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
+    <script type="application/ld+json" set:html={JSON.stringify(WEBSITE_SCHEMA)} />
+    {extraSchemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
 
     {adsenseClient && (
       <script

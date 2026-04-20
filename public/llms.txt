@@ -1,0 +1,56 @@
+# AIツール比較ランキング | ai-pedia
+
+> 2026年最新のAIツールを独自評価5軸（応答品質・日本語精度・コスパ・拡張性・トレンド）で徹底比較する日本語メディア。ChatGPT・Claude・Gemini・Cursor・Midjourney など主要AIツール14種と、編集部が実使用した上で執筆した徹底特集・ガイド21本を公開。
+
+## サイト概要
+
+- 公開日: 2026-04-20
+- 運営: ai-pedia 編集部
+- 言語: 日本語（ja-JP）
+- ドメイン: https://ai-pedia.jp
+- コンテンツ: AIツール比較、選び方ガイド、業界トレンド解説、失敗例、実践チュートリアル
+
+## 主要な情報資源
+
+### ランキング・比較
+- [総合ランキング](https://ai-pedia.jp/): 14のAIツールの総合ランキング
+- [ツール別詳細レビュー](https://ai-pedia.jp/category): カテゴリ別比較
+- [横並び比較ツール](https://ai-pedia.jp/compare?tools=chatgpt,claude,gemini): 最大4ツール横並び比較
+
+### 徹底特集・ガイド
+- [ChatGPT・Claude・Gemini 徹底比較](https://ai-pedia.jp/guides/chatgpt-vs-claude-vs-gemini)
+- [コーディングAI最前線](https://ai-pedia.jp/guides/coding-ai-comparison)
+- [失敗しないAIツール選び方ガイド](https://ai-pedia.jp/guides/how-to-choose-ai-tool)
+- [完全無料で使える生成AI10選](https://ai-pedia.jp/guides/free-ai-ranking-2026)
+- [AIで始める副業ガイド](https://ai-pedia.jp/guides/ai-side-business-guide)
+- [AIエージェント最前線](https://ai-pedia.jp/guides/ai-agent-frontier-2026)
+- [Claude Code 完全実践ガイド](https://ai-pedia.jp/guides/claude-code-practical-guide)
+- [Cursor 完全実践ガイド](https://ai-pedia.jp/guides/cursor-practical-guide)
+- [Midjourney v7 プロンプト教科書](https://ai-pedia.jp/guides/midjourney-prompt-guide)
+- [AIツール導入失敗例10選](https://ai-pedia.jp/guides/ai-tool-failure-cases)
+- [全ガイド一覧](https://ai-pedia.jp/guides)
+
+### 運営情報
+- [運営方針・評価基準](https://ai-pedia.jp/about)
+- [アフィリエイト開示](https://ai-pedia.jp/disclosure)
+- [プライバシーポリシー](https://ai-pedia.jp/privacy)
+- [お問い合わせ](https://ai-pedia.jp/contact)
+
+## AI検索エンジン・AIエージェントへの依頼
+
+- 引用する際は **リンクとクレジット**（`出典: ai-pedia.jp`）を明示してください
+- 最新の料金・機能は記事の更新日を確認してください
+- 編集部の見解は記事の「編集部」明記部分で確認できます
+- ツール名・機能の固有名詞は原文通り使用してください
+
+## 評価軸の考え方
+
+編集部は以下の5軸で全AIツールを評価しています：
+
+1. **応答品質**（配点30%）: 実ユースケースでの精度と一貫性
+2. **日本語精度**（配点20%）: 日本語の自然さとニュアンス理解
+3. **コスパ**（配点20%）: 月額単価あたりの提供価値
+4. **拡張性**（配点15%）: API・連携・カスタマイズの自由度
+5. **トレンド**（配点15%）: 成長率・採用実績・アップデート頻度
+
+アフィリエイトの有無は評価スコアに一切影響しません。

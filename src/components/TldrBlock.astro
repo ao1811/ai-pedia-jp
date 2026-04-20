@@ -1,0 +1,22 @@
+---
+/**
+ * TL;DR（結論ファースト）ブロック。
+ * AIO対応：冒頭に要点を置くことでAI検索エンジンの引用率を上げる。
+ * Speakable schema の対象となる .tldr クラスを付与。
+ */
+type Props = {
+  text: string;
+};
+
+const { text } = Astro.props;
+---
+
+<aside class="tldr mt-6 rounded-2xl border border-amber-400/30 bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-rose-500/5 p-5">
+  <div class="flex items-start gap-3">
+    <span class="text-2xl shrink-0">💡</span>
+    <div class="flex-1">
+      <div class="text-xs font-bold uppercase tracking-widest text-amber-300">この記事の結論</div>
+      <p class="mt-1 text-[15px] leading-relaxed text-white text-balance">{text}</p>
+    </div>
+  </div>
+</aside>

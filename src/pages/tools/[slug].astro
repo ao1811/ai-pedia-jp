@@ -9,6 +9,7 @@ import RelatedGuides from '@/components/RelatedGuides.astro';
 import { tools, getToolBySlug, getToolsByCategory } from '@/data/tools';
 import { getAffiliateUrl, getLinkRel, affiliateUrls } from '@/data/affiliate';
 import { CATEGORY_LABELS } from '@/types/tool';
+import { SITE } from '@/data/site';
 
 export function getStaticPaths() {
   return tools.map((t) => ({ params: { slug: t.slug } }));
@@ -38,13 +39,25 @@ const crossSellSlug = !isAffiliate
     Object.keys(affiliateUrls).find((k) => affiliateUrls[k])
   : undefined;
 
-// JSON-LD (SEO)
+const toolUrl = `${SITE.url}/tools/${tool.slug}`;
+
+// Product + SoftwareApplication 統合スキーマ（Google リッチリザルト最大化）
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
+  '@type': ['SoftwareApplication', 'Product'],
+  '@id': `${toolUrl}#product`,
   name: tool.name,
+  alternateName: tool.vendor,
+  description: tool.description,
+  url: tool.officialUrl,
+  image: `${SITE.url}/favicon.svg`,
   applicationCategory: cat.ja,
+  applicationSubCategory: tool.subCategories?.map((s) => CATEGORY_LABELS[s]?.ja).filter(Boolean),
   operatingSystem: 'Web',
+  inLanguage: 'ja-JP',
+  datePublished: `${tool.launchedYear}-01-01`,
+  brand: { '@type': 'Brand', name: tool.vendor },
+  featureList: tool.keyFeatures,
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: tool.rating,
@@ -52,17 +65,53 @@ const jsonLd = {
     bestRating: 5,
     worstRating: 0,
   },
-  offers: tool.pricing.map((p) => ({
-    '@type': 'Offer',
-    name: p.name,
-    price: p.amount,
-    priceCurrency: p.currency,
-  })),
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'JPY',
+    lowPrice: Math.min(...tool.pricing.map((p) => p.amount)) || 0,
+    highPrice: Math.max(...tool.pricing.map((p) => p.amount)) || 0,
+    offerCount: tool.pricing.length,
+    offers: tool.pricing.map((p) => ({
+      '@type': 'Offer',
+      name: p.name,
+      price: p.amount,
+      priceCurrency: p.currency,
+      availability: 'https://schema.org/InStock',
+      url: ctaUrl,
+    })),
+  },
+  publisher: { '@id': `${SITE.url}/#organization` },
+};
+
+// Review schema（編集部による評価）
+const reviewLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  '@id': `${toolUrl}#review`,
+  itemReviewed: { '@id': `${toolUrl}#product` },
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: tool.rating,
+    bestRating: 5,
+    worstRating: 0,
+  },
+  author: {
+    '@type': 'Organization',
+    name: SITE.author.name,
+    url: SITE.author.url,
+  },
+  reviewBody: tool.tagline,
+  positiveNotes: { '@type': 'ItemList', itemListElement: tool.pros.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p })) },
+  negativeNotes: { '@type': 'ItemList', itemListElement: tool.cons.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c })) },
 };
 ---
 
-<BaseLayout title={`${tool.name} レビュー・料金・評判`} description={description}>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<BaseLayout
+  title={`${tool.name} レビュー・料金・評判`}
+  description={description}
+  ogType="article"
+  extraJsonLd={[jsonLd, reviewLd]}
+>
 
   <article class="mx-auto max-w-5xl px-4 sm:px-6 pt-6">
     <Breadcrumbs

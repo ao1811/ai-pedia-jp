@@ -11,6 +11,14 @@ relatedTools: ["claude-code", "claude"]
 readTimeMin: 10
 tags: ["Claude Code", "CLI", "開発", "エンジニア"]
 amazonProducts: ["claude-code-ai-driven", "claude-code-practical", "claude-code-nonengineer"]
+tldr: "Claude Code はターミナル常駐の自律型AIエージェント。CLAUDE.md + サブエージェント + Hooks の3点セットを使いこなすと開発生産性が3倍に。導入30分、習得1週間、熟達1ヶ月で効果が出ます。"
+faq:
+  - q: "Claude Code と Cursor どちらがいい？"
+    a: "用途で使い分けがベスト。Claude Code は大規模改修・自律タスクに、Cursor は日常のコード書き込みに強み。両方併用する開発者が増加中です。"
+  - q: "CLAUDE.md には何を書く？"
+    a: "プロジェクトのアーキテクチャ方針、コーディングルール、禁止事項、使用ライブラリのバージョンなど。全セッションで自動読み込みされるので、この品質が AI 出力の品質を決定します。"
+  - q: "導入コストは？"
+    a: "Pro プラン ¥3,000/月で個人開発なら十分。ヘビー利用者向けの Max ¥15,000/月、API 従量制もあります。無料プランはありません。"
 ---
 
 Claude Code はエンジニアの生産性を根本から変えるツールですが、**CLI ベースで学習曲線がある**ため、最初の1週間で挫折する人が少なくありません。本記事では編集部エンジニアが実運用で得た知見をもとに、**インストールから自律型開発フローまでの最短経路**を解説します。

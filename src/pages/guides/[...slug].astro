@@ -10,9 +10,12 @@ import AmazonRecommendations from '@/components/AmazonRecommendations.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 import RelatedGuides from '@/components/RelatedGuides.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import TldrBlock from '@/components/TldrBlock.astro';
+import FaqSection from '@/components/FaqSection.astro';
 import { getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
 import { getProduct } from '@/data/amazon';
+import { SITE } from '@/data/site';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -53,24 +56,83 @@ const recommendationTags = [
   guide.data.category,
 ];
 
-const jsonLd = {
+const publishedIso = guide.data.publishedAt.toISOString();
+const modifiedIso = (guide.data.updatedAt ?? guide.data.publishedAt).toISOString();
+const guideUrl = `${SITE.url}/guides/${guide.id}`;
+
+// メインの Article schema
+const articleLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': guide.data.category === 'howto' ? 'HowTo' : 'Article',
+  '@id': `${guideUrl}#article`,
   headline: guide.data.title,
   description: guide.data.description,
-  datePublished: guide.data.publishedAt.toISOString(),
-  dateModified: (guide.data.updatedAt ?? guide.data.publishedAt).toISOString(),
-  author: { '@type': 'Organization', name: guide.data.author },
-  publisher: {
+  datePublished: publishedIso,
+  dateModified: modifiedIso,
+  inLanguage: 'ja-JP',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': guideUrl },
+  author: {
     '@type': 'Organization',
-    name: 'AIツール比較ランキング',
+    name: guide.data.author,
+    url: `${SITE.url}/about`,
+  },
+  publisher: { '@id': `${SITE.url}/#organization` },
+  keywords: (guide.data.tags ?? []).join(', '),
+  articleSection: guide.data.category,
+  wordCount: undefined, // optional
+  // TL;DR を Speakable 対象に（音声検索・AI Overviews 引用対象）
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['.tldr', 'h1', 'h2'],
   },
 };
+
+// HowTo の場合：headings の H2 をステップとして定義
+if (guide.data.category === 'howto') {
+  const steps = headings
+    .filter((h) => h.depth === 2)
+    .map((h, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: h.text,
+      url: `${guideUrl}#${h.slug}`,
+    }));
+  if (steps.length > 0) {
+    articleLd.step = steps;
+  }
+}
+
+// FAQ があれば FAQPage schema を追加
+const faqLd =
+  (guide.data.faq ?? []).length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        '@id': `${guideUrl}#faq`,
+        mainEntity: (guide.data.faq ?? []).map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : null;
+
+const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
 ---
 
-<BaseLayout title={guide.data.title} description={guide.data.description}>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
+<BaseLayout
+  title={guide.data.title}
+  description={guide.data.description}
+  ogType="article"
+  articleMeta={{
+    publishedTime: publishedIso,
+    modifiedTime: modifiedIso,
+    author: guide.data.author,
+    section: CATEGORY_JA[guide.data.category] ?? guide.data.category,
+    tags: guide.data.tags,
+  }}
+  extraJsonLd={extraLd}
+>
   <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6">
     <Breadcrumbs
       items={[
@@ -103,6 +165,8 @@ const jsonLd = {
       </div>
     </header>
 
+    {guide.data.tldr && <TldrBlock text={guide.data.tldr} />}
+
     <TableOfContents headings={headings} />
 
     <AdSlot slot="in-article-top" className="my-8" />
@@ -129,6 +193,8 @@ const jsonLd = {
         ))}
       </div>
     )}
+
+    <FaqSection items={guide.data.faq ?? []} />
 
     {sponsoredRelated.slice(1, 3).map((t) => (
       <SponsoredCTA slug={t.slug} variant="compact" />

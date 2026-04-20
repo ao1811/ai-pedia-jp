@@ -11,6 +11,14 @@ relatedTools: ["value-ai-writer", "chatgpt", "claude", "gemini"]
 readTimeMin: 10
 tags: ["ライティング", "SEO", "副業", "ブログ"]
 amazonProducts: ["prompt-beginner", "prompt-midjourney-intro", "note-ai-sidework"]
+tldr: "SEO記事量産なら Value AI Writer（¥1,650/月〜）、品質重視なら ChatGPT Plus か Claude Pro。個人ブロガーは Value AI Writer + ChatGPT Free のハイブリッドで月3,000円に収まります。"
+faq:
+  - q: "AIで書いた記事はSEOに不利？"
+    a: "AI生成自体は不利ではありません。ただし独自の視点・経験を30%以上追加し、事実確認を徹底することが必須。量産のみのAI記事はGoogleのScaled Content Abuses対象です。"
+  - q: "Value AI Writer と ChatGPT はどう違う？"
+    a: "Value AI Writer はSEO記事量産に特化した国産ツール（キーワード→見出し→本文自動生成）。ChatGPT は汎用で日本語の自然さ最強。ブログ量産は Value AI Writer、品質重視は ChatGPT が最適です。"
+  - q: "文賢はどう使う？"
+    a: "AI生成記事の校正・最終チェックに特化。AI が書いた原稿の誤用・冗長表現・読点の打ち方を修正提案してくれます。ライティング工程の最後に噛ませるのが効果的です。"
 ---
 
 AI で記事を書く時代は、もはや「書ける／書けない」ではなく「**どのツールが自分の用途に最適か**」の選択戦へ。特に SEO 記事・アフィリエイト記事・副業ブログでは、選ぶツールで生産性に2〜3倍の差が生まれます。本記事では実務で1か月以上使った6本を徹底比較しました。

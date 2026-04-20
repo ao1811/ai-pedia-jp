@@ -11,6 +11,14 @@ relatedTools: ["cursor", "claude-code", "github-copilot", "v0"]
 readTimeMin: 10
 tags: ["コーディング", "開発", "AI", "Cursor", "Copilot"]
 amazonProducts: ["claude-code-ai-driven", "llm-prompt-github"]
+tldr: "個人開発・フロントエンドなら Cursor、大規模リファクタ・CLI派なら Claude Code、チーム開発なら GitHub Copilot、UIプロトなら v0。月額$20前後で併用するのが2026年の王道です。"
+faq:
+  - q: "Cursor と Claude Code は併用すべき？"
+    a: "はい。Cursor で日常の書き込み、Claude Code で大きな改修タスクという使い分けが現場では一般的です。"
+  - q: "GitHub Copilot だけで十分？"
+    a: "企業導入やIDE継続派には十分。ただし最新モデルの採用速度やエージェント機能では Cursor / Claude Code に劣ります。"
+  - q: "v0 はどう使い分ける？"
+    a: "UI のプロトタイプ制作・LP 作成に特化。自然言語から Next.js コンポーネントを即生成できるため、デザインからコード化のフェーズを一気に短縮できます。"
 ---
 
 2026年、ソフトウェア開発の現場は「AIを使わない選択肢がない」時代に突入しました。Cursor・Claude Code・GitHub Copilot・v0 という4本柱の特徴と棲み分けを、編集部エンジニアが現場目線で比較します。
