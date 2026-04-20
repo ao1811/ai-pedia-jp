@@ -1,0 +1,77 @@
+---
+/**
+ * タグ一致でスコアリングした関連ガイドをカード表示。
+ * 記事末尾に置く想定で、内部回遊率を上げて滞在時間と PV を増やす狙い。
+ */
+import { getCollection } from 'astro:content';
+
+type Props = {
+  currentSlug: string;
+  tags: string[];
+  category?: string;
+  limit?: number;
+};
+
+const { currentSlug, tags, category, limit = 4 } = Astro.props;
+
+const CATEGORY_JA: Record<string, string> = {
+  comparison: '比較',
+  howto: 'How-to',
+  guide: 'ガイド',
+  review: 'レビュー',
+  trend: 'トレンド',
+};
+
+const all = await getCollection('guides');
+const scored = all
+  .filter((g) => g.id !== currentSlug)
+  .map((g) => {
+    let score = 0;
+    if (category && g.data.category === category) score += 15;
+    for (const t of g.data.tags ?? []) {
+      if (tags.includes(t)) score += 10;
+    }
+    for (const rt of g.data.relatedTools ?? []) {
+      if (tags.includes(rt)) score += 5;
+    }
+    if (g.data.featured) score += 2;
+    return { guide: g, score };
+  })
+  .filter((s) => s.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, limit);
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+{scored.length > 0 && (
+  <section class="mt-12">
+    <div class="mb-4 flex items-baseline justify-between">
+      <h2 class="text-base font-bold">🔗 関連する徹底特集</h2>
+      <a href="/guides" class="text-xs text-[#8a90a8] hover:text-white">すべて見る →</a>
+    </div>
+    <div class="grid gap-3 sm:grid-cols-2">
+      {scored.map(({ guide: g }) => (
+        <a
+          href={`/guides/${g.id}`}
+          class="group relative overflow-hidden rounded-xl border border-white/5 bg-[#10121a]/80 p-4 card-hover"
+        >
+          <div class={`absolute -right-8 -top-8 h-20 w-20 rounded-full bg-gradient-to-br ${g.data.heroGradient} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity`}></div>
+          <div class="relative flex items-start gap-3">
+            <span class="text-2xl shrink-0">{g.data.heroEmoji}</span>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-wider text-[#8a90a8]">
+                <span>{CATEGORY_JA[g.data.category] ?? g.data.category}</span>
+                <span>·</span>
+                <span>{g.data.readTimeMin}分</span>
+              </div>
+              <h3 class="mt-1 text-sm font-bold tracking-tight text-white line-clamp-2">{g.data.title}</h3>
+              <p class="mt-1 text-[12px] text-[#8a90a8] line-clamp-2">{g.data.description}</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

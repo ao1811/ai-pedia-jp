@@ -1,0 +1,37 @@
+---
+/**
+ * ガイド記事の目次。H2/H3 の見出しから自動生成。
+ * 読了率・滞在時間・アンカー被リンクの獲得に寄与。
+ */
+import type { MarkdownHeading } from 'astro';
+
+type Props = {
+  headings: MarkdownHeading[];
+};
+
+const { headings } = Astro.props;
+const filtered = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{filtered.length >= 3 && (
+  <aside class="mt-6 rounded-2xl border border-white/5 bg-[#10121a]/80 p-5">
+    <div class="mb-3 flex items-center gap-2 text-sm font-bold">
+      <span class="text-amber-300">📑</span>
+      <span>目次</span>
+      <span class="text-[10px] text-[#8a90a8]">（クリックで該当箇所へ）</span>
+    </div>
+    <ol class="space-y-1 text-sm">
+      {filtered.map((h, i) => (
+        <li class={h.depth === 3 ? 'ml-4 text-[13px]' : ''}>
+          <a
+            href={`#${h.slug}`}
+            class={`hover:text-amber-300 transition ${h.depth === 2 ? 'text-[#e6e8ef] font-medium' : 'text-[#c7cbde]'}`}
+          >
+            {h.depth === 2 && <span class="text-[10px] text-[#8a90a8] mr-2">{String(i + 1).padStart(2, '0')}</span>}
+            {h.text}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </aside>
+)}

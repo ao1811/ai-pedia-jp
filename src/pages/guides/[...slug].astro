@@ -7,6 +7,9 @@ import RankingCard from '@/components/RankingCard.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
 import AmazonProductCard from '@/components/AmazonProductCard.astro';
 import AmazonRecommendations from '@/components/AmazonRecommendations.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+import RelatedGuides from '@/components/RelatedGuides.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
 import { getProduct } from '@/data/amazon';
@@ -69,13 +72,13 @@ const jsonLd = {
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6">
-    <nav class="text-xs text-[#8a90a8]">
-      <a href="/" class="hover:text-white">ホーム</a>
-      <span class="mx-1.5">/</span>
-      <a href="/guides" class="hover:text-white">ガイド</a>
-      <span class="mx-1.5">/</span>
-      <span class="text-[#c7cbde] line-clamp-1">{guide.data.title}</span>
-    </nav>
+    <Breadcrumbs
+      items={[
+        { label: 'ホーム', href: '/' },
+        { label: '徹底特集', href: '/guides' },
+        { label: guide.data.title },
+      ]}
+    />
 
     <header class="mt-6 overflow-hidden rounded-3xl border border-white/10 relative">
       <div class={`absolute inset-0 bg-gradient-to-br ${guide.data.heroGradient} opacity-30`}></div>
@@ -100,6 +103,8 @@ const jsonLd = {
       </div>
     </header>
 
+    <TableOfContents headings={headings} />
+
     <AdSlot slot="in-article-top" className="my-8" />
     <NetworkAd slot="in-article-top" provider="ninja" className="my-4" />
 
@@ -110,6 +115,20 @@ const jsonLd = {
     <div class="prose-ai mt-8">
       <Content />
     </div>
+
+    {(guide.data.tags ?? []).length > 0 && (
+      <div class="mt-8 flex flex-wrap gap-2">
+        <span class="text-xs text-[#8a90a8]">🏷️ タグ:</span>
+        {guide.data.tags.map((t) => (
+          <a
+            href={`/tags/${encodeURIComponent(t)}`}
+            class="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[11px] text-[#c7cbde] hover:bg-white/10 transition"
+          >
+            {t}
+          </a>
+        ))}
+      </div>
+    )}
 
     {sponsoredRelated.slice(1, 3).map((t) => (
       <SponsoredCTA slug={t.slug} variant="compact" />
@@ -153,6 +172,13 @@ const jsonLd = {
     <AmazonRecommendations
       tags={recommendationTags}
       exclude={guide.data.amazonProducts ?? []}
+      limit={4}
+    />
+
+    <RelatedGuides
+      currentSlug={guide.id}
+      tags={[...(guide.data.tags ?? []), ...(guide.data.relatedTools ?? [])]}
+      category={guide.data.category}
       limit={4}
     />
 

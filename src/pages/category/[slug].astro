@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import RankingCard from '@/components/RankingCard.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { getToolsByCategory } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
 import { CATEGORY_LABELS, type Category } from '@/types/tool';
@@ -27,13 +28,13 @@ const bottomPart = list.slice(3);
 
 <BaseLayout title={`${cat.ja} AIツールランキング`} description={description}>
   <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10">
-    <nav class="text-xs text-[#8a90a8]">
-      <a href="/" class="hover:text-white">ホーム</a>
-      <span class="mx-1.5">/</span>
-      <a href="/category" class="hover:text-white">カテゴリ</a>
-      <span class="mx-1.5">/</span>
-      <span class="text-[#c7cbde]">{cat.ja}</span>
-    </nav>
+    <Breadcrumbs
+      items={[
+        { label: 'ホーム', href: '/' },
+        { label: 'カテゴリ', href: '/category' },
+        { label: cat.ja },
+      ]}
+    />
 
     <div class="mt-6">
       <div class="flex items-center gap-3">

@@ -1,0 +1,46 @@
+---
+/**
+ * パンくずリスト（見た目＋JSON-LD schema）。
+ * Google リッチリザルト対応でSEO効果。
+ */
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
+};
+
+type Props = {
+  items: BreadcrumbItem[];
+};
+
+const { items } = Astro.props;
+const siteUrl = Astro.site?.toString() ?? 'https://ai-pedia.jp';
+const fullUrl = (href?: string) => (href ? new URL(href, siteUrl).toString() : undefined);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.label,
+    ...(it.href ? { item: fullUrl(it.href) } : {}),
+  })),
+};
+---
+
+<nav aria-label="パンくずリスト" class="text-xs text-[#8a90a8]">
+  <ol class="flex flex-wrap items-center gap-1.5">
+    {items.map((it, i) => (
+      <li class="flex items-center gap-1.5">
+        {it.href ? (
+          <a href={it.href} class="hover:text-white">{it.label}</a>
+        ) : (
+          <span class="text-[#c7cbde]">{it.label}</span>
+        )}
+        {i < items.length - 1 && <span>/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

@@ -220,6 +220,116 @@ export const amazonProducts: Record<string, AmazonProduct> = {
     priority: 55,
   },
 
+  // === AI画像生成・デザイン ===
+  'ai-illustration-guide': {
+    asin: '4798071307',
+    title: 'プログラミング知識ゼロでもわかる プロンプトエンジニアリング入門（イラスト活用）',
+    category: '画像生成AI本',
+    description: '画像生成AIの活用を実例ベースで解説。',
+    priceHint: '¥2,310',
+    tags: ['image-generation', 'prompt', 'midjourney', 'book', 'beginner', 'design'],
+    priority: 55,
+  },
+
+  // === AIキャリア・転職 ===
+  'ai-engineer-roadmap': {
+    asin: '4297152754',
+    title: 'AIエンジニアへのロードマップ（Claude Code実践）',
+    category: 'エンジニア本',
+    description: 'AIエンジニアを目指す人のキャリア指南書。',
+    priceHint: '¥2,860',
+    tags: ['engineer', 'career', 'coding', 'ai', 'book', 'claude-code'],
+    priority: 55,
+  },
+
+  // === AIマーケティング ===
+  'ai-marketing': {
+    asin: '4046077735',
+    title: 'AI×マーケティングの最強活用術',
+    category: 'AIマーケティング',
+    description: 'AIを使ったマーケティング戦略を体系化。',
+    priceHint: '¥1,760',
+    tags: ['marketing', 'ai', 'business', 'book', 'seo'],
+    priority: 50,
+  },
+
+  // === プログラミング・開発 ===
+  'llm-application-dev': {
+    asin: '4814401132',
+    title: 'LLMアプリケーション開発の実践（Copilot作者が解説）',
+    category: '開発本',
+    description: 'GitHub Copilotを生んだ開発者による生成AIアプリ開発の決定版。',
+    priceHint: '¥3,520',
+    tags: ['llm', 'development', 'coding', 'engineer', 'book', 'github', 'copilot'],
+    priority: 70,
+  },
+
+  // === ChatGPT×業務効率 ===
+  'chatgpt-business-productivity': {
+    asin: '4866802367',
+    title: 'ChatGPT業務効率化の教科書',
+    category: '業務効率化',
+    description: 'ChatGPTで業務を自動化する具体的手法。',
+    priceHint: '¥1,760',
+    tags: ['chatgpt', 'productivity', 'business', 'book', 'automation'],
+    priority: 65,
+  },
+
+  // === AI議事録・会議 ===
+  'notion-meeting-book': {
+    asin: '4863543913',
+    title: 'Notion×AI議事録完全ガイド',
+    category: '議事録効率化',
+    description: 'Notion AI とAI議事録ツールで会議を劇的効率化。',
+    priceHint: '¥2,200',
+    tags: ['notion', 'meeting', 'transcription', 'productivity', 'book'],
+    priority: 60,
+  },
+
+  // === AI思考法・発想 ===
+  'ai-idea-techniques': {
+    asin: '4478119481',
+    title: 'AI活用発想術56の技法',
+    category: 'AI活用書',
+    description: 'アイデア発想にAIを使うための技法を56パターン解説。',
+    priceHint: '¥1,980',
+    tags: ['ai', 'thinking', 'idea', 'productivity', 'book', 'creative'],
+    priority: 55,
+  },
+
+  // === AI勉強法・学習 ===
+  'ai-learning-roadmap': {
+    asin: '4046071877',
+    title: 'AI初心者のための学習ロードマップ',
+    category: 'AI学習',
+    description: '超初心者がAIで稼げるようになるための学習順序を体系化。',
+    priceHint: '¥1,650',
+    tags: ['ai', 'learning', 'beginner', 'side-business', 'book', 'roadmap'],
+    priority: 60,
+  },
+
+  // === AI×Web制作 ===
+  'ai-web-production': {
+    asin: '4295017922',
+    title: 'AIで実現する高速Webサイト制作',
+    category: 'Web制作',
+    description: 'AIツールを使ったWeb制作の最短ルート。',
+    priceHint: '¥1,980',
+    tags: ['web', 'design', 'ai', 'midjourney', 'book', 'creator'],
+    priority: 55,
+  },
+
+  // === AI×英語学習 ===
+  'ai-english-learning': {
+    asin: '4295013358',
+    title: 'ChatGPT×英語学習 新しい勉強法',
+    category: '英語学習',
+    description: 'ChatGPTを英語学習に活用する実践手法。',
+    priceHint: '¥2,200',
+    tags: ['chatgpt', 'english', 'learning', 'book', 'ai'],
+    priority: 50,
+  },
+
   // === ガジェット（AIボイスレコーダー） ===
   'plaud-note': {
     asin: 'B0D1XZWHD6',

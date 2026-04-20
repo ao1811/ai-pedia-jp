@@ -32,7 +32,9 @@
       "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"chore: set Amazon Associates tracking ID to ai-pedia-22\")",
       "WebSearch",
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: register 20 Amazon products and embed in 21 guide articles *)",
-      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: tag-based Amazon product recommendations + 3 Notion books *)"
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: tag-based Amazon product recommendations + 3 Notion books *)",
+      "Bash(npm install *)",
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: full SEO/UX upgrade - TOC, RelatedGuides, tag pages, breadcrumbs, RSS, GA4, 10 more Amazon products *)"
     ]
   }
 }

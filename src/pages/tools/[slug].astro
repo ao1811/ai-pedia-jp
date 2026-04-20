@@ -4,6 +4,8 @@ import AdSlot from '@/components/AdSlot.astro';
 import BrandIcon from '@/components/BrandIcon.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
 import AmazonRecommendations from '@/components/AmazonRecommendations.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import RelatedGuides from '@/components/RelatedGuides.astro';
 import { tools, getToolBySlug, getToolsByCategory } from '@/data/tools';
 import { getAffiliateUrl, getLinkRel, affiliateUrls } from '@/data/affiliate';
 import { CATEGORY_LABELS } from '@/types/tool';
@@ -63,13 +65,13 @@ const jsonLd = {
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <article class="mx-auto max-w-5xl px-4 sm:px-6 pt-6">
-    <nav class="text-xs text-[#8a90a8]">
-      <a href="/" class="hover:text-white">ホーム</a>
-      <span class="mx-1.5">/</span>
-      <a href={`/category/${tool.category}`} class="hover:text-white">{cat.ja}</a>
-      <span class="mx-1.5">/</span>
-      <span class="text-[#c7cbde]">{tool.name}</span>
-    </nav>
+    <Breadcrumbs
+      items={[
+        { label: 'ホーム', href: '/' },
+        { label: cat.ja, href: `/category/${tool.category}` },
+        { label: tool.name },
+      ]}
+    />
 
     <header class="mt-6 overflow-hidden rounded-3xl border border-white/10 relative">
       <div class={`absolute inset-0 bg-gradient-to-br ${tool.accentGradient} opacity-25`}></div>
@@ -211,6 +213,12 @@ const jsonLd = {
       tags={[tool.slug, tool.category, ...(tool.keyFeatures ?? []).map(f => f.toLowerCase())]}
       limit={4}
       title="📚 このツールを使う人におすすめの本・ガジェット"
+    />
+
+    <RelatedGuides
+      currentSlug=""
+      tags={[tool.slug, tool.category, ...(tool.subCategories ?? [])]}
+      limit={4}
     />
 
     <div class="mt-10 rounded-2xl border border-white/10 bg-gradient-to-br from-[#10121a] to-[#161926] p-6 text-center">
