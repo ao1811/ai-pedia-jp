@@ -1,0 +1,35 @@
+---
+/**
+ * 記事読了率を画面上部にバー表示。
+ * スクロール量に応じてグラデーションが進行する。ピュアJSで軽量。
+ */
+---
+
+<div
+  id="reading-progress"
+  class="fixed left-0 top-0 z-[60] h-1 w-0 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-orange-500 transition-[width] duration-75 pointer-events-none"
+  aria-hidden="true"
+></div>
+
+<script is:inline>
+  (function () {
+    const bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    let ticking = false;
+    function update() {
+      const doc = document.documentElement;
+      const scrollTop = window.scrollY;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? Math.min(100, (scrollTop / scrollHeight) * 100) : 0;
+      bar.style.width = pct + '%';
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    update();
+  })();
+</script>

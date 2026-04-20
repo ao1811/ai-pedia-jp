@@ -8,9 +8,12 @@ const pathname = Astro.url.pathname;
 <header class="sticky top-0 z-50 glass">
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <div class="flex h-14 items-center justify-between">
-      <a href="/" class="flex items-center gap-2 font-bold tracking-tight">
+      <a href="/" class="flex items-center gap-2.5 font-bold tracking-tight">
         <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 text-sm">✦</span>
-        <span class="text-[15px] sm:text-base">AIツール比較ランキング</span>
+        <span class="flex flex-col leading-tight">
+          <span class="text-base sm:text-lg font-extrabold bg-gradient-to-r from-violet-300 via-fuchsia-300 to-orange-200 bg-clip-text text-transparent">AIpedia</span>
+          <span class="hidden sm:inline text-[10px] font-normal text-[#8a90a8] tracking-normal">AIツール比較ランキング</span>
+        </span>
       </a>
       <nav class="hidden md:flex items-center gap-1 text-sm">
         <a href="/" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname === '/' ? 'text-white' : 'text-[#8a90a8]'}`}>総合</a>
@@ -18,10 +21,16 @@ const pathname = Astro.url.pathname;
         <a href="/guides" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname.startsWith('/guides') ? 'text-white' : 'text-[#8a90a8]'}`}>徹底特集</a>
         <a href="/about" class={`px-3 py-1.5 rounded-md hover:bg-white/5 ${pathname === '/about' ? 'text-white' : 'text-[#8a90a8]'}`}>運営方針</a>
       </nav>
-      <a href="/" class="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-[#8a90a8] hover:text-white hover:bg-white/10">
-        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
-        2026年4月版
-      </a>
+      <div class="flex items-center gap-2">
+        <a href="/search" class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-[#c7cbde] hover:text-white hover:bg-white/10" aria-label="サイト内検索">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <span class="hidden sm:inline">検索</span>
+        </a>
+        <a href="/" class="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-[#8a90a8] hover:text-white hover:bg-white/10">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+          2026年4月版
+        </a>
+      </div>
     </div>
     <nav class="flex items-center gap-1 overflow-x-auto pb-3 pt-1 text-xs md:text-[13px] scrollbar-hide" style="scrollbar-width: none;">
       <a href="/" class={`shrink-0 rounded-full border px-3 py-1.5 transition ${pathname === '/' ? 'border-white/20 bg-white/10 text-white' : 'border-white/5 bg-white/[0.02] text-[#8a90a8] hover:text-white hover:border-white/10'}`}>

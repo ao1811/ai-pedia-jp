@@ -5,7 +5,7 @@ import type { APIContext } from 'astro';
 export async function GET(context: APIContext) {
   const guides = await getCollection('guides');
   return rss({
-    title: 'AIツール比較ランキング | ai-pedia',
+    title: 'AIpedia｜AIツール比較ランキング',
     description:
       'ChatGPT・Claude・Gemini 等の主要AIツールを独自評価5軸で徹底比較。初心者の選び方から業務導入まで。',
     site: context.site?.toString() ?? 'https://ai-pedia.jp',

@@ -11,6 +11,14 @@ relatedTools: ["perplexity", "gemini", "chatgpt"]
 readTimeMin: 7
 tags: ["AI検索", "Perplexity", "リサーチ", "情報収集"]
 amazonProducts: ["prompt-beginner", "ai-thinking-techniques"]
+tldr: "裏取り・引用元が必要なら Perplexity、最新情報・公式サイト直行・画像検索は Google。両者は競合ではなく補完関係。Perplexity Pro が必要なのは毎日10回以上の調査業務ユーザー限定。"
+faq:
+  - q: "Perplexity は Google の代わりになる？"
+    a: "深い調査と裏取りでは Perplexity 優位、速報・公式サイト直行・画像検索では Google 優位。両方使い分けるのが正解です。"
+  - q: "Perplexity Pro は無料版と何が違う？"
+    a: "Deep Research 無制限、複数モデル選択、ファイル解析など。個人で毎日10回以上の調査をするなら Pro、たまの調べ物なら無料版で十分です。"
+  - q: "AEO（Answer Engine Optimization）とは？"
+    a: "AI検索時代のSEO。Perplexity・Google SGE・ChatGPT SearchなどのAIが引用しやすいコンテンツ構造を作ることで、従来SEOと並行して重要性が上がっています。"
 ---
 
 「Google 検索は古い、これからは AI検索だ」——こう煽る言説を見かけますが、実務で使うと **Perplexity と Google は補完関係**にあります。本記事では両者の本当の使い分けを、リサーチ業務10年以上の編集部員が解説します。

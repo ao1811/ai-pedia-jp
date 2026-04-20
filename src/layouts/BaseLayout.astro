@@ -38,7 +38,8 @@ const {
 } = Astro.props;
 
 const siteName = SITE.name;
-const fullTitle = title === siteName ? title : `${title} | ${SITE.shortName}`;
+const fullTitle =
+  title === siteName || title.includes('AIpedia') ? title : `${title} | ${SITE.name}`;
 const siteUrl = Astro.site?.toString() ?? SITE.url;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = ogImage ?? `${siteUrl}/og-default.png`;

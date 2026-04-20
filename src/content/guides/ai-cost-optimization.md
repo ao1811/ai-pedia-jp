@@ -11,6 +11,14 @@ relatedTools: ["chatgpt", "gemini", "claude", "perplexity"]
 readTimeMin: 6
 tags: ["コスト", "節約", "コスパ"]
 amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
+tldr: "AIツール課金の3原則は「無料枠の実力を信じる」「中位プランで止める」「年1回解約候補を整理」。編集部の実例では月¥19,400の重課金を ¥7,500まで削減、年間¥142,800を節約しました。"
+faq:
+  - q: "無料枠だけで本当に仕事になる？"
+    a: "ライターやマーケターの多くはGemini Free・ChatGPT Free・Perplexity Freeの3本コンボで業務の8割を回せます。編集部にも無料コンボ運用者がいます。"
+  - q: "ChatGPT Pro（¥30,000/月）は必要？"
+    a: "動画生成（Sora）を毎日使うヘビー利用者、API開発者、Deep Research 無制限が必要な調査員以外は Plus（¥3,000）で十分です。"
+  - q: "見直しの頻度は？"
+    a: "月1回、契約中のプランを棚卸しするのが理想。年額払いは更新タイミングを狙って解約判断を。"
 ---
 
 AI ツールへの月額支払いが、気づけば 1 万円を超えている人が増えています。編集部も一時期 ChatGPT Plus + Claude Pro + Gemini Advanced + Midjourney + Perplexity Pro + Cursor Pro と重課金していました。**本当に必要な機能だけを厳選し、年間 10 万円削減した実例**を公開します。

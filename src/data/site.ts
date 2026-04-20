@@ -4,14 +4,17 @@
  */
 
 export const SITE = {
-  name: 'AIツール比較ランキング | ai-pedia',
-  shortName: 'ai-pedia',
+  /** メインタイトル */
+  name: 'AIpedia',
+  /** サブタイトル（サイト説明として併記） */
+  tagline: 'AIツール比較ランキング',
+  shortName: 'AIpedia',
   url: 'https://ai-pedia.jp',
   description:
     'ChatGPT・Claude・Gemini など主要AIツールを独自評価5軸（応答品質・日本語精度・コスパ・拡張性・トレンド）で徹底比較。初心者の選び方から業務導入まで、最適な1本を数字で示します。',
   locale: 'ja_JP',
   author: {
-    name: 'ai-pedia 編集部',
+    name: 'AIpedia 編集部',
     url: 'https://ai-pedia.jp/about',
   },
   social: {
@@ -43,7 +46,7 @@ export const ORGANIZATION_SCHEMA = {
   '@type': 'Organization',
   '@id': `${SITE.url}/#organization`,
   name: SITE.name,
-  alternateName: SITE.shortName,
+  alternateName: [SITE.tagline, 'ai-pedia'],
   url: SITE.url,
   logo: {
     '@type': 'ImageObject',

@@ -11,6 +11,14 @@ relatedTools: ["notion-ai", "chatgpt", "claude"]
 readTimeMin: 8
 tags: ["Notion AI", "レビュー", "業務効率化"]
 amazonProducts: ["ai-thinking-techniques", "chatgpt-strongest-work"]
+tldr: "Notion ヘビーユーザーなら即 Plus プラン（¥1,500）、Notion を使っていないなら ChatGPT Plus を優先。真価は「既存情報との統合」にあり、単体AIとしての応答品質は ChatGPT/Claude に劣ります。"
+faq:
+  - q: "ChatGPT があれば Notion AI は不要？"
+    a: "Notion内のドキュメント横断検索・議事録生成・Connections連携は Notion AI の独壇場。逆にNotionを使っていないならChatGPT Plusの方が汎用性で勝ります。"
+  - q: "Business プランは必要？"
+    a: "Slack / Gmail / Drive 連携（Connections）を使いたい場合は Business（¥3,000/月/ユーザー）。個人利用なら Plus（¥1,500）で十分です。"
+  - q: "機密情報を扱っても大丈夫？"
+    a: "Business 以上のプランで学習オプトアウト可能。Free/Plus は注意が必要です。企業利用では必ずエンタープライズ相当のプランを。"
 ---
 
 Notion AI は「Notion 内のAIアシスタント」として有名ですが、実は ChatGPT との住み分けが難しいツールでもあります。編集部で1ヶ月以上フル活用した結果、**「買うべき人」と「買うべきでない人」が明確に分かれる**ことが分かりました。

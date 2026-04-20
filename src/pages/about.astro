@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { SITE } from '@/data/site';
 
 const axes = [
   { label: '応答品質', weight: 30, desc: '実ユースケース（Q&A・要約・推論）での回答精度と一貫性。複数プロンプトで手動検証。' },
@@ -8,20 +10,81 @@ const axes = [
   { label: '拡張性', weight: 15, desc: 'API・連携・カスタマイズ自由度（プラグイン・MCP・エージェント）。' },
   { label: 'トレンド', weight: 15, desc: '検索ボリューム・採用企業数・アップデート頻度の成長率。' },
 ];
+
+// E-E-A-T 対応：編集部の明示化とスキーマ
+const editorialSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE.url}/#editorial`,
+  name: SITE.author.name,
+  url: SITE.author.url,
+  parentOrganization: { '@id': `${SITE.url}/#organization` },
+  description: 'AIpedia 編集部。2026年設立。AIツール・生成AI領域の実使用・比較レビューを専門とし、月次で情報を更新。',
+  knowsAbout: [
+    'AIツール',
+    '生成AI',
+    'ChatGPT',
+    'Claude',
+    'Gemini',
+    'プロンプトエンジニアリング',
+    'AI副業',
+    'AI議事録',
+    'AIコーディング',
+    'Midjourney',
+  ],
+  makesOffer: {
+    '@type': 'Offer',
+    itemOffered: {
+      '@type': 'Service',
+      name: 'AIツール比較情報提供',
+      serviceType: 'メディア・出版',
+    },
+  },
+};
 ---
 
 <BaseLayout
-  title="運営方針・評価基準"
-  description="AIツール比較ランキングの評価基準と編集方針。応答品質・日本語精度・コスパ・拡張性・トレンドの5軸で独自スコアを算出しています。"
+  title="運営方針・評価基準・編集部"
+  description="AIpedia（AIツール比較ランキング）の運営方針・評価基準・編集部紹介。応答品質・日本語精度・コスパ・拡張性・トレンドの5軸で独自スコアを算出しています。"
+  extraJsonLd={editorialSchema}
 >
   <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10">
-    <h1 class="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">運営方針・評価基準</h1>
+    <Breadcrumbs items={[{ label: 'ホーム', href: '/' }, { label: '運営方針・評価基準' }]} />
+
+    <h1 class="mt-4 text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      運営方針・評価基準・編集部
+    </h1>
     <p class="mt-4 text-[15px] leading-relaxed text-[#c7cbde]">
-      本サイトは、乱立するAIツールの中から「本当に使えるもの」を見抜く判断材料を、できるだけフェアに提供することを目的としています。
+      AIpedia（AIツール比較ランキング）は、乱立するAIツールの中から「本当に使えるもの」を見抜く判断材料を、できるだけフェアに提供することを目的としています。
       ランキングは下記の5軸による独自スコアで決定しており、アフィリエイト契約の有無・報酬単価は一切考慮していません。
     </p>
 
     <section class="mt-8 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-lg font-bold">✍️ 編集部について</h2>
+      <p class="mt-3 text-sm leading-relaxed text-[#c7cbde]">
+        AIpedia 編集部は、国内外のAIツールを実使用した上で記事執筆を行う専門チームです。エンジニア・ライター・マーケター・クリエイター各領域の実務経験者で構成し、**読者の選択を助ける正確な情報**を最優先に制作しています。
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+          <div class="text-xs font-semibold uppercase tracking-widest text-violet-300">編集責任</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">記事内容の事実確認・最新化・ユーザー向けの読みやすさを編集部が保証します。掲載後も**月次で価格・機能を再確認**。</p>
+        </div>
+        <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+          <div class="text-xs font-semibold uppercase tracking-widest text-amber-300">専門性</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">ChatGPT Plus / Claude Pro / Gemini Advanced / Cursor Pro / Midjourney Standard を**全て契約・実利用**しての比較レビューを実施。</p>
+        </div>
+        <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+          <div class="text-xs font-semibold uppercase tracking-widest text-emerald-300">独立性</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">アフィリエイト案件の有無は**ランキング順位・評価スコアに一切影響しません**。影響のある場合は開示します。</p>
+        </div>
+        <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+          <div class="text-xs font-semibold uppercase tracking-widest text-sky-300">透明性</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">PR表記・アフィリエイト開示・評価基準を全て公開。<a href="/disclosure" class="underline">アフィリエイト開示</a>も別ページで明示。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
       <h2 class="text-lg font-bold">評価5軸と配点</h2>
       <div class="mt-4 space-y-3">
         {axes.map((a) => (
@@ -40,20 +103,40 @@ const axes = [
     </section>
 
     <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
-      <h2 class="text-lg font-bold">編集方針</h2>
+      <h2 class="text-lg font-bold">編集方針（E-E-A-T 対応）</h2>
       <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
-        <li>✓ レビューは原則、編集部が実際に契約・使用した結果をベースに執筆します。</li>
-        <li>✓ 生成AIを下書きに活用する場合も、事実確認と最終編集は人間が担当します。</li>
-        <li>✓ アフィリエイトリンクを含む記事には明示的に開示表記を付けます。</li>
-        <li>✓ 誤情報・古い情報を発見したら、 お問い合わせフォームからご連絡ください。速やかに修正します。</li>
+        <li><strong class="text-white">Experience（経験）</strong>：全てのツールを編集部員が実契約・実使用した上で執筆。</li>
+        <li><strong class="text-white">Expertise（専門性）</strong>：業界動向を月次でモニタリング、一次情報（公式ドキュメント・リリースノート）を基に判断。</li>
+        <li><strong class="text-white">Authoritativeness（権威性）</strong>：評価軸・配点・手法を全て開示し、検証可能な形で提示。</li>
+        <li><strong class="text-white">Trustworthiness（信頼性）</strong>：アフィリエイトの影響を遮断、誤情報の指摘があれば速やかに修正。</li>
+      </ul>
+      <p class="mt-4 text-xs text-[#8a90a8]">生成AIを下書きに活用する場合も、**事実確認と最終編集は人間が担当**。AI生成記事をそのまま公開することはありません。</p>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-lg font-bold">情報の鮮度保証</h2>
+      <p class="mt-3 text-sm text-[#c7cbde]">AIツールの料金・機能は頻繁に変わります。以下の運用で鮮度を保っています：</p>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde] list-disc pl-5">
+        <li>全記事に「公開日」「更新日」を明記</li>
+        <li>主要ツールの料金・機能変更は月次チェック</li>
+        <li>大きな変更があった場合は記事を更新し、更新日を書き換え</li>
+        <li>読者からの誤情報指摘は<a href="/contact" class="underline">お問い合わせ</a>で歓迎</li>
       </ul>
     </section>
 
     <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
-      <h2 class="text-lg font-bold">アフィリエイトについて</h2>
+      <h2 class="text-lg font-bold">アフィリエイトと広告について</h2>
       <p class="mt-3 text-sm text-[#c7cbde] leading-relaxed">
-        本サイトはAmazonアソシエイト、a8.net、もしもアフィリエイト、各種SaaSパートナープログラムに参加しています（予定含む）。
+        本サイトはAmazonアソシエイト、a8.net、もしもアフィリエイト、各種SaaSパートナープログラム、Google AdSense、忍者AdMax に参加しています（参加予定含む）。
         紹介リンク経由で契約いただくと、当サイトに成果報酬が発生する場合があります。この報酬はランキング順位・掲載有無・評価スコアには影響しません。
+      </p>
+      <p class="mt-3 text-sm text-[#c7cbde]">詳細は<a href="/disclosure" class="underline">アフィリエイト開示</a>をご確認ください。</p>
+    </section>
+
+    <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-lg font-bold">お問い合わせ・情報提供</h2>
+      <p class="mt-3 text-sm text-[#c7cbde]">
+        掲載情報の誤り、修正依頼、取材・プレスリリースは<a href="/contact" class="underline">お問い合わせフォーム</a>からご連絡ください。通常2営業日以内にご返信いたします。
       </p>
     </section>
   </article>

@@ -11,6 +11,14 @@ relatedTools: ["cursor", "claude", "v0"]
 readTimeMin: 9
 tags: ["Cursor", "IDE", "開発", "エンジニア"]
 amazonProducts: ["claude-code-ai-driven", "llm-prompt-github"]
+tldr: "Cursorは導入5分、習得1ヶ月で生産性3倍。Tab補完→Cmd+K→Composer→Agentと段階的に習得し、.cursorrulesでチーム運用を統一するのがフル活用の王道です。"
+faq:
+  - q: "VS Code から乗り換える価値は？"
+    a: "Tab 補完と Composer だけでも十分価値あり。日常のコード書き込み量が2倍になる感覚です。VS Code 設定はワンクリックで引き継げます。"
+  - q: ".cursorrules の書き方は？"
+    a: "技術スタック、コーディングスタイル、禁止事項、ライブラリのバージョンを明記。この品質がAI出力の品質を決定するので、チームで合意して運用するのがおすすめです。"
+  - q: "Agent モードは実用的？"
+    a: "2026年時点で実用レベル。30分〜数時間の自律タスクを任せられますが、必ずテストで検証し、重要な変更は人間がレビューしてください。"
 ---
 
 Cursor は今や **フロントエンド開発者のデファクトスタンダード**と言っても過言ではありません。しかし、Tab 補完しか使っていない人と、Composer や Agent まで使いこなす人では、**同じ Cursor でも生産性に3倍の差**が生まれます。本記事では、毎日 Cursor を使う編集部エンジニアが実践している全テクニックを公開します。

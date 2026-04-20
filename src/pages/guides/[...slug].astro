@@ -12,6 +12,7 @@ import RelatedGuides from '@/components/RelatedGuides.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import TldrBlock from '@/components/TldrBlock.astro';
 import FaqSection from '@/components/FaqSection.astro';
+import ReadingProgress from '@/components/ReadingProgress.astro';
 import { getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
 import { getProduct } from '@/data/amazon';
@@ -133,6 +134,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
   }}
   extraJsonLd={extraLd}
 >
+  <ReadingProgress />
   <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6">
     <Breadcrumbs
       items={[

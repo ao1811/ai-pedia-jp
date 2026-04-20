@@ -11,6 +11,14 @@ relatedTools: ["midjourney", "chatgpt"]
 readTimeMin: 10
 tags: ["Midjourney", "プロンプト", "画像生成", "デザイン"]
 amazonProducts: ["midjourney-basics", "prompt-midjourney-intro"]
+tldr: "Midjourneyの基本構文は「被写体＋スタイル＋構図＋ライティング＋雰囲気＋パラメータ」。--ar / --v / --s / --sref / --cref の5大パラメータを押さえれば、プロ級の出力が安定して出せます。"
+faq:
+  - q: "Midjourney を使うのに Discord は必須？"
+    a: "v7以降は Web 版がメイン。Discord は不要になりました。ブラウザから直接生成・管理できます。"
+  - q: "Style Reference（--sref）はどう使う？"
+    a: "既存画像の雰囲気だけ参照して新しい被写体を生成する機能。ブランド一貫性や連載作品のトーン統一に必須です。--sw 0〜1000 で参照強度を調整できます。"
+  - q: "商用利用で気をつける点は？"
+    a: "Basic プランは商用利用不可、Standard以上が必要。既存キャラ・実在人物の模倣は肖像権・商標権の侵害リスクがあるため避けてください。"
 ---
 
 Midjourney v7 は現存する画像生成AIの中で**芸術性と一貫性で頭ひとつ抜けた**存在です。しかし、その真価を引き出すにはプロンプトの作法を知る必要があります。本記事では、プロのクリエイターが実践するテクニックを全公開します。

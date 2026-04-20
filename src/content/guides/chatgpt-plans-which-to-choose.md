@@ -11,6 +11,14 @@ relatedTools: ["chatgpt"]
 readTimeMin: 7
 tags: ["ChatGPT", "プラン", "料金"]
 amazonProducts: ["chatgpt-strongest-work", "chatgpt-gpts-book"]
+tldr: "迷ったら Plus（¥3,000/月）。Free は雑談・簡単な翻訳、Pro（¥30,000/月）は動画生成ヘビー利用者or API開発者向け。Free→Plus の差は日常使用で元が取れますが、Plus→Pro は用途限定的です。"
+faq:
+  - q: "Free と Plus の実用的な差は？"
+    a: "GPT-5 継続アクセス、画像生成枠、Deep Research回数、優先応答速度の差です。1日3回以上使う人は Plus にすると生産性が跳ね上がります。"
+  - q: "Pro プランは誰向け？"
+    a: "Sora（動画生成）を毎日使う、API開発で月$100超使う、Deep Research無制限が必要、のいずれかに該当する人。個人の一般ユースには過剰です。"
+  - q: "年額払いはお得？"
+    a: "Plus の年額払いは2ヶ月分お得ですが、解約時の返金はなし。まず月額で3ヶ月使ってから年額に切り替えるのが安全です。"
 ---
 
 ChatGPT には Free・Plus（¥3,000/月）・Pro（¥30,000/月）の3プランがあり、**10倍の料金差に10倍の価値があるか**は用途次第です。本記事では編集部が3プランすべてを使い分けた結果から、あなたに最適なプランを解説します。

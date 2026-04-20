@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Search from '@/components/Search.astro';
+---
+
+<BaseLayout
+  title="サイト内検索"
+  description="AIpedia のサイト内検索。記事・ツール・ガイドをキーワードで横断検索できます。"
+>
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <Breadcrumbs items={[{ label: 'ホーム', href: '/' }, { label: 'サイト内検索' }]} />
+
+    <h1 class="mt-4 text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      🔍 サイト内検索
+    </h1>
+    <p class="mt-2 text-sm text-[#c7cbde]">記事・ツール・ガイドをキーワードで横断検索。</p>
+
+    <div class="mt-6">
+      <Search />
+    </div>
+
+    <div class="mt-10 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-base font-bold">💡 検索のヒント</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li>ツール名（ChatGPT、Claude、Cursor 等）で直接検索</li>
+        <li>トピック（「副業」「議事録」「プロンプト」等）で関連記事を発見</li>
+        <li>カテゴリで絞り込みたい場合は <a href="/category" class="underline">カテゴリ一覧</a></li>
+        <li>タグで絞り込みたい場合は記事末尾のタグチップから</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

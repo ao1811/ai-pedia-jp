@@ -1,0 +1,85 @@
+---
+/**
+ * Pagefind を使ったサイト内検索UI。
+ * ビルド後に `pagefind --site dist` が /pagefind/ を生成する。
+ * クライアントが動的ロードで使う（Viteの静的解析を回避）。
+ */
+---
+
+<div id="search-container" class="relative">
+  <input
+    type="search"
+    id="search-input"
+    placeholder="🔍 サイト内検索..."
+    class="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder:text-[#8a90a8] focus:border-violet-400/50 focus:outline-none focus:ring-2 focus:ring-violet-400/20"
+    autocomplete="off"
+  />
+  <div
+    id="search-results"
+    class="absolute left-0 right-0 top-full z-40 mt-2 max-h-[60vh] overflow-auto rounded-xl border border-white/10 bg-[#10121a] shadow-2xl hidden"
+  >
+    <div class="p-4 text-sm text-[#8a90a8]">入力して検索…</div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    let pagefind = null;
+    async function loadPagefind() {
+      if (pagefind) return pagefind;
+      try {
+        // 動的 import（クライアントランタイムのみ解決、Viteの静的解析を回避）
+        const pfUrl = new URL('/pagefind/pagefind.js', window.location.origin).toString();
+        pagefind = await (0, eval)("import('" + pfUrl + "')");
+        return pagefind;
+      } catch (e) {
+        console.error('pagefind failed to load', e);
+        return null;
+      }
+    }
+
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('search-results');
+    if (!input || !results) return;
+    let timer = null;
+    input.addEventListener('focus', () => {
+      results.classList.remove('hidden');
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#search-container')) {
+        results.classList.add('hidden');
+      }
+    });
+    input.addEventListener('input', () => {
+      const q = input.value.trim();
+      if (timer) clearTimeout(timer);
+      if (!q) {
+        results.innerHTML = '<div class="p-4 text-sm text-[#8a90a8]">入力して検索…</div>';
+        return;
+      }
+      timer = setTimeout(async () => {
+        const pf = await loadPagefind();
+        if (!pf) {
+          results.innerHTML = '<div class="p-4 text-sm text-rose-300">検索機能が利用できません。</div>';
+          return;
+        }
+        const { results: pagefindResults } = await pf.search(q);
+        if (pagefindResults.length === 0) {
+          results.innerHTML = '<div class="p-4 text-sm text-[#8a90a8]">該当なし</div>';
+          return;
+        }
+        const top = pagefindResults.slice(0, 8);
+        const items = await Promise.all(top.map((r) => r.data()));
+        results.innerHTML = items
+          .map((d) => {
+            const title = (d.meta && d.meta.title) || d.url;
+            return `<a href="${d.url}" class="block border-b border-white/5 p-4 hover:bg-white/[0.04] transition">
+              <div class="text-sm font-bold text-white line-clamp-1">${title}</div>
+              <div class="mt-1 text-xs text-[#c7cbde] line-clamp-2">${d.excerpt || ''}</div>
+            </a>`;
+          })
+          .join('');
+      }, 200);
+    });
+  })();
+</script>
