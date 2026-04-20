@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://aipedia.com',
+  site: 'https://ai-pedia.jp',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
