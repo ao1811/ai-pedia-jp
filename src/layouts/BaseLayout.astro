@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import { GA4_MEASUREMENT_ID } from '@/data/analytics';
 
 type Props = {
   title: string;
@@ -18,7 +19,8 @@ const siteUrl = Astro.site?.toString() ?? 'https://ai-pedia.jp';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = ogImage ?? `${siteUrl}/og-default.png`;
 const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
-const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID as string | undefined;
+const ga4Id =
+  (import.meta.env.PUBLIC_GA4_MEASUREMENT_ID as string | undefined) || GA4_MEASUREMENT_ID;
 ---
 
 <!doctype html>
