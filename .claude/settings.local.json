@@ -10,7 +10,18 @@
       "Bash(git -c user.email=\"naokimiyamoto02@gmail.com\" -c user.name=\"Naoki Miyamoto\" commit -m \"chore: set production domain to ai-pedia.jp\")",
       "Bash(gh --version)",
       "Bash(git remote *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__switch_browser",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__find",
+      "mcp__Claude_in_Chrome__read_page",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "mcp__Claude_in_Chrome__form_input",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: integrate approved a8.net affiliate links \\(Value AI Writer, ConoHa AI Canvas\\) *)"
     ]
   }
 }

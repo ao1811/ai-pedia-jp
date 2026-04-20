@@ -15,6 +15,11 @@
  */
 
 export const affiliateUrls: Record<string, string> = {
+  // a8.net 承認済 (2026-04-20)
+  'value-ai-writer': 'https://px.a8.net/svt/ejp?a8mat=4B1PLS+F2DWVM+1JUK+1HL85U',
+  'conoha-ai-canvas': 'https://px.a8.net/svt/ejp?a8mat=4B1PLS+F4RNAQ+50+7RZINL',
+
+  // 以下は審査中 / 未登録。ASP承認後にURLを記入すると全ページ自動反映。
   // 'chatgpt': '',
   // 'claude': '',
   // 'gemini': '',

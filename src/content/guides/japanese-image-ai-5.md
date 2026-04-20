@@ -7,7 +7,7 @@ category: guide
 heroEmoji: "🎨"
 heroGradient: "from-pink-500 via-rose-500 to-red-500"
 featured: false
-relatedTools: ["midjourney", "chatgpt"]
+relatedTools: ["midjourney", "chatgpt", "conoha-ai-canvas"]
 readTimeMin: 6
 tags: ["画像生成", "クリエイター", "デザイン"]
 ---
@@ -54,6 +54,10 @@ Adobe 公式。**学習元が Adobe Stock などのライセンス済み素材�
 - 長所：完全カスタマイズ、ランニングコストほぼゼロ
 - 短所：環境構築が必要、初心者には険しい
 - 料金：無料（GPU代のみ）
+
+### 環境構築がネックなら：ConoHa AI Canvas
+
+自前GPU環境を用意するのが難しい場合、**GMOインターネットの「ConoHa AI Canvas」**が日本人にはおすすめです。ブラウザだけで Stable Diffusion/LoRA/ComfyUI が使え、月額¥990から。日本語サポート付きで、Stable Diffusion 系の表現力を環境構築ゼロで享受できます。同社のブログサービスとの相性も良く、副業ブロガーの導入事例が急増しています。
 
 ## 5位：NijiJourney — アニメ・マンガ特化
 
