@@ -38,9 +38,11 @@ export const sites: Site[] = [
 ];
 
 /**
- * Looker Studio の共有URL（ダッシュボード作成後に貼る）。
- * `https://lookerstudio.google.com/embed/reporting/<REPORT_ID>/page/<PAGE_ID>` の形式。
+ * Looker Studio のURL（ダッシュボード作成後に貼る）。
+ * - 共有リンク（/s/XXX や /reporting/XXX）→ ボタンとしてリンク表示
+ * - 埋込URL（/embed/reporting/XXX/page/YYY）→ iframe で埋込表示
  */
+export const LOOKER_STUDIO_REPORT_URL: string | null = 'https://datastudio.google.com/s/go004Ma_Yio';
 export const LOOKER_STUDIO_EMBED_URL: string | null = null;
 
 /**

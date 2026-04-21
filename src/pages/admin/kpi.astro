@@ -10,7 +10,14 @@
  * 4. 目標（マイルストーン）と現在地
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { sites, LOOKER_STUDIO_EMBED_URL, manualKpi, goals, sumRevenue } from '@/data/kpi';
+import {
+  sites,
+  LOOKER_STUDIO_EMBED_URL,
+  LOOKER_STUDIO_REPORT_URL,
+  manualKpi,
+  goals,
+  sumRevenue,
+} from '@/data/kpi';
 
 const kpiBySite = (siteSlug: string) =>
   manualKpi
@@ -110,6 +117,33 @@ const latestByMine = sites.map((s) => ({
             title="Looker Studio dashboard"
           ></iframe>
         </div>
+      ) : LOOKER_STUDIO_REPORT_URL ? (
+        <div class="rounded-2xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 p-8 text-center">
+          <div class="text-4xl">📊</div>
+          <h3 class="mt-3 text-lg font-bold text-white">Looker Studio レポートを開く</h3>
+          <p class="mt-2 text-sm text-[#c7cbde]">
+            共有リンクが設定されています。下のボタンから Looker Studio を別タブで開いて確認できます。
+          </p>
+          <a
+            href={LOOKER_STUDIO_REPORT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white hover:opacity-90 transition"
+          >
+            レポートを開く
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
+          </a>
+          <div class="mt-6 rounded-xl border border-amber-400/20 bg-amber-400/5 p-4 text-left text-xs text-[#c7cbde]">
+            <strong class="text-amber-200">💡 iframe 埋込表示にするには：</strong>
+            <ol class="mt-2 space-y-1 list-decimal pl-5">
+              <li>Looker Studio のレポートを開く</li>
+              <li>右上「共有」→「埋め込み」タブ</li>
+              <li>「埋め込み有効」をON</li>
+              <li>表示される <code class="rounded bg-white/5 px-1">https://lookerstudio.google.com/embed/reporting/XXX/page/YYY</code> 形式のURLをコピー</li>
+              <li>そのURLを私に貼ってください → <code class="rounded bg-white/5 px-1">LOOKER_STUDIO_EMBED_URL</code> に設定します</li>
+            </ol>
+          </div>
+        </div>
       ) : (
         <div class="rounded-2xl border border-dashed border-white/10 bg-[#10121a] p-8 text-center">
           <div class="text-4xl">📊</div>
@@ -117,12 +151,8 @@ const latestByMine = sites.map((s) => ({
           <p class="mt-2 text-sm text-[#c7cbde]">
             GA4 + Search Console + 両サイトを統合したカスタムダッシュボードを無料で作れます。
           </p>
-          <p class="mt-1 text-xs text-[#8a90a8]">
-            作成後、<code class="rounded bg-white/5 px-1">src/data/kpi.ts</code> の <code class="rounded bg-white/5 px-1">LOOKER_STUDIO_EMBED_URL</code> に埋込URLを設定してください。
-          </p>
           <a href="/admin/looker-setup" class="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white hover:opacity-90 transition">
             セットアップガイドを見る
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
           </a>
         </div>
       )}
