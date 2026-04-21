@@ -42,8 +42,10 @@ export const sites: Site[] = [
  * - 共有リンク（/s/XXX や /reporting/XXX）→ ボタンとしてリンク表示
  * - 埋込URL（/embed/reporting/XXX/page/YYY）→ iframe で埋込表示
  */
-export const LOOKER_STUDIO_REPORT_URL: string | null = 'https://datastudio.google.com/s/go004Ma_Yio';
-export const LOOKER_STUDIO_EMBED_URL: string | null = null;
+export const LOOKER_STUDIO_REPORT_URL: string | null =
+  'https://lookerstudio.google.com/reporting/9204b80d-0333-413d-b421-6f6260182273/page/pMtvF';
+export const LOOKER_STUDIO_EMBED_URL: string | null =
+  'https://lookerstudio.google.com/embed/reporting/9204b80d-0333-413d-b421-6f6260182273/page/pMtvF';
 
 /**
  * 手動入力KPI（ASP収益など、Looker Studio にAPI接続できないソース）。
