@@ -6,4 +6,4 @@
  */
 
 // AdSense クライアントID（審査・広告表示両方に使用）
-export const ADSENSE_CLIENT = 'ca-pub-6101718288538326';
+export const ADSENSE_CLIENT = 'ca-pub-6127755924090747';
