@@ -127,10 +127,12 @@ const externalServices = [
 // === もう1つのサイト（参考：混同しないため明記） ===
 const otherSites = [
   {
-    name: '推し活貯金箱',
-    url: 'https://oshi-chokin-app.vercel.app',
+    name: 'oshi-tame.com（推し活貯金箱）',
+    url: 'https://oshi-tame.com',
     notes: 'a8.net の主サイト、Vercel + Supabase運用',
-    a8media: 'サイト名「推し活貯金」で登録済み',
+    a8media: 'サイト名「推し活貯金」で登録済み（a8.net 主サイト）',
+    ga4: '別プロパティ（oshi-tame.com 用 GA4 測定ID）',
+    searchConsole: 'sc-domain:oshi-tame.com',
   },
 ];
 
@@ -266,19 +268,26 @@ const chromeProfileSuggestion = [
 
     {/* 別サイト（混同防止） */}
     <section class="mt-10 rounded-2xl border border-white/5 bg-[#10121a] p-5">
-      <h2 class="text-base font-bold">🔀 他のサイト（混同しないよう記録）</h2>
-      <p class="mt-2 text-xs text-[#8a90a8]">同じアカウント体系で運営している別サイト</p>
+      <h2 class="text-base font-bold">🔀 他のサイト（同一運営者）</h2>
+      <p class="mt-2 text-xs text-[#8a90a8]">アカウント体系を共有している別サイト</p>
       <div class="mt-3 space-y-3">
         {otherSites.map((s) => (
-          <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
+          <div class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
             <div class="flex items-baseline justify-between flex-wrap gap-2">
               <div class="text-sm font-bold text-white">{s.name}</div>
               <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-xs text-[#c7cbde] hover:text-white">{s.url}</a>
             </div>
             <div class="mt-1 text-[12px] text-[#c7cbde]">{s.notes}</div>
-            <div class="mt-1 text-[11px] text-[#8a90a8]">a8.net：{s.a8media}</div>
+            <div class="mt-2 grid gap-1 text-[11px] text-[#8a90a8]">
+              <div>a8.net：{s.a8media}</div>
+              <div>GA4：{s.ga4}</div>
+              <div>Search Console：{s.searchConsole}</div>
+            </div>
           </div>
         ))}
+      </div>
+      <div class="mt-3 rounded-lg border border-amber-400/20 bg-amber-400/5 p-3 text-[11px] text-amber-200">
+        💡 両サイトのKPIを横断で見たい場合は <a href="/admin/kpi" class="underline text-amber-100">/admin/kpi</a> または <a href="/admin/looker-setup" class="underline text-amber-100">/admin/looker-setup</a> を参照。
       </div>
     </section>
 

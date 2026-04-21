@@ -364,24 +364,37 @@ const monthlyTasks = [
     {/* 管理者ページ */}
     <section class="mt-10">
       <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🔒 運営者専用ページ</h2>
-      <div class="grid gap-3 sm:grid-cols-2">
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="/admin/kpi" class="group rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 p-5 hover:border-violet-400/60 transition">
+          <div class="flex items-start gap-3">
+            <span class="text-3xl">📈</span>
+            <div>
+              <div class="text-base font-bold text-white group-hover:text-violet-300">統合KPI ダッシュボード</div>
+              <p class="mt-1 text-[12px] text-[#8a90a8]">
+                ai-pedia.jp + oshi-tame.com の PV・ユーザー・収益を横断表示。Looker Studio 埋込対応。
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="/admin/looker-setup" class="group rounded-2xl border border-white/10 bg-[#10121a] p-5 hover:border-violet-400/40 transition">
+          <div class="flex items-start gap-3">
+            <span class="text-3xl">📊</span>
+            <div>
+              <div class="text-base font-bold text-white group-hover:text-violet-300">Looker Studio 設定ガイド</div>
+              <p class="mt-1 text-[12px] text-[#8a90a8]">
+                2サイト統合ダッシュボードのステップバイステップ作成手順。
+              </p>
+            </div>
+          </div>
+        </a>
         <a href="/admin/accounts" class="group rounded-2xl border border-white/10 bg-[#10121a] p-5 hover:border-violet-400/40 transition">
           <div class="flex items-start gap-3">
             <span class="text-3xl">🔑</span>
             <div>
               <div class="text-base font-bold text-white group-hover:text-violet-300">アカウント一覧</div>
               <p class="mt-1 text-[12px] text-[#8a90a8]">
-                全サービスのメアド・ID・設定場所を集約。Chrome プロフィール分離推奨とセキュリティ注意点も記載。
+                全サービスのメアド・ID・設定場所を集約。
               </p>
-            </div>
-          </div>
-        </a>
-        <a href="/admin/dashboard" class="group rounded-2xl border border-white/10 bg-[#10121a] p-5 hover:border-violet-400/40 transition">
-          <div class="flex items-start gap-3">
-            <span class="text-3xl">📊</span>
-            <div>
-              <div class="text-base font-bold text-white">このダッシュボード</div>
-              <p class="mt-1 text-[12px] text-[#8a90a8]">KPI・広告・運用チェックリストの統合ビュー</p>
             </div>
           </div>
         </a>

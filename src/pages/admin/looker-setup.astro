@@ -1,0 +1,225 @@
+---
+/**
+ * Looker Studio セットアップガイド。2サイト統合のためのステップバイステップ手順。
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Looker Studio セットアップガイド"
+  description="ai-pedia.jp + oshi-tame.com の統合KPIダッシュボードを Looker Studio で作る手順。"
+  noIndex
+>
+  <section class="mx-auto max-w-4xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <div class="flex items-center gap-2 text-xs">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-400/10 px-3 py-1 text-rose-300">🔒 非公開</span>
+      <a href="/admin/kpi" class="ml-auto text-[#c7cbde] hover:text-white">← KPIダッシュボード</a>
+    </div>
+    <h1 class="mt-3 text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      📈 Looker Studio 統合ダッシュボード セットアップ
+    </h1>
+    <p class="mt-2 text-sm text-[#c7cbde]">
+      ai-pedia.jp + oshi-tame.com の GA4 / Search Console / AdSense を1画面に集約したダッシュボードを無料で作成する手順です。所要時間：初回30〜45分。
+    </p>
+
+    {/* 概要 */}
+    <section class="mt-8 rounded-2xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 p-5 sm:p-6">
+      <h2 class="text-lg font-bold">📊 完成イメージ</h2>
+      <p class="mt-2 text-sm text-[#c7cbde]">
+        1つの Looker Studio レポートで：
+      </p>
+      <ul class="mt-3 grid gap-2 text-sm text-[#c7cbde] sm:grid-cols-2">
+        <li>✓ 両サイトのPV・ユーザー数（日次/週次/月次）</li>
+        <li>✓ サイト別の比較グラフ</li>
+        <li>✓ Search Console 検索クエリTOP20</li>
+        <li>✓ 人気ページランキング</li>
+        <li>✓ 流入経路（Google/SNS/Direct）</li>
+        <li>✓ AdSense 収益（承認後）</li>
+        <li>✓ ページ別エンゲージメント（滞在時間・スクロール率）</li>
+        <li>✓ デバイス別・地域別アクセス</li>
+      </ul>
+    </section>
+
+    {/* ステップ1 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-bold">🚀 Step 1：Looker Studio にアクセス</h2>
+      <ol class="mt-3 space-y-2 text-sm text-[#c7cbde] list-decimal pl-5">
+        <li><a href="https://lookerstudio.google.com/" target="_blank" rel="noopener noreferrer" class="underline">lookerstudio.google.com</a> を開く</li>
+        <li><code class="rounded bg-white/5 px-1">naokimiyamoto02@gmail.com</code> でログイン</li>
+        <li>初回は利用規約に同意、国=日本を選択</li>
+      </ol>
+    </section>
+
+    {/* ステップ2 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-bold">📄 Step 2：新規レポート作成</h2>
+      <ol class="mt-3 space-y-2 text-sm text-[#c7cbde] list-decimal pl-5">
+        <li>左メニュー「作成」→「レポート」</li>
+        <li>「空のレポート」を選択</li>
+        <li>レポート名を変更（右上タイトルクリック）：<code class="rounded bg-white/5 px-1">AIpedia + oshi-tame 統合ダッシュボード</code></li>
+      </ol>
+    </section>
+
+    {/* ステップ3 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-bold">🔗 Step 3：データソース接続（両サイト分）</h2>
+      <div class="mt-3 rounded-xl border border-white/10 bg-[#10121a] p-5">
+        <h3 class="text-sm font-bold text-white">AIpedia.jp（1つ目のGA4）</h3>
+        <ol class="mt-2 space-y-1.5 text-[13px] text-[#c7cbde] list-decimal pl-5">
+          <li>「データを追加」→ Google Analytics を選択</li>
+          <li><code class="rounded bg-white/5 px-1">G-S4WER4YKJ5</code>（ai-pedia.jp）を選択 → 追加</li>
+          <li>データソース名を変更：<code class="rounded bg-white/5 px-1">GA4 - AIpedia</code></li>
+        </ol>
+      </div>
+      <div class="mt-3 rounded-xl border border-white/10 bg-[#10121a] p-5">
+        <h3 class="text-sm font-bold text-white">oshi-tame.com（2つ目のGA4）</h3>
+        <ol class="mt-2 space-y-1.5 text-[13px] text-[#c7cbde] list-decimal pl-5">
+          <li>再び「データを追加」→ Google Analytics</li>
+          <li>oshi-tame.com のプロパティを選択</li>
+          <li>データソース名を変更：<code class="rounded bg-white/5 px-1">GA4 - oshi-tame</code></li>
+        </ol>
+      </div>
+      <div class="mt-3 rounded-xl border border-white/10 bg-[#10121a] p-5">
+        <h3 class="text-sm font-bold text-white">Search Console（両サイト分）</h3>
+        <ol class="mt-2 space-y-1.5 text-[13px] text-[#c7cbde] list-decimal pl-5">
+          <li>「データを追加」→ Search Console</li>
+          <li><code class="rounded bg-white/5 px-1">sc-domain:ai-pedia.jp</code> を選択</li>
+          <li>検索タイプ：<code class="rounded bg-white/5 px-1">ウェブ</code></li>
+          <li>同様に oshi-tame.com も追加</li>
+        </ol>
+      </div>
+      <div class="mt-3 rounded-xl border border-white/10 bg-[#10121a] p-5">
+        <h3 class="text-sm font-bold text-white">AdSense（承認後）</h3>
+        <ol class="mt-2 space-y-1.5 text-[13px] text-[#c7cbde] list-decimal pl-5">
+          <li>「データを追加」→ AdSense</li>
+          <li>アカウントを承認</li>
+          <li>各サイト分の広告ユニットを選択</li>
+        </ol>
+        <p class="mt-2 text-[11px] text-amber-200">※ AdSense 審査通過後のみ可能。現在は未設定でOK、後日追加してください。</p>
+      </div>
+    </section>
+
+    {/* ステップ4 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-bold">🎨 Step 4：ウィジェット配置（おすすめ構成）</h2>
+      <div class="mt-3 space-y-3">
+        <div class="rounded-xl border border-white/10 bg-[#10121a] p-5">
+          <div class="text-sm font-bold text-white">① ヘッダー部（サイト切替フィルタ）</div>
+          <p class="mt-1 text-[13px] text-[#c7cbde]">
+            「挿入」→「フィルタ コントロール」→ 日付範囲とサイト名でフィルタ可能に
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-[#10121a] p-5">
+          <div class="text-sm font-bold text-white">② KPI カード（計8枚）</div>
+          <p class="mt-1 text-[13px] text-[#c7cbde]">
+            「挿入」→「スコアカード」→ サイトごと以下を配置（合計8枚）：
+          </p>
+          <ul class="mt-2 list-disc pl-5 text-[12px] text-[#c7cbde]">
+            <li>ユーザー数</li>
+            <li>セッション数</li>
+            <li>ページビュー数</li>
+            <li>エンゲージメント率</li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-[#10121a] p-5">
+          <div class="text-sm font-bold text-white">③ 時系列グラフ</div>
+          <p class="mt-1 text-[13px] text-[#c7cbde]">
+            「挿入」→「時系列グラフ」→ 両サイトの日次PVを重ねて表示。ディメンションで分離
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-[#10121a] p-5">
+          <div class="text-sm font-bold text-white">④ 人気ページTOP10（表）</div>
+          <p class="mt-1 text-[13px] text-[#c7cbde]">
+            「挿入」→「表」→ ディメンション「ページパス」、指標「ページビュー」で降順ソート
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-[#10121a] p-5">
+          <div class="text-sm font-bold text-white">⑤ 流入経路（円グラフ）</div>
+          <p class="mt-1 text-[13px] text-[#c7cbde]">
+            「挿入」→「円グラフ」→ ディメンション「セッションの参照元/メディア」
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-[#10121a] p-5">
+          <div class="text-sm font-bold text-white">⑥ Search Console 検索クエリ</div>
+          <p class="mt-1 text-[13px] text-[#c7cbde]">
+            「挿入」→「表」→ Search Console データソース → ディメンション「クエリ」、指標「クリック数」「表示回数」
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* ステップ5 */}
+    <section class="mt-8">
+      <h2 class="text-lg font-bold">🌐 Step 5：このサイトに埋め込む</h2>
+      <ol class="mt-3 space-y-2 text-sm text-[#c7cbde] list-decimal pl-5">
+        <li>レポート右上「共有」→「レポートを表示」</li>
+        <li>「リンクを取得」→ 全員に公開 or 自分のみ限定</li>
+        <li>「埋め込み」タブ → iframe URL をコピー（例：<code class="rounded bg-white/5 px-1 text-[10px]">https://lookerstudio.google.com/embed/reporting/XXXX/page/YYYY</code>）</li>
+        <li><code class="rounded bg-white/5 px-1">src/data/kpi.ts</code> の <code class="rounded bg-white/5 px-1">LOOKER_STUDIO_EMBED_URL</code> に貼り付け</li>
+        <li><code class="rounded bg-white/5 px-1">git push</code> → 数分で <a href="/admin/kpi" class="underline">/admin/kpi</a> に反映</li>
+      </ol>
+    </section>
+
+    {/* テンプレート紹介 */}
+    <section class="mt-8 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-5 sm:p-6">
+      <h2 class="text-lg font-bold">⚡ 時短：既成テンプレートをコピーする</h2>
+      <p class="mt-2 text-sm text-[#c7cbde]">
+        一から作るのが面倒な場合、Google 公式テンプレートをコピーして自分のデータに差し替えるのが最速です。
+      </p>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li>・<a href="https://lookerstudio.google.com/reporting/69b9e9d3-4c25-4c89-a51b-94fb4bf7d28f/page/p_n8mddbo59c" target="_blank" rel="noopener noreferrer" class="underline">GA4 Marketing Snapshot（Google 公式）</a></li>
+        <li>・<a href="https://lookerstudio.google.com/reporting/4b1eb0c2-6186-411c-8338-5f69b84b3a70/page/p_37ctexe8xc" target="_blank" rel="noopener noreferrer" class="underline">Search Console Report（Google 公式）</a></li>
+      </ul>
+      <p class="mt-3 text-[12px] text-emerald-200">
+        開いた後、右上「⋮」→「コピーを作成」→ 自分のGA4/Search Console に差し替え。5分で完成します。
+      </p>
+    </section>
+
+    {/* 計算フィールドで複数サイト合算 */}
+    <section class="mt-8 rounded-2xl border border-white/10 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-lg font-bold">🧮 上級：両サイト合算KPIを計算フィールドで作る</h2>
+      <p class="mt-2 text-sm text-[#c7cbde]">
+        「全体のユーザー数」「全体のPV」を見たい場合、<strong>Blended Data（データ統合）</strong>機能を使います。
+      </p>
+      <ol class="mt-3 space-y-2 text-sm text-[#c7cbde] list-decimal pl-5">
+        <li>「リソース」→「追加済みデータソースを管理」</li>
+        <li>「データの統合」→ 2つのGA4データソースを選択</li>
+        <li>結合キー：「日付」</li>
+        <li>この統合データソースをスコアカードで使用</li>
+      </ol>
+    </section>
+
+    {/* 注意事項 */}
+    <section class="mt-8 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-5 sm:p-6">
+      <h2 class="text-lg font-bold text-amber-200">⚠️ 注意事項</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li><strong class="text-white">データ反映の遅延</strong>：GA4 のデータは最大24時間遅れます。リアルタイム反映は GA4 直接参照。</li>
+        <li><strong class="text-white">共有範囲</strong>：「全員に公開」にするとURLを知れば誰でも閲覧可能。閲覧させる必要がなければ「自分のみ」に。</li>
+        <li><strong class="text-white">埋め込み時の認証</strong>：iframe 埋込は認証が切れるとサインイン画面が出ます。基本「自分のみ」でログインブラウザから閲覧推奨。</li>
+        <li><strong class="text-white">AdSense 統合のタイミング</strong>：AdSense 審査通過後に追加。未通過時は空白。</li>
+      </ul>
+    </section>
+
+    {/* まとめ */}
+    <section class="mt-8 rounded-2xl border border-white/10 bg-[#10121a] p-5 sm:p-6">
+      <h2 class="text-base font-bold">✅ チェックリスト</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li>□ Looker Studio にログイン</li>
+        <li>□ 新規レポート作成、タイトル設定</li>
+        <li>□ AIpedia GA4 を接続</li>
+        <li>□ oshi-tame.com GA4 を接続</li>
+        <li>□ 両サイトの Search Console を接続</li>
+        <li>□ KPIカード・グラフ・表を配置</li>
+        <li>□ 埋込URL取得 → <code class="rounded bg-white/5 px-1">src/data/kpi.ts</code> に貼付</li>
+        <li>□ git push → /admin/kpi で確認</li>
+      </ul>
+    </section>
+
+    <div class="mt-10 text-center">
+      <a href="/admin/kpi" class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white hover:opacity-90 transition">
+        KPIダッシュボードに戻る
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
