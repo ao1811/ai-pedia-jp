@@ -1,0 +1,470 @@
+---
+/**
+ * SNS 投稿文ジェネレーター。
+ *
+ * 全ガイド記事について、X（Twitter）・Instagram・TikTok 向けの投稿文と
+ * 推奨画像 URL を自動生成。1クリックコピーで SNS アプリに貼り付けるだけで投稿可能。
+ *
+ * URL: /admin/sns-posts
+ * 認証：なし（URL を知っている前提）
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '@/data/site';
+
+const guides = await getCollection('guides');
+
+// 公開日の新しい順で並び替え
+const sortedGuides = guides.sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+
+/** タグ→ハッシュタグ変換（英数字/日本語そのまま #prefix） */
+function toHashtag(tag: string): string {
+  return '#' + tag.replace(/\s+/g, '').replace(/[・\-\/]/g, '');
+}
+
+/** 文字数調整（X は日本語140文字目安） */
+function clip(text: string, max: number): string {
+  if (text.length <= max) return text;
+  return text.slice(0, max - 1) + '…';
+}
+
+type Post = {
+  platform: 'x' | 'instagram' | 'tiktok';
+  text: string;
+  charCount: number;
+  imageUrl: string;
+  imageHint: string;
+};
+
+/** 記事から3プラットフォーム分の投稿を生成 */
+function generatePosts(guide: typeof sortedGuides[number]): Post[] {
+  const url = `${SITE.url}/guides/${guide.id.replace(/\.md$/, '')}/`;
+  const title = guide.data.title;
+  const desc = guide.data.description;
+  const tldr = guide.data.tldr ?? desc;
+  const emoji = guide.data.heroEmoji || '✨';
+  const tags = guide.data.tags || [];
+  const readTime = guide.data.readTimeMin;
+
+  // ハッシュタグ生成
+  const baseTagsX = ['#AIツール', '#AI活用', '#AIpedia'];
+  const baseTagsIG = [
+    '#AI',
+    '#AIツール',
+    '#AI活用',
+    '#ChatGPT',
+    '#Claude',
+    '#Gemini',
+    '#生成AI',
+    '#AI比較',
+    '#AIpedia',
+    '#副業',
+    '#AI副業',
+    '#AIブロガー',
+    '#テック',
+    '#AIライフ',
+  ];
+  const baseTagsTT = [
+    '#AI',
+    '#AIツール',
+    '#ChatGPT',
+    '#AI比較',
+    '#生成AI',
+    '#おすすめ',
+    '#fyp',
+    '#foryou',
+    '#学び',
+  ];
+  const articleHashtags = tags.slice(0, 4).map(toHashtag);
+
+  // X: 140字目安（日本語）
+  const xText = [
+    `【${title}】`,
+    '',
+    clip(tldr, 80),
+    '',
+    `📖 ${readTime}分で読めます`,
+    `👉 ${url}`,
+    '',
+    [...baseTagsX, ...articleHashtags.slice(0, 2)].join(' '),
+  ].join('\n');
+
+  // Instagram: 長文 + ハッシュタグ大量
+  const igText = [
+    `${emoji} ${title} ${emoji}`,
+    '━━━━━━━━━━━━━',
+    '',
+    tldr,
+    '',
+    '📝 この記事でわかること：',
+    ...(guide.data.faq?.slice(0, 3).map((f) => `• ${f.q}`) ?? [
+      `• ${desc}`,
+    ]),
+    '',
+    `⏱ 読了時間: 約${readTime}分`,
+    '',
+    '🔗 記事全文はプロフィールのリンクから',
+    '→ @ai_pedia_jp',
+    '',
+    '━━━━━━━━━━━━━',
+    '',
+    '役に立ったら「💾保存」で後から読み返せます！',
+    'フォローで最新AI情報をお届け✨',
+    '',
+    '.',
+    '.',
+    '.',
+    '',
+    [...baseTagsIG, ...articleHashtags].join(' '),
+  ].join('\n');
+
+  // TikTok: 短め + トレンドハッシュタグ
+  const ttText = [
+    `${emoji} ${title}`,
+    '',
+    clip(desc, 60),
+    '',
+    '▶ 詳細はプロフのリンク',
+    '→ @ai_pedia_jp',
+    '',
+    [...baseTagsTT, ...articleHashtags].join(' '),
+  ].join('\n');
+
+  // 画像: OG画像をそのまま使える（1200x630）
+  // Instagram/TikTok 用には正方形推奨だが、X はそのまま使える
+  const ogImageUrl = `${SITE.url}/og/default.png`;
+
+  return [
+    {
+      platform: 'x',
+      text: xText,
+      charCount: xText.length,
+      imageUrl: ogImageUrl,
+      imageHint:
+        '💡 URLを貼ると自動的にOG画像が表示されるので、画像添付は任意です（添付すると目立ちやすい）',
+    },
+    {
+      platform: 'instagram',
+      text: igText,
+      charCount: igText.length,
+      imageUrl: ogImageUrl,
+      imageHint:
+        '💡 OG画像（1200x630）をダウンロード → Canva等で1080x1080にトリミングして投稿してください。記事タイトルがはっきり見える画像が理想です。',
+    },
+    {
+      platform: 'tiktok',
+      text: ttText,
+      charCount: ttText.length,
+      imageUrl: ogImageUrl,
+      imageHint:
+        '💡 TikTokはカバー画像のみ。OG画像を9:16（1080x1920）にリサイズするか、動画内に記事タイトルをテキストで入れると効果的。',
+    },
+  ];
+}
+
+const allPosts = sortedGuides.map((g) => ({
+  guide: g,
+  posts: generatePosts(g),
+}));
+
+const platformMeta = {
+  x: {
+    name: 'X (旧Twitter)',
+    icon: '𝕏',
+    color: 'from-neutral-400 to-zinc-600',
+    limit: 280,
+    openUrl: 'https://x.com/compose/post',
+    tip: '画像1枚＋リンク形式が最もエンゲージ高い。朝7-9時 / 夜19-22時が狙い目。',
+  },
+  instagram: {
+    name: 'Instagram',
+    icon: '📷',
+    color: 'from-pink-500 via-rose-500 to-orange-500',
+    limit: 2200,
+    openUrl: 'https://www.instagram.com/',
+    tip: 'Feed投稿＋Reelsが王道。「プロフィールのリンク」と必ず明記。夜20-22時が強い。',
+  },
+  tiktok: {
+    name: 'TikTok',
+    icon: '🎵',
+    color: 'from-cyan-400 via-fuchsia-500 to-rose-500',
+    limit: 2200,
+    openUrl: 'https://www.tiktok.com/upload',
+    tip: '動画内で記事タイトルと3つのポイントを画像で見せるのが定番。昼12-13時 / 夜20-22時。',
+  },
+};
+---
+
+<BaseLayout
+  title="SNS投稿文ジェネレーター"
+  description="X・Instagram・TikTok用の投稿文を記事別に自動生成。コピー→貼り付けで即投稿。"
+  noIndex
+>
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10 pb-20">
+    <div class="flex items-center gap-2 text-xs">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-400/10 px-3 py-1 text-rose-300">
+        🔒 非公開
+      </span>
+      <a href="/admin/dashboard" class="text-[#8a90a8] hover:text-white">← ダッシュボードに戻る</a>
+    </div>
+
+    <h1 class="mt-3 text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      📱 SNS投稿文ジェネレーター
+    </h1>
+    <p class="mt-2 text-sm text-[#c7cbde]">
+      全{sortedGuides.length}記事について、X（旧Twitter）・Instagram・TikTok 向けの投稿文と推奨画像を自動生成。
+      <br />
+      <span class="text-amber-300">
+        1クリックでコピー → 各アプリで貼り付け → 投稿、で完了します。
+      </span>
+    </p>
+
+    {/* 運用ガイド */}
+    <section class="mt-8 rounded-2xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 p-6">
+      <h2 class="text-lg font-bold tracking-tight">🚀 使い方（3ステップ・1記事あたり3分）</h2>
+      <ol class="mt-3 grid gap-3 sm:grid-cols-3 text-sm">
+        <li class="rounded-xl bg-white/5 p-4">
+          <div class="text-xs font-bold text-violet-300">STEP 1</div>
+          <div class="mt-1 font-medium">投稿する記事を選ぶ</div>
+          <div class="mt-1 text-[12px] text-[#8a90a8]">新着記事ほど効果が高い。週3-5本ペースを推奨。</div>
+        </li>
+        <li class="rounded-xl bg-white/5 p-4">
+          <div class="text-xs font-bold text-violet-300">STEP 2</div>
+          <div class="mt-1 font-medium">「コピー」ボタンを押す</div>
+          <div class="mt-1 text-[12px] text-[#8a90a8]">投稿文＋ハッシュタグがクリップボードに入ります。</div>
+        </li>
+        <li class="rounded-xl bg-white/5 p-4">
+          <div class="text-xs font-bold text-violet-300">STEP 3</div>
+          <div class="mt-1 font-medium">各SNSアプリで貼り付け → 投稿</div>
+          <div class="mt-1 text-[12px] text-[#8a90a8]">画像はOG画像（下部リンク）をそのまま使えます。</div>
+        </li>
+      </ol>
+    </section>
+
+    {/* プラットフォーム別の投稿時間帯ヒント */}
+    <section class="mt-6 grid gap-3 sm:grid-cols-3">
+      {Object.entries(platformMeta).map(([key, meta]) => (
+        <div class="rounded-xl border border-white/10 bg-[#10121a] p-4">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">{meta.icon}</span>
+            <span class="font-bold">{meta.name}</span>
+          </div>
+          <div class="mt-2 text-[12px] text-[#c7cbde]">{meta.tip}</div>
+          <a
+            href={meta.openUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-2 inline-flex items-center gap-1 text-[11px] text-violet-300 hover:text-violet-200"
+          >
+            {meta.name} を開く →
+          </a>
+        </div>
+      ))}
+    </section>
+
+    {/* 記事別の投稿文 */}
+    <section class="mt-10">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">
+        📝 記事別の投稿文（{sortedGuides.length}件）
+      </h2>
+
+      <div class="space-y-6">
+        {allPosts.map(({ guide, posts }) => (
+          <article class="rounded-2xl border border-white/10 bg-[#10121a] overflow-hidden">
+            {/* 記事ヘッダー */}
+            <header class="border-b border-white/5 p-4 sm:p-5">
+              <div class="flex items-start gap-3">
+                <span class="text-2xl">{guide.data.heroEmoji}</span>
+                <div class="min-w-0 flex-1">
+                  <h3 class="text-base font-bold tracking-tight text-white line-clamp-2">
+                    {guide.data.title}
+                  </h3>
+                  <div class="mt-1 flex flex-wrap items-center gap-2 text-[11px] text-[#8a90a8]">
+                    <span>{guide.data.publishedAt.toLocaleDateString('ja-JP')}</span>
+                    <span>•</span>
+                    <span>{guide.data.readTimeMin}分</span>
+                    <span>•</span>
+                    <a
+                      href={`/guides/${guide.id.replace(/\.md$/, '')}/`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-violet-300 hover:text-violet-200"
+                    >
+                      記事を開く →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            {/* 3プラットフォームの投稿文 */}
+            <div class="grid gap-0 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/5">
+              {posts.map((post) => {
+                const meta = platformMeta[post.platform];
+                const overLimit = post.charCount > meta.limit;
+                return (
+                  <div class="p-4 sm:p-5">
+                    {/* プラットフォームヘッダー */}
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center gap-2">
+                        <span class={`inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br ${meta.color} text-sm font-bold`}>
+                          {meta.icon}
+                        </span>
+                        <span class="text-sm font-bold">{meta.name}</span>
+                      </div>
+                      <div class={`text-[11px] ${overLimit ? 'text-rose-400' : 'text-[#8a90a8]'}`}>
+                        {post.charCount} / {meta.limit}
+                      </div>
+                    </div>
+
+                    {/* 投稿文プレビュー */}
+                    <pre
+                      data-post-text
+                      class="whitespace-pre-wrap break-words rounded-lg border border-white/10 bg-black/30 p-3 text-[11px] text-[#c7cbde] font-sans leading-relaxed max-h-64 overflow-y-auto"
+                    >{post.text}</pre>
+
+                    {/* アクションボタン */}
+                    <div class="mt-3 flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        data-copy-btn
+                        class="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500 px-3 py-1.5 text-xs font-bold text-white hover:opacity-90 transition"
+                      >
+                        📋 コピー
+                      </button>
+                      <a
+                        href={meta.openUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-[#c7cbde] hover:bg-white/10 transition"
+                      >
+                        {meta.icon} {meta.name} を開く
+                      </a>
+                    </div>
+
+                    {/* 画像推奨 */}
+                    <div class="mt-3 rounded-lg border border-white/5 bg-white/[0.02] p-3">
+                      <div class="text-[10px] font-bold uppercase tracking-wider text-[#8a90a8] mb-1">
+                        🖼️ 推奨画像
+                      </div>
+                      <div class="text-[11px] text-[#c7cbde]">{post.imageHint}</div>
+                      <a
+                        href={post.imageUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-2 inline-flex items-center gap-1 text-[11px] text-violet-300 hover:text-violet-200"
+                      >
+                        OG画像をダウンロード →
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {/* 画像編集ツールの案内 */}
+    <section class="mt-10 rounded-2xl border border-white/10 bg-[#10121a] p-6">
+      <h2 class="text-lg font-bold tracking-tight">🎨 画像編集にはこれを使うと楽です</h2>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        <a
+          href="https://www.canva.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition"
+        >
+          <div class="font-bold">Canva（無料）</div>
+          <div class="mt-1 text-[12px] text-[#8a90a8]">
+            1080x1080 (IG) / 1080x1920 (TikTok) テンプレ豊富。OG画像を貼り付けてトリミング・装飾。
+          </div>
+        </a>
+        <a
+          href="https://www.figma.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition"
+        >
+          <div class="font-bold">Figma（無料）</div>
+          <div class="mt-1 text-[12px] text-[#8a90a8]">
+            デザイナー向け。一度テンプレを作ると高速で差分生成できる。
+          </div>
+        </a>
+        <a
+          href="https://www.capcut.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition"
+        >
+          <div class="font-bold">CapCut（無料）</div>
+          <div class="mt-1 text-[12px] text-[#8a90a8]">
+            TikTok・Reels の動画編集向け。テキスト入り動画を10分で作れる。
+          </div>
+        </a>
+      </div>
+    </section>
+
+    {/* 運用ペース */}
+    <section class="mt-10 rounded-2xl border border-amber-400/20 bg-gradient-to-br from-amber-500/5 to-orange-500/5 p-6">
+      <h2 class="text-lg font-bold tracking-tight">📅 推奨運用ペース</h2>
+      <div class="mt-3 grid gap-3 sm:grid-cols-3 text-sm">
+        <div>
+          <div class="font-bold text-amber-300">X（旧Twitter）</div>
+          <ul class="mt-1 text-[12px] text-[#c7cbde] space-y-1">
+            <li>• 週5〜7投稿（1日1投稿）</li>
+            <li>• 朝7-9時 / 夜19-22時</li>
+            <li>• 新記事 + 過去記事の再投稿OK</li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold text-amber-300">Instagram</div>
+          <ul class="mt-1 text-[12px] text-[#c7cbde] space-y-1">
+            <li>• 週3〜4投稿</li>
+            <li>• 夜20-22時</li>
+            <li>• Feed + Reels 併用で露出UP</li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-bold text-amber-300">TikTok</div>
+          <ul class="mt-1 text-[12px] text-[#c7cbde] space-y-1">
+            <li>• 週2〜3投稿</li>
+            <li>• 昼12-13時 / 夜20-22時</li>
+            <li>• 動画は15-30秒がベスト</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  /**
+   * コピー機能：ボタンから隣接する <pre data-post-text> のテキストをクリップボードへ。
+   */
+  document.addEventListener('click', (e) => {
+    const btn = e.target?.closest('[data-copy-btn]');
+    if (!btn) return;
+    const container = btn.closest('.p-4, .sm\\:p-5, div');
+    const pre = container?.querySelector('[data-post-text]');
+    if (!pre) return;
+    const text = pre.textContent || '';
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = '✅ コピー済み！';
+        btn.classList.add('opacity-70');
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.classList.remove('opacity-70');
+        }, 1500);
+      })
+      .catch(() => {
+        alert('コピーに失敗しました。手動で選択してください。');
+      });
+  });
+</script>
