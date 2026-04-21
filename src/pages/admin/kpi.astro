@@ -1,13 +1,9 @@
 ---
 /**
- * 統合KPIダッシュボード（ai-pedia.jp + oshi-tame.com の横断ビュー）。
- * noindex、運営者専用。
- *
- * 主な構成：
- * 1. サイト別 GA4 / Search Console クイックリンク
- * 2. Looker Studio iframe 埋込（ユーザーが作成したダッシュボードURL）
- * 3. 手動入力KPI（src/data/kpi.ts）からの月次推移グラフ
- * 4. 目標（マイルストーン）と現在地
+ * 統合KPIダッシュボード（シンプル版）。
+ * ・Looker Studio 埋込（GA4/Search Consoleデータ自動表示）
+ * ・各ASPへのワンクリックアクセス（収益はそれぞれの管理画面で確認）
+ * ・手動入力KPI（任意、データがあれば表示）
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import {
@@ -19,21 +15,43 @@ import {
   sumRevenue,
 } from '@/data/kpi';
 
-const kpiBySite = (siteSlug: string) =>
-  manualKpi
-    .filter((k) => k.site === siteSlug)
-    .sort((a, b) => a.yearMonth.localeCompare(b.yearMonth));
-
+// 手動入力データの有無
+const hasManualData = manualKpi.some((k) => (k.pv ?? 0) > 0 || sumRevenue(k) > 0);
 const latestMonth = manualKpi.length > 0
-  ? manualKpi.map((k) => k.yearMonth).sort().at(-1)
+  ? [...new Set(manualKpi.map((k) => k.yearMonth))].sort().at(-1)
   : null;
 
-const latestByMine = sites.map((s) => ({
-  site: s,
-  latest: latestMonth
-    ? manualKpi.find((k) => k.site === s.slug && k.yearMonth === latestMonth)
-    : undefined,
-}));
+// 月次収益レビュー用のASP一覧（ワンクリックで収益確認）
+const revenueSources = [
+  {
+    name: 'Google AdSense',
+    icon: '💰',
+    url: 'https://www.google.com/adsense/new/u/0/reports/home',
+    color: 'from-emerald-400 to-teal-500',
+    note: '先月の収益を「レポート」で確認',
+  },
+  {
+    name: '忍者AdMax',
+    icon: '🥷',
+    url: 'https://admax.shinobi.jp/app/reports',
+    color: 'from-neutral-400 to-gray-600',
+    note: '月次レポートで収益合計',
+  },
+  {
+    name: 'a8.net',
+    icon: '🎯',
+    url: 'https://pub.a8.net/a8v2/media/reportAction.do',
+    color: 'from-red-400 to-rose-600',
+    note: '成果発生・確定報酬',
+  },
+  {
+    name: 'Amazon アソシエイト',
+    icon: '📦',
+    url: 'https://affiliate.amazon.co.jp/home/reports',
+    color: 'from-orange-400 to-yellow-500',
+    note: '紹介料合計',
+  },
+];
 ---
 
 <BaseLayout
@@ -51,57 +69,19 @@ const latestByMine = sites.map((s) => ({
       📊 統合KPIダッシュボード
     </h1>
     <p class="mt-2 text-sm text-[#c7cbde]">
-      ai-pedia.jp + oshi-tame.com を横断してPV・ユーザー・収益を一画面で確認。
+      GA4のPV・ユーザー数は下のLooker Studioで自動表示。ASP収益は月1回「月次レビュー」で各管理画面にワンクリックアクセス。
     </p>
 
-    {/* サイト別クイックアクセス */}
+    {/* Looker Studio 統合ビュー（最上部に大きく配置） */}
     <section class="mt-8">
-      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🌐 サイト別ショートカット</h2>
-      <div class="grid gap-3 lg:grid-cols-2">
-        {sites.map((s) => (
-          <div class="rounded-2xl border border-white/10 bg-[#10121a] p-5">
-            <div class="flex items-baseline justify-between flex-wrap gap-2">
-              <div>
-                <h3 class="text-base font-bold text-white">{s.name}</h3>
-                <p class="mt-0.5 text-[11px] text-[#8a90a8]">{s.tech}</p>
-              </div>
-              <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-xs text-amber-300 hover:text-amber-200">サイトを開く →</a>
-            </div>
-            <div class="mt-3 grid gap-1.5 text-[11px]">
-              {s.ga4Id ? (
-                <a href={`https://analytics.google.com/analytics/web/?authuser=0#/p${s.ga4Id}/reports/defaulthome`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.03] px-3 py-1.5 text-[#c7cbde] hover:bg-white/10">
-                  <span>📊</span><span>GA4：{s.ga4Id}</span>
-                </a>
-              ) : (
-                <div class="flex items-center gap-2 rounded-md border border-amber-400/20 bg-amber-400/5 px-3 py-1.5 text-amber-200">
-                  <span>⚠</span><span>GA4 未設定 — src/data/kpi.ts に記入してください</span>
-                </div>
-              )}
-              {s.searchConsoleProperty ? (
-                <a href={`https://search.google.com/search-console?resource_id=${encodeURIComponent(s.searchConsoleProperty)}`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.03] px-3 py-1.5 text-[#c7cbde] hover:bg-white/10">
-                  <span>🔍</span><span>Search Console</span>
-                </a>
-              ) : (
-                <div class="flex items-center gap-2 rounded-md border border-amber-400/20 bg-amber-400/5 px-3 py-1.5 text-amber-200">
-                  <span>⚠</span><span>Search Console 未登録</span>
-                </div>
-              )}
-              {s.adsenseClient && (
-                <a href={`https://www.google.com/adsense/new/u/0/${s.adsenseClient}/home`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.03] px-3 py-1.5 text-[#c7cbde] hover:bg-white/10">
-                  <span>💰</span><span>AdSense：{s.adsenseClient}</span>
-                </a>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    {/* Looker Studio 統合ビュー */}
-    <section class="mt-10">
       <div class="mb-3 flex items-baseline justify-between">
-        <h2 class="text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">📈 Looker Studio 統合ダッシュボード</h2>
-        <a href="/admin/looker-setup" class="text-xs text-amber-300 hover:text-amber-200">セットアップガイドを見る →</a>
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">📈 アクセス数（自動更新）</h2>
+        <div class="flex items-center gap-3 text-xs">
+          {LOOKER_STUDIO_REPORT_URL && (
+            <a href={LOOKER_STUDIO_REPORT_URL} target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-amber-200">Looker Studio で開く →</a>
+          )}
+          <a href="/admin/looker-setup" class="text-[#8a90a8] hover:text-white">セットアップ</a>
+        </div>
       </div>
 
       {LOOKER_STUDIO_EMBED_URL ? (
@@ -120,57 +100,126 @@ const latestByMine = sites.map((s) => ({
       ) : LOOKER_STUDIO_REPORT_URL ? (
         <div class="rounded-2xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 p-8 text-center">
           <div class="text-4xl">📊</div>
-          <h3 class="mt-3 text-lg font-bold text-white">Looker Studio レポートを開く</h3>
-          <p class="mt-2 text-sm text-[#c7cbde]">
-            共有リンクが設定されています。下のボタンから Looker Studio を別タブで開いて確認できます。
-          </p>
-          <a
-            href={LOOKER_STUDIO_REPORT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white hover:opacity-90 transition"
-          >
-            レポートを開く
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
+          <a href={LOOKER_STUDIO_REPORT_URL} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white hover:opacity-90 transition">
+            Looker Studio レポートを開く →
           </a>
-          <div class="mt-6 rounded-xl border border-amber-400/20 bg-amber-400/5 p-4 text-left text-xs text-[#c7cbde]">
-            <strong class="text-amber-200">💡 iframe 埋込表示にするには：</strong>
-            <ol class="mt-2 space-y-1 list-decimal pl-5">
-              <li>Looker Studio のレポートを開く</li>
-              <li>右上「共有」→「埋め込み」タブ</li>
-              <li>「埋め込み有効」をON</li>
-              <li>表示される <code class="rounded bg-white/5 px-1">https://lookerstudio.google.com/embed/reporting/XXX/page/YYY</code> 形式のURLをコピー</li>
-              <li>そのURLを私に貼ってください → <code class="rounded bg-white/5 px-1">LOOKER_STUDIO_EMBED_URL</code> に設定します</li>
-            </ol>
-          </div>
         </div>
       ) : (
         <div class="rounded-2xl border border-dashed border-white/10 bg-[#10121a] p-8 text-center">
-          <div class="text-4xl">📊</div>
-          <h3 class="mt-3 text-lg font-bold text-white">Looker Studio ダッシュボードを作成してください</h3>
-          <p class="mt-2 text-sm text-[#c7cbde]">
-            GA4 + Search Console + 両サイトを統合したカスタムダッシュボードを無料で作れます。
-          </p>
-          <a href="/admin/looker-setup" class="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white hover:opacity-90 transition">
-            セットアップガイドを見る
+          <a href="/admin/looker-setup" class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white">
+            Looker Studio をセットアップ
           </a>
         </div>
       )}
     </section>
 
-    {/* 手動入力KPI の最新スナップショット */}
-    <section class="mt-10">
-      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">
-        📝 月次KPIスナップショット
-        {latestMonth && <span class="ml-2 text-[#c7cbde]">（{latestMonth}）</span>}
-      </h2>
+    {/* 月次レビュー：ワンクリックで各ASP */}
+    <section class="mt-10 rounded-2xl border border-amber-400/20 bg-gradient-to-br from-amber-500/5 to-orange-500/5 p-5 sm:p-6">
+      <div class="flex items-start justify-between flex-wrap gap-3">
+        <div>
+          <h2 class="text-lg font-bold">🔁 月次収益レビュー（毎月1回、5分）</h2>
+          <p class="mt-1 text-sm text-[#c7cbde]">各ASPの管理画面を開いて先月の収益を確認。記録は不要、見るだけでOK。</p>
+        </div>
+      </div>
+      <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {revenueSources.map((s) => (
+          <a
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative overflow-hidden rounded-xl border border-white/10 bg-[#10121a] p-4 hover:border-amber-400/40 transition"
+          >
+            <div class={`absolute -right-6 -top-6 h-16 w-16 rounded-full bg-gradient-to-br ${s.color} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity`}></div>
+            <div class="relative">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl">{s.icon}</span>
+                <span class="text-xs text-amber-300">開く →</span>
+              </div>
+              <div class="mt-2 text-sm font-bold text-white">{s.name}</div>
+              <div class="mt-1 text-[11px] text-[#8a90a8]">{s.note}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="mt-5 rounded-xl border border-white/5 bg-white/[0.02] p-4 text-xs text-[#c7cbde]">
+        <strong class="text-amber-300">💡 毎月の運用ルーティン（3分）</strong>
+        <ol class="mt-2 space-y-1 list-decimal pl-5">
+          <li>月初に上の4つを順にクリック（新しいタブで開く）</li>
+          <li>先月の収益をさらっと確認（記録不要）</li>
+          <li>目立った変化があれば<a href="/admin/dashboard" class="underline">ダッシュボード</a>に手動メモ or 記事の改善計画へ</li>
+        </ol>
+        <p class="mt-2 text-[#8a90a8]">※ PV・ユーザー数は上のLooker Studioで自動表示されるので、ここで確認不要です。</p>
+      </div>
+    </section>
 
-      {latestMonth ? (
+    {/* サイト別クイックリンク */}
+    <section class="mt-10">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🌐 サイト別 GA4 / Search Console</h2>
+      <div class="grid gap-3 lg:grid-cols-2">
+        {sites.map((s) => (
+          <div class="rounded-2xl border border-white/10 bg-[#10121a] p-5">
+            <div class="flex items-baseline justify-between flex-wrap gap-2">
+              <div>
+                <h3 class="text-base font-bold text-white">{s.name}</h3>
+                <p class="mt-0.5 text-[11px] text-[#8a90a8]">{s.tech}</p>
+              </div>
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-xs text-amber-300 hover:text-amber-200">サイト →</a>
+            </div>
+            <div class="mt-3 grid gap-1.5 text-[11px]">
+              {s.ga4Id && (
+                <a href={`https://analytics.google.com/analytics/web/?authuser=0#/p${s.ga4Id}/reports/defaulthome`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.03] px-3 py-1.5 text-[#c7cbde] hover:bg-white/10">
+                  <span>📊</span><span>GA4</span>
+                </a>
+              )}
+              {s.searchConsoleProperty && (
+                <a href={`https://search.google.com/search-console?resource_id=${encodeURIComponent(s.searchConsoleProperty)}`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-md border border-white/5 bg-white/[0.03] px-3 py-1.5 text-[#c7cbde] hover:bg-white/10">
+                  <span>🔍</span><span>Search Console</span>
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* 目標（軽く表示） */}
+    <section class="mt-10">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🎯 目標マイルストーン</h2>
+      <div class="grid gap-3 lg:grid-cols-3">
+        {Object.entries(goals).map(([, g]) => (
+          <div class="rounded-2xl border border-white/10 bg-[#10121a] p-5">
+            <div class="text-sm font-bold text-white">{g.label}</div>
+            <div class="mt-3 space-y-2 text-[12px]">
+              <div class="flex items-center justify-between rounded-lg border border-violet-400/20 bg-violet-400/5 px-3 py-2">
+                <span class="text-violet-300 font-bold">AIpedia</span>
+                <span class="text-[#c7cbde]">PV {(g.aipedia.pv/1000).toFixed(1)}K / ¥{(g.aipedia.revenue/1000).toFixed(0)}k</span>
+              </div>
+              <div class="flex items-center justify-between rounded-lg border border-emerald-400/20 bg-emerald-400/5 px-3 py-2">
+                <span class="text-emerald-300 font-bold">oshi-tame</span>
+                <span class="text-[#c7cbde]">PV {(g.oshitame.pv/1000).toFixed(1)}K / ¥{(g.oshitame.revenue/1000).toFixed(0)}k</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* 手動入力（実データあれば表示、なければ折りたたみ） */}
+    {hasManualData && (
+      <section class="mt-10">
+        <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">
+          📝 月次スナップショット（手動）
+          {latestMonth && <span class="ml-2 text-[#c7cbde]">{latestMonth}</span>}
+        </h2>
         <div class="grid gap-3 lg:grid-cols-2">
-          {latestByMine.map(({ site, latest }) => (
-            <div class="rounded-2xl border border-white/10 bg-[#10121a] p-5">
-              <h3 class="text-base font-bold text-white">{site.name}</h3>
-              {latest ? (
+          {sites.map((site) => {
+            const latest = latestMonth
+              ? manualKpi.find((k) => k.site === site.slug && k.yearMonth === latestMonth)
+              : undefined;
+            if (!latest || ((latest.pv ?? 0) === 0 && sumRevenue(latest) === 0)) return null;
+            return (
+              <div class="rounded-2xl border border-white/10 bg-[#10121a] p-5">
+                <h3 class="text-base font-bold text-white">{site.name}</h3>
                 <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                   <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
                     <div class="text-[10px] uppercase text-[#8a90a8]">PV</div>
@@ -184,89 +233,15 @@ const latestByMine = sites.map((s) => ({
                     <div class="text-[10px] uppercase text-emerald-300">合計収益</div>
                     <div class="mt-1 text-lg font-extrabold text-emerald-200">¥{sumRevenue(latest).toLocaleString()}</div>
                   </div>
-                  <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
-                    <div class="text-[10px] uppercase text-[#8a90a8]">AdSense</div>
-                    <div class="mt-1 text-sm font-bold text-white">¥{latest.adsenseRevenue?.toLocaleString() ?? '—'}</div>
-                  </div>
-                  <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
-                    <div class="text-[10px] uppercase text-[#8a90a8]">忍者AdMax</div>
-                    <div class="mt-1 text-sm font-bold text-white">¥{latest.ninjaRevenue?.toLocaleString() ?? '—'}</div>
-                  </div>
-                  <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
-                    <div class="text-[10px] uppercase text-[#8a90a8]">a8.net</div>
-                    <div class="mt-1 text-sm font-bold text-white">¥{latest.a8Revenue?.toLocaleString() ?? '—'}</div>
-                  </div>
-                  <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
-                    <div class="text-[10px] uppercase text-[#8a90a8]">Amazon</div>
-                    <div class="mt-1 text-sm font-bold text-white">¥{latest.amazonRevenue?.toLocaleString() ?? '—'}</div>
-                  </div>
                 </div>
-              ) : (
-                <p class="mt-3 text-xs text-[#8a90a8]">このサイトは {latestMonth} のデータがまだ記録されていません。</p>
-              )}
-              {latest?.notes && <p class="mt-3 text-[11px] text-[#8a90a8]">メモ：{latest.notes}</p>}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div class="rounded-2xl border border-dashed border-white/10 bg-[#10121a] p-8 text-center">
-          <div class="text-4xl">📝</div>
-          <h3 class="mt-3 text-base font-bold text-white">月次KPIデータが未入力です</h3>
-          <p class="mt-2 text-sm text-[#c7cbde]">
-            月1回、月初に <code class="rounded bg-white/5 px-1">src/data/kpi.ts</code> の <code class="rounded bg-white/5 px-1">manualKpi</code> 配列に追加 → git push で反映。
-          </p>
-          <pre class="mt-4 overflow-auto rounded-lg bg-black/40 p-3 text-left text-[11px] text-[#c7cbde]"><code>{`// 例：
-{
-  yearMonth: '2026-04',
-  site: 'ai-pedia',
-  pv: 1500,
-  users: 500,
-  adsenseRevenue: 0,
-  ninjaRevenue: 120,
-  a8Revenue: 0,
-  amazonRevenue: 0,
-  notes: '公開月',
-},`}</code></pre>
-        </div>
-      )}
-
-      <div class="mt-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs text-[#8a90a8]">
-        💡 各ASPの管理画面で先月分の確定収益を確認 → <code class="rounded bg-white/5 px-1 text-[#c7cbde]">src/data/kpi.ts</code> に記入 → git push、の運用を推奨。月次で5分の作業。
-      </div>
-    </section>
-
-    {/* 目標とマイルストーン */}
-    <section class="mt-10">
-      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🎯 目標マイルストーン</h2>
-      <div class="grid gap-3 lg:grid-cols-3">
-        {Object.entries(goals).map(([, g]) => (
-          <div class="rounded-2xl border border-white/10 bg-[#10121a] p-5">
-            <div class="text-sm font-bold text-white">{g.label}</div>
-            <div class="mt-3 space-y-2 text-[12px]">
-              <div class="rounded-lg border border-violet-400/20 bg-violet-400/5 p-3">
-                <div class="text-violet-300 font-bold">AIpedia</div>
-                <div class="mt-1 text-[#c7cbde]">PV {g.aipedia.pv.toLocaleString()} / 収益 ¥{g.aipedia.revenue.toLocaleString()}</div>
               </div>
-              <div class="rounded-lg border border-emerald-400/20 bg-emerald-400/5 p-3">
-                <div class="text-emerald-300 font-bold">oshi-tame.com</div>
-                <div class="mt-1 text-[#c7cbde]">PV {g.oshitame.pv.toLocaleString()} / 収益 ¥{g.oshitame.revenue.toLocaleString()}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    {/* 運用の流れ */}
-    <section class="mt-10 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
-      <h2 class="text-base font-bold">🔁 月次KPIレビューの流れ</h2>
-      <ol class="mt-3 space-y-2 text-sm text-[#c7cbde] list-decimal pl-5">
-        <li>月初（1〜3日）に各ASPの管理画面で先月分の確定収益を確認</li>
-        <li>GA4 で先月のPV・ユーザー数を確認（Looker Studio 作成済なら自動反映）</li>
-        <li><code class="rounded bg-white/5 px-1">src/data/kpi.ts</code> の <code class="rounded bg-white/5 px-1">manualKpi</code> に追加</li>
-        <li><code class="rounded bg-white/5 px-1">git push</code> → 自動デプロイで <code>/admin/kpi</code> に反映</li>
-        <li>目標と比較 → 次月の改善アクション決定</li>
-      </ol>
-    </section>
+            );
+          })}
+        </div>
+        <div class="mt-3 text-xs text-[#8a90a8]">
+          編集：<code class="rounded bg-white/5 px-1">src/data/kpi.ts</code> の <code class="rounded bg-white/5 px-1">manualKpi</code>
+        </div>
+      </section>
+    )}
   </section>
 </BaseLayout>
