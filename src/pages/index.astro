@@ -30,6 +30,11 @@ const allGuides = (await getCollection('guides')).sort(
 const featuredGuides = allGuides.filter((g) => g.data.featured).slice(0, 4);
 const recentGuides = allGuides.slice(0, 6);
 
+// 「新機能」タグを持つ最新記事を抽出
+const newFeatureGuides = allGuides
+  .filter((g) => (g.data.tags ?? []).includes('新機能'))
+  .slice(0, 6);
+
 // 4位以降を前半・後半に分けて間に広告を挟む
 const restFirst = rest.slice(0, Math.ceil(rest.length / 2));
 const restLast = rest.slice(Math.ceil(rest.length / 2));
@@ -62,6 +67,10 @@ const description = '2026年最新版のAIツール総合ランキング「AIped
 
     {/* ヒーロー直下のナビゲーションチップ（徹底特集/比較/無料 への導線） */}
     <div class="mt-6 flex flex-wrap gap-2 text-xs">
+      <a href="/tags/%E6%96%B0%E6%A9%9F%E8%83%BD" class="inline-flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-400/10 px-3 py-1.5 text-rose-200 hover:bg-rose-400/20 transition">
+        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-rose-400 shadow-[0_0_8px_#fb7185]"></span>
+        新機能・最新情報
+      </a>
       <a href="/guides" class="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-1.5 text-amber-200 hover:bg-amber-400/20 transition">
         📚 徹底特集・ガイドを読む
       </a>
@@ -100,7 +109,51 @@ const description = '2026年最新版のAIツール総合ランキング「AIped
     </section>
   )}
 
-  {/* 徹底特集・ガイドをトップ寄りに上昇させる（TOP3の直後） */}
+  {/* 新機能・最新情報セクション（TOP3 + スポンサーの直後、特集よりも先） */}
+  {newFeatureGuides.length > 0 && (
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-12">
+      <div class="mb-5 flex items-baseline justify-between">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-400/10 px-2.5 py-0.5 text-[10px] uppercase tracking-widest text-rose-200">
+              <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-rose-400 shadow-[0_0_8px_#fb7185]"></span>
+              NEW
+            </span>
+            <h2 class="text-lg sm:text-xl font-bold tracking-tight">🆕 新機能・最新情報</h2>
+          </div>
+          <p class="mt-1 text-xs text-[#8a90a8]">2026年に登場したAI新機能を専門記事で解説（全 {newFeatureGuides.length} 本）</p>
+        </div>
+        <a href="/tags/%E6%96%B0%E6%A9%9F%E8%83%BD" class="inline-flex items-center gap-1 text-xs text-rose-300 hover:text-rose-200 transition whitespace-nowrap">
+          すべて見る →
+        </a>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {newFeatureGuides.map((g) => (
+          <a
+            href={`/guides/${g.id}`}
+            class="group relative overflow-hidden rounded-2xl border border-white/10 p-5 card-hover"
+          >
+            <div class={`absolute inset-0 bg-gradient-to-br ${g.data.heroGradient} opacity-20`}></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#08090d] via-[#08090d]/60 to-transparent"></div>
+            <div class="relative">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl">{g.data.heroEmoji}</span>
+                <span class="inline-flex items-center gap-1 rounded-full border border-rose-400/40 bg-rose-400/15 px-2 py-0.5 text-[10px] uppercase tracking-wider text-rose-200 backdrop-blur">
+                  <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-rose-400"></span>
+                  NEW
+                </span>
+              </div>
+              <h3 class="mt-3 text-sm sm:text-base font-bold tracking-tight text-white text-balance line-clamp-2">{g.data.title}</h3>
+              <p class="mt-2 text-[12px] text-[#c7cbde] line-clamp-2">{g.data.description}</p>
+              <div class="mt-3 text-[11px] text-[#8a90a8]">{g.data.readTimeMin}分で読める</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {/* 徹底特集・ガイドをトップ寄りに上昇させる */}
   <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-12">
     <div class="mb-5 flex items-baseline justify-between">
       <div>
