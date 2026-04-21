@@ -1,0 +1,347 @@
+---
+/**
+ * 運営アカウント一覧ページ（noindex、運営者のみ）。
+ * 各ツールで使っているGoogleアカウント・IDを一覧化し、混乱を防ぐ。
+ *
+ * パスワードは一切保存しない方針：
+ * - ID（公開情報）
+ * - 用途
+ * - Chromeプロフィール（視覚的に分ける指針）
+ * - 2FA状態のメモ
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+// === メインメール（中心アカウント） ===
+const mainGmail = 'naokimiyamoto02@gmail.com';
+
+// === Google 系サービス（このGmailで管理） ===
+const googleServices = [
+  {
+    service: 'Google Analytics 4',
+    icon: '📊',
+    account: mainGmail,
+    id: 'G-S4WER4YKJ5',
+    purpose: 'ai-pedia.jp のアクセス計測',
+    url: 'https://analytics.google.com/analytics/web/',
+    configLocation: 'src/data/analytics.ts',
+  },
+  {
+    service: 'Google Search Console',
+    icon: '🔍',
+    account: mainGmail,
+    id: 'sc-domain:ai-pedia.jp',
+    purpose: '検索パフォーマンス計測・sitemap送信',
+    url: 'https://search.google.com/search-console?resource_id=sc-domain%3Aai-pedia.jp',
+    configLocation: '（Cloudflare DNS TXT で所有権確認）',
+  },
+  {
+    service: 'Google AdSense',
+    icon: '💰',
+    account: mainGmail,
+    id: 'ca-pub-6101718288538326',
+    purpose: 'ディスプレイ広告（審査中）',
+    url: 'https://www.google.com/adsense/new/u/0/home',
+    configLocation: 'src/data/adsense.ts + public/ads.txt',
+  },
+  {
+    service: 'Google Looker Studio',
+    icon: '📈',
+    account: mainGmail,
+    id: '—（未使用）',
+    purpose: '（任意）GA4 / Search Console / AdSense 統合ダッシュボード',
+    url: 'https://lookerstudio.google.com/',
+    configLocation: '—',
+  },
+];
+
+// === 非Google ASP・サービス ===
+const externalServices = [
+  {
+    service: 'a8.net',
+    icon: '🎯',
+    account: 'aowork（ログインID）',
+    email: '—（登録時メアド要確認）',
+    id: 'メディアID: a25072800007',
+    purpose: '成果報酬型アフィリエイト（即時2件、審査中18件）',
+    url: 'https://pub.a8.net/',
+    configLocation: 'src/data/affiliate.ts',
+    note: 'サイト「ai-pedia」は副サイトとして追加済',
+  },
+  {
+    service: '忍者AdMax',
+    icon: '🥷',
+    account: '要確認',
+    email: '登録時のメールアドレス',
+    id: '（アカウント固有のID）',
+    purpose: 'クリック報酬型広告（4枠稼働中）',
+    url: 'https://admax.shinobi.jp/',
+    configLocation: 'src/data/adNetworks.ts',
+    note: '4枠のタグHTMLはリポジトリ内で管理',
+  },
+  {
+    service: 'Amazon アソシエイト',
+    icon: '📦',
+    account: mainGmail + ' と連携している可能性',
+    email: 'Amazon アカウントのメアド',
+    id: 'ai-pedia-22（トラッキングID）',
+    purpose: '商品紹介アフィリエイト（仮登録、本審査に3件売上必要）',
+    url: 'https://affiliate.amazon.co.jp/',
+    configLocation: 'src/data/amazon.ts',
+    note: '180日以内に3件の売上で本審査通過',
+  },
+  {
+    service: 'Cloudflare',
+    icon: '☁️',
+    account: 'Naokimiyamoto81@icloud.com',
+    email: 'Naokimiyamoto81@icloud.com',
+    id: 'Account ID: 91a62e813cd1b61c40842055c40151ed',
+    purpose: 'Pages（デプロイ）・DNS・SSL・Workers・Zero Trust',
+    url: 'https://dash.cloudflare.com/',
+    configLocation: 'wrangler.toml',
+    note: 'メインGmailと別アカウントなので注意！',
+  },
+  {
+    service: 'お名前.com',
+    icon: '🌐',
+    account: 'お名前ID: 77399585（既存アカウント）',
+    email: '—（登録時メアド）',
+    id: '—',
+    purpose: 'ai-pedia.jp のドメイン取得・維持（他サイトも管理）',
+    url: 'https://www.onamae.com/',
+    configLocation: '—（Cloudflare にNS委任済）',
+    note: '更新日時に注意、契約1年',
+  },
+  {
+    service: 'GitHub',
+    icon: '🐙',
+    account: 'ao1811',
+    email: '—',
+    id: 'https://github.com/ao1811/ai-pedia-jp',
+    purpose: 'ソースコード管理・Cloudflare Pages 自動デプロイ連携',
+    url: 'https://github.com/ao1811/ai-pedia-jp',
+    configLocation: '—',
+    note: 'Private リポジトリ、2FA推奨',
+  },
+];
+
+// === もう1つのサイト（参考：混同しないため明記） ===
+const otherSites = [
+  {
+    name: '推し活貯金箱',
+    url: 'https://oshi-chokin-app.vercel.app',
+    notes: 'a8.net の主サイト、Vercel + Supabase運用',
+    a8media: 'サイト名「推し活貯金」で登録済み',
+  },
+];
+
+// === Chrome プロフィール分離の推奨 ===
+const chromeProfileSuggestion = [
+  {
+    profile: '個人用',
+    purpose: 'プライベートなGmail、YouTubeなど',
+    accounts: ['個人用Gmail'],
+  },
+  {
+    profile: 'ai-pedia 運営',
+    purpose: 'ai-pedia.jp に関する全サービス',
+    accounts: [
+      mainGmail + '（GA4 / Search Console / AdSense / Amazon）',
+      'Cloudflare（Naokimiyamoto81@icloud.com）',
+      'a8.net（aowork）',
+      '忍者AdMax',
+      'GitHub（ao1811）',
+      'お名前.com',
+    ],
+  },
+  {
+    profile: '推し活貯金箱 運営',
+    purpose: '別サイト関連',
+    accounts: ['別途', 'a8.net（主サイト運用）'],
+  },
+];
+---
+
+<BaseLayout
+  title="運営アカウント一覧"
+  description="管理者用アカウント一覧。非公開ページです。"
+  noIndex
+>
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <div class="flex items-center gap-2 text-xs">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-400/10 px-3 py-1 text-rose-300">
+        🔒 非公開
+      </span>
+      <span class="text-[#8a90a8]">運営者向け</span>
+      <a href="/admin/dashboard" class="ml-auto text-[#c7cbde] hover:text-white">← ダッシュボードに戻る</a>
+    </div>
+    <h1 class="mt-3 text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      運営アカウント一覧
+    </h1>
+    <p class="mt-2 text-sm text-[#c7cbde]">
+      ai-pedia.jp の運営で使用している全サービスのアカウント・IDを一覧化。パスワードは記載しません（パスワードマネージャーで管理推奨）。
+    </p>
+
+    {/* 中心アカウント */}
+    <section class="mt-8 rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/10 to-fuchsia-500/5 p-5 sm:p-6">
+      <h2 class="text-base font-bold">📌 メインメールアドレス</h2>
+      <p class="mt-1 text-sm text-[#c7cbde]">Google 系サービスは全てこのメールで統一管理：</p>
+      <div class="mt-3 flex flex-wrap items-center gap-2">
+        <code class="rounded-lg bg-white/5 px-3 py-1.5 text-sm font-mono text-white">{mainGmail}</code>
+        <a href={`mailto:${mainGmail}`} class="text-xs text-[#c7cbde] hover:text-white">メール送信</a>
+      </div>
+    </section>
+
+    {/* Google 系 */}
+    <section class="mt-8">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🟢 Google 系サービス</h2>
+      <p class="mb-3 text-xs text-[#8a90a8]">全て {mainGmail} で管理</p>
+      <div class="space-y-3">
+        {googleServices.map((s) => (
+          <div class="rounded-xl border border-white/10 bg-[#10121a] p-4">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl shrink-0">{s.icon}</span>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-baseline justify-between flex-wrap gap-2">
+                  <h3 class="text-base font-bold text-white">{s.service}</h3>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-xs text-amber-300 hover:text-amber-200">開く →</a>
+                </div>
+                <p class="mt-1 text-[12px] text-[#c7cbde]">{s.purpose}</p>
+                <div class="mt-3 grid gap-2 sm:grid-cols-2 text-xs">
+                  <div>
+                    <span class="text-[#8a90a8]">ID：</span>
+                    <code class="rounded bg-white/5 px-1.5 py-0.5 text-white">{s.id}</code>
+                  </div>
+                  <div>
+                    <span class="text-[#8a90a8]">設定ファイル：</span>
+                    <code class="rounded bg-white/5 px-1.5 py-0.5 text-white">{s.configLocation}</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* 非Google系 */}
+    <section class="mt-10">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🔵 非Google系 サービス</h2>
+      <p class="mb-3 text-xs text-[#8a90a8]">サービスごとに別アカウント（混同しやすいので注意）</p>
+      <div class="space-y-3">
+        {externalServices.map((s) => (
+          <div class="rounded-xl border border-white/10 bg-[#10121a] p-4">
+            <div class="flex items-start gap-3">
+              <span class="text-2xl shrink-0">{s.icon}</span>
+              <div class="min-w-0 flex-1">
+                <div class="flex items-baseline justify-between flex-wrap gap-2">
+                  <h3 class="text-base font-bold text-white">{s.service}</h3>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-xs text-amber-300 hover:text-amber-200">開く →</a>
+                </div>
+                <p class="mt-1 text-[12px] text-[#c7cbde]">{s.purpose}</p>
+                <div class="mt-3 grid gap-2 sm:grid-cols-2 text-xs">
+                  <div>
+                    <span class="text-[#8a90a8]">アカウント：</span>
+                    <code class="rounded bg-white/5 px-1.5 py-0.5 text-white">{s.account}</code>
+                  </div>
+                  <div>
+                    <span class="text-[#8a90a8]">ID/Media：</span>
+                    <code class="rounded bg-white/5 px-1.5 py-0.5 text-white">{s.id}</code>
+                  </div>
+                  <div>
+                    <span class="text-[#8a90a8]">設定ファイル：</span>
+                    <code class="rounded bg-white/5 px-1.5 py-0.5 text-white">{s.configLocation}</code>
+                  </div>
+                </div>
+                {s.note && (
+                  <div class="mt-2 rounded-lg border border-amber-400/20 bg-amber-400/10 px-3 py-1.5 text-[11px] text-amber-200">
+                    ⚠ {s.note}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* 別サイト（混同防止） */}
+    <section class="mt-10 rounded-2xl border border-white/5 bg-[#10121a] p-5">
+      <h2 class="text-base font-bold">🔀 他のサイト（混同しないよう記録）</h2>
+      <p class="mt-2 text-xs text-[#8a90a8]">同じアカウント体系で運営している別サイト</p>
+      <div class="mt-3 space-y-3">
+        {otherSites.map((s) => (
+          <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
+            <div class="flex items-baseline justify-between flex-wrap gap-2">
+              <div class="text-sm font-bold text-white">{s.name}</div>
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-xs text-[#c7cbde] hover:text-white">{s.url}</a>
+            </div>
+            <div class="mt-1 text-[12px] text-[#c7cbde]">{s.notes}</div>
+            <div class="mt-1 text-[11px] text-[#8a90a8]">a8.net：{s.a8media}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Chrome プロフィール分離の推奨 */}
+    <section class="mt-10">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🧑‍💻 Chrome プロフィール分離</h2>
+      <p class="mb-4 text-xs text-[#8a90a8]">
+        Google アカウントが混同する最大の原因は「1つの Chrome ウィンドウで全て開く」こと。
+        Chrome のプロフィール機能でサイト別に分けると**視覚的に間違いが激減**します。
+      </p>
+      <div class="grid gap-3 sm:grid-cols-3">
+        {chromeProfileSuggestion.map((p) => (
+          <div class="rounded-xl border border-white/10 bg-[#10121a] p-4">
+            <div class="text-sm font-bold text-white">{p.profile}</div>
+            <div class="mt-1 text-[11px] text-[#8a90a8]">{p.purpose}</div>
+            <ul class="mt-3 space-y-1 text-[12px] text-[#c7cbde]">
+              {p.accounts.map((a) => (
+                <li>• {a}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div class="mt-4 rounded-xl border border-sky-400/20 bg-sky-400/5 p-4 text-xs text-[#c7cbde]">
+        <strong class="text-sky-300">Chrome プロフィール作成方法：</strong>
+        <ol class="mt-2 space-y-1 list-decimal pl-5">
+          <li>Chrome 右上のプロフィールアイコン → 「+ 追加」</li>
+          <li>プロフィール名（例「ai-pedia 運営」）・アイコンを設定</li>
+          <li>そのプロフィールで各サービスにログイン</li>
+          <li>タスクバーにピン留めすると1クリック切替</li>
+        </ol>
+      </div>
+    </section>
+
+    {/* パスワード管理 */}
+    <section class="mt-10 rounded-2xl border border-emerald-400/20 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 p-5 sm:p-6">
+      <h2 class="text-base font-bold">🔐 パスワード管理のベストプラクティス</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li><strong class="text-white">1. パスワードマネージャー必須</strong>：<a href="https://1password.com/" target="_blank" rel="noopener noreferrer" class="underline">1Password</a>（有料・家族共有◎）or <a href="https://bitwarden.com/" target="_blank" rel="noopener noreferrer" class="underline">Bitwarden</a>（無料）で全て管理</li>
+        <li><strong class="text-white">2. 2FA を全サービスで有効化</strong>：Gmail・Cloudflare・a8.net・GitHub・Amazon・お名前.com は特に重要</li>
+        <li><strong class="text-white">3. バックアップコードを保存</strong>：2FA端末紛失時の復旧用。印刷して物理的に保管</li>
+        <li><strong class="text-white">4. リカバリーメール設定</strong>：Gmail のリカバリーメールは別サービスのメアド（iCloud等）に</li>
+        <li><strong class="text-white">5. 定期的な棚卸し</strong>：月1回、使ってないサービスのアカウント削除/ログアウト</li>
+      </ul>
+    </section>
+
+    {/* 重要な注意点 */}
+    <section class="mt-10 rounded-2xl border border-rose-400/20 bg-rose-400/5 p-5 sm:p-6">
+      <h2 class="text-base font-bold text-rose-200">⚠️ 重要な注意点</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li><strong class="text-white">Cloudflare とメインGmailが別アカウント</strong>：ai-pedia.jp の中核インフラは <code class="rounded bg-white/5 px-1 text-rose-200">Naokimiyamoto81@icloud.com</code>。紛失するとサイトが失われるリスクあり</li>
+        <li><strong class="text-white">お名前.com の更新通知</strong>：1年ごとのドメイン更新。通知メアドを確実に受信できる状態に</li>
+        <li><strong class="text-white">AdSense の支払い情報</strong>：氏名・住所・銀行口座を登録、PINコードは郵送</li>
+        <li><strong class="text-white">税金関連</strong>：副業収入が年20万円超えた場合は確定申告必須</li>
+      </ul>
+    </section>
+
+    {/* 推奨：このページを編集するには */}
+    <section class="mt-8 rounded-xl border border-white/5 bg-white/[0.02] p-4 text-xs text-[#8a90a8]">
+      <strong class="text-amber-300">✏️ このページを編集するには：</strong>
+      <code class="mx-1 rounded bg-white/5 px-1 py-0.5">src/pages/admin/accounts.astro</code>
+      の先頭にある <code class="mx-1 rounded bg-white/5 px-1 py-0.5">googleServices</code> / <code class="mx-1 rounded bg-white/5 px-1 py-0.5">externalServices</code> 配列を編集 → git push で反映。
+      新しいサービス登録時はここに追加しましょう。
+    </section>
+  </section>
+</BaseLayout>

@@ -42,7 +42,8 @@
       "Bash(npx pagefind *)",
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: AIpedia rebrand + 12 more FAQs + reading progress + search + OG generation *)",
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: add 5 new-feature articles + homepage NEW section *)",
-      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: admin dashboard at /admin/dashboard *)"
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: admin dashboard at /admin/dashboard *)",
+      "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'feat: /admin/accounts - centralized account inventory *)"
     ]
   }
 }
