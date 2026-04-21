@@ -30,9 +30,8 @@ export const sites: Site[] = [
     slug: 'oshi-tame',
     name: 'oshi-tame.com（推し活貯金箱）',
     url: 'https://oshi-tame.com',
-    // 必要なら下記を埋めてください
-    ga4Id: undefined, // 例: 'G-XXXXXXXXXX'
-    searchConsoleProperty: undefined, // 例: 'sc-domain:oshi-tame.com'
+    ga4Id: 'G-NTQQZ0ZE2P',
+    searchConsoleProperty: 'sc-domain:oshi-tame.com',
     adsenseClient: undefined,
     tech: 'Vercel + Supabase',
   },
