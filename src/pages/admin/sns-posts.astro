@@ -132,34 +132,36 @@ function generatePosts(guide: typeof sortedGuides[number]): Post[] {
     [...baseTagsTT, ...articleHashtags].join(' '),
   ].join('\n');
 
-  // 画像: OG画像をそのまま使える（1200x630）
-  // Instagram/TikTok 用には正方形推奨だが、X はそのまま使える
-  const ogImageUrl = `${SITE.url}/og/default.png`;
+  // 記事別の画像（タイトル入り・3サイズ）
+  const slug = guide.id.replace(/\.md$/, '');
+  const imgOg = `${SITE.url}/og/og/guides/${slug}.png`;
+  const imgSquare = `${SITE.url}/og/square/guides/${slug}.png`;
+  const imgStory = `${SITE.url}/og/story/guides/${slug}.png`;
 
   return [
     {
       platform: 'x',
       text: xText,
       charCount: xText.length,
-      imageUrl: ogImageUrl,
+      imageUrl: imgOg,
       imageHint:
-        '💡 URLを貼ると自動的にOG画像が表示されるので、画像添付は任意です（添付すると目立ちやすい）',
+        '💡 1200x630（OG標準）。X投稿に画像を添付すると目立ちやすい。URLを貼ると自動でOG画像が表示されるので、添付は任意。',
     },
     {
       platform: 'instagram',
       text: igText,
       charCount: igText.length,
-      imageUrl: ogImageUrl,
+      imageUrl: imgSquare,
       imageHint:
-        '💡 OG画像（1200x630）をダウンロード → Canva等で1080x1080にトリミングして投稿してください。記事タイトルがはっきり見える画像が理想です。',
+        '💡 1080x1080（正方形）。Instagram Feed用のサイズ。そのまま投稿できます。',
     },
     {
       platform: 'tiktok',
       text: ttText,
       charCount: ttText.length,
-      imageUrl: ogImageUrl,
+      imageUrl: imgStory,
       imageHint:
-        '💡 TikTokはカバー画像のみ。OG画像を9:16（1080x1920）にリサイズするか、動画内に記事タイトルをテキストで入れると効果的。',
+        '💡 1080x1920（縦長）。TikTokのカバー画像 / Instagram Story / Reels に最適。動画にテキストを重ねる土台としても。',
     },
   ];
 }
