@@ -65,18 +65,29 @@ export type MonthlyKpi = {
 };
 
 export const manualKpi: MonthlyKpi[] = [
-  // 例：毎月初に追加
-  // {
-  //   yearMonth: '2026-04',
-  //   site: 'ai-pedia',
-  //   pv: 0,
-  //   users: 0,
-  //   adsenseRevenue: 0,
-  //   ninjaRevenue: 0,
-  //   a8Revenue: 0,
-  //   amazonRevenue: 0,
-  //   notes: 'サイト公開月',
-  // },
+  // 2026-04: サイト公開月（初期値。月末に実際の数値で更新してください）
+  {
+    yearMonth: '2026-04',
+    site: 'ai-pedia',
+    pv: 0,
+    users: 0,
+    adsenseRevenue: 0,
+    ninjaRevenue: 0,
+    a8Revenue: 0,
+    amazonRevenue: 0,
+    notes: '4/20サイト公開、AdSense審査中',
+  },
+  {
+    yearMonth: '2026-04',
+    site: 'oshi-tame',
+    pv: 0,
+    users: 0,
+    adsenseRevenue: 0,
+    ninjaRevenue: 0,
+    a8Revenue: 0,
+    amazonRevenue: 0,
+    notes: '既存サイト、GA4連携済',
+  },
 ];
 
 /**
