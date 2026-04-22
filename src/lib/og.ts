@@ -20,6 +20,53 @@ export type SizePreset = keyof typeof SIZES;
 let fontCache: ArrayBuffer | null = null;
 
 /**
+ * 絵文字（🤖 💰 🎨 等）を Twemoji SVG として読み込む。
+ * 日本語フォントには絵文字が含まれないため、これで置換描画する。
+ */
+const emojiCache = new Map<string, string>();
+
+function toCodePoint(emoji: string): string {
+  // VS-16 (U+FE0F) は Twemoji ファイル名に含まれないことが多いので除外
+  return [...emoji]
+    .map((c) => c.codePointAt(0)?.toString(16))
+    .filter((cp): cp is string => cp !== undefined && cp !== 'fe0f')
+    .join('-');
+}
+
+async function loadEmojiSvg(emoji: string): Promise<string> {
+  const cached = emojiCache.get(emoji);
+  if (cached) return cached;
+
+  const code = toCodePoint(emoji);
+  // jdecked/twemoji（Twitter 退場後のコミュニティメンテ版）。X の公式絵文字セット。
+  const urls = [
+    `https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/${code}.svg`,
+    // fallback: そのまま fe0f 付きでも試す
+    `https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/${[...emoji]
+      .map((c) => c.codePointAt(0)?.toString(16))
+      .join('-')}.svg`,
+  ];
+
+  for (const url of urls) {
+    const res = await fetch(url);
+    if (res.ok) {
+      const svg = await res.text();
+      const dataUrl = `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
+      emojiCache.set(emoji, dataUrl);
+      return dataUrl;
+    }
+  }
+  // 見つからなければ空の透明SVGを返す（豆腐よりマシ）
+  const fallback =
+    'data:image/svg+xml;base64,' +
+    Buffer.from(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"><rect width="1" height="1" fill="transparent"/></svg>',
+    ).toString('base64');
+  emojiCache.set(emoji, fallback);
+  return fallback;
+}
+
+/**
  * Noto Sans JP 700 を取得。
  *
  * satori は woff2 をサポートしないため、TTF または WOFF を取得する必要がある。
@@ -77,11 +124,61 @@ export type OgOptions = {
   subtitle?: string;
   /** カテゴリーラベル（右上、省略時は無し） */
   category?: string;
-  /** 絵文字（タイトル横、省略時は ✦） */
+  /** 絵文字（タイトル横、省略時は ✨） */
   emoji?: string;
   /** サイズプリセット */
   size?: SizePreset;
 };
+
+/**
+ * 文字列を「通常テキスト」と「絵文字」のセグメントに分割。
+ * 絵文字部分は Twemoji SVG 画像に置換して描画する。
+ */
+function splitEmoji(
+  input: string,
+): Array<{ type: 'text' | 'emoji'; value: string }> {
+  const emojiRegex =
+    /(?:\p{Extended_Pictographic}(?:\u200d\p{Extended_Pictographic})*|[\u2600-\u27BF])[\uFE0F]?/gu;
+  const result: Array<{ type: 'text' | 'emoji'; value: string }> = [];
+  let lastIdx = 0;
+  for (const match of input.matchAll(emojiRegex)) {
+    const idx = match.index ?? 0;
+    if (idx > lastIdx) {
+      result.push({ type: 'text', value: input.slice(lastIdx, idx) });
+    }
+    result.push({ type: 'emoji', value: match[0] });
+    lastIdx = idx + match[0].length;
+  }
+  if (lastIdx < input.length) {
+    result.push({ type: 'text', value: input.slice(lastIdx) });
+  }
+  return result;
+}
+
+/** 絵文字を含む文字列を、テキスト＋画像ノードの配列に変換（satori用） */
+async function renderInline(input: string, emojiSize: number): Promise<any[]> {
+  const segs = splitEmoji(input);
+  const out: any[] = [];
+  for (const seg of segs) {
+    if (seg.type === 'text') {
+      if (seg.value) out.push({ type: 'span', props: { children: seg.value } });
+    } else {
+      const src = await loadEmojiSvg(seg.value);
+      out.push({
+        type: 'img',
+        props: {
+          src,
+          width: emojiSize,
+          height: emojiSize,
+          style: {
+            margin: '0 8px',
+          },
+        },
+      });
+    }
+  }
+  return out;
+}
 
 /**
  * OG画像を生成し、PNGバイナリを返す。
@@ -93,7 +190,7 @@ export async function renderOgImage(
     title,
     subtitle = 'AIpedia｜AIツール比較ランキング',
     category,
-    emoji = '✦',
+    emoji = '✨',
     size = 'og',
   } = opts;
   const { width, height } = SIZES[size];
@@ -107,6 +204,13 @@ export async function renderOgImage(
   const titleFontSize = isStory ? 68 : isSquare ? 72 : 64;
   const subtitleFontSize = isStory ? 28 : 24;
   const brandFontSize = isStory ? 32 : 28;
+
+  // 絵文字を含むテキストを画像化して埋め込む（Noto Sans JP に絵文字が含まれないため）
+  const titleChildren = await renderInline(
+    `${emoji} ${title}`,
+    titleFontSize,
+  );
+  const subtitleChildren = await renderInline(subtitle, subtitleFontSize);
 
   const svg = await satori(
     {
@@ -141,13 +245,31 @@ export async function renderOgImage(
                     style: {
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 16,
+                      gap: 12,
                       fontSize: brandFontSize,
                       fontWeight: 700,
                       color: '#c4b5fd',
                     },
                     children: [
-                      { type: 'span', props: { children: '✦' } },
+                      // ロゴ代わりに紫の正方形バッジ（フォントに依存しないので確実に表示される）
+                      {
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: brandFontSize + 8,
+                            height: brandFontSize + 8,
+                            borderRadius: 8,
+                            background: 'linear-gradient(135deg,#a78bfa,#f472b6)',
+                            color: '#fff',
+                            fontSize: brandFontSize - 4,
+                            fontWeight: 800,
+                          },
+                          children: 'A',
+                        },
+                      },
                       { type: 'span', props: { children: 'AIpedia' } },
                     ],
                   },
@@ -195,10 +317,11 @@ export async function renderOgImage(
                       lineHeight: 1.3,
                       letterSpacing: '-0.02em',
                       color: '#ffffff',
-                      // Story の場合、長いタイトルを複数行に
                       display: 'flex',
+                      flexWrap: 'wrap',
+                      alignItems: 'center',
                     },
-                    children: `${emoji} ${title}`,
+                    children: titleChildren,
                   },
                 },
                 {
@@ -208,8 +331,11 @@ export async function renderOgImage(
                       fontSize: subtitleFontSize,
                       color: '#c7cbde',
                       display: 'flex',
+                      flexWrap: 'wrap',
+                      alignItems: 'center',
+                      lineHeight: 1.5,
                     },
-                    children: subtitle,
+                    children: subtitleChildren,
                   },
                 },
               ],
