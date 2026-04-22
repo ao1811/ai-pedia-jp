@@ -365,13 +365,24 @@ const monthlyTasks = [
     <section class="mt-10">
       <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🔒 運営者専用ページ</h2>
       <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="/admin/overview" class="group rounded-2xl border border-emerald-400/30 bg-gradient-to-br from-violet-500/5 to-emerald-500/5 p-5 hover:border-emerald-400/60 transition">
+          <div class="flex items-start gap-3">
+            <span class="text-3xl">🌐</span>
+            <div>
+              <div class="text-base font-bold text-white group-hover:text-emerald-300">集客・収益オーバービュー</div>
+              <p class="mt-1 text-[12px] text-[#8a90a8]">
+                2サイトのPV・ユーザー・ASP別収益を並列表示。目標進捗バー・月次推移テーブル付き。
+              </p>
+            </div>
+          </div>
+        </a>
         <a href="/admin/kpi" class="group rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 p-5 hover:border-violet-400/60 transition">
           <div class="flex items-start gap-3">
             <span class="text-3xl">📈</span>
             <div>
               <div class="text-base font-bold text-white group-hover:text-violet-300">統合KPI ダッシュボード</div>
               <p class="mt-1 text-[12px] text-[#8a90a8]">
-                ai-pedia.jp + oshi-tame.com の PV・ユーザー・収益を横断表示。Looker Studio 埋込対応。
+                Looker Studio 埋込でGA4データを自動表示。ASP月次レビュー用のクイックリンク。
               </p>
             </div>
           </div>

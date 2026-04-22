@@ -1,0 +1,427 @@
+---
+/**
+ * 2サイト集客・収益オーバービュー（運営者向け・非公開）。
+ *
+ * ai-pedia.jp と oshi-tame.com の PV / ユーザー / ASP別収益を
+ * 並べて一目で見られる画面。データソースは src/data/kpi.ts の manualKpi（月1更新）。
+ * GA4のリアルタイム数値は /admin/kpi の Looker Studio 埋込を参照。
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import {
+  sites,
+  manualKpi,
+  goals,
+  sumRevenue,
+  LOOKER_STUDIO_REPORT_URL,
+  type MonthlyKpi,
+} from '@/data/kpi';
+
+// 最新月 / 前月 を算出
+const months = [...new Set(manualKpi.map((k) => k.yearMonth))].sort();
+const latestMonth = months.at(-1) ?? null;
+const prevMonth = months.length >= 2 ? months.at(-2) ?? null : null;
+
+const findKpi = (site: string, month: string | null): MonthlyKpi | undefined =>
+  month ? manualKpi.find((k) => k.site === site && k.yearMonth === month) : undefined;
+
+const latestBySite = Object.fromEntries(
+  sites.map((s) => [s.slug, findKpi(s.slug, latestMonth)]),
+);
+const prevBySite = Object.fromEntries(
+  sites.map((s) => [s.slug, findKpi(s.slug, prevMonth)]),
+);
+
+// 合計値
+const totalPv = sites.reduce((sum, s) => sum + (latestBySite[s.slug]?.pv ?? 0), 0);
+const totalUsers = sites.reduce((sum, s) => sum + (latestBySite[s.slug]?.users ?? 0), 0);
+const totalRevenue = sites.reduce(
+  (sum, s) => sum + (latestBySite[s.slug] ? sumRevenue(latestBySite[s.slug]!) : 0),
+  0,
+);
+const prevTotalPv = sites.reduce((sum, s) => sum + (prevBySite[s.slug]?.pv ?? 0), 0);
+const prevTotalRevenue = sites.reduce(
+  (sum, s) => sum + (prevBySite[s.slug] ? sumRevenue(prevBySite[s.slug]!) : 0),
+  0,
+);
+
+// 前月比（％）: 前月が0の場合は null
+const pctChange = (curr: number, prev: number): number | null => {
+  if (prev === 0) return null;
+  return Math.round(((curr - prev) / prev) * 100);
+};
+
+// ASP別の内訳（サイトごと）
+const revenueBreakdown = (k?: MonthlyKpi) => [
+  { key: 'adsense', label: 'AdSense', icon: '💰', value: k?.adsenseRevenue ?? 0, color: 'bg-emerald-400' },
+  { key: 'ninja', label: '忍者AdMax', icon: '🥷', value: k?.ninjaRevenue ?? 0, color: 'bg-neutral-400' },
+  { key: 'a8', label: 'a8.net', icon: '🎯', value: k?.a8Revenue ?? 0, color: 'bg-rose-400' },
+  { key: 'amazon', label: 'Amazon', icon: '📦', value: k?.amazonRevenue ?? 0, color: 'bg-orange-400' },
+  { key: 'other', label: 'その他', icon: '✨', value: k?.otherRevenue ?? 0, color: 'bg-violet-400' },
+];
+
+// 目標進捗バー用
+type GoalRow = {
+  site: string;
+  siteColor: string;
+  label: string;
+  current: number;
+  target: number;
+  unit: string;
+};
+
+const currentGoal = goals.month3; // 直近の目標として 3ヶ月後 を表示
+const goalRows: GoalRow[] = [
+  {
+    site: 'AIpedia',
+    siteColor: 'text-violet-300',
+    label: 'PV',
+    current: latestBySite['ai-pedia']?.pv ?? 0,
+    target: currentGoal.aipedia.pv,
+    unit: '',
+  },
+  {
+    site: 'AIpedia',
+    siteColor: 'text-violet-300',
+    label: '収益',
+    current: latestBySite['ai-pedia'] ? sumRevenue(latestBySite['ai-pedia']!) : 0,
+    target: currentGoal.aipedia.revenue,
+    unit: '¥',
+  },
+  {
+    site: 'oshi-tame',
+    siteColor: 'text-emerald-300',
+    label: 'PV',
+    current: latestBySite['oshi-tame']?.pv ?? 0,
+    target: currentGoal.oshitame.pv,
+    unit: '',
+  },
+  {
+    site: 'oshi-tame',
+    siteColor: 'text-emerald-300',
+    label: '収益',
+    current: latestBySite['oshi-tame'] ? sumRevenue(latestBySite['oshi-tame']!) : 0,
+    target: currentGoal.oshitame.revenue,
+    unit: '¥',
+  },
+];
+
+const pctOfGoal = (current: number, target: number): number =>
+  target === 0 ? 0 : Math.min(100, Math.round((current / target) * 100));
+
+// ASP合計（両サイト横断で、どのASPが一番稼いでいるか）
+const aspTotals = [
+  {
+    label: 'AdSense',
+    icon: '💰',
+    value: sites.reduce((s, site) => s + (latestBySite[site.slug]?.adsenseRevenue ?? 0), 0),
+    url: 'https://www.google.com/adsense/new/u/0/reports/home',
+    color: 'from-emerald-400 to-teal-500',
+  },
+  {
+    label: '忍者AdMax',
+    icon: '🥷',
+    value: sites.reduce((s, site) => s + (latestBySite[site.slug]?.ninjaRevenue ?? 0), 0),
+    url: 'https://admax.shinobi.jp/app/reports',
+    color: 'from-neutral-400 to-gray-600',
+  },
+  {
+    label: 'a8.net',
+    icon: '🎯',
+    value: sites.reduce((s, site) => s + (latestBySite[site.slug]?.a8Revenue ?? 0), 0),
+    url: 'https://pub.a8.net/a8v2/media/reportAction.do',
+    color: 'from-red-400 to-rose-600',
+  },
+  {
+    label: 'Amazon',
+    icon: '📦',
+    value: sites.reduce((s, site) => s + (latestBySite[site.slug]?.amazonRevenue ?? 0), 0),
+    url: 'https://affiliate.amazon.co.jp/home/reports',
+    color: 'from-orange-400 to-yellow-500',
+  },
+];
+---
+
+<BaseLayout
+  title="集客・収益オーバービュー"
+  description="2サイト集客・収益オーバービュー（非公開）"
+  noIndex
+>
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <div class="flex items-center gap-2 text-xs">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-rose-400/40 bg-rose-400/10 px-3 py-1 text-rose-300">🔒 非公開</span>
+      <span class="text-[#8a90a8]">運営者向け</span>
+      <a href="/admin/dashboard" class="ml-auto text-[#c7cbde] hover:text-white">← ダッシュボード</a>
+    </div>
+
+    <h1 class="mt-3 text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">
+      🌐 集客・収益オーバービュー
+    </h1>
+    <p class="mt-2 text-sm text-[#c7cbde]">
+      <span class="font-bold text-white">ai-pedia.jp</span> と
+      <span class="font-bold text-white">oshi-tame.com</span> の PV・ユーザー・ASP別収益を並べて表示。
+      {latestMonth && <span class="ml-1 rounded-md bg-white/10 px-2 py-0.5 text-[11px] text-white">{latestMonth}</span>}
+    </p>
+
+    {/* 合計サマリー */}
+    <section class="mt-8">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🌐 2サイト合計</h2>
+      <div class="grid gap-3 sm:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-violet-500/5 to-emerald-500/5 p-5">
+          <div class="text-[11px] uppercase tracking-wider text-[#8a90a8]">総PV</div>
+          <div class="mt-1 text-3xl font-extrabold text-white">{totalPv.toLocaleString()}</div>
+          {prevMonth && pctChange(totalPv, prevTotalPv) !== null && (
+            <div class={`mt-1 text-[11px] ${pctChange(totalPv, prevTotalPv)! >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>
+              前月比 {pctChange(totalPv, prevTotalPv)! >= 0 ? '+' : ''}{pctChange(totalPv, prevTotalPv)}%
+            </div>
+          )}
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-violet-500/5 to-emerald-500/5 p-5">
+          <div class="text-[11px] uppercase tracking-wider text-[#8a90a8]">総ユーザー</div>
+          <div class="mt-1 text-3xl font-extrabold text-white">{totalUsers.toLocaleString()}</div>
+        </div>
+        <div class="rounded-2xl border border-emerald-400/20 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 p-5">
+          <div class="text-[11px] uppercase tracking-wider text-emerald-300">合計収益</div>
+          <div class="mt-1 text-3xl font-extrabold text-emerald-200">¥{totalRevenue.toLocaleString()}</div>
+          {prevMonth && pctChange(totalRevenue, prevTotalRevenue) !== null && (
+            <div class={`mt-1 text-[11px] ${pctChange(totalRevenue, prevTotalRevenue)! >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>
+              前月比 {pctChange(totalRevenue, prevTotalRevenue)! >= 0 ? '+' : ''}{pctChange(totalRevenue, prevTotalRevenue)}%
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {/* サイト別 並列表示 */}
+    <section class="mt-10">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">📊 サイト別</h2>
+      <div class="grid gap-4 lg:grid-cols-2">
+        {sites.map((site) => {
+          const k = latestBySite[site.slug];
+          const prev = prevBySite[site.slug];
+          const rev = k ? sumRevenue(k) : 0;
+          const prevRev = prev ? sumRevenue(prev) : 0;
+          const pvChange = k && prev ? pctChange(k.pv ?? 0, prev.pv ?? 0) : null;
+          const revChange = k && prev ? pctChange(rev, prevRev) : null;
+          const breakdown = revenueBreakdown(k);
+          const isAipedia = site.slug === 'ai-pedia';
+          const cardClass = isAipedia
+            ? 'rounded-2xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-transparent p-5'
+            : 'rounded-2xl border border-emerald-400/20 bg-gradient-to-br from-emerald-500/5 to-transparent p-5';
+          const titleClass = isAipedia ? 'text-base font-bold text-violet-200' : 'text-base font-bold text-emerald-200';
+          return (
+            <div class={cardClass}>
+              <div class="flex items-baseline justify-between flex-wrap gap-2">
+                <div>
+                  <h3 class={titleClass}>{site.name}</h3>
+                  <p class="mt-0.5 text-[11px] text-[#8a90a8]">{site.tech}</p>
+                </div>
+                <a href={site.url} target="_blank" rel="noopener noreferrer" class="text-[11px] text-amber-300 hover:text-amber-200">
+                  {new URL(site.url).hostname} →
+                </a>
+              </div>
+
+              {/* メトリクス */}
+              <div class="mt-4 grid grid-cols-3 gap-2">
+                <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
+                  <div class="text-[10px] uppercase text-[#8a90a8]">PV</div>
+                  <div class="mt-1 text-lg font-extrabold text-white">{(k?.pv ?? 0).toLocaleString()}</div>
+                  {pvChange !== null && (
+                    <div class={`mt-0.5 text-[10px] ${pvChange >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>
+                      {pvChange >= 0 ? '+' : ''}{pvChange}%
+                    </div>
+                  )}
+                </div>
+                <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3">
+                  <div class="text-[10px] uppercase text-[#8a90a8]">ユーザー</div>
+                  <div class="mt-1 text-lg font-extrabold text-white">{(k?.users ?? 0).toLocaleString()}</div>
+                </div>
+                <div class="rounded-lg border border-emerald-400/20 bg-emerald-400/5 p-3">
+                  <div class="text-[10px] uppercase text-emerald-300">収益</div>
+                  <div class="mt-1 text-lg font-extrabold text-emerald-200">¥{rev.toLocaleString()}</div>
+                  {revChange !== null && (
+                    <div class={`mt-0.5 text-[10px] ${revChange >= 0 ? 'text-emerald-300' : 'text-rose-300'}`}>
+                      {revChange >= 0 ? '+' : ''}{revChange}%
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* ASP別内訳 */}
+              <div class="mt-4">
+                <div class="text-[10px] uppercase tracking-wider text-[#8a90a8]">ASP別収益内訳</div>
+                <div class="mt-2 space-y-1.5">
+                  {breakdown.map((b) => {
+                    const ratio = rev === 0 ? 0 : Math.round((b.value / rev) * 100);
+                    return (
+                      <div class="flex items-center gap-2 text-xs">
+                        <span class="w-6 shrink-0 text-center">{b.icon}</span>
+                        <span class="w-20 shrink-0 text-[#c7cbde]">{b.label}</span>
+                        <div class="flex-1 h-1.5 rounded-full bg-white/5 overflow-hidden">
+                          <div class={`h-full ${b.color}`} style={`width: ${ratio}%`}></div>
+                        </div>
+                        <span class="w-20 text-right tabular-nums text-white">¥{b.value.toLocaleString()}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* クイックリンク */}
+              <div class="mt-4 flex flex-wrap gap-1.5 text-[11px]">
+                {site.ga4Id && (
+                  <a href={`https://analytics.google.com/analytics/web/?authuser=0#/p${site.ga4Id}/reports/defaulthome`} target="_blank" rel="noopener noreferrer" class="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[#c7cbde] hover:bg-white/10">
+                    📊 GA4
+                  </a>
+                )}
+                {site.searchConsoleProperty && (
+                  <a href={`https://search.google.com/search-console?resource_id=${encodeURIComponent(site.searchConsoleProperty)}`} target="_blank" rel="noopener noreferrer" class="rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[#c7cbde] hover:bg-white/10">
+                    🔍 Search Console
+                  </a>
+                )}
+                {k?.notes && (
+                  <span class="rounded-md border border-white/5 bg-white/[0.02] px-2.5 py-1 text-[#8a90a8]">📝 {k.notes}</span>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    {/* 目標進捗 */}
+    <section class="mt-10">
+      <div class="mb-3 flex items-baseline justify-between">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">🎯 目標進捗</h2>
+        <span class="text-[11px] text-[#c7cbde]">{currentGoal.label}</span>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-[#10121a] p-5">
+        <div class="space-y-3">
+          {goalRows.map((g) => {
+            const pct = pctOfGoal(g.current, g.target);
+            return (
+              <div>
+                <div class="flex items-baseline justify-between text-xs">
+                  <div>
+                    <span class={`font-bold ${g.siteColor}`}>{g.site}</span>
+                    <span class="ml-2 text-[#c7cbde]">{g.label}</span>
+                  </div>
+                  <div class="text-[#c7cbde] tabular-nums">
+                    {g.unit}{g.current.toLocaleString()}
+                    <span class="text-[#8a90a8]"> / {g.unit}{g.target.toLocaleString()}</span>
+                    <span class="ml-2 font-bold text-white">{pct}%</span>
+                  </div>
+                </div>
+                <div class="mt-1.5 h-2 rounded-full bg-white/5 overflow-hidden">
+                  <div
+                    class={`h-full ${g.site === 'AIpedia' ? 'bg-gradient-to-r from-violet-400 to-fuchsia-400' : 'bg-gradient-to-r from-emerald-400 to-teal-400'}`}
+                    style={`width: ${pct}%`}
+                  ></div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    {/* ASP別 両サイト合計 */}
+    <section class="mt-10">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">💸 ASP別・両サイト合計</h2>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {aspTotals.map((a) => (
+          <a
+            href={a.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative overflow-hidden rounded-xl border border-white/10 bg-[#10121a] p-4 hover:border-amber-400/40 transition"
+          >
+            <div class={`absolute -right-6 -top-6 h-16 w-16 rounded-full bg-gradient-to-br ${a.color} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity`}></div>
+            <div class="relative">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl">{a.icon}</span>
+                <span class="text-[10px] text-amber-300">管理画面 →</span>
+              </div>
+              <div class="mt-2 text-xs text-[#8a90a8]">{a.label}</div>
+              <div class="mt-0.5 text-xl font-extrabold text-white">¥{a.value.toLocaleString()}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    {/* 月次履歴テーブル */}
+    {months.length > 0 && (
+      <section class="mt-10">
+        <h2 class="mb-3 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">📅 月次推移</h2>
+        <div class="overflow-x-auto rounded-2xl border border-white/10 bg-[#10121a]">
+          <table class="w-full text-sm">
+            <thead class="bg-white/[0.03] text-[11px] uppercase tracking-wider text-[#8a90a8]">
+              <tr>
+                <th class="px-4 py-3 text-left">月</th>
+                <th class="px-4 py-3 text-left">サイト</th>
+                <th class="px-4 py-3 text-right">PV</th>
+                <th class="px-4 py-3 text-right">ユーザー</th>
+                <th class="px-4 py-3 text-right">AdSense</th>
+                <th class="px-4 py-3 text-right">忍者</th>
+                <th class="px-4 py-3 text-right">a8</th>
+                <th class="px-4 py-3 text-right">Amazon</th>
+                <th class="px-4 py-3 text-right font-bold text-emerald-300">収益合計</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5">
+              {months.slice().reverse().flatMap((month) =>
+                sites.map((site) => {
+                  const k = findKpi(site.slug, month);
+                  if (!k) return null;
+                  return (
+                    <tr class="hover:bg-white/[0.02]">
+                      <td class="px-4 py-2.5 font-mono text-[#c7cbde]">{month}</td>
+                      <td class={`px-4 py-2.5 font-bold ${site.slug === 'ai-pedia' ? 'text-violet-300' : 'text-emerald-300'}`}>
+                        {site.slug === 'ai-pedia' ? 'AIpedia' : 'oshi-tame'}
+                      </td>
+                      <td class="px-4 py-2.5 text-right tabular-nums text-white">{(k.pv ?? 0).toLocaleString()}</td>
+                      <td class="px-4 py-2.5 text-right tabular-nums text-white">{(k.users ?? 0).toLocaleString()}</td>
+                      <td class="px-4 py-2.5 text-right tabular-nums text-[#c7cbde]">¥{(k.adsenseRevenue ?? 0).toLocaleString()}</td>
+                      <td class="px-4 py-2.5 text-right tabular-nums text-[#c7cbde]">¥{(k.ninjaRevenue ?? 0).toLocaleString()}</td>
+                      <td class="px-4 py-2.5 text-right tabular-nums text-[#c7cbde]">¥{(k.a8Revenue ?? 0).toLocaleString()}</td>
+                      <td class="px-4 py-2.5 text-right tabular-nums text-[#c7cbde]">¥{(k.amazonRevenue ?? 0).toLocaleString()}</td>
+                      <td class="px-4 py-2.5 text-right tabular-nums font-bold text-emerald-200">¥{sumRevenue(k).toLocaleString()}</td>
+                    </tr>
+                  );
+                }),
+              )}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    {/* 更新方法 */}
+    <section class="mt-10 rounded-2xl border border-amber-400/20 bg-gradient-to-br from-amber-500/5 to-orange-500/5 p-5">
+      <h2 class="text-base font-bold">🔁 データ更新の流れ（月1回・5分）</h2>
+      <ol class="mt-3 space-y-1.5 text-sm text-[#c7cbde] list-decimal pl-5">
+        <li>各ASP管理画面で先月の収益を確認（上の💸ボックスから1クリック）</li>
+        <li>GA4 で PV・ユーザー数を確認（サイト別カードの 📊 GA4 から）</li>
+        <li>
+          <code class="rounded bg-white/5 px-1.5 py-0.5 text-[12px]">src/data/kpi.ts</code>
+          の
+          <code class="rounded bg-white/5 px-1.5 py-0.5 text-[12px]">manualKpi</code>
+          に新しい月のレコードを追加 → git push
+        </li>
+      </ol>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs">
+        {LOOKER_STUDIO_REPORT_URL && (
+          <a href={LOOKER_STUDIO_REPORT_URL} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-violet-400/30 bg-violet-400/10 px-3 py-1.5 text-violet-200 hover:bg-violet-400/20 transition">
+            📈 Looker Studio（自動集計）
+          </a>
+        )}
+        <a href="/admin/kpi" class="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[#c7cbde] hover:bg-white/10 transition">
+          /admin/kpi（詳細ダッシュボード）
+        </a>
+        <a href="/admin/dashboard" class="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[#c7cbde] hover:bg-white/10 transition">
+          /admin/dashboard（運営トップ）
+        </a>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
