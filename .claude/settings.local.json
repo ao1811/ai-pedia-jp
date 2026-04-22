@@ -58,7 +58,9 @@
       "Bash(xargs grep *)",
       "Bash(mkdir -p \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-01-claude-design\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-02-ai-meeting-notes\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-03-ai-agents\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-04-chat-ai-trio\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-05-gemini-for-home\")",
       "Read(//c/Users/naoki/Desktop/**)",
-      "Bash(node scripts/sns-images.mjs)"
+      "Bash(node scripts/sns-images.mjs)",
+      "Bash(mkdir -p \"C:/Users/naoki/OneDrive/sns\")",
+      "Read(//c/Users/naoki/OneDrive/sns/**)"
     ]
   }
 }

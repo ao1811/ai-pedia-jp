@@ -9,8 +9,11 @@ export async function getStaticPaths() {
   guides.forEach((g) => {
     (g.data.tags ?? []).forEach((t) => tagSet.add(t));
   });
+  // タグ名はそのまま渡す（Astro がファイル名として安全にエンコード）
+  // encodeURIComponent を使うと dist 側に "%E6%96%B0..." という literal な
+  // フォルダ名ができ、Cloudflare Pages が URL デコード後にマッチできなくなる
   return Array.from(tagSet).map((tag) => ({
-    params: { tag: encodeURIComponent(tag) },
+    params: { tag },
     props: { tag },
   }));
 }
