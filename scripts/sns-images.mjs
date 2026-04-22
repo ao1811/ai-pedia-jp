@@ -1,14 +1,16 @@
 /**
  * SNS投稿用画像の自動生成スクリプト。
  *
- * Desktop 上の Instagram カルーセル HTML からスライド9枚ずつ画像化し、
+ * OneDrive\sns\ 配下の Instagram カルーセル HTML からスライド9枚ずつ画像化し、
  * TikTok 縦長版（1080×1920）も同時に生成。
+ * OneDriveに保存することで全端末から編集可能、バックアップも自動。
  *
  * 使い方:
- *   node scripts/sns-images.mjs
+ *   node scripts/sns-images.mjs [フォルダ名]
+ *   （フォルダ名省略時は ROOT 直下の最新 ai-pedia-contents-YYYY-MM-DD を自動選択）
  *
  * 出力先:
- *   C:\Users\naoki\Desktop\ai-pedia-contents-2026-04-22\theme-XX\images\
+ *   C:\Users\naoki\OneDrive\sns\ai-pedia-contents-YYYY-MM-DD\theme-XX\images\
  *     instagram\slide-01.png 〜 slide-09.png  (1080×1350)
  *     tiktok\slide-01.png 〜 slide-09.png    (1080×1920)
  */
@@ -17,15 +19,38 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
 
-const ROOT = 'C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22';
+const ONEDRIVE_BASE = 'C:/Users/naoki/OneDrive/sns';
 
-const themes = [
-  { dir: 'theme-01-claude-design',      slug: 'claude-design-vs-figma-canva' },
-  { dir: 'theme-02-ai-meeting-notes',   slug: 'ai-meeting-notes-2026-spring' },
-  { dir: 'theme-03-ai-agents',          slug: 'ai-agents-for-non-engineers-2026' },
-  { dir: 'theme-04-chat-ai-trio',       slug: 'chatgpt-claude-gemini-2026-04' },
-  { dir: 'theme-05-gemini-for-home',    slug: 'gemini-for-home-japan-2026' },
-];
+// CLI 引数でフォルダ名指定可、なければ最新の ai-pedia-contents-* を自動選択
+const argFolder = process.argv[2];
+const ROOT = argFolder
+  ? path.join(ONEDRIVE_BASE, argFolder)
+  : pickLatestContentFolder(ONEDRIVE_BASE);
+
+function pickLatestContentFolder(base) {
+  const entries = fs
+    .readdirSync(base, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && d.name.startsWith('ai-pedia-contents-'))
+    .map((d) => d.name)
+    .sort()
+    .reverse();
+  if (entries.length === 0) {
+    throw new Error(
+      `${base} に ai-pedia-contents-YYYY-MM-DD フォルダが見つかりません`,
+    );
+  }
+  return path.join(base, entries[0]);
+}
+
+console.log(`📂 対象フォルダ: ${ROOT}`);
+
+// ROOT 直下の theme-XX-*/ フォルダを自動検出
+const themes = fs
+  .readdirSync(ROOT, { withFileTypes: true })
+  .filter((d) => d.isDirectory() && /^theme-\d+/.test(d.name))
+  .map((d) => ({ dir: d.name }))
+  .sort((a, b) => a.dir.localeCompare(b.dir));
+console.log(`🎯 テーマ数: ${themes.length}`);
 
 /** フォント読み込みを待機するため一定時間待つ */
 async function waitForFonts(page) {
