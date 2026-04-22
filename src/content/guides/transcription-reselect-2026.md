@@ -7,7 +7,7 @@ category: guide
 heroEmoji: "🔄"
 heroGradient: "from-purple-400 via-fuchsia-500 to-pink-500"
 featured: false
-relatedTools: ["elevenlabs", "gemini", "notion-ai"]
+relatedTools: ["notta", "plaud", "elevenlabs", "gemini", "notion-ai"]
 readTimeMin: 7
 tags: ["文字起こし", "Notta", "乗り換え", "コスパ"]
 amazonProducts: ["plaud-note-pro", "plaud-note"]

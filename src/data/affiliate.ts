@@ -19,6 +19,15 @@ export const affiliateUrls: Record<string, string> = {
   'value-ai-writer': 'https://px.a8.net/svt/ejp?a8mat=4B1PLS+F2DWVM+1JUK+1HL85U',
   'conoha-ai-canvas': 'https://px.a8.net/svt/ejp?a8mat=4B1PLS+F4RNAQ+50+7RZINL',
 
+  // a8.net 承認済 (2026-04-22 追加)
+  'notta': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+10BGOI+5988+5ZU29',
+  'notta-memo': 'https://px.a8.net/svt/ejp?a8mat=4B1PLS+F6JY42+5988+BWVTE',
+  'zenchord': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+10WWAA+5QLS+HW2Q9',
+  'plaud': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+4620I+5J4W+5YZ76',
+  'bun-ken': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+J1W4Y+3Q2O+HZ2R6',
+  'aiarty': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+WQV1U+428G+HVFKY',
+  'languise': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+3KMEQ+5L4K+5Z6WY',
+
   // 以下は審査中 / 未登録。ASP承認後にURLを記入すると全ページ自動反映。
   // 'chatgpt': '',
   // 'claude': '',

@@ -7,7 +7,7 @@ category: guide
 heroEmoji: "🎨"
 heroGradient: "from-pink-500 via-rose-500 to-red-500"
 featured: false
-relatedTools: ["midjourney", "chatgpt", "conoha-ai-canvas"]
+relatedTools: ["midjourney", "chatgpt", "conoha-ai-canvas", "aiarty"]
 readTimeMin: 6
 tags: ["画像生成", "クリエイター", "デザイン"]
 amazonProducts: ["midjourney-basics", "prompt-midjourney-intro"]

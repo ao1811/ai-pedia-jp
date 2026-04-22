@@ -7,7 +7,7 @@ category: howto
 heroEmoji: "📝"
 heroGradient: "from-teal-400 via-cyan-500 to-blue-600"
 featured: false
-relatedTools: ["notion-ai", "elevenlabs", "gemini"]
+relatedTools: ["notta", "plaud", "notion-ai", "elevenlabs", "gemini"]
 readTimeMin: 8
 tags: ["議事録", "会議", "業務効率化", "チーム"]
 amazonProducts: ["plaud-note", "plaud-note-pro"]

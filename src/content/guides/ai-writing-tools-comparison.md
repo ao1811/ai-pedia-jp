@@ -7,7 +7,7 @@ category: comparison
 heroEmoji: "✍️"
 heroGradient: "from-sky-400 via-blue-500 to-indigo-600"
 featured: true
-relatedTools: ["value-ai-writer", "chatgpt", "claude", "gemini"]
+relatedTools: ["value-ai-writer", "bun-ken", "chatgpt", "claude", "gemini"]
 readTimeMin: 10
 tags: ["ライティング", "SEO", "副業", "ブログ"]
 amazonProducts: ["prompt-beginner", "prompt-midjourney-intro", "note-ai-sidework"]

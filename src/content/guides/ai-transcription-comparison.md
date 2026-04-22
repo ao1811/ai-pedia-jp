@@ -7,7 +7,7 @@ category: comparison
 heroEmoji: "🎙️"
 heroGradient: "from-purple-500 via-fuchsia-500 to-pink-500"
 featured: false
-relatedTools: ["elevenlabs", "notion-ai", "gemini"]
+relatedTools: ["notta", "plaud", "elevenlabs", "notion-ai", "gemini"]
 readTimeMin: 8
 tags: ["文字起こし", "議事録", "音声"]
 amazonProducts: ["plaud-note", "plaud-note-pro"]
