@@ -1,0 +1,99 @@
+---
+/**
+ * サイト全体の「いま読まれている」記事TOP5 を表示。
+ *
+ * PV データを直接取得できない静的サイト構成のため、以下のヒューリスティックで
+ * おすすめ度をスコアリングして「人気」相当として扱う：
+ *   - featured フラグ              +30
+ *   - 直近30日以内の更新             +20
+ *   - 直近90日以内の公開             +10
+ *   - 比較カテゴリ（CV率高い）       +8
+ *   - 関連ツール数が多い（内容厚い） +2×件数
+ *
+ * 記事末尾に置いて内部回遊を増やし、平均PV/セッションを上げる。
+ */
+import { getCollection } from 'astro:content';
+
+type Props = {
+  currentSlug?: string;
+  limit?: number;
+  title?: string;
+};
+
+const { currentSlug, limit = 5, title = '🔥 いま読まれている記事' } = Astro.props;
+
+const CATEGORY_JA: Record<string, string> = {
+  comparison: '比較',
+  howto: 'How-to',
+  guide: 'ガイド',
+  review: 'レビュー',
+  trend: 'トレンド',
+};
+
+const now = Date.now();
+const D30 = 30 * 24 * 60 * 60 * 1000;
+const D90 = 90 * 24 * 60 * 60 * 1000;
+
+const all = await getCollection('guides');
+const scored = all
+  .filter((g) => g.id !== currentSlug)
+  .map((g) => {
+    let score = 0;
+    if (g.data.featured) score += 30;
+    const published = g.data.publishedAt.getTime();
+    const updated = (g.data.updatedAt ?? g.data.publishedAt).getTime();
+    if (now - updated <= D30) score += 20;
+    if (now - published <= D90) score += 10;
+    if (g.data.category === 'comparison') score += 8;
+    score += (g.data.relatedTools?.length ?? 0) * 2;
+    return { guide: g, score };
+  })
+  .sort((a, b) => b.score - a.score)
+  .slice(0, limit);
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+{scored.length > 0 && (
+  <section class="mt-12 rounded-2xl border border-amber-400/20 bg-gradient-to-br from-amber-500/[0.06] via-[#10121a] to-[#10121a] p-5 sm:p-6">
+    <div class="mb-4 flex items-baseline justify-between">
+      <h2 class="text-base font-bold tracking-tight">{title}</h2>
+      <a href="/guides" class="text-xs text-[#8a90a8] hover:text-amber-300 transition">すべて見る →</a>
+    </div>
+    <ol class="space-y-2">
+      {scored.map(({ guide: g }, i) => (
+        <li>
+          <a
+            href={`/guides/${g.id}`}
+            class="group flex items-start gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 hover:border-amber-400/30 hover:bg-amber-400/[0.04] transition"
+          >
+            <span class={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-extrabold ${i === 0 ? 'bg-gradient-to-br from-amber-400 to-orange-500 text-black' : i === 1 ? 'bg-gradient-to-br from-slate-300 to-slate-500 text-black' : i === 2 ? 'bg-gradient-to-br from-amber-700 to-amber-900 text-amber-100' : 'bg-white/5 text-[#a8adc2]'}`}>
+              {i + 1}
+            </span>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 text-[10px] uppercase tracking-wider text-[#8a90a8]">
+                <span class="text-base leading-none">{g.data.heroEmoji}</span>
+                <span>{CATEGORY_JA[g.data.category] ?? g.data.category}</span>
+                <span>·</span>
+                <span>{g.data.readTimeMin}分</span>
+              </div>
+              <h3 class="mt-1 text-sm font-bold tracking-tight text-white line-clamp-2 group-hover:text-amber-200 transition">
+                {g.data.title}
+              </h3>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ol>
+    <div class="mt-4 pt-4 border-t border-white/5 text-center">
+      <a
+        href="/guides"
+        class="inline-flex items-center gap-2 text-xs text-amber-300 hover:text-amber-200 transition"
+      >
+        📚 ガイド記事一覧を見る
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+)}

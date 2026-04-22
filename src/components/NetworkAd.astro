@@ -7,16 +7,12 @@
  * - msads  : Microsoft Advertising（環境変数 PUBLIC_MSADS_<SLOT> から取得）
  * - nend   : nend（環境変数 PUBLIC_NEND_<SLOT> から取得）
  *
- * 使い方：
- *   <NetworkAd slot="home-rankings-mid" provider="ninja" />
- *
- * ninja タグは `src/data/adNetworks.ts` を編集して差し替え可能。
- * その他プロバイダは Cloudflare Pages の環境変数に `<script>` タグ全文を入れる。
- *
- * 【× ボタンによる閉じる機能】
- * - ユーザーが × を押すと非表示になり、sessionStorage に記憶（同一タブ中は再表示されない）
- * - 「広告」ラベルを明示しつつ、× の位置は右上の標準UX（健全な設計）
- * - AdSense には一切適用しない（AdSense側は規約で自己操作系カスタムUI禁止）
+ * 【UX・規約の方針（2026-04-23 改訂）】
+ * - 「広告」ラベルを明瞭に表示（誤認防止・ユーザーの「広告であると認識する権利」を尊重）
+ * - × 閉じるボタンは 28×28px のタップターゲット、右上標準位置、ホバーでフィードバック
+ * - 広告ブロックは本文と視覚的に明確に分離（周囲に 24px 以上のマージン推奨）
+ * - 誤クリックを過度に誘発する配色・配置は避ける（不正クリック疑義のリスクを抑制）
+ * - AdSense では closable=false を明示的に指定すること（AdSense 規約で改変不可）
  */
 import { getNinjaTag } from '@/data/adNetworks';
 
@@ -44,30 +40,60 @@ const isActive = Boolean(tag && tag.trim().length > 0);
 
 {isActive && tag && (
   <div
-    class={`network-ad relative ${className}`}
+    class={`network-ad relative rounded-lg border border-white/5 bg-white/[0.02] px-4 py-3 my-6 ${className}`}
     data-network={provider}
     data-slot={slot}
     data-closable={closable ? 'true' : 'false'}
     aria-label="スポンサー広告"
   >
-    <div class="mb-1 flex items-center justify-between gap-2">
-      <span class="text-[9px] font-bold uppercase tracking-widest text-[#8a90a8]">広告</span>
+    {/* ヘッダー：広告ラベル＋閉じるボタン */}
+    <div class="mb-2 flex items-center justify-between gap-2">
+      <span
+        class="inline-flex items-center gap-1.5 rounded-md bg-white/5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#a8adc2]"
+      >
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+        PR / 広告
+      </span>
       {closable && (
         <button
           type="button"
-          class="close-btn inline-flex h-5 w-5 items-center justify-center rounded-md border border-white/10 bg-white/5 text-[11px] leading-none text-[#8a90a8] hover:bg-white/10 hover:text-white transition"
+          class="close-btn inline-flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-sm leading-none text-[#a8adc2] hover:bg-white/10 hover:text-white transition"
           aria-label="この広告を閉じる"
+          title="閉じる"
           data-ad-close
         >
-          ×
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M1 1L13 13M13 1L1 13" />
+          </svg>
         </button>
       )}
     </div>
-    <div class="flex justify-center">
+
+    {/* 広告本体 */}
+    <div class="flex justify-center ad-body">
       <Fragment set:html={tag} />
     </div>
   </div>
 )}
+
+<style>
+  .network-ad {
+    /* 本文と広告を視覚的に分離：枠＋薄背景で誤認を防止 */
+    transition: opacity 0.2s ease;
+  }
+  .network-ad .ad-body {
+    /* 広告枠内の子要素が枠を突き抜けないよう制御 */
+    max-width: 100%;
+    overflow: hidden;
+  }
+  /* 小さい画面では広告周りの余白を確保 */
+  @media (max-width: 640px) {
+    .network-ad {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
 
 <script is:inline>
   (function () {
@@ -98,7 +124,7 @@ const isActive = Boolean(tag && tag.trim().length > 0);
         if (slot) sessionStorage.setItem(KEY_PREFIX + slot, '1');
       } catch (e) { /* ignore */ }
       // アニメーションで閉じる
-      wrap.style.transition = 'opacity 180ms ease, transform 180ms ease, max-height 220ms ease 180ms, margin 220ms ease 180ms';
+      wrap.style.transition = 'opacity 180ms ease, transform 180ms ease, max-height 220ms ease 180ms, margin 220ms ease 180ms, padding 220ms ease 180ms';
       wrap.style.overflow = 'hidden';
       wrap.style.maxHeight = wrap.offsetHeight + 'px';
       requestAnimationFrame(function () {
@@ -111,7 +137,7 @@ const isActive = Boolean(tag && tag.trim().length > 0);
         }, 180);
         setTimeout(function () {
           wrap.style.display = 'none';
-        }, 400);
+        }, 420);
       });
     });
   })();

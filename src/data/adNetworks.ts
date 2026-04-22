@@ -23,6 +23,10 @@ export const ninjaAdMaxTags: Record<string, string> = {
   // ガイド記事：末尾
   'in-article-bottom':
     '<!-- admax -->\n<script src="https://adm.shinobi.jp/s/50a4af84e930a3666c094caa0f3e6b72"></script>\n<!-- admax -->',
+
+  // モバイル下部固定（スクロールで表示、×で閉じる）。忍者AdMax で別枠のタグを発行して差し替え推奨。
+  // 未発行の間は空文字にして非表示にする（空だと StickyMobileAd は一切レンダリングしない）
+  'mobile-sticky-bottom': '',
 };
 
 /**

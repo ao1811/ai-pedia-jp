@@ -1,0 +1,115 @@
+---
+/**
+ * モバイル下部に固定表示する広告バナー（忍者AdMax 専用）。
+ *
+ * 【設計方針】
+ * - モバイルのみ表示（768px 未満）。PC は邪魔なので表示しない
+ * - ×ボタン（右上 32×32px、クリア）で閉じられる。閉じたら 24時間 記憶
+ * - コンテンツ最下部から 80px 以内には出さない（スクロールトリガー式）
+ * - 「広告」ラベルを明示、配色もコンテンツと明確に区別（AdSense 規約範囲内）
+ * - AdSense では使わない（ninja 専用）
+ *
+ * 使い方: BaseLayout で <StickyMobileAd slot="mobile-sticky-bottom" /> を挿入
+ */
+import { getNinjaTag } from '@/data/adNetworks';
+
+type Props = {
+  /** adNetworks.ts 内の忍者スロット名 */
+  slot?: string;
+};
+
+const { slot = 'mobile-sticky-bottom' } = Astro.props;
+const tag = getNinjaTag(slot);
+const isActive = Boolean(tag && tag.trim().length > 0);
+---
+
+{isActive && tag && (
+  <div
+    id="sticky-mobile-ad"
+    class="fixed inset-x-0 bottom-0 z-[50] hidden md:!hidden"
+    data-slot={slot}
+    aria-label="スポンサー広告（モバイル固定）"
+    role="complementary"
+  >
+    <div class="mx-auto max-w-[480px] border-t border-white/10 bg-[#0a0b10]/95 backdrop-blur-md shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+      <div class="flex items-center justify-between px-3 py-1.5">
+        <span class="inline-flex items-center gap-1.5 rounded-md bg-white/5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#a8adc2]">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+          PR / 広告
+        </span>
+        <button
+          type="button"
+          class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-sm leading-none text-[#a8adc2] hover:bg-white/10 hover:text-white transition"
+          aria-label="この広告を閉じる（24時間非表示）"
+          title="閉じる"
+          data-sticky-ad-close
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M1 1L13 13M13 1L1 13" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex justify-center px-2 pb-2">
+        <Fragment set:html={tag} />
+      </div>
+    </div>
+  </div>
+)}
+
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined') return;
+    var el = document.getElementById('sticky-mobile-ad');
+    if (!el) return;
+    var KEY = 'aipedia:sticky-ad-dismissed-at';
+    var HIDE_HOURS = 24;
+
+    // 24時間以内に閉じられていたら表示しない
+    function isDismissed() {
+      try {
+        var ts = parseInt(localStorage.getItem(KEY) || '0', 10);
+        if (!ts) return false;
+        return (Date.now() - ts) < HIDE_HOURS * 60 * 60 * 1000;
+      } catch (e) { return false; }
+    }
+
+    // 画面幅判定（モバイル: 767px以下）
+    function isMobile() {
+      return window.innerWidth < 768;
+    }
+
+    // スクロール 300px 以降で表示、上部は隠す（瞬間表示で驚かせない）
+    function shouldShow() {
+      return window.scrollY > 300;
+    }
+
+    function update() {
+      if (isDismissed() || !isMobile()) {
+        el.classList.add('hidden');
+        return;
+      }
+      if (shouldShow()) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    }
+
+    // 閉じるボタン
+    el.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest && e.target.closest('[data-sticky-ad-close]');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+      el.style.transition = 'opacity 180ms ease, transform 220ms ease';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(100%)';
+      setTimeout(function () { el.classList.add('hidden'); }, 240);
+    });
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>

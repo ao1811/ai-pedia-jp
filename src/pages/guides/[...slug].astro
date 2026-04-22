@@ -9,6 +9,7 @@ import AmazonProductCard from '@/components/AmazonProductCard.astro';
 import AmazonRecommendations from '@/components/AmazonRecommendations.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 import RelatedGuides from '@/components/RelatedGuides.astro';
+import PopularGuides from '@/components/PopularGuides.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import TldrBlock from '@/components/TldrBlock.astro';
 import FaqSection from '@/components/FaqSection.astro';
@@ -249,6 +250,8 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
       category={guide.data.category}
       limit={4}
     />
+
+    <PopularGuides currentSlug={guide.id} limit={5} />
 
     <div class="mt-10 mb-4 flex items-center justify-between text-sm">
       <a href="/guides" class="text-[#c7cbde] hover:text-white">← ガイド一覧</a>
