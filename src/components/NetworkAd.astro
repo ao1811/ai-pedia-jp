@@ -12,6 +12,11 @@
  *
  * ninja タグは `src/data/adNetworks.ts` を編集して差し替え可能。
  * その他プロバイダは Cloudflare Pages の環境変数に `<script>` タグ全文を入れる。
+ *
+ * 【× ボタンによる閉じる機能】
+ * - ユーザーが × を押すと非表示になり、sessionStorage に記憶（同一タブ中は再表示されない）
+ * - 「広告」ラベルを明示しつつ、× の位置は右上の標準UX（健全な設計）
+ * - AdSense には一切適用しない（AdSense側は規約で自己操作系カスタムUI禁止）
  */
 import { getNinjaTag } from '@/data/adNetworks';
 
@@ -19,9 +24,11 @@ type Props = {
   slot: string;
   provider?: 'ninja' | 'msads' | 'nend';
   className?: string;
+  /** × で閉じる機能を有効化（デフォルトtrue、AdSenseでは使わないこと） */
+  closable?: boolean;
 };
 
-const { slot, provider = 'ninja', className = '' } = Astro.props;
+const { slot, provider = 'ninja', className = '', closable = true } = Astro.props;
 
 let tag: string | undefined;
 
@@ -37,16 +44,75 @@ const isActive = Boolean(tag && tag.trim().length > 0);
 
 {isActive && tag && (
   <div
-    class={`network-ad ${className}`}
+    class={`network-ad relative ${className}`}
     data-network={provider}
     data-slot={slot}
+    data-closable={closable ? 'true' : 'false'}
     aria-label="スポンサー広告"
   >
-    <div class="mb-1 flex items-center gap-2">
+    <div class="mb-1 flex items-center justify-between gap-2">
       <span class="text-[9px] font-bold uppercase tracking-widest text-[#8a90a8]">広告</span>
+      {closable && (
+        <button
+          type="button"
+          class="close-btn inline-flex h-5 w-5 items-center justify-center rounded-md border border-white/10 bg-white/5 text-[11px] leading-none text-[#8a90a8] hover:bg-white/10 hover:text-white transition"
+          aria-label="この広告を閉じる"
+          data-ad-close
+        >
+          ×
+        </button>
+      )}
     </div>
     <div class="flex justify-center">
       <Fragment set:html={tag} />
     </div>
   </div>
 )}
+
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined') return;
+    var KEY_PREFIX = 'aipedia:ad-closed:';
+
+    // 初期ロード時、既に閉じられた広告スロットを非表示にする
+    try {
+      document.querySelectorAll('.network-ad[data-slot]').forEach(function (el) {
+        var slot = el.getAttribute('data-slot');
+        if (!slot) return;
+        if (sessionStorage.getItem(KEY_PREFIX + slot) === '1') {
+          el.style.display = 'none';
+        }
+      });
+    } catch (e) { /* sessionStorage が使えない環境は無視 */ }
+
+    // × ボタンのクリックで非表示＋sessionStorage に記憶
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest && e.target.closest('[data-ad-close]');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var wrap = btn.closest('.network-ad');
+      if (!wrap) return;
+      var slot = wrap.getAttribute('data-slot');
+      try {
+        if (slot) sessionStorage.setItem(KEY_PREFIX + slot, '1');
+      } catch (e) { /* ignore */ }
+      // アニメーションで閉じる
+      wrap.style.transition = 'opacity 180ms ease, transform 180ms ease, max-height 220ms ease 180ms, margin 220ms ease 180ms';
+      wrap.style.overflow = 'hidden';
+      wrap.style.maxHeight = wrap.offsetHeight + 'px';
+      requestAnimationFrame(function () {
+        wrap.style.opacity = '0';
+        wrap.style.transform = 'scale(0.98)';
+        setTimeout(function () {
+          wrap.style.maxHeight = '0';
+          wrap.style.margin = '0';
+          wrap.style.padding = '0';
+        }, 180);
+        setTimeout(function () {
+          wrap.style.display = 'none';
+        }, 400);
+      });
+    });
+  })();
+</script>

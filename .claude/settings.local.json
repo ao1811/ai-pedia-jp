@@ -61,7 +61,8 @@
       "Bash(node scripts/sns-images.mjs)",
       "Bash(mkdir -p \"C:/Users/naoki/OneDrive/sns\")",
       "Read(//c/Users/naoki/OneDrive/sns/**)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(node scripts/preview-cards.mjs)"
     ]
   }
 }
