@@ -60,7 +60,8 @@
       "Read(//c/Users/naoki/Desktop/**)",
       "Bash(node scripts/sns-images.mjs)",
       "Bash(mkdir -p \"C:/Users/naoki/OneDrive/sns\")",
-      "Read(//c/Users/naoki/OneDrive/sns/**)"
+      "Read(//c/Users/naoki/OneDrive/sns/**)",
+      "Bash(node -e ' *)"
     ]
   }
 }

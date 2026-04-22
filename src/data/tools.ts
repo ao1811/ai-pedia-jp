@@ -43,14 +43,14 @@ export const tools: Tool[] = [
     slug: 'claude',
     name: 'Claude',
     vendor: 'Anthropic',
-    tagline: '長文読解と安全性に強み。エンジニアとライターに選ばれる。',
+    tagline: '長文読解・コード・デザインで首位級。2026年最も伸びた対話AI。',
     category: 'chat',
     subCategories: ['coding', 'writing'],
     description:
-      'Anthropic の対話型AI。Opus 4.7 は100万トークンの超長文処理、ソフトウェア開発、ライティング、論理推論で高評価。Claude Code によるコード実装が特に強力。',
+      'Anthropic の対話型AI。Opus 4.7 は100万トークンの超長文処理、ソフトウェア開発、ライティング、論理推論で高評価。2026年4月に Claude Design を追加しデザイン領域にも進出、エンジニア・編集者・企画者の第一候補に。',
     logoEmoji: '✨',
     accentGradient: 'from-orange-400 via-amber-500 to-red-500',
-    rating: 4.7,
+    rating: 4.8,
     reviewCount: 62140,
     pricing: [
       { name: 'Free', amount: 0, currency: 'JPY', billing: 'free' },
@@ -696,7 +696,12 @@ export const tools: Tool[] = [
 ];
 
 export function getRankedTools(): Tool[] {
-  return [...tools].sort((a, b) => b.popularityScore - a.popularityScore);
+  // 評価（rating）降順を主軸、同率の場合は popularityScore で tiebreak。
+  // ユーザーの「評価順で並べて欲しい」方針に従う（2026-04-23 変更）。
+  return [...tools].sort((a, b) => {
+    if (b.rating !== a.rating) return b.rating - a.rating;
+    return b.popularityScore - a.popularityScore;
+  });
 }
 
 export function getToolsByCategory(category: string): Tool[] {
