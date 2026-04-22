@@ -54,7 +54,11 @@
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'fix: pin Node 20 for Cloudflare Pages build environment *)",
       "Bash(git -c user.email=naokimiyamoto02@gmail.com -c 'user.name=Naoki Miyamoto' commit -m 'chore: update AdSense client ID to ca-pub-6127755924090747 *)",
       "Bash(npx astro *)",
-      "Bash(xxd \"C:/Users/naoki/claude_projects/affiliate-site/dist/og/default.png\")"
+      "Bash(xxd \"C:/Users/naoki/claude_projects/affiliate-site/dist/og/default.png\")",
+      "Bash(xargs grep *)",
+      "Bash(mkdir -p \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-01-claude-design\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-02-ai-meeting-notes\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-03-ai-agents\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-04-chat-ai-trio\" \"C:/Users/naoki/Desktop/ai-pedia-contents-2026-04-22/theme-05-gemini-for-home\")",
+      "Read(//c/Users/naoki/Desktop/**)",
+      "Bash(node scripts/sns-images.mjs)"
     ]
   }
 }

@@ -18,8 +18,9 @@ export const SITE = {
     url: 'https://ai-pedia.jp/about',
   },
   social: {
-    twitter: '',
-    // youtube: '',
+    x: '@ai_pedia_jp',        // X（旧Twitter）
+    instagram: '@ai_pedia.jp', // Instagram
+    tiktok: '@ai_pedia_jp',    // TikTok
   },
   keywords: [
     'AIツール比較',

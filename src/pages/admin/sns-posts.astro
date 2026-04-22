@@ -12,6 +12,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '@/data/site';
 
+// SNSアカウントハンドル（Instagramは @ai_pedia.jp、X/TikTokは @ai_pedia_jp）
+const SNS = SITE.social as { x: string; instagram: string; tiktok: string };
+
 const guides = await getCollection('guides');
 
 // 公開日の新しい順で並び替え
@@ -106,7 +109,7 @@ function generatePosts(guide: typeof sortedGuides[number]): Post[] {
     `⏱ 読了時間: 約${readTime}分`,
     '',
     '🔗 記事全文はプロフィールのリンクから',
-    '→ @ai_pedia_jp',
+    `→ ${SNS.instagram}`,
     '',
     '━━━━━━━━━━━━━',
     '',
@@ -127,7 +130,7 @@ function generatePosts(guide: typeof sortedGuides[number]): Post[] {
     clip(desc, 60),
     '',
     '▶ 詳細はプロフのリンク',
-    '→ @ai_pedia_jp',
+    `→ ${SNS.tiktok}`,
     '',
     [...baseTagsTT, ...articleHashtags].join(' '),
   ].join('\n');
