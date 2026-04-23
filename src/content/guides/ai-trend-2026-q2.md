@@ -9,7 +9,7 @@ heroGradient: "from-amber-500 via-orange-500 to-red-500"
 featured: false
 relatedTools: ["chatgpt", "claude", "claude-code", "cursor"]
 readTimeMin: 8
-tags: ["トレンド", "2026", "エージェント"]
+tags: ["トレンド", "2026", "AIエージェント"]
 amazonProducts: ["claude-code-ai-driven", "chatgpt-business-future"]
 tldr: "2026年Q2のAI業界3大トレンドは「エージェント化（指示→完了の1往復）」「マルチモーダル標準化（1プロンプトで全モダリティ）」「オンデバイス化（プライバシーと速度）」。MCPの標準化とAEO対応が今後の勝ち筋です。"
 faq:

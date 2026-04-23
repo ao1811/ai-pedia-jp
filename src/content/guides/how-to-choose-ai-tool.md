@@ -9,7 +9,7 @@ heroGradient: "from-blue-500 via-indigo-500 to-purple-600"
 featured: true
 relatedTools: ["chatgpt", "claude", "gemini", "notion-ai"]
 readTimeMin: 7
-tags: ["初心者", "選び方", "入門"]
+tags: ["初心者"]
 amazonProducts: ["prompt-zero-programming", "chatgpt-strongest-work"]
 tldr: "AIツール選びの3原則は「目的を1つに絞る」「無料枠で2週間試す」「月3,000円以内で始める」。いきなり複数契約は失敗のもと。まず ChatGPT Free か Gemini Free で体験してから1本に課金するのが王道です。"
 faq:

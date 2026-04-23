@@ -9,7 +9,7 @@ heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"
 featured: false
 relatedTools: ["chatgpt", "gemini", "claude", "perplexity"]
 readTimeMin: 6
-tags: ["コスト", "節約", "コスパ"]
+tags: ["コスパ"]
 amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
 tldr: "AIツール課金の3原則は「無料枠の実力を信じる」「中位プランで止める」「年1回解約候補を整理」。編集部の実例では月¥19,400の重課金を ¥7,500まで削減、年間¥142,800を節約しました。"
 faq:

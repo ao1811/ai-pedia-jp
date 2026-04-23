@@ -9,7 +9,7 @@ heroGradient: "from-violet-500 via-purple-500 to-fuchsia-500"
 featured: true
 relatedTools: ["claude", "claude-code", "cursor"]
 readTimeMin: 9
-tags: ["Claude", "MCP", "新機能", "エージェント", "2026", "プロトコル"]
+tags: ["Claude", "MCP", "新機能", "AIエージェント", "2026", "プロトコル"]
 amazonProducts: ["claude-code-practical", "claude-code-ai-driven"]
 tldr: "MCP（Model Context Protocol）は Anthropic 発のオープン規格で、AIツール同士が共通のコンテキストを共有できる仕組み。Google・OpenAI も対応表明し、2026年の事実上の業界標準化が進行中。個人ユーザーは Claude Code などで導入済みツールを拡張可能。"
 faq:

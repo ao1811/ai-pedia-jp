@@ -9,7 +9,7 @@ heroGradient: "from-amber-400 via-orange-500 to-rose-500"
 featured: true
 relatedTools: ["chatgpt", "claude", "claude-code"]
 readTimeMin: 9
-tags: ["AIエージェント", "業務自動化", "Copilot Cowork", "Claude Computer Use", "Dify"]
+tags: ["AIエージェント", "業務効率化", "Copilot Cowork", "Claude Computer Use", "Dify"]
 amazonProducts: []
 tldr: "2026年は「AIが実行する」時代。非エンジニアなら、まずChatGPT Agent Mode 2.0（月¥3,000）で自分の業務を1つ代行させることから始めるのが王道。M365企業はCopilot Cowork、LINEボットならCoze、社内AI構築はDifyで用途ごとに選び分けるのが正解です。"
 faq:

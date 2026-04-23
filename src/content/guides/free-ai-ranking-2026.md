@@ -9,7 +9,7 @@ heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"
 featured: true
 relatedTools: ["chatgpt", "gemini", "claude", "perplexity", "github-copilot", "v0"]
 readTimeMin: 9
-tags: ["無料", "初心者", "コスパ", "2026"]
+tags: ["コスパ", "初心者", "2026"]
 amazonProducts: ["chatgpt-strongest-work", "prompt-zero-programming"]
 tldr: "2026年の無料AIツールは2023年の有料プラン相当の品質。Gemini Free・ChatGPT Free・Claude Free・Perplexity Free・GitHub Copilot Free の5本コンボで、ホワイトカラー業務の8割を月0円でカバーできます。"
 faq:

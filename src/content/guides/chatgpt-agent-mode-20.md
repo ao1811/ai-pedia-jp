@@ -9,7 +9,7 @@ heroGradient: "from-emerald-400 via-teal-500 to-cyan-600"
 featured: true
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 7
-tags: ["ChatGPT", "Agent Mode", "新機能", "2026", "自律型AI"]
+tags: ["ChatGPT", "AIエージェント", "新機能", "2026"]
 amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
 tldr: "ChatGPT Agent Mode 2.0 は仮想ブラウザを使って Web サイトを閲覧・操作し、数時間単位のタスクを自律遂行できる機能。競合調査・レポート作成・業務SaaS連携・ファイル整理が自動化されます。Pro プランで真価を発揮しますが、Plus でも基本機能は試せます。"
 faq:

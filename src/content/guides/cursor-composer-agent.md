@@ -9,7 +9,7 @@ heroGradient: "from-slate-400 via-zinc-500 to-neutral-700"
 featured: false
 relatedTools: ["cursor", "claude-code", "v0"]
 readTimeMin: 8
-tags: ["Cursor", "Composer", "Agent", "新機能", "2026"]
+tags: ["Cursor", "Composer", "AIエージェント", "新機能", "2026"]
 amazonProducts: ["claude-code-ai-driven", "llm-prompt-github"]
 tldr: "Cursor Composer Agent は IDE 内で動く自律型AI。自然言語でタスクを伝えると複数ファイル編集・テスト実行・失敗時の自己修正まで自動で行います。Claude Code より IDE 統合で使いやすく、Copilot より自律性が高い、両者の中間に位置する2026年の新定番です。"
 faq:

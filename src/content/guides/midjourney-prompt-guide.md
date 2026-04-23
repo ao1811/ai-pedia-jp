@@ -9,7 +9,7 @@ heroGradient: "from-pink-500 via-rose-500 to-red-500"
 featured: false
 relatedTools: ["midjourney", "chatgpt"]
 readTimeMin: 10
-tags: ["Midjourney", "プロンプト", "画像生成", "デザイン"]
+tags: ["Midjourney", "プロンプト", "画像生成", "AIデザイン"]
 amazonProducts: ["midjourney-basics", "prompt-midjourney-intro"]
 tldr: "Midjourneyの基本構文は「被写体＋スタイル＋構図＋ライティング＋雰囲気＋パラメータ」。--ar / --v / --s / --sref / --cref の5大パラメータを押さえれば、プロ級の出力が安定して出せます。"
 faq:

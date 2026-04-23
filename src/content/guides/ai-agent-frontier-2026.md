@@ -9,7 +9,7 @@ heroGradient: "from-violet-500 via-fuchsia-500 to-rose-500"
 featured: true
 relatedTools: ["claude-code", "cursor", "chatgpt", "v0"]
 readTimeMin: 9
-tags: ["エージェント", "自律型AI", "2026", "業務自動化"]
+tags: ["AIエージェント", "2026", "業務効率化"]
 amazonProducts: ["claude-code-ai-driven", "claude-code-practical"]
 tldr: "2026年Q2はAIエージェント本格普及期。Claude Code は大規模開発、Cursor は日常IDE、ChatGPT Agent はブラウザ業務という使い分けが主流。エージェントを使える人と使えない人で年収が1.5倍以上の差がつくとの調査もあります。"
 faq:

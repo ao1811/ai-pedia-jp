@@ -9,7 +9,7 @@ heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"
 featured: false
 relatedTools: ["chatgpt"]
 readTimeMin: 7
-tags: ["ChatGPT", "プラン", "料金"]
+tags: ["ChatGPT", "プラン", "コスパ"]
 amazonProducts: ["chatgpt-strongest-work", "chatgpt-gpts-book"]
 tldr: "迷ったら Plus（¥3,000/月）。Free は雑談・簡単な翻訳、Pro（¥30,000/月）は動画生成ヘビー利用者or API開発者向け。Free→Plus の差は日常使用で元が取れますが、Plus→Pro は用途限定的です。"
 faq:
