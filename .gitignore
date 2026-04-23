@@ -10,3 +10,5 @@ sns-exports/
 .idea/
 .claude/worktrees/
 .claude/settings.local.json
+# 生成された投稿案（gitに含めない）
+scripts/post-drafts/

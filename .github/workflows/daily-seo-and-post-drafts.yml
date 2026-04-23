@@ -1,0 +1,47 @@
+name: Daily SEO ping & SNS post draft generation
+
+# 毎日 JST 朝7:00 に起動（UTC 22:00）
+# - sitemap を Google/Bing に通知
+# - その日の SNS 投稿案を生成し artifact として保存
+# - Claude in Chrome や手動で artifact をダウンロード → SNS に投稿する運用
+on:
+  schedule:
+    - cron: '0 22 * * *'  # 毎日 UTC 22:00 = JST 07:00
+  workflow_dispatch:  # 手動実行も可能
+
+permissions:
+  contents: read
+
+jobs:
+  seo-ping-and-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # サイトマップを Google/Bing に通知
+      - name: Ping search engines
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: node scripts/ping-search-engines.mjs
+
+      # その日の投稿案を3つ生成（popular / new / random からそれぞれ1本）
+      - name: Generate post drafts (popular)
+        run: node scripts/generate-post-drafts.mjs --mode=popular
+
+      - name: Generate post drafts (new)
+        run: node scripts/generate-post-drafts.mjs --mode=new
+
+      - name: Generate post drafts (random)
+        run: node scripts/generate-post-drafts.mjs --mode=random
+
+      # artifact としてダウンロード可能にする（30日保管）
+      - name: Upload post drafts as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-drafts-${{ github.run_number }}
+          path: scripts/post-drafts/*.md
+          retention-days: 30

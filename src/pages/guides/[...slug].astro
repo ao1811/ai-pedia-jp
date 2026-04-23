@@ -14,6 +14,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import TldrBlock from '@/components/TldrBlock.astro';
 import FaqSection from '@/components/FaqSection.astro';
 import ReadingProgress from '@/components/ReadingProgress.astro';
+import ShareButtons from '@/components/ShareButtons.astro';
 import { getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
 import { getProduct } from '@/data/amazon';
@@ -208,6 +209,13 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
     )}
 
     <FaqSection items={guide.data.faq ?? []} />
+
+    {/* 共有ボタン（X・Facebook・LINE・はてブ・メール・URLコピー） */}
+    <ShareButtons
+      url={guideUrl}
+      title={guide.data.title}
+      hashtags={[...(guide.data.tags ?? []).slice(0, 3), 'AIpedia']}
+    />
 
     {sponsoredRelated.slice(1, 3).map((t) => (
       <SponsoredCTA slug={t.slug} variant="compact" />
