@@ -62,7 +62,19 @@
       "Bash(mkdir -p \"C:/Users/naoki/OneDrive/sns\")",
       "Read(//c/Users/naoki/OneDrive/sns/**)",
       "Bash(node -e ' *)",
-      "Bash(node scripts/preview-cards.mjs)"
+      "Bash(node scripts/preview-cards.mjs)",
+      "Bash(find src *)",
+      "Bash(xargs -I {} grep -l \"relatedTools\" \"{}\")",
+      "Bash(find astro.config.* -type f)",
+      "Bash(npm view *)",
+      "Bash(find dist *)",
+      "Bash(node scripts/consolidate-tags.mjs)",
+      "Bash(where pdftoppm *)",
+      "Bash(node -e \"console.log\\(process.platform, process.arch\\)\")",
+      "Bash(pdftotext -layout \"C:/Users/naoki/Downloads/....pdf\" \"C:/Users/naoki/Downloads/pdf-diagnosis.txt\")",
+      "Bash(pdftotext \"C:/Users/naoki/Downloads/....pdf\" \"C:/Users/naoki/Downloads/pdf-diagnosis.txt\")",
+      "Bash(scoop --version)",
+      "Bash(scoop install *)"
     ]
   }
 }

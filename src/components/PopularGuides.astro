@@ -59,7 +59,7 @@ const fmt = (d: Date) =>
   <section class="mt-12 rounded-2xl border border-amber-400/20 bg-gradient-to-br from-amber-500/[0.06] via-[#10121a] to-[#10121a] p-5 sm:p-6">
     <div class="mb-4 flex items-baseline justify-between">
       <h2 class="text-base font-bold tracking-tight">{title}</h2>
-      <a href="/guides" class="text-xs text-[#8a90a8] hover:text-amber-300 transition">すべて見る →</a>
+      <a href="/guides" aria-label="人気記事をすべて見る" class="text-xs text-[#8a90a8] hover:text-amber-300 transition">すべて見る →</a>
     </div>
     <ol class="space-y-2">
       {scored.map(({ guide: g }, i) => (

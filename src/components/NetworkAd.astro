@@ -100,6 +100,22 @@ const isActive = Boolean(tag && tag.trim().length > 0);
     if (typeof window === 'undefined') return;
     var KEY_PREFIX = 'aipedia:ad-closed:';
 
+    // 広告ネットワークが動的に挿入する iframe に title を自動付与する（A11y対策）。
+    // PageSpeed Insights で「iframe にタイトルが指定されていません」警告になるため。
+    function labelAdIframes() {
+      document.querySelectorAll('.network-ad .ad-body iframe:not([title])').forEach(function (f) {
+        f.setAttribute('title', 'スポンサー広告');
+      });
+    }
+    // 初回＋広告スクリプトが iframe を後から挿入するケースに備えて MutationObserver
+    labelAdIframes();
+    try {
+      new MutationObserver(labelAdIframes).observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    } catch (e) { /* ignore */ }
+
     // 初期ロード時、既に閉じられた広告スロットを非表示にする
     try {
       document.querySelectorAll('.network-ad[data-slot]').forEach(function (el) {

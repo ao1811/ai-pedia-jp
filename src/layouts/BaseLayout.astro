@@ -4,7 +4,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import StickyMobileAd from '@/components/StickyMobileAd.astro';
 import { GA4_MEASUREMENT_ID } from '@/data/analytics';
-import { ADSENSE_CLIENT } from '@/data/adsense';
+import { ADSENSE_CLIENT, ADSENSE_SCRIPT_ENABLED } from '@/data/adsense';
 import { ORGANIZATION_SCHEMA, WEBSITE_SCHEMA, SITE } from '@/data/site';
 
 type Props = {
@@ -137,7 +137,7 @@ const extraSchemas = extraJsonLd
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
 
-    {adsenseClient && (
+    {adsenseClient && ADSENSE_SCRIPT_ENABLED && (
       <script
         async
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
