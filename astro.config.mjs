@@ -1,14 +1,65 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+/**
+ * 記事frontmatter から tag → 記事数 を計算。
+ * sitemap filter で「1記事しかないタグページ」を除外するため。
+ * （Google Search Console の「送信されたURLに noindex タグ」エラー対策）
+ */
+function getThinTagPaths() {
+  const dir = join(process.cwd(), 'src', 'content', 'guides');
+  const files = readdirSync(dir).filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
+  const counts = new Map();
+  for (const f of files) {
+    const content = readFileSync(join(dir, f), 'utf-8');
+    const m = content.match(/^---([\s\S]*?)---/);
+    if (!m) continue;
+    const tagsMatch = m[1].match(/tags:\s*\[([^\]]*)\]/);
+    if (!tagsMatch) continue;
+    const tags = tagsMatch[1]
+      .split(',')
+      .map((s) => s.trim().replace(/^["']|["']$/g, ''))
+      .filter(Boolean);
+    tags.forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1));
+  }
+  // 1記事しかないタグの URL path を生成
+  return new Set(
+    Array.from(counts.entries())
+      .filter(([, n]) => n < 2)
+      .map(([t]) => `/tags/${t}/`),
+  );
+}
+
+const THIN_TAG_PATHS = getThinTagPaths();
 
 export default defineConfig({
   site: 'https://ai-pedia.jp',
   integrations: [
+    // MDX 対応（記事内で <SponsoredCTA /> 等のコンポーネントを直接利用可能にする）
+    mdx(),
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
+      // noindex ページを sitemap から除外。
+      // これを送信すると Search Console に「送信されたURLに noindex タグがあります」
+      // というエラーが出るため、admin・sns 系は最初から含めない。
+      filter: (page) => {
+        // noindex ページを sitemap から除外。
+        if (page.includes('/admin/')) return false;
+        if (page.includes('/sns/')) return false;
+        if (page.endsWith('/404/')) return false;
+        // 1記事しかないタグページも除外（thin content）。
+        try {
+          const pathOnly = new URL(page).pathname;
+          if (THIN_TAG_PATHS.has(pathOnly)) return false;
+        } catch {}
+        return true;
+      },
       serialize(item) {
         // ページ種別に応じて priority と changefreq を最適化
         const url = item.url;

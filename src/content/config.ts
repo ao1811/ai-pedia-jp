@@ -2,7 +2,9 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const guides = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
+  // .md と .mdx の両方を許可。本文中に <SponsoredCTA /> 等のコンポーネントを
+  // 差し込みたい記事だけ .mdx にリネームして使う（他の .md はそのまま動作）。
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/guides' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),

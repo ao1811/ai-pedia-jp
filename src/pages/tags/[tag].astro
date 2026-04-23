@@ -37,9 +37,14 @@ const fmt = (d: Date) =>
 
 const title = `「${tag}」タグの記事一覧`;
 const description = `${tag} に関する徹底特集・ガイド記事 ${matched.length} 本。編集部がまとめた実用情報。`;
+
+// 記事1本しかないタグページは thin content とみなされて
+// Google から「クロール済み - 現在インデックス未登録」扱いになるため noindex。
+// sitemap 側でも astro.config.mjs の filter で除外している。
+const thinContent = matched.length < 2;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} noIndex={thinContent}>
   <section class="mx-auto max-w-5xl px-4 sm:px-6 pt-6 sm:pt-10">
     <Breadcrumbs
       items={[

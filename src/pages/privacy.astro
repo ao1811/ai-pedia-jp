@@ -1,29 +1,95 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+
+/**
+ * 最終更新日は AdSense・E-E-A-T 審査で「継続的に保守されているか」の判断材料になる。
+ * 実際にポリシーを変更した際にここを更新する。
+ */
+const LAST_UPDATED = '2026-04-23';
+const EFFECTIVE_FROM = '2026-04-01';
 ---
 
 <BaseLayout
   title="プライバシーポリシー"
-  description="本サイトのプライバシーポリシー。アクセス解析、Cookie、個人情報の取扱いについて。"
+  description="AIpedia のプライバシーポリシー。アクセス解析、Cookie、広告配信、個人情報の取扱いについて。"
 >
   <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10">
     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">プライバシーポリシー</h1>
+    <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#8a90a8]">
+      <span>制定日: <time datetime={EFFECTIVE_FROM} class="text-[#c7cbde]">{EFFECTIVE_FROM}</time></span>
+      <span>最終更新日: <time datetime={LAST_UPDATED} class="text-[#c7cbde]">{LAST_UPDATED}</time></span>
+    </div>
+
     <div class="mt-6 space-y-6 text-[15px] leading-relaxed text-[#c7cbde]">
+      <p>
+        AIpedia（以下「本サイト」）は、本サイトを利用するすべての方のプライバシーを尊重し、個人情報の保護に努めます。本ページでは、本サイトにおける情報の取扱いについて明記します。
+      </p>
+
       <section>
-        <h2 class="text-xl font-bold text-white">アクセス解析</h2>
-        <p class="mt-2">本サイトはサイト改善のため、Cloudflare Web Analytics など、個人を特定しない形でのアクセス解析を実施する場合があります。</p>
+        <h2 class="text-xl font-bold text-white">1. アクセス解析</h2>
+        <p class="mt-2">
+          本サイトはサイト改善のため、Cloudflare Web Analytics 等、Cookie を使用しない／個人を特定しない形でのアクセス解析を実施する場合があります。収集する情報にはアクセス日時、閲覧ページ、参照元、ブラウザ種別などが含まれ、個人を特定する情報は含まれません。
+        </p>
       </section>
+
       <section>
-        <h2 class="text-xl font-bold text-white">Cookie</h2>
-        <p class="mt-2">広告配信事業者・アフィリエイトプログラム提供元が、ユーザーの興味に応じた広告配信のため Cookie を使用する場合があります。</p>
+        <h2 class="text-xl font-bold text-white">2. Cookie・広告配信</h2>
+        <p class="mt-2">
+          本サイトは第三者配信の広告サービス（Google AdSense、忍者AdMax、a8.net、もしもアフィリエイト、Amazon アソシエイト等）を利用しています。これらの広告配信事業者は、ユーザーの興味に応じた広告を表示するため、本サイトや他サイトへのアクセス情報を Cookie を用いて収集・利用する場合があります。
+        </p>
+        <p class="mt-2">
+          Google AdSense の Cookie 利用を無効化したい場合は、
+          <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="underline">Google 広告設定</a>
+          より設定変更が可能です。第三者配信事業者の Cookie ポリシーについては、
+          <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer" class="underline">Google 広告ポリシー</a>
+          等をご参照ください。
+        </p>
       </section>
+
       <section>
-        <h2 class="text-xl font-bold text-white">個人情報の取扱い</h2>
-        <p class="mt-2">お問い合わせフォーム等でいただいた個人情報は、返信・対応の目的でのみ使用し、第三者への提供はいたしません。</p>
+        <h2 class="text-xl font-bold text-white">3. 個人情報の取扱い</h2>
+        <p class="mt-2">
+          お問い合わせフォーム等でご提供いただいた個人情報（お名前・メールアドレス・お問い合わせ内容）は、ご返信・対応の目的でのみ使用し、ご本人の同意なく第三者へ提供することはありません。法令に基づく開示請求があった場合を除き、情報は適切に管理のうえ、目的終了後に削除します。
+        </p>
       </section>
+
       <section>
-        <h2 class="text-xl font-bold text-white">改訂</h2>
-        <p class="mt-2">本ポリシーは予告なく改訂する場合があります。最新版は常に本ページに掲載します。</p>
+        <h2 class="text-xl font-bold text-white">4. アフィリエイトリンク</h2>
+        <p class="mt-2">
+          本サイトの記事内には、a8.net・もしもアフィリエイト・Amazon アソシエイト等のアフィリエイトリンクを含みます。詳細は
+          <a href="/disclosure" class="underline">アフィリエイト開示ページ</a>
+          をご覧ください。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white">5. 著作権</h2>
+        <p class="mt-2">
+          本サイト掲載のテキスト・画像・レイアウト等の著作権は、AIpedia 編集部または正当な権利者に帰属します。私的使用の範囲を超えた複製・転載は禁じます。引用の際は出典として本サイト URL を明記してください。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white">6. 免責事項</h2>
+        <p class="mt-2">
+          本サイトの情報はできる限り正確を期していますが、内容の完全性・最新性・有用性を保証するものではありません。掲載情報に基づいて発生した損害について、本サイトは一切の責任を負いかねます。各サービスの利用は自己責任のもとご判断ください。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white">7. 改訂</h2>
+        <p class="mt-2">
+          本ポリシーは法令・サービス内容・運用状況の変化に応じて予告なく改訂する場合があります。改訂後の最新版は常に本ページに掲載され、掲載時点から効力を有します。重要な変更が行われた場合は、上部の「最終更新日」をご確認ください。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white">8. お問い合わせ</h2>
+        <p class="mt-2">
+          本ポリシーに関するお問い合わせは、
+          <a href="/contact" class="underline">お問い合わせフォーム</a>
+          よりご連絡ください。
+        </p>
       </section>
     </div>
   </article>
