@@ -25,6 +25,9 @@ export type AmazonProduct = {
 };
 
 // Amazon アソシエイト トラッキングID（公開情報、リンクに埋め込まれる）
+// アカウント全体の StoreID は oshichokin-22（推し活貯金箱メディアの親アカウント）、
+// その中のサブID として ai-pedia-22 を ai-pedia.jp 専用に発行済み。
+// サイト別の収益を切り分けて計測するため、このサイトからのリンクは ai-pedia-22 に統一する。
 export const AMAZON_TRACKING_ID = 'ai-pedia-22';
 
 export const amazonProducts: Record<string, AmazonProduct> = {
