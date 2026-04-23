@@ -61,6 +61,8 @@ const recommendationTags = [
 const publishedIso = guide.data.publishedAt.toISOString();
 const modifiedIso = (guide.data.updatedAt ?? guide.data.publishedAt).toISOString();
 const guideUrl = `${SITE.url}/guides/${guide.id}`;
+// 記事ごとに動的生成される OG 画像（Rich Results の Article.image 要件を満たす）
+const articleImage = `${SITE.url}/og/og/guides/${guide.id}.png`;
 
 // メインの Article schema
 const articleLd: Record<string, unknown> = {
@@ -69,19 +71,27 @@ const articleLd: Record<string, unknown> = {
   '@id': `${guideUrl}#article`,
   headline: guide.data.title,
   description: guide.data.description,
+  // Rich Results 必須相当（推奨）。1200x630 の OG 画像を参照。
+  image: {
+    '@type': 'ImageObject',
+    url: articleImage,
+    width: 1200,
+    height: 630,
+  },
   datePublished: publishedIso,
   dateModified: modifiedIso,
   inLanguage: 'ja-JP',
   mainEntityOfPage: { '@type': 'WebPage', '@id': guideUrl },
   author: {
     '@type': 'Organization',
-    name: guide.data.author,
+    // author は About ページで公開している編集部名に統一
+    // （frontmatter で個別設定があればそちらを優先）
+    name: guide.data.author === '編集部' ? 'AIpedia 編集部' : guide.data.author,
     url: `${SITE.url}/about`,
   },
   publisher: { '@id': `${SITE.url}/#organization` },
   keywords: (guide.data.tags ?? []).join(', '),
   articleSection: guide.data.category,
-  wordCount: undefined, // optional
   // TL;DR を Speakable 対象に（音声検索・AI Overviews 引用対象）
   speakable: {
     '@type': 'SpeakableSpecification',

@@ -49,11 +49,13 @@ export const ORGANIZATION_SCHEMA = {
   name: SITE.name,
   alternateName: [SITE.tagline, 'ai-pedia'],
   url: SITE.url,
+  // Google Rich Results は PNG/JPG の logo を推奨（SVG は警告が出る場合あり）。
+  // /og/default.png を代用（1200x630、サイト全体のブランディング画像）。
   logo: {
     '@type': 'ImageObject',
-    url: `${SITE.url}/favicon.svg`,
-    width: 512,
-    height: 512,
+    url: `${SITE.url}/og/default.png`,
+    width: 1200,
+    height: 630,
   },
   description: SITE.description,
   foundingDate: '2026-04',
