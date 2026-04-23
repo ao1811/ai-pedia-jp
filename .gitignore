@@ -12,3 +12,6 @@ sns-exports/
 .claude/settings.local.json
 # 生成された投稿案（gitに含めない）
 scripts/post-drafts/
+
+# 運営者の個人情報（メール・アカウントID等、Public化対策）
+src/data/admin-secrets.ts

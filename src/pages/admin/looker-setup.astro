@@ -3,6 +3,9 @@
  * Looker Studio セットアップガイド。2サイト統合のためのステップバイステップ手順。
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { ADMIN_MAIN_GMAIL } from '@/data/admin-secrets';
+
+const adminGmail = ADMIN_MAIN_GMAIL;
 ---
 
 <BaseLayout
@@ -45,7 +48,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <h2 class="text-lg font-bold">🚀 Step 1：Looker Studio にアクセス</h2>
       <ol class="mt-3 space-y-2 text-sm text-[#c7cbde] list-decimal pl-5">
         <li><a href="https://lookerstudio.google.com/" target="_blank" rel="noopener noreferrer" class="underline">lookerstudio.google.com</a> を開く</li>
-        <li><code class="rounded bg-white/5 px-1">naokimiyamoto02@gmail.com</code> でログイン</li>
+        <li><code class="rounded bg-white/5 px-1">{adminGmail}</code> でログイン</li>
         <li>初回は利用規約に同意、国=日本を選択</li>
       </ol>
     </section>

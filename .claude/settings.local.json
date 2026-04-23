@@ -74,7 +74,8 @@
       "Bash(pdftotext -layout \"C:/Users/naoki/Downloads/....pdf\" \"C:/Users/naoki/Downloads/pdf-diagnosis.txt\")",
       "Bash(pdftotext \"C:/Users/naoki/Downloads/....pdf\" \"C:/Users/naoki/Downloads/pdf-diagnosis.txt\")",
       "Bash(scoop --version)",
-      "Bash(scoop install *)"
+      "Bash(scoop install *)",
+      "Bash(node scripts/generate-post-drafts.mjs --mode=popular)"
     ]
   }
 }

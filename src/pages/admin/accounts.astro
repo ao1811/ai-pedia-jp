@@ -10,9 +10,10 @@
  * - 2FA状態のメモ
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { ADMIN_MAIN_GMAIL, CLOUDFLARE_ACCOUNT_ID } from '@/data/admin-secrets';
 
 // === メインメール（中心アカウント） ===
-const mainGmail = 'naokimiyamoto02@gmail.com';
+const mainGmail = ADMIN_MAIN_GMAIL;
 
 // === Google 系サービス（このGmailで管理） ===
 const googleServices = [
@@ -94,7 +95,7 @@ const externalServices = [
     icon: '☁️',
     account: 'Naokimiyamoto81@icloud.com',
     email: 'Naokimiyamoto81@icloud.com',
-    id: 'Account ID: 91a62e813cd1b61c40842055c40151ed',
+    id: `Account ID: ${CLOUDFLARE_ACCOUNT_ID}`,
     purpose: 'Pages（デプロイ）・DNS・SSL・Workers・Zero Trust',
     url: 'https://dash.cloudflare.com/',
     configLocation: 'wrangler.toml',
