@@ -163,6 +163,16 @@ Microsoft 365 Copilot に統合された生成AIデザイン機能。PowerPoint 
 
 デザインは、2026年4月から **「相談しながら作るもの」** に変わりました。外注コストを抑えつつ、自分のアイデアをそのまま形にできる時代です。一歩踏み出すなら、今が絶好のタイミングです。
 
+## Claude Design を使い始めるなら（記事クラスター）
+
+本記事は5ツールの横並び比較ですが、Claude Design 単体について詳しく知りたい方は以下の記事もどうぞ：
+
+- 機能全体像：[新機能「Claude Design」とは？2026年版徹底解説](/guides/claude-design-feature)
+- 起動・操作の基本：[使い方完全チュートリアル（30分で UI 生成）](/guides/claude-design-tutorial)
+- 料金プランの選び方：[Pro / Max / Team / Enterprise 料金完全比較](/guides/claude-design-pricing)
+- 実際の業務シナリオ：[業務活用10事例とコピペプロンプト集](/guides/claude-design-real-examples)
+- 導入前のリスク評価：[限界とできないこと・5つのNG業務](/guides/claude-design-limitations)
+
 ## 参考情報
 
 本記事は2026年4月22日時点の情報に基づいています。価格・機能は各ツールの公式発表に準拠しますが、契約時は必ず最新の公式サイトをご確認ください。

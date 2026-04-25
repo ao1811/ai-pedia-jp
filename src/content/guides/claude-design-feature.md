@@ -51,6 +51,8 @@ React + Tailwind で出力して。
 
 生成されたコードは Artifacts プレビュー内で即座にレンダリングされ、その場で動作確認できます。
 
+起動から最初のプロンプトの選び方、よくあるエラー対処まで網羅した詳細手順は[Claude Design の使い方完全チュートリアル](/guides/claude-design-tutorial)にまとめています。
+
 ## 具体的な活用例
 
 ### 1. 個人開発・MVP
@@ -90,13 +92,17 @@ Claude Design でUI を生成 → Cursor にコードを渡してロジック実
 |---|---|
 | Free | 未対応 |
 | Pro（¥3,000/月） | β 機能として利用可、生成回数制限あり |
-| Max（¥15,000/月） | 無制限・高解像度プレビュー・エクスポート無制限 |
+| Max（¥10,000〜¥30,000/月） | 大量生成・Opus 優先・高解像度プレビュー |
+
+各プランの利用回数・コンポーネント生成上限・1年使った場合のコスト試算は[Claude Design の料金完全比較（Pro / Max / Team / Enterprise）](/guides/claude-design-pricing)で詳細に整理しています。
 
 ## 注意点
 
 - **2026年Q2時点では β 機能**のため、予告なく仕様変更の可能性あり
 - 複雑な業務フロー（ECのカート、決済）は手作業調整が必須
 - 商用ライセンスは通常の Claude 利用規約に従う
+
+導入前に押さえておくべき限界や落とし穴は[Claude Design の限界とできないこと](/guides/claude-design-limitations)で詳しく解説しています。
 
 ## まとめ
 
@@ -106,3 +112,11 @@ Claude Design でUI を生成 → Cursor にコードを渡してロジック実
 - Pro プラン以上で利用可能、Max なら無制限
 
 プロトタイプ制作・UI ドラフトに革命を起こす機能です。無料枠はないので、まず Claude Pro を1ヶ月試して体感してみるのがおすすめです。
+
+### 関連記事クラスター
+
+- 起動・操作の基本：[Claude Design の使い方完全チュートリアル](/guides/claude-design-tutorial)
+- 料金プランで迷ったら：[料金完全比較（Pro/Max/Team/Enterprise）](/guides/claude-design-pricing)
+- 実際の業務シナリオ：[業務活用10事例とコピペプロンプト集](/guides/claude-design-real-examples)
+- 他のAIデザインツールとの比較：[Claude Design登場で変わるAIデザインツール5選](/guides/claude-design-vs-figma-canva)
+- 導入前のリスク評価：[Claude Design の限界とできないこと](/guides/claude-design-limitations)
