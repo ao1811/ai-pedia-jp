@@ -306,6 +306,51 @@ ${g.tldr || g.description}
 詳しくは👉 ${url}`;
 }
 
+/**
+ * 記事 slug から OneDrive 上の SNS 素材ディレクトリを返す（5テーマのみ）。
+ * マッチしない記事は null を返し、本番の OG 画像 URL をフォールバックとして使う。
+ */
+const SLUG_TO_THEME = {
+  'claude-design-vs-figma-canva': 'theme-01-claude-design',
+  'ai-meeting-notes-2026-spring': 'theme-02-ai-meeting-notes',
+  'ai-meeting-notes-guide': 'theme-02-ai-meeting-notes',
+  'ai-transcription-comparison': 'theme-02-ai-meeting-notes',
+  'ai-voice-recorder-hardware-2026': 'theme-02-ai-meeting-notes',
+  'ai-agents-for-non-engineers-2026': 'theme-03-ai-agents',
+  'chatgpt-claude-gemini-2026-04': 'theme-04-chat-ai-trio',
+  'gemini-for-home-japan-2026': 'theme-05-gemini-for-home',
+};
+
+const ONEDRIVE_SNS = 'C:\\\\Users\\\\naoki\\\\OneDrive\\\\sns\\\\ai-pedia-contents-2026-04-22';
+
+/** Buffer 投稿用の画像パスをまとめて返す（IG用） */
+function getInstagramImagePaths(g) {
+  const themeDir = SLUG_TO_THEME[g.slug];
+  if (themeDir) {
+    return {
+      kind: 'carousel',
+      themeDir,
+      single: `${ONEDRIVE_SNS}\\\\${themeDir}\\\\preview-cards\\\\og.png`,
+      carousel: Array.from({ length: 9 }, (_, i) =>
+        `${ONEDRIVE_SNS}\\\\${themeDir}\\\\images\\\\instagram\\\\slide-${String(i + 1).padStart(2, '0')}.png`,
+      ),
+    };
+  }
+  // テーマ未マッチの記事は本番の OG 画像を使う
+  return {
+    kind: 'og-only',
+    single: `https://ai-pedia.jp/og/og/guides/${g.slug}.png`,
+    carousel: null,
+  };
+}
+
+/** 推奨される投稿時間（プラットフォーム別の目安） */
+const POSTING_TIME_HINTS = {
+  instagram: '平日 7:30 / 12:30 / 20:00 ・ 週末 10:00（Buffer の Posting Schedule を事前設定推奨）',
+  tiktok: '平日 18:00 / 21:00（要動画化）',
+  x: '平日 8:00 / 12:00 / 19:00 ・ 週末 10:00',
+};
+
 function buildOutput(g) {
   const x = buildXPosts(g);
   const thread = threadFlag ? buildXThread(g) : null;
@@ -313,6 +358,7 @@ function buildOutput(g) {
   const tt = buildTikTokCaption(g);
   const line = buildLineCaption(g);
   const url = `${SITE_URL}/guides/${g.slug}`;
+  const igImages = getInstagramImagePaths(g);
 
   const threadSection = thread
     ? `
@@ -379,15 +425,42 @@ ${threadSection}
 
 ## Instagram · @ai_pedia.jp
 
-**キャプション**:
+**キャプション**（Buffer の Caption 欄に貼り付け）:
 
 \`\`\`
 ${ig}
 \`\`\`
 
-**サムネ画像（OneDrive内）**:
-\`C:\\Users\\naoki\\OneDrive\\sns\\ai-pedia-contents-2026-04-22\\\` 配下から類似テーマのpreview-card、または
-\`https://ai-pedia.jp/og/og/guides/${g.slug}.png\` をダウンロード
+### Buffer 投稿手順
+
+1. **https://buffer.com/dashboard** を開く
+2. 「**+ New Post**」 → Instagram チャンネル選択
+3. 上記キャプションを貼り付け
+4. 下記の画像をアップロード
+5. 「**Add to Queue**」（事前設定の時間枠で自動投稿）
+
+### 使う画像
+
+${igImages.kind === 'carousel' ? `**カルーセル投稿（9枚スライド一括、推奨）**:
+ファイラーで以下のフォルダを開いて、slide-01 〜 slide-09 を全選択 → Buffer にドラッグ＆ドロップ。
+
+\`${ONEDRIVE_SNS.replace(/\\\\/g, '\\')}\\${igImages.themeDir}\\images\\instagram\\\`
+
+**シングル画像（手早く済ませたい時）**:
+\`${igImages.single.replace(/\\\\/g, '\\')}\`
+` : `**シングル画像のみ**（この記事は専用カルーセル素材なし）:
+
+ブラウザで以下を開いて「名前を付けて画像を保存」 → Buffer にアップロード：
+
+\`${igImages.single}\`
+
+または **OG 画像**（同じものですが直接保存しやすい）:
+\`https://ai-pedia.jp/og/og/guides/${g.slug}.png\`
+`}
+
+### 推奨投稿時間
+
+${POSTING_TIME_HINTS.instagram}
 
 ---
 
@@ -398,6 +471,28 @@ ${ig}
 \`\`\`
 ${tt}
 \`\`\`
+
+### TikTok 投稿について
+
+⚠️ **Buffer 経由の TikTok 投稿は動画必須**（画像投稿は仕様上不可）。
+
+✅ **解決済み**：9枚カルーセル画像から27秒スライドショー動画を自動生成可能。
+
+${SLUG_TO_THEME[g.slug] ? `この記事のテーマには専用動画が既に生成されています：
+
+\`${ONEDRIVE_SNS.replace(/\\\\/g, '\\')}\\${SLUG_TO_THEME[g.slug]}\\videos\\tiktok.mp4\`
+
+**Buffer 投稿手順**:
+1. Buffer ダッシュボード → New Post → TikTok チャンネル
+2. 上記 MP4 ファイルをアップロード（ドラッグ＆ドロップ or 「+ Add Media」）
+3. 上記キャプションを貼り付け
+4. 「Add to Queue」 → 設定済み時間枠で自動投稿
+` : `この記事は5テーマに含まれず専用カルーセル動画が未生成です。次のいずれかで対応：
+
+1. **手動**: TikTok アプリで CapCut 等で動画化してから投稿
+2. **新規生成**: 該当記事のSNS素材を作成してから \`node scripts/sns-tiktok-videos.mjs\` を実行
+`}
+**推奨投稿時間**: ${POSTING_TIME_HINTS.tiktok}
 
 ---
 
