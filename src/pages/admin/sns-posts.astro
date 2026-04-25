@@ -22,6 +22,58 @@ const sortedGuides = guides.sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
 );
 
+// 人気スコア計算（PopularGuides と揃える）
+const NOW = Date.now();
+const D30 = 30 * 24 * 60 * 60 * 1000;
+const D90 = 90 * 24 * 60 * 60 * 1000;
+function popularityScore(g: typeof sortedGuides[number]): number {
+  let s = 0;
+  if (g.data.featured) s += 30;
+  const updated = (g.data.updatedAt ?? g.data.publishedAt).getTime();
+  const published = g.data.publishedAt.getTime();
+  if (NOW - updated <= D30) s += 20;
+  if (NOW - published <= D90) s += 10;
+  if (g.data.category === 'comparison') s += 8;
+  s += (g.data.relatedTools?.length ?? 0) * 2;
+  return s;
+}
+
+// 各記事に並び順用の派生値を持たせる
+const guidesWithMeta = sortedGuides.map((g) => ({
+  guide: g,
+  publishedTs: g.data.publishedAt.getTime(),
+  popularity: popularityScore(g),
+}));
+
+// カテゴリラベルマップ
+const CATEGORY_JA: Record<string, string> = {
+  comparison: '比較',
+  howto: 'How-to',
+  guide: 'ガイド',
+  review: 'レビュー',
+  trend: 'トレンド',
+};
+const CATEGORY_ICON: Record<string, string> = {
+  comparison: '📊',
+  howto: '📚',
+  guide: '📖',
+  review: '⭐',
+  trend: '📈',
+};
+const CATEGORY_ACCENT: Record<string, string> = {
+  comparison: 'text-cyan-300 border-cyan-400/30 bg-cyan-400/10',
+  howto: 'text-emerald-300 border-emerald-400/30 bg-emerald-400/10',
+  guide: 'text-violet-300 border-violet-400/30 bg-violet-400/10',
+  review: 'text-amber-300 border-amber-400/30 bg-amber-400/10',
+  trend: 'text-rose-300 border-rose-400/30 bg-rose-400/10',
+};
+
+// カテゴリごとの記事数を集計
+const categoryCounts: Record<string, number> = {};
+for (const { guide: g } of guidesWithMeta) {
+  categoryCounts[g.data.category] = (categoryCounts[g.data.category] ?? 0) + 1;
+}
+
 /** タグ→ハッシュタグ変換（英数字/日本語そのまま #prefix） */
 function toHashtag(tag: string): string {
   return '#' + tag.replace(/\s+/g, '').replace(/[・\-\/]/g, '');
@@ -269,20 +321,109 @@ const platformMeta = {
       ))}
     </section>
 
-    {/* 記事別の投稿文 */}
+    {/* 🔎 タブ（新着・人気・カテゴリ別） + 検索 */}
     <section class="mt-10">
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-widest text-[#8a90a8]">
-        📝 記事別の投稿文（{sortedGuides.length}件）
+        📝 記事別の投稿文（全 {sortedGuides.length} 件）
       </h2>
 
-      <div class="space-y-6">
-        {allPosts.map(({ guide, posts }) => (
-          <article class="rounded-2xl border border-white/10 bg-[#10121a] overflow-hidden">
+      {/* 検索ボックス */}
+      <div class="mb-4">
+        <div class="relative max-w-md">
+          <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#8a90a8]">🔍</span>
+          <input
+            type="text"
+            id="sns-search"
+            placeholder="タイトル・タグで絞り込み..."
+            class="w-full rounded-lg border border-white/10 bg-white/5 pl-9 pr-3 py-2 text-sm text-white placeholder:text-[#8a90a8] focus:border-violet-400/50 focus:outline-none focus:ring-1 focus:ring-violet-400/30"
+          />
+        </div>
+      </div>
+
+      {/* タブ切替 */}
+      <div class="mb-6 flex flex-wrap gap-2 border-b border-white/10 pb-3" role="tablist">
+        <button
+          type="button"
+          data-sns-tab="latest"
+          class="sns-tab inline-flex items-center gap-1.5 rounded-lg border border-violet-400/40 bg-violet-400/15 px-3.5 py-2 text-sm font-bold text-violet-100 transition"
+          role="tab"
+          aria-selected="true"
+        >
+          🆕 新着 <span class="ml-0.5 rounded-md bg-white/10 px-1.5 py-0.5 text-[10px] font-bold tabular-nums">{guidesWithMeta.length}</span>
+        </button>
+        <button
+          type="button"
+          data-sns-tab="popular"
+          class="sns-tab inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2 text-sm font-bold text-[#c7cbde] hover:bg-white/[0.08] transition"
+          role="tab"
+          aria-selected="false"
+        >
+          🔥 人気 <span class="ml-0.5 rounded-md bg-white/10 px-1.5 py-0.5 text-[10px] font-bold tabular-nums">{guidesWithMeta.length}</span>
+        </button>
+        {(['comparison', 'howto', 'guide', 'review', 'trend'] as const).map((cat) =>
+          (categoryCounts[cat] ?? 0) > 0 && (
+            <button
+              type="button"
+              data-sns-tab={cat}
+              class="sns-tab inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2 text-sm font-bold text-[#c7cbde] hover:bg-white/[0.08] transition"
+              role="tab"
+              aria-selected="false"
+            >
+              {CATEGORY_ICON[cat]} {CATEGORY_JA[cat]} <span class="ml-0.5 rounded-md bg-white/10 px-1.5 py-0.5 text-[10px] font-bold tabular-nums">{categoryCounts[cat]}</span>
+            </button>
+          )
+        )}
+      </div>
+
+      {/* 検索ヒット 0件のフォールバック */}
+      <div
+        id="sns-empty"
+        class="hidden rounded-2xl border border-white/10 bg-[#10121a] p-10 text-center text-[#8a90a8]"
+      >
+        🔍 該当する記事が見つかりませんでした。検索キーワードや別のタブを試してみてください。
+      </div>
+
+      <div class="space-y-6" id="sns-articles-container">
+        {allPosts.map(({ guide, posts }, idx) => {
+          const meta = guidesWithMeta[idx];
+          const tagsLower = (guide.data.tags ?? []).map((t) => t.toLowerCase()).join(' ');
+          const searchTokens = [
+            guide.data.title.toLowerCase(),
+            (guide.data.description ?? '').toLowerCase(),
+            tagsLower,
+            guide.data.category,
+          ].join(' ');
+          return (
+          <article
+            class="sns-article rounded-2xl border border-white/10 bg-[#10121a] overflow-hidden"
+            data-category={guide.data.category}
+            data-popular-score={meta.popularity}
+            data-published-ts={meta.publishedTs}
+            data-search-text={searchTokens}
+          >
             {/* 記事ヘッダー */}
             <header class="border-b border-white/5 p-4 sm:p-5">
               <div class="flex items-start gap-3">
                 <span class="text-2xl">{guide.data.heroEmoji}</span>
                 <div class="min-w-0 flex-1">
+                  <div class="mb-1.5 flex flex-wrap items-center gap-1.5">
+                    <span class={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-bold ${CATEGORY_ACCENT[guide.data.category] ?? 'text-violet-300 border-violet-400/30 bg-violet-400/10'}`}>
+                      {CATEGORY_ICON[guide.data.category] ?? '📄'} {CATEGORY_JA[guide.data.category] ?? guide.data.category}
+                    </span>
+                    {guide.data.featured && (
+                      <span class="inline-flex items-center gap-1 rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-0.5 text-[10px] font-bold text-amber-200">
+                        ⭐ 編集部おすすめ
+                      </span>
+                    )}
+                    {NOW - guide.data.publishedAt.getTime() <= D30 && (
+                      <span class="inline-flex items-center gap-1 rounded-full border border-rose-400/40 bg-rose-400/10 px-2 py-0.5 text-[10px] font-bold text-rose-200">
+                        🆕 新着30日
+                      </span>
+                    )}
+                    <span class="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] px-2 py-0.5 text-[10px] text-[#8a90a8]">
+                      🔥 スコア {meta.popularity}
+                    </span>
+                  </div>
                   <h3 class="text-base font-bold tracking-tight text-white line-clamp-2">
                     {guide.data.title}
                   </h3>
@@ -369,7 +510,8 @@ const platformMeta = {
               })}
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </section>
 
@@ -472,4 +614,111 @@ const platformMeta = {
         alert('コピーに失敗しました。手動で選択してください。');
       });
   });
+
+  /**
+   * タブ切替（新着 / 人気 / カテゴリ別）+ 検索フィルタ + ソート。
+   * - 新着: data-published-ts 降順
+   * - 人気: data-popular-score 降順、同点は data-published-ts 降順
+   * - カテゴリ: data-category が一致する記事のみ表示、新着順
+   * 検索: data-search-text に対する部分一致（AND 検索）
+   */
+  (function () {
+    const container = document.getElementById('sns-articles-container');
+    const empty = document.getElementById('sns-empty');
+    const searchInput = document.getElementById('sns-search');
+    const tabs = document.querySelectorAll('.sns-tab');
+    if (!container || !tabs.length) return;
+
+    let activeTab = 'latest';
+    let searchQuery = '';
+
+    function applyFilter() {
+      const articles = Array.from(container.querySelectorAll('.sns-article'));
+      const tokens = searchQuery
+        .toLowerCase()
+        .split(/\s+/)
+        .filter(Boolean);
+
+      // フィルタ対象を決定
+      let visible = articles.filter((el) => {
+        // タブ条件
+        if (activeTab === 'latest' || activeTab === 'popular') {
+          // 全件対象
+        } else {
+          if (el.dataset.category !== activeTab) return false;
+        }
+        // 検索条件
+        if (tokens.length > 0) {
+          const text = el.dataset.searchText || '';
+          if (!tokens.every((t) => text.includes(t))) return false;
+        }
+        return true;
+      });
+
+      // ソート
+      visible.sort((a, b) => {
+        if (activeTab === 'popular') {
+          const sa = parseInt(a.dataset.popularScore || '0', 10);
+          const sb = parseInt(b.dataset.popularScore || '0', 10);
+          if (sa !== sb) return sb - sa;
+        }
+        // 新着順（タブ問わず最終フォールバック）
+        const ta = parseInt(a.dataset.publishedTs || '0', 10);
+        const tb = parseInt(b.dataset.publishedTs || '0', 10);
+        return tb - ta;
+      });
+
+      // DOM 並べ替え
+      const visibleSet = new Set(visible);
+      // 表示ON/OFF
+      for (const a of articles) {
+        a.classList.toggle('hidden', !visibleSet.has(a));
+      }
+      // 順序適用
+      for (const a of visible) {
+        container.appendChild(a);
+      }
+
+      // 空メッセージ
+      if (empty) {
+        empty.classList.toggle('hidden', visible.length > 0);
+      }
+    }
+
+    function setActiveTab(tabName) {
+      activeTab = tabName;
+      for (const tab of tabs) {
+        const isActive = tab.dataset.snsTab === tabName;
+        tab.setAttribute('aria-selected', String(isActive));
+        if (isActive) {
+          tab.classList.remove('border-white/10', 'bg-white/[0.04]', 'text-[#c7cbde]');
+          tab.classList.add('border-violet-400/40', 'bg-violet-400/15', 'text-violet-100');
+        } else {
+          tab.classList.remove('border-violet-400/40', 'bg-violet-400/15', 'text-violet-100');
+          tab.classList.add('border-white/10', 'bg-white/[0.04]', 'text-[#c7cbde]');
+        }
+      }
+      applyFilter();
+    }
+
+    // タブクリック
+    for (const tab of tabs) {
+      tab.addEventListener('click', () => setActiveTab(tab.dataset.snsTab));
+    }
+
+    // 検索（即時反映、デバウンス）
+    if (searchInput) {
+      let debounce;
+      searchInput.addEventListener('input', (e) => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => {
+          searchQuery = (e.target.value || '').trim();
+          applyFilter();
+        }, 120);
+      });
+    }
+
+    // 初期表示
+    applyFilter();
+  })();
 </script>
