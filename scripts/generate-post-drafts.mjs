@@ -23,7 +23,7 @@ import path from 'node:path';
 const GUIDES_DIR = path.join(process.cwd(), 'src', 'content', 'guides');
 const OUT_DIR = path.join(process.cwd(), 'scripts', 'post-drafts');
 const SITE_URL = 'https://ai-pedia.jp';
-const SITE_HANDLE = '@ai_pedia_jp';
+const SITE_HANDLE = '@aipediajp';
 
 // CLI オプション
 const args = process.argv.slice(2);
@@ -416,7 +416,7 @@ ${line}
 このファイルを Claude に渡して、以下のように指示できます：
 
 \`\`\`
-「この投稿案の X 案A を @ai_pedia_jp に投稿して」
+「この投稿案の X 案A を @aipediajp に投稿して」
 → Claude in Chrome が X を開いて、文を貼り付けます。
    ユーザーは最終的に「ポストする」ボタンを押すだけ。
 \`\`\`

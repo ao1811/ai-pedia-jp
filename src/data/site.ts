@@ -18,7 +18,7 @@ export const SITE = {
     url: 'https://ai-pedia.jp/about',
   },
   social: {
-    x: '@ai_pedia_jp',        // X（旧Twitter）
+    x: '@aipediajp',          // X（旧Twitter）
     instagram: '@ai_pedia.jp', // Instagram
     tiktok: '@ai_pedia_jp',    // TikTok
   },

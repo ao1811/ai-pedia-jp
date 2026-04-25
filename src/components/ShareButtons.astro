@@ -20,7 +20,7 @@ type Props = {
   via?: string;
 };
 
-const { url, title, hashtags = [], via = 'ai_pedia_jp' } = Astro.props;
+const { url, title, hashtags = [], via = 'aipediajp' } = Astro.props;
 
 const encodedUrl = encodeURIComponent(url);
 const encodedTitle = encodeURIComponent(title);
