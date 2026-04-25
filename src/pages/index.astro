@@ -6,6 +6,7 @@ import AdSlot from '@/components/AdSlot.astro';
 import NetworkAd from '@/components/NetworkAd.astro';
 import SponsoredCTA from '@/components/SponsoredCTA.astro';
 import LatestAndPopular from '@/components/LatestAndPopular.astro';
+import ArticleBrowserHome from '@/components/ArticleBrowserHome.astro';
 import { getRankedTools } from '@/data/tools';
 import { affiliateUrls } from '@/data/affiliate';
 import { CATEGORY_LABELS } from '@/types/tool';
@@ -29,7 +30,6 @@ const allGuides = (await getCollection('guides')).sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
 );
 const featuredGuides = allGuides.filter((g) => g.data.featured).slice(0, 4);
-const recentGuides = allGuides.slice(0, 6);
 
 // 「新機能」タグを持つ最新記事を抽出
 const newFeatureGuides = allGuides
@@ -163,14 +163,14 @@ const description = '2026年最新版のAIツール総合ランキング「AIped
     </section>
   )}
 
-  {/* 徹底特集・ガイドをトップ寄りに上昇させる */}
+  {/* 注目記事（大カード）+ 全記事ブラウザ（タブ＋検索） */}
   <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-12">
     <div class="mb-5 flex items-baseline justify-between">
       <div>
-        <h2 class="text-lg sm:text-xl font-bold tracking-tight">📚 徹底特集・ガイド</h2>
-        <p class="mt-1 text-xs text-[#8a90a8]">編集部が実使用して書いた詳細記事（全 {allGuides.length} 本）</p>
+        <h2 class="text-lg sm:text-xl font-bold tracking-tight">📚 編集部おすすめ</h2>
+        <p class="mt-1 text-xs text-[#8a90a8]">いま読まれている特集記事</p>
       </div>
-      <a href="/guides" aria-label="徹底特集・ガイドをすべて見る" class="inline-flex items-center gap-1 text-xs text-amber-300 hover:text-amber-200 transition whitespace-nowrap">
+      <a href="/guides" aria-label="すべての特集を見る" class="inline-flex items-center gap-1 text-xs text-amber-300 hover:text-amber-200 transition whitespace-nowrap">
         すべて見る →
       </a>
     </div>
@@ -206,27 +206,10 @@ const description = '2026年最新版のAIツール総合ランキング「AIped
         ))}
       </div>
     )}
-
-    {/* 最新記事 横並び4つ */}
-    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      {recentGuides.slice(0, 4).map((g) => (
-        <a
-          href={`/guides/${g.id}`}
-          class="group relative overflow-hidden rounded-xl border border-white/5 bg-[#10121a]/80 p-4 card-hover"
-        >
-          <div class={`absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br ${g.data.heroGradient} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity`}></div>
-          <div class="relative">
-            <div class="flex items-center justify-between">
-              <span class="text-2xl">{g.data.heroEmoji}</span>
-              <span class="text-[10px] uppercase tracking-wider text-[#8a90a8]">{CATEGORY_JA[g.data.category]}</span>
-            </div>
-            <h3 class="mt-3 text-sm font-bold tracking-tight text-white text-balance line-clamp-2">{g.data.title}</h3>
-            <div class="mt-2 text-[11px] text-[#8a90a8]">{g.data.readTimeMin}分</div>
-          </div>
-        </a>
-      ))}
-    </div>
   </section>
+
+  {/* 全記事ブラウザ（タブ＋検索） — 全34本にこのセクションだけでアクセス可能 */}
+  <ArticleBrowserHome />
 
   <section class="mx-auto max-w-7xl px-4 sm:px-6 mt-10 space-y-4">
     <AdSlot slot="display-home-top" />

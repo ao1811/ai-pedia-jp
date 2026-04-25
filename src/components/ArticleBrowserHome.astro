@@ -1,0 +1,277 @@
+---
+/**
+ * トップページ用「全記事ブラウザ」セクション。
+ *
+ * トップ → 記事への直帰率が高い問題への対策：
+ *   - タブ: 新着 / 人気 / 比較 / How-to / ガイド / レビュー / トレンド
+ *   - 検索ボックス（タイトル・description・タグの token-AND マッチ）
+ *   - 人気スコア・新着バッジ・編集部おすすめバッジを表示
+ *   - 1画面で全34本にアクセスできる
+ *
+ * 設計：admin/sns-posts.astro と同じパターンで実装。
+ *
+ * SEO観点：JS無効環境でも全カードがDOMに存在するため、
+ * クローラーは全記事へ内部リンクを辿れる（hidden は CSS class のみ）。
+ */
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('guides');
+
+const NOW = Date.now();
+const D30 = 30 * 24 * 60 * 60 * 1000;
+const D90 = 90 * 24 * 60 * 60 * 1000;
+
+function popularityScore(g: typeof all[number]): number {
+  let s = 0;
+  if (g.data.featured) s += 30;
+  const updated = (g.data.updatedAt ?? g.data.publishedAt).getTime();
+  const published = g.data.publishedAt.getTime();
+  if (NOW - updated <= D30) s += 20;
+  if (NOW - published <= D90) s += 10;
+  if (g.data.category === 'comparison') s += 8;
+  s += (g.data.relatedTools?.length ?? 0) * 2;
+  return s;
+}
+
+const guidesWithMeta = all
+  .map((g) => ({
+    guide: g,
+    publishedTs: g.data.publishedAt.getTime(),
+    popularity: popularityScore(g),
+    isNew: NOW - g.data.publishedAt.getTime() <= D30,
+  }))
+  .sort((a, b) => b.publishedTs - a.publishedTs);
+
+const CATEGORY_JA: Record<string, string> = {
+  comparison: '比較',
+  howto: 'How-to',
+  guide: 'ガイド',
+  review: 'レビュー',
+  trend: 'トレンド',
+};
+const CATEGORY_ACCENT: Record<string, string> = {
+  comparison: 'text-cyan-300 border-cyan-400/30 bg-cyan-400/10',
+  howto: 'text-emerald-300 border-emerald-400/30 bg-emerald-400/10',
+  guide: 'text-violet-300 border-violet-400/30 bg-violet-400/10',
+  review: 'text-amber-300 border-amber-400/30 bg-amber-400/10',
+  trend: 'text-rose-300 border-rose-400/30 bg-rose-400/10',
+};
+
+const categoryCounts: Record<string, number> = {};
+for (const { guide: g } of guidesWithMeta) {
+  categoryCounts[g.data.category] = (categoryCounts[g.data.category] ?? 0) + 1;
+}
+
+const TABS: { key: string; label: string; count: number }[] = [
+  { key: 'latest', label: '🆕 新着', count: guidesWithMeta.length },
+  { key: 'popular', label: '🔥 人気', count: guidesWithMeta.length },
+  { key: 'comparison', label: '📊 比較', count: categoryCounts.comparison ?? 0 },
+  { key: 'howto', label: '📚 How-to', count: categoryCounts.howto ?? 0 },
+  { key: 'guide', label: '📖 ガイド', count: categoryCounts.guide ?? 0 },
+  { key: 'review', label: '⭐ レビュー', count: categoryCounts.review ?? 0 },
+  { key: 'trend', label: '📈 トレンド', count: categoryCounts.trend ?? 0 },
+];
+
+const fmt = (d: Date) =>
+  `${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+
+const total = guidesWithMeta.length;
+---
+
+<section class="mx-auto max-w-7xl px-4 sm:px-6 mt-12">
+  <div class="mb-5 flex items-baseline justify-between flex-wrap gap-2">
+    <div>
+      <h2 class="text-lg sm:text-xl font-bold tracking-tight">📚 全記事ブラウザ</h2>
+      <p class="mt-1 text-xs text-[#8a90a8]">タブ・検索で全 {total} 本を絞り込み</p>
+    </div>
+    <a href="/guides" class="text-xs text-[#8a90a8] hover:text-white transition whitespace-nowrap">
+      一覧ページへ →
+    </a>
+  </div>
+
+  {/* タブ */}
+  <div class="mb-3 flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0" role="tablist" aria-label="記事絞り込みタブ">
+    {TABS.map((t, i) => (
+      <button
+        type="button"
+        data-tab={t.key}
+        class={`browser-tab shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold transition ${
+          i === 0
+            ? 'border-violet-400/40 bg-violet-400/15 text-violet-100'
+            : 'border-white/10 bg-white/[0.04] text-[#c7cbde] hover:bg-white/10'
+        }`}
+        aria-selected={i === 0 ? 'true' : 'false'}
+        role="tab"
+      >
+        <span>{t.label}</span>
+        <span class="text-[10px] opacity-70">{t.count}</span>
+      </button>
+    ))}
+  </div>
+
+  {/* 検索 */}
+  <div class="mb-5 relative">
+    <input
+      type="search"
+      id="article-browser-search"
+      placeholder="🔍 タイトル・タグ・キーワードで検索…"
+      class="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white placeholder:text-[#8a90a8] focus:border-violet-400/50 focus:outline-none focus:bg-white/[0.06] transition"
+      autocomplete="off"
+    />
+    <div id="article-browser-empty" class="hidden mt-3 text-center text-xs text-[#8a90a8]">
+      該当する記事がありません。別のキーワードでお試しください。
+    </div>
+  </div>
+
+  {/* 記事カードグリッド */}
+  <div id="article-browser-grid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {guidesWithMeta.map(({ guide: g, popularity, isNew }) => (
+      <a
+        href={`/guides/${g.id}`}
+        class="article-browser-card group relative overflow-hidden rounded-xl border border-white/5 bg-[#10121a]/80 p-4 card-hover"
+        data-category={g.data.category}
+        data-popularity={popularity}
+        data-is-new={isNew ? '1' : '0'}
+        data-published={g.data.publishedAt.getTime()}
+        data-search={`${g.data.title} ${g.data.description ?? ''} ${(g.data.tags ?? []).join(' ')}`.toLowerCase()}
+      >
+        <div class={`absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br ${g.data.heroGradient} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity`}></div>
+        <div class="relative flex flex-col h-full">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-2xl shrink-0">{g.data.heroEmoji}</span>
+            <div class="flex items-center gap-1 flex-wrap justify-end">
+              {g.data.featured && (
+                <span class="inline-flex items-center rounded-full border border-amber-400/40 bg-amber-400/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-200">
+                  ⭐ おすすめ
+                </span>
+              )}
+              {isNew && (
+                <span class="inline-flex items-center gap-0.5 rounded-full border border-rose-400/40 bg-rose-400/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-rose-200">
+                  <span class="h-1 w-1 animate-pulse rounded-full bg-rose-400"></span>
+                  NEW
+                </span>
+              )}
+              <span class={`inline-flex items-center rounded-full border px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider ${CATEGORY_ACCENT[g.data.category] ?? 'border-white/10 bg-white/5 text-[#a8adc2]'}`}>
+                {CATEGORY_JA[g.data.category] ?? g.data.category}
+              </span>
+            </div>
+          </div>
+          <h3 class="mt-3 text-sm font-bold tracking-tight text-white text-balance line-clamp-2">
+            {g.data.title}
+          </h3>
+          <p class="mt-1.5 text-[11px] text-[#c7cbde] line-clamp-2">{g.data.description}</p>
+          <div class="mt-auto pt-3 flex items-center justify-between text-[10px] text-[#8a90a8]">
+            <span>{fmt(g.data.publishedAt)} · {g.data.readTimeMin}分</span>
+            <span class="inline-flex items-center gap-1 text-[#a8adc2]">
+              🔥 <span class="font-bold">{popularity}</span>
+            </span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    if (typeof window === 'undefined') return;
+    var grid = document.getElementById('article-browser-grid');
+    var search = document.getElementById('article-browser-search');
+    var empty = document.getElementById('article-browser-empty');
+    var tabs = document.querySelectorAll('.browser-tab');
+    if (!grid || !search) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.article-browser-card'));
+    var activeTab = 'latest';
+    var query = '';
+    var debounceTimer = null;
+
+    function tokenize(s) {
+      return s
+        .toLowerCase()
+        .split(/[\s　]+/)
+        .filter(function (t) {
+          return t.length > 0;
+        });
+    }
+
+    function applyFilter() {
+      var tokens = tokenize(query);
+      var visible = [];
+      cards.forEach(function (card) {
+        var category = card.getAttribute('data-category') || '';
+        var searchText = card.getAttribute('data-search') || '';
+        var popularity = parseInt(card.getAttribute('data-popularity') || '0', 10);
+        var published = parseInt(card.getAttribute('data-published') || '0', 10);
+
+        // タブフィルタ
+        var passTab = true;
+        if (activeTab !== 'latest' && activeTab !== 'popular') {
+          passTab = category === activeTab;
+        }
+        // 検索フィルタ
+        var passSearch = tokens.length === 0 || tokens.every(function (t) {
+          return searchText.indexOf(t) !== -1;
+        });
+
+        var show = passTab && passSearch;
+        if (show) {
+          card.classList.remove('hidden');
+          visible.push({ el: card, popularity: popularity, published: published });
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // 並び替え
+      if (activeTab === 'popular') {
+        visible.sort(function (a, b) {
+          return b.popularity - a.popularity || b.published - a.published;
+        });
+      } else {
+        // latest または カテゴリタブ
+        visible.sort(function (a, b) {
+          return b.published - a.published;
+        });
+      }
+      visible.forEach(function (v) {
+        grid.appendChild(v.el);
+      });
+
+      if (empty) {
+        if (visible.length === 0) {
+          empty.classList.remove('hidden');
+        } else {
+          empty.classList.add('hidden');
+        }
+      }
+    }
+
+    // タブ切替
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        activeTab = tab.getAttribute('data-tab') || 'latest';
+        tabs.forEach(function (t) {
+          var isActive = t === tab;
+          t.setAttribute('aria-selected', String(isActive));
+          if (isActive) {
+            t.classList.remove('border-white/10', 'bg-white/[0.04]', 'text-[#c7cbde]', 'hover:bg-white/10');
+            t.classList.add('border-violet-400/40', 'bg-violet-400/15', 'text-violet-100');
+          } else {
+            t.classList.remove('border-violet-400/40', 'bg-violet-400/15', 'text-violet-100');
+            t.classList.add('border-white/10', 'bg-white/[0.04]', 'text-[#c7cbde]', 'hover:bg-white/10');
+          }
+        });
+        applyFilter();
+      });
+    });
+
+    // 検索（120ms デバウンス）
+    search.addEventListener('input', function () {
+      query = search.value || '';
+      if (debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(applyFilter, 120);
+    });
+
+    // 初期表示は新着順なので何もしなくて良い
+  })();
+</script>
