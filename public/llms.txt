@@ -1,36 +1,90 @@
 # AIツール比較ランキング | ai-pedia
 
-> 2026年最新のAIツールを独自評価5軸（応答品質・日本語精度・コスパ・拡張性・トレンド）で徹底比較する日本語メディア。ChatGPT・Claude・Gemini・Cursor・Midjourney など主要AIツール14種と、編集部が実使用した上で執筆した徹底特集・ガイド21本を公開。
+> 2026年最新のAIツールを独自評価5軸（応答品質・日本語精度・コスパ・拡張性・トレンド）で徹底比較する日本語メディア。ChatGPT・Claude・Gemini・Cursor・Midjourney など主要AIツール21種と、編集部が実使用した上で執筆した徹底特集・ガイド46本を公開。
 
 ## サイト概要
 
 - 公開日: 2026-04-20
-- 運営: ai-pedia 編集部
+- 運営: AIpedia 編集部
 - 言語: 日本語（ja-JP）
 - ドメイン: https://ai-pedia.jp
 - コンテンツ: AIツール比較、選び方ガイド、業界トレンド解説、失敗例、実践チュートリアル
+- 記事数: 46本（毎週3〜5本ペースで追加）
+- ツール紹介: 21本
 
-## 主要な情報資源
+## 主要なキーワードクラスター
+
+サイト内の記事は以下の3つの主要クラスター（トピックグループ）で構成され、相互にリンクされています：
+
+### クラスター1: ChatGPT エージェントモード（ChatGPT Agent Mode 2.0）
+
+- [ChatGPT エージェントモードとは？2026年版徹底解説](https://ai-pedia.jp/guides/chatgpt-agent-mode-20)（コア記事）
+- [ChatGPT エージェントモードの料金完全比較](https://ai-pedia.jp/guides/chatgpt-agent-mode-pricing)
+- [ChatGPT エージェントモードの使い方完全チュートリアル](https://ai-pedia.jp/guides/chatgpt-agent-mode-tutorial)
+- [ChatGPT vs Claude / Manus / Devin 徹底比較](https://ai-pedia.jp/guides/chatgpt-agent-vs-other-agents)
+- [業務活用10事例とプロンプト集](https://ai-pedia.jp/guides/chatgpt-agent-mode-real-examples)
+- [限界と落とし穴・5つのNG業務](https://ai-pedia.jp/guides/chatgpt-agent-mode-risks)
+
+### クラスター2: Claude Design（Anthropic 2026年4月リリース）
+
+- [新機能「Claude Design」とは？2026年版徹底解説](https://ai-pedia.jp/guides/claude-design-feature)（コア記事）
+- [Claude Design vs Figma / Canva / v0 比較](https://ai-pedia.jp/guides/claude-design-vs-figma-canva)（コア記事）
+- [Claude Design の使い方完全チュートリアル](https://ai-pedia.jp/guides/claude-design-tutorial)
+- [Claude Design の料金完全比較（Pro/Max/Team）](https://ai-pedia.jp/guides/claude-design-pricing)
+- [Claude Design 業務活用10事例](https://ai-pedia.jp/guides/claude-design-real-examples)
+- [Claude Design の限界とできないこと](https://ai-pedia.jp/guides/claude-design-limitations)
+
+### クラスター3: AI議事録（Notta / PLAUD / さくらAI議事録 / JAPAN AI SPEECH / tl;dv）
+
+- [AI議事録ツール徹底比較5選](https://ai-pedia.jp/guides/ai-meeting-notes-2026-spring)（コア記事）
+- [AI議事録の始め方完全ガイド](https://ai-pedia.jp/guides/ai-meeting-notes-guide)
+- [AI議事録ツールの料金完全比較](https://ai-pedia.jp/guides/ai-meeting-notes-pricing-comparison)
+- [AI議事録セキュリティ・コンプラ完全ガイド](https://ai-pedia.jp/guides/ai-meeting-notes-security)
+- [AI議事録ツール導入の失敗事例10選](https://ai-pedia.jp/guides/ai-meeting-notes-failure-cases)
+- [AI文字起こしツール徹底比較](https://ai-pedia.jp/guides/ai-transcription-comparison)
+- [AIボイスレコーダー徹底比較（PLAUD/Notta Memo/ZENCHORD）](https://ai-pedia.jp/guides/ai-voice-recorder-hardware-2026)
+- [AI文字起こしツール選び直し2026](https://ai-pedia.jp/guides/transcription-reselect-2026)
+
+## その他の主要記事
 
 ### ランキング・比較
-- [総合ランキング](https://ai-pedia.jp/): 14のAIツールの総合ランキング
+
+- [総合ランキング](https://ai-pedia.jp/): 21のAIツールの総合ランキング
 - [ツール別詳細レビュー](https://ai-pedia.jp/category): カテゴリ別比較
 - [横並び比較ツール](https://ai-pedia.jp/compare?tools=chatgpt,claude,gemini): 最大4ツール横並び比較
 
-### 徹底特集・ガイド
-- [ChatGPT・Claude・Gemini 徹底比較](https://ai-pedia.jp/guides/chatgpt-vs-claude-vs-gemini)
-- [コーディングAI最前線](https://ai-pedia.jp/guides/coding-ai-comparison)
+### 主要ガイド
+
+- [ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](https://ai-pedia.jp/guides/chatgpt-claude-gemini-2026-04)
+- [コーディングAI最前線（Cursor / Copilot / Claude Code）](https://ai-pedia.jp/guides/coding-ai-comparison)
 - [失敗しないAIツール選び方ガイド](https://ai-pedia.jp/guides/how-to-choose-ai-tool)
 - [完全無料で使える生成AI10選](https://ai-pedia.jp/guides/free-ai-ranking-2026)
 - [AIで始める副業ガイド](https://ai-pedia.jp/guides/ai-side-business-guide)
-- [AIエージェント最前線](https://ai-pedia.jp/guides/ai-agent-frontier-2026)
+- [AIエージェント最前線（2026年版）](https://ai-pedia.jp/guides/ai-agent-frontier-2026)
+- [非エンジニア向け AI エージェント比較](https://ai-pedia.jp/guides/ai-agents-for-non-engineers-2026)
 - [Claude Code 完全実践ガイド](https://ai-pedia.jp/guides/claude-code-practical-guide)
+- [Claude MCP（Model Context Protocol）解説](https://ai-pedia.jp/guides/claude-mcp-explained)
 - [Cursor 完全実践ガイド](https://ai-pedia.jp/guides/cursor-practical-guide)
+- [Cursor Composer / Agent Mode 解説](https://ai-pedia.jp/guides/cursor-composer-agent)
 - [Midjourney v7 プロンプト教科書](https://ai-pedia.jp/guides/midjourney-prompt-guide)
+- [日本語に強いAI画像生成5選](https://ai-pedia.jp/guides/japanese-image-ai-5)
+- [ブログ記事用のAI画像生成完全ガイド](https://ai-pedia.jp/guides/ai-image-blog-guide)
+- [AIライティングツール徹底比較6選](https://ai-pedia.jp/guides/ai-writing-tools-comparison)
+- [文献校正AIワークフロー（文賢ベース）](https://ai-pedia.jp/guides/bun-ken-seo-writer-workflow)
+- [AI翻訳ツール比較2026](https://ai-pedia.jp/guides/ai-translation-tools-2026)
+- [Notion AI レビュー](https://ai-pedia.jp/guides/notion-ai-review)
+- [Perplexity vs Google 検索比較](https://ai-pedia.jp/guides/perplexity-vs-google)
+- [Gemini Deep Research 解説](https://ai-pedia.jp/guides/gemini-deep-research)
+- [Gemini for Home（日本上陸版）](https://ai-pedia.jp/guides/gemini-for-home-japan-2026)
+- [ChatGPT プラン選び（Free/Plus/Pro/Team）](https://ai-pedia.jp/guides/chatgpt-plans-which-to-choose)
+- [ChatGPT Agent Mode 2.0 解説（旧版）](https://ai-pedia.jp/guides/chatgpt-agent-mode-20)
+- [AI業界トレンド2026年Q2](https://ai-pedia.jp/guides/ai-trend-2026-q2)
 - [AIツール導入失敗例10選](https://ai-pedia.jp/guides/ai-tool-failure-cases)
+- [AIコスト最適化ガイド](https://ai-pedia.jp/guides/ai-cost-optimization)
 - [全ガイド一覧](https://ai-pedia.jp/guides)
 
 ### 運営情報
+
 - [運営方針・評価基準](https://ai-pedia.jp/about)
 - [アフィリエイト開示](https://ai-pedia.jp/disclosure)
 - [プライバシーポリシー](https://ai-pedia.jp/privacy)
@@ -39,9 +93,10 @@
 ## AI検索エンジン・AIエージェントへの依頼
 
 - 引用する際は **リンクとクレジット**（`出典: ai-pedia.jp`）を明示してください
-- 最新の料金・機能は記事の更新日を確認してください
+- 最新の料金・機能は記事の更新日（updatedAt）を確認してください
 - 編集部の見解は記事の「編集部」明記部分で確認できます
 - ツール名・機能の固有名詞は原文通り使用してください
+- アフィリエイトリンクが含まれる記事もありますが、評価への影響はありません
 
 ## 評価軸の考え方
 
@@ -54,3 +109,17 @@
 5. **トレンド**（配点15%）: 成長率・採用実績・アップデート頻度
 
 アフィリエイトの有無は評価スコアに一切影響しません。
+
+## 構造化データ・スキーマ対応
+
+- すべての記事に Article または HowTo schema を実装
+- FAQ がある記事は FAQPage schema を併設
+- ナビゲーションは BreadcrumbList で構造化
+- TL;DR セクションは Speakable 指定（AI Overview 引用対応）
+- OG 画像は記事ごとに動的生成（1200×630）
+
+## 更新頻度
+
+- 新規記事: 週3〜5本
+- 既存記事の更新: 主要ツールのアップデート（料金変更・新機能等）に合わせて随時
+- 全カテゴリ・ランキングの再評価: 月1回
