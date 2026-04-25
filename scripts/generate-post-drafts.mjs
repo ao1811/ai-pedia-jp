@@ -11,6 +11,7 @@
  *   node scripts/generate-post-drafts.mjs --slug=xxx     # 特定記事
  *   node scripts/generate-post-drafts.mjs --mode=new     # 直近7日の新規記事優先
  *   node scripts/generate-post-drafts.mjs --mode=popular # スコア高い順
+ *   node scripts/generate-post-drafts.mjs --thread       # X スレッド案（3-5ツイート連続）も追加生成
  *
  * 出力先:
  *   scripts/post-drafts/YYYY-MM-DD.md
@@ -28,6 +29,13 @@ const SITE_HANDLE = '@ai_pedia_jp';
 const args = process.argv.slice(2);
 const slugArg = args.find((a) => a.startsWith('--slug='))?.split('=')[1];
 const modeArg = args.find((a) => a.startsWith('--mode='))?.split('=')[1] ?? 'random';
+const threadFlag = args.includes('--thread');
+
+/** JST（日本時間）基準で YYYY-MM-DD を返す */
+function jstDate() {
+  const jst = new Date(Date.now() + 9 * 3600 * 1000);
+  return jst.toISOString().slice(0, 10);
+}
 
 /** frontmatter を簡易パース（YAMLライブラリ不要） */
 function parseFrontmatter(src) {
@@ -65,6 +73,33 @@ function parseFrontmatter(src) {
   return data;
 }
 
+/** 本文から H2 見出しを抽出（スレッド生成で使用） */
+function extractH2Sections(src) {
+  const end = src.indexOf('---', 3);
+  if (end === -1) return [];
+  const body = src.slice(end + 3);
+  const sections = [];
+  const lines = body.split(/\r?\n/);
+  let currentHeading = null;
+  let currentBody = [];
+  for (const line of lines) {
+    const m = line.match(/^##\s+(.+)$/);
+    if (m) {
+      if (currentHeading) {
+        sections.push({ heading: currentHeading, body: currentBody.join('\n').trim() });
+      }
+      currentHeading = m[1].trim();
+      currentBody = [];
+    } else if (currentHeading) {
+      currentBody.push(line);
+    }
+  }
+  if (currentHeading) {
+    sections.push({ heading: currentHeading, body: currentBody.join('\n').trim() });
+  }
+  return sections;
+}
+
 /** 全記事を読み取り、メタデータの配列を返す */
 function loadGuides() {
   return fs
@@ -85,6 +120,7 @@ function loadGuides() {
         publishedAt: fm.publishedAt ?? '',
         featured: fm.featured === 'true',
         heroEmoji: fm.heroEmoji ?? '📘',
+        sections: extractH2Sections(src),
       };
     })
     .filter((g) => g.title);
@@ -167,6 +203,70 @@ function truncate(s, n) {
   return s.length <= n ? s : s.slice(0, n - 1) + '…';
 }
 
+/** H2セクションの本文1〜2文を抜き出して要点にする */
+function summarizeSection(body, max = 110) {
+  if (!body) return '';
+  // マークダウン記号を素朴に剥ぐ（太字・リンク・見出し・表・リスト・番号・箇条）
+  let plain = body
+    .replace(/`{1,3}[^`]*`{1,3}/g, '')       // code spans
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')    // images
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links
+    .replace(/\*\*([^*]+)\*\*/g, '$1')       // bold
+    .replace(/\*([^*]+)\*/g, '$1')           // italic
+    .replace(/^\s*[-*+>]\s+/gm, '')          // list/quote markers
+    .replace(/^\s*\d+\.\s+/gm, '')           // ordered list
+    .replace(/^\s*\|.*\|$/gm, '')            // table rows
+    .replace(/^\s*#+\s+/gm, '')              // sub-headings
+    .replace(/\n{2,}/g, '\n')
+    .trim();
+  // 先頭から1文抜き出し
+  const firstSentence = plain.split(/(?<=[。！？!?])/)[0] ?? plain;
+  return truncate(firstSentence.replace(/\s+/g, ' ').trim(), max);
+}
+
+/**
+ * X スレッド案を生成（Hook → 3〜5 要点 → 着地）。
+ * 文字数は各ツイート 140 字以内を目安。
+ */
+function buildXThread(g) {
+  const url = `${SITE_URL}/guides/${g.slug}`;
+  // 目次になりそうな H2 を抽出（「まとめ」「結論」「よくある質問」等は除外）
+  const EXCLUDE = /^(まとめ|結論|おわりに|FAQ|よくある質問|参考|関連記事|関連リンク|免責)/;
+  const sections = (g.sections ?? [])
+    .filter((s) => !EXCLUDE.test(s.heading))
+    .map((s) => ({ ...s, summary: summarizeSection(s.body) }))
+    .filter((s) => s.summary && s.summary.length >= 20)
+    .slice(0, 5);
+
+  const title = g.title.split('｜')[0];
+  const hookText = g.tldr || truncate(g.description, 120);
+
+  const hook = `${g.heroEmoji} ${title}
+
+${truncate(hookText, 180)}
+
+要点をスレッドでまとめます 🧵👇`;
+
+  const bodyTweets = sections.map((s, i) => {
+    const num = `${i + 1}/${sections.length}`;
+    return `${num} ${s.heading}
+
+${s.summary}`;
+  });
+
+  const hashtagList = [...g.tags.slice(0, 3), 'AIpedia']
+    .map((t) => '#' + t.replace(/[^\w぀-ゟ゠-ヿ一-鿿]/g, ''))
+    .join(' ');
+
+  const closing = `詳しい比較表・料金・具体例は本記事にまとめています👇
+
+${url}
+
+${hashtagList}`;
+
+  return { hook, body: bodyTweets, closing, count: sections.length + 2 };
+}
+
 /** Instagram のキャプション案 */
 function buildInstagramCaption(g) {
   const url = `${SITE_URL}/guides/${g.slug}`;
@@ -208,11 +308,45 @@ ${g.tldr || g.description}
 
 function buildOutput(g) {
   const x = buildXPosts(g);
+  const thread = threadFlag ? buildXThread(g) : null;
   const ig = buildInstagramCaption(g);
   const tt = buildTikTokCaption(g);
   const line = buildLineCaption(g);
   const url = `${SITE_URL}/guides/${g.slug}`;
-  return `# AIpedia SNS 投稿案（${new Date().toISOString().slice(0, 10)}）
+
+  const threadSection = thread
+    ? `
+### 案D：スレッド型（${thread.count}ツイート連続）
+
+> 伸び方を底上げするならこの型。Hook で引きつけ、要点を1ツイートずつ展開、最後にURL。
+> 投稿時は最初のツイートに返信する形で続けて投稿する。
+
+**ツイート 1（Hook）:**
+
+\`\`\`
+${thread.hook}
+\`\`\`
+
+${thread.body
+  .map(
+    (t, i) => `**ツイート ${i + 2}（要点 ${i + 1}）:**
+
+\`\`\`
+${t}
+\`\`\`
+`,
+  )
+  .join('\n')}
+**ツイート ${thread.count}（着地・リンク）:**
+
+\`\`\`
+${thread.closing}
+\`\`\`
+
+`
+    : '';
+
+  return `# AIpedia SNS 投稿案（${jstDate()}）
 
 **対象記事**: ${g.title}
 **元URL**: ${url}
@@ -240,7 +374,7 @@ ${x.patternB}
 \`\`\`
 ${x.patternC}
 \`\`\`
-
+${threadSection}
 ---
 
 ## Instagram · @ai_pedia.jp
@@ -302,7 +436,7 @@ function main() {
   }
   const picked = pickGuide(guides);
   const output = buildOutput(picked);
-  const date = new Date().toISOString().slice(0, 10);
+  const date = jstDate();
   const outFile = path.join(OUT_DIR, `${date}-${picked.slug}.md`);
   fs.writeFileSync(outFile, output, 'utf-8');
   console.log(`✅ 投稿案を生成: ${path.relative(process.cwd(), outFile)}`);

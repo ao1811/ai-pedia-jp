@@ -25,7 +25,12 @@ import path from 'node:path';
 
 const SITE_HOST = 'ai-pedia.jp';
 const SITEMAP_URL = `https://${SITE_HOST}/sitemap-index.xml`;
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
+
+// IndexNow キーは公開情報（public/<KEY>.txt として公開配置する仕組み）なので、
+// 環境変数がなければフォールバックで直書き値を使う。
+// キーを再発行した場合はこの定数と public/<KEY>.txt のファイル名を更新。
+const INDEXNOW_KEY_DEFAULT = '7a6fb6c1efcc4d6c96959bf805864055';
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY || INDEXNOW_KEY_DEFAULT;
 
 async function httpGet(url) {
   return new Promise((resolve) => {
@@ -33,7 +38,7 @@ async function httpGet(url) {
       .get(url, { headers: { 'User-Agent': 'ai-pedia-ping/1.0' } }, (res) => {
         let data = '';
         res.on('data', (c) => (data += c));
-        res.on('end', () => resolve({ status: res.statusCode, body: data.slice(0, 300) }));
+        res.on('end', () => resolve({ status: res.statusCode, body: data }));
       })
       .on('error', (e) => resolve({ status: 0, body: e.message }));
   });
@@ -99,7 +104,7 @@ async function submitIndexNow(urls) {
     req.end();
   });
   console.log(`✓ IndexNow: status ${res.status}`);
-  if (res.status >= 400) console.log(`  body: ${res.body}`);
+  if (res.status >= 400) console.log(`  body: ${String(res.body).slice(0, 300)}`);
 }
 
 /**
