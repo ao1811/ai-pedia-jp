@@ -214,27 +214,186 @@ async function generatePreviewCards(browser, a, outDir) {
   }
 }
 
-/** 1枚のtiktok.png から 15秒の MP4（ゆるいズーム）を生成 */
-function generateTikTokVideo(srcPng, outMp4) {
+/**
+ * auto-article 用 5スライド HTML を生成。
+ * 各スライドは同じダークグラデ＋グリッド背景で、テキスト内容だけが変わる。
+ * 1080×1920（TikTok 縦長）固定。
+ */
+function buildAutoSlideHtml(a, slideIndex) {
+  const gradient = tailwindToCSSGradient(a.heroGradient);
+  const cleanTitle = a.title.split('｜')[0];
+  const desc = a.description || a.tldr || '';
+  const tldr = a.tldr || '';
+  const url = `${SITE_URL}/guides/${a.slug}`;
+  const cat = CATEGORY_JA[a.category] || a.category;
+
+  // スライドごとの中央コンテンツ
+  let bodyHtml = '';
+  let pageNum = `${slideIndex} / 5`;
+
+  if (slideIndex === 1) {
+    // Cover: 大きな絵文字 + タイトル
+    bodyHtml = `
+      <div class="emoji-xl">${a.heroEmoji}</div>
+      <h1 class="title-xl">${cleanTitle}</h1>
+      <p class="lead">${desc.slice(0, 80)}</p>
+      <div class="swipe">SWIPE →</div>
+    `;
+  } else if (slideIndex === 2) {
+    // Hook: TLDR を引用風に
+    const hook = tldr || desc;
+    bodyHtml = `
+      <div class="eyebrow">💡 KEY POINT</div>
+      <h2 class="hook">${hook.slice(0, 200)}</h2>
+    `;
+  } else if (slideIndex === 3) {
+    // Description: 詳細説明
+    bodyHtml = `
+      <div class="eyebrow">📖 ABOUT</div>
+      <h2 class="title-md">${cleanTitle}</h2>
+      <p class="desc-lg">${desc}</p>
+    `;
+  } else if (slideIndex === 4) {
+    // Highlights: タグを 3つ並べる
+    const tags = a.tags.slice(0, 3);
+    const items = tags.length > 0
+      ? tags.map((t, i) => `<div class="point"><div class="point-num">${i + 1}</div><div class="point-text">${t}</div></div>`).join('')
+      : `<div class="point"><div class="point-num">1</div><div class="point-text">用途別の最適解</div></div>
+         <div class="point"><div class="point-num">2</div><div class="point-text">料金の比較</div></div>
+         <div class="point"><div class="point-num">3</div><div class="point-text">実務での使い分け</div></div>`;
+    bodyHtml = `
+      <div class="eyebrow">🎯 HIGHLIGHTS</div>
+      <h2 class="title-md">この記事のポイント</h2>
+      <div class="points">${items}</div>
+    `;
+  } else {
+    // CTA: URL + 続きはサイトで
+    bodyHtml = `
+      <div class="eyebrow">💾 SAVE & READ</div>
+      <h2 class="title-md">続きは ai-pedia.jp で</h2>
+      <div class="url-box">
+        <div class="url-label">READ THE FULL ARTICLE</div>
+        <div class="url-text">${url.replace('https://', '')}</div>
+      </div>
+      <div class="cta-action">@aipediajp をフォローしてね</div>
+    `;
+    pageNum = '5 / 5';
+  }
+
+  return `<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1080px;height:1920px;}
+  body{font-family:'Noto Sans JP',system-ui,sans-serif;background:#0a0a0a;color:#fff;overflow:hidden;}
+  .slide{width:1080px;height:1920px;padding:84px;position:relative;display:flex;flex-direction:column;}
+  .slide::before{content:'';position:absolute;inset:0;background:${gradient};opacity:0.55;z-index:0;}
+  .slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.85) 100%),linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:100% 100%,80px 80px,80px 80px;z-index:1;}
+  .slide>*{position:relative;z-index:2;}
+  .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;}
+  .brand{display:flex;align-items:center;gap:16px;font-size:34px;font-weight:500;color:#fff;}
+  .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#a78bfa 0%,#8b5cf6 50%,#7c3aed 100%);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:#fff;box-shadow:0 4px 20px rgba(139,92,246,0.5);}
+  .logo::before{content:'✦';}
+  .category{padding:12px 28px;border-radius:999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:22px;font-weight:700;letter-spacing:0.05em;}
+  .body{flex:1;display:flex;flex-direction:column;justify-content:center;}
+
+  /* slide 1 (cover) */
+  .emoji-xl{font-size:280px;line-height:1;margin-bottom:48px;text-align:center;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));}
+  .title-xl{font-size:96px;font-weight:900;line-height:1.1;letter-spacing:-0.035em;text-align:center;margin-bottom:32px;}
+  .lead{font-size:32px;line-height:1.5;color:#c7cbde;text-align:center;font-weight:500;}
+  .swipe{position:absolute;bottom:160px;right:84px;display:inline-flex;align-items:center;gap:12px;padding:14px 28px;border-radius:999px;background:linear-gradient(135deg,rgba(139,92,246,0.25),rgba(236,72,153,0.25));border:1px solid rgba(167,139,250,0.5);font-size:24px;font-weight:700;color:#fff;}
+
+  /* slide 2 (hook) */
+  .eyebrow{font-size:24px;letter-spacing:0.18em;color:#fb923c;font-weight:700;margin-bottom:36px;}
+  .hook{font-size:84px;font-weight:900;line-height:1.2;letter-spacing:-0.03em;color:#fff;}
+
+  /* slide 3 (description) */
+  .title-md{font-size:64px;font-weight:900;line-height:1.18;letter-spacing:-0.03em;margin-bottom:48px;}
+  .desc-lg{font-size:38px;line-height:1.55;color:#e4e6f0;font-weight:500;}
+
+  /* slide 4 (highlights) */
+  .points{display:flex;flex-direction:column;gap:32px;margin-top:24px;}
+  .point{display:flex;align-items:center;gap:32px;padding:32px 40px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:24px;}
+  .point-num{flex-shrink:0;width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,#a78bfa,#ec4899);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900;color:#fff;}
+  .point-text{font-size:36px;color:#fff;font-weight:700;}
+
+  /* slide 5 (cta) */
+  .url-box{padding:48px;border-radius:32px;background:linear-gradient(135deg,rgba(139,92,246,0.25),rgba(236,72,153,0.25));border:2px solid rgba(167,139,250,0.5);text-align:center;margin-bottom:48px;}
+  .url-label{font-size:24px;color:#ddd6fe;font-weight:700;letter-spacing:0.12em;margin-bottom:16px;}
+  .url-text{font-size:42px;color:#fff;font-weight:900;letter-spacing:-0.01em;word-break:break-all;}
+  .cta-action{text-align:center;font-size:32px;color:#c7cbde;font-weight:500;}
+
+  .foot{margin-top:auto;padding-top:32px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;}
+  .domain{font-size:32px;font-weight:700;background:linear-gradient(90deg,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.01em;}
+  .page{font-size:22px;color:#8a90a8;font-weight:500;letter-spacing:0.08em;}
+</style></head><body><div class="slide">
+<div class="head"><div class="brand"><div class="logo"></div><span>ai-pedia</span></div><div class="category">${cat}</div></div>
+<div class="body">${bodyHtml}</div>
+<div class="foot"><span class="domain">ai-pedia.jp</span><span class="page">${pageNum}</span></div>
+</div></body></html>`;
+}
+
+/** auto-article 用 5スライド PNG を生成（1080×1920） */
+async function generateAutoSlides(browser, a, slidesDir) {
+  fs.mkdirSync(slidesDir, { recursive: true });
+  for (let i = 1; i <= 5; i++) {
+    const outFile = path.join(slidesDir, `slide-${String(i).padStart(2, '0')}.png`);
+    if (!FORCE && fs.existsSync(outFile)) continue;
+    const html = buildAutoSlideHtml(a, i);
+    const ctx = await browser.newContext({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
+    const page = await ctx.newPage();
+    await page.setContent(html, { waitUntil: 'networkidle' });
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: outFile, type: 'png', fullPage: false });
+    await ctx.close();
+  }
+}
+
+/** 5枚のスライドから 22秒の MP4（クロスフェード）を生成 */
+function generateAutoSlideshow(slidesDir, outMp4) {
   if (!FORCE && fs.existsSync(outMp4)) return;
   fs.mkdirSync(path.dirname(outMp4), { recursive: true });
-  // zoompan で 1.0 → 1.08 までゆるい Ken Burns、15秒
-  const args = [
-    '-y',
-    '-loop', '1',
-    '-i', srcPng,
-    '-t', '15',
-    '-vf', "scale=2160:3840,zoompan=z='min(zoom+0.0008,1.08)':d=450:s=1080x1920:fps=30",
-    '-c:v', 'libx264',
-    '-pix_fmt', 'yuv420p',
-    '-r', '30',
-    '-movflags', '+faststart',
-    outMp4,
-  ];
+
+  const SLIDE_DURATION = 4.0;
+  const FADE_DURATION = 0.4;
+  const slides = Array.from({ length: 5 }, (_, i) =>
+    path.join(slidesDir, `slide-${String(i + 1).padStart(2, '0')}.png`),
+  );
+  for (const s of slides) {
+    if (!fs.existsSync(s)) {
+      console.log(`  ⚠ missing slide ${path.basename(s)}, skipping video`);
+      return;
+    }
+  }
+
+  const args = ['-y'];
+  for (const s of slides) {
+    args.push('-loop', '1', '-t', String(SLIDE_DURATION), '-i', s);
+  }
+  let filter = '';
+  for (let i = 0; i < slides.length; i++) {
+    filter += `[${i}:v]scale=1080:1920,setsar=1,fps=30[v${i}];`;
+  }
+  let prev = 'v0';
+  let cumulativeOffset = SLIDE_DURATION - FADE_DURATION;
+  for (let i = 1; i < slides.length; i++) {
+    const out = i === slides.length - 1 ? 'vout' : `vx${i}`;
+    filter += `[${prev}][v${i}]xfade=transition=fade:duration=${FADE_DURATION}:offset=${cumulativeOffset.toFixed(2)}[${out}];`;
+    prev = out;
+    cumulativeOffset += SLIDE_DURATION - FADE_DURATION;
+  }
+  filter = filter.replace(/;$/, '');
+
+  args.push('-filter_complex', filter, '-map', '[vout]', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30', '-movflags', '+faststart', outMp4);
+
   try {
     execFileSync('ffmpeg', args, { stdio: 'pipe' });
   } catch (e) {
-    console.error(`  ✗ video failed:`, String(e.stderr || e.message).slice(-200));
+    console.error(`  ✗ slideshow video failed:`, String(e.stderr || e.message).slice(-300));
   }
 }
 
@@ -359,10 +518,16 @@ async function main() {
         await generatePreviewCards(browser, a, previewDir);
       }
 
-      // TikTok video（premium テーマは既に hand-crafted な9スライド動画があるのでスキップ）
-      if (!isPremium && fs.existsSync(tiktokPng)) {
+      // TikTok video
+      // - premium テーマは既に hand-crafted な9スライド動画があるのでスキップ
+      // - auto-article は 5スライドショー動画を生成（cover/hook/desc/highlights/cta）
+      if (!isPremium) {
+        const slidesDir = path.join(folder, 'images', 'tiktok-slides');
+        if (FORCE || !fs.existsSync(path.join(slidesDir, 'slide-05.png'))) {
+          await generateAutoSlides(browser, a, slidesDir);
+        }
         if (FORCE || !fs.existsSync(videoFile)) {
-          generateTikTokVideo(tiktokPng, videoFile);
+          generateAutoSlideshow(slidesDir, videoFile);
         }
       }
 
