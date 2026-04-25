@@ -216,4 +216,4 @@ ai-pedia 編集部では現在、以下の組み合わせで運用していま�
 
 ChatGPT エージェントモードを使い始める具体的な手順は、[ChatGPT エージェントモード 使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)にまとめました。料金プランを決めたら、次は「最初に試す3つのタスク例」から実践に移れます。
 
-「Plus に課金する前に他のAIエージェントも比較したい」という方は[ChatGPT・Claude・Gemini 3強の徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04)、「**業務でのリアルなユースケース**」が知りたい方は[非エンジニア向け AI エージェント比較（2026年版）](/guides/ai-agents-for-non-engineers-2026)が参考になります。
+「Plus に課金する前に他のAIエージェントも比較したい」という方は[ChatGPT エージェントモード vs Claude / Manus / Devin 徹底比較](/guides/chatgpt-agent-vs-other-agents)、「**業務でのリアルなユースケース**」が知りたい方は[業務活用10事例とプロンプト集](/guides/chatgpt-agent-mode-real-examples)、「**導入前のリスク評価**」が必要な方は[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks)もあわせてどうぞ。

@@ -281,4 +281,4 @@ SaaS連携の認証エラー：
 
 ChatGPT エージェントモードは「**指示の書き方が上手いほど結果も良くなる**」という意味で、**人を育てる感覚に近い**ツールです。最初の1週間は試行錯誤しますが、コツが掴めると業務の30〜50%は任せられるようになります。
 
-次のステップとしては、[ChatGPT エージェントモードの料金完全比較](/guides/chatgpt-agent-mode-pricing)で Plus / Pro の見極め基準を確認するか、[非エンジニア向け AI エージェント比較（2026年版）](/guides/ai-agents-for-non-engineers-2026)で他のエージェントとの違いを把握しておくと、運用設計がしやすくなります。
+次のステップとしては、[料金完全比較](/guides/chatgpt-agent-mode-pricing)で Plus / Pro の見極め基準を確認するか、[業務活用10事例とプロンプト集](/guides/chatgpt-agent-mode-real-examples)で実践的なシナリオを掴むのが早道です。**導入前のリスク評価**は[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks)、他のAIエージェント（Claude / Manus / Devin）との違いは[エージェント横並び比較](/guides/chatgpt-agent-vs-other-agents)が参考になります。
