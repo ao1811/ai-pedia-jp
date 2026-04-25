@@ -13,5 +13,6 @@ sns-exports/
 # 生成された投稿案（gitに含めない）
 scripts/post-drafts/
 
-# 運営者の個人情報（メール・アカウントID等、Public化対策）
-src/data/admin-secrets.ts
+# （以前は admin-secrets.ts を gitignore していたが、Cloudflare Pages のビルド環境
+# にもファイルが必要なため、運営者情報はソースに含める方針に戻した。
+# git の commit author に既にメールが出ているため、ここで隠しても実効性が薄い。）
