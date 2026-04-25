@@ -214,11 +214,347 @@ async function generatePreviewCards(browser, a, outDir) {
   }
 }
 
+// ============================================================================
+// 記事本文パース（H2 セクション抽出）
+// ============================================================================
+
+/** プレーンテキスト化＋先頭1文 */
+function firstSentence(text, max = 100) {
+  if (!text) return '';
+  const cleaned = text
+    .replace(/`{1,3}[^`]*`{1,3}/g, '')
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/^\s*[-*+>]\s+/gm, '')
+    .replace(/^\s*\d+\.\s+/gm, '')
+    .replace(/^\s*\|.*\|$/gm, '')
+    .replace(/\n+/g, ' ')
+    .trim();
+  const sent = cleaned.split(/(?<=[。！？!?])/)[0] || cleaned;
+  const trimmed = sent.replace(/\s+/g, ' ').trim();
+  return trimmed.length > max ? trimmed.slice(0, max - 1) + '…' : trimmed;
+}
+
 /**
- * auto-article 用 5スライド HTML を生成。
- * 各スライドは同じダークグラデ＋グリッド背景で、テキスト内容だけが変わる。
- * 1080×1920（TikTok 縦長）固定。
+ * 記事 .md/.mdx の本文から H2 セクションを抽出。
+ * 結論・FAQ・関連記事系は除外。最大5セクション返す。
  */
+function parseArticleSections(filePath) {
+  const src = fs.readFileSync(filePath, 'utf-8');
+  const fmEnd = src.indexOf('---', 3);
+  const body = fmEnd === -1 ? src : src.slice(fmEnd + 3);
+
+  const EXCLUDE = /^(まとめ|結論|おわりに|FAQ|よくある質問|参考|関連記事|関連リンク|免責|あわせて読みたい|TL;?DR|目次|参考情報|本記事|注意点)/;
+
+  const sections = [];
+  let current = null;
+  for (const line of body.split(/\r?\n/)) {
+    // import 行・JSX タグは無視
+    if (/^\s*import\s+/.test(line)) continue;
+    if (/^\s*<\w/.test(line)) continue;
+
+    const m = line.match(/^##\s+(.+)$/);
+    if (m) {
+      if (current && !EXCLUDE.test(current.heading)) sections.push(current);
+      current = {
+        heading: m[1].trim().replace(/[【】「」『』]/g, '').replace(/^\d+\.\s*/, '').replace(/^[①②③④⑤⑥⑦⑧⑨⑩]\s*/, ''),
+        body: '',
+        bullets: [],
+      };
+    } else if (current) {
+      current.body += line + '\n';
+      // - / * / 1. の箇条書きを抽出
+      const bulletMatch = line.match(/^\s*[-*+]\s+(.+)$/) || line.match(/^\s*\d+\.\s+(.+)$/);
+      if (bulletMatch) {
+        const cleaned = bulletMatch[1]
+          .replace(/\*\*([^*]+)\*\*/g, '$1')
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+          .replace(/<[^>]+>/g, '')
+          .trim();
+        // 「→」「：」で短くする
+        const short = cleaned.split(/[→：:]/)[0].trim();
+        if (short.length >= 6 && short.length <= 60 && current.bullets.length < 3) {
+          current.bullets.push(short);
+        }
+      }
+    }
+  }
+  if (current && !EXCLUDE.test(current.heading)) sections.push(current);
+  return sections.slice(0, 5);
+}
+
+// ============================================================================
+// 9 スライド × 2 サイズ (Instagram 1080×1350 / TikTok 1080×1920) 生成
+// premium テーマ (sns-carousel-template.mjs) と同じ視覚スタイル
+// ============================================================================
+
+/** 共通 CSS（.slide のフレーム＋スライド種別ごとのスタイル） */
+function buildCarouselCss(width, height, isStory) {
+  const basePad = isStory ? 84 : 72;
+  return `
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#000;font-family:'Noto Sans JP',system-ui,sans-serif;}
+body{display:flex;flex-direction:column;gap:40px;padding:40px;}
+em{font-style:normal;background:linear-gradient(90deg,#a78bfa,#f472b6,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.slide{width:${width}px;height:${height}px;padding:${basePad}px;position:relative;display:flex;flex-direction:column;background:#0a0a0a;color:#fff;overflow:hidden;page-break-after:always;}
+.slide::before{content:'';position:absolute;inset:0;background:var(--theme-grad);opacity:0.55;z-index:0;}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.85) 100%),linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:100% 100%,80px 80px,80px 80px;z-index:1;}
+.slide>*{position:relative;z-index:2;}
+.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:${isStory?48:40}px;}
+.brand{display:flex;align-items:center;gap:16px;font-size:${isStory?34:30}px;font-weight:500;letter-spacing:-0.01em;color:#fff;}
+.logo{width:${isStory?52:46}px;height:${isStory?52:46}px;border-radius:12px;background:linear-gradient(135deg,#a78bfa 0%,#8b5cf6 50%,#7c3aed 100%);display:flex;align-items:center;justify-content:center;font-size:${isStory?30:26}px;font-weight:900;color:#fff;box-shadow:0 4px 20px rgba(139,92,246,0.5);}
+.logo::before{content:'✦';}
+.category{padding:${isStory?'12px 28px':'10px 24px'};border-radius:999px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:${isStory?22:20}px;font-weight:700;letter-spacing:0.05em;}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.foot{margin-top:auto;padding-top:${isStory?32:28}px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;}
+.domain{font-size:${isStory?32:28}px;font-weight:700;background:linear-gradient(90deg,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.01em;}
+.page{font-size:${isStory?22:20}px;color:#8a90a8;font-weight:500;letter-spacing:0.08em;}
+`;
+}
+
+/** スライドのフレーム（共通ヘッダ・フッタで内側を包む） */
+function frameSlide(a, pageNum, total, inner, cat) {
+  const padPage = String(pageNum).padStart(2, '0');
+  const padTotal = String(total).padStart(2, '0');
+  return `<div class="slide">
+<div class="head"><div class="brand"><div class="logo"></div><span>ai-pedia</span></div><div class="category">${cat}</div></div>
+${inner}
+<div class="foot"><span class="domain">ai-pedia.jp</span><span class="page">${padPage} / ${padTotal}</span></div>
+</div>`;
+}
+
+/** Slide 1: Cover (大きな絵文字 + タイトル + サブテキスト + SWIPE) */
+function buildCover(a, isStory, cat) {
+  const h1Size = isStory ? 110 : 92;
+  const subSize = isStory ? 36 : 32;
+  const eyebrowSize = isStory ? 22 : 20;
+  const emojiSize = isStory ? 200 : 160;
+  const cleanTitle = a.title.split('｜')[0];
+  const eyebrow = `AIPEDIA / ${(a.category || 'ARTICLE').toUpperCase()}`;
+  const subtitle = a.tldr || a.description || '';
+  const inner = `<div class="body">
+    <div style="font-size:${eyebrowSize}px;letter-spacing:0.18em;color:#c7cbde;font-weight:700;margin-bottom:${isStory?48:32}px;">${eyebrow}</div>
+    <div style="font-size:${emojiSize}px;line-height:1;margin-bottom:${isStory?48:40}px;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.5));">${a.heroEmoji}</div>
+    <h1 style="font-size:${h1Size}px;font-weight:900;line-height:1.12;letter-spacing:-0.035em;margin-bottom:${isStory?40:32}px;max-width:95%;">${cleanTitle}</h1>
+    <p style="font-size:${subSize}px;line-height:1.55;color:#c7cbde;max-width:92%;font-weight:500;">${subtitle.slice(0, 200)}</p>
+  </div>
+  <div style="position:absolute;bottom:${isStory?200:160}px;right:${isStory?84:72}px;z-index:2;">
+    <div style="display:inline-flex;align-items:center;gap:14px;padding:${isStory?'16px 32px':'14px 28px'};border-radius:999px;background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(236,72,153,0.2));border:1px solid rgba(167,139,250,0.4);font-size:${isStory?24:22}px;font-weight:700;color:#fff;">SWIPE →</div>
+  </div>`;
+  return frameSlide(a, 1, 9, inner, cat);
+}
+
+/** Slide 2: Hook (TLDR / KEY POINT) */
+function buildHook(a, isStory, cat) {
+  const h2Size = isStory ? 82 : 68;
+  const eyebrowSize = isStory ? 22 : 20;
+  const text = a.tldr || a.description || '';
+  const inner = `<div class="body">
+    <div style="font-size:${eyebrowSize}px;letter-spacing:0.18em;color:#fb923c;font-weight:700;margin-bottom:${isStory?32:24}px;">💡 KEY POINT</div>
+    <h2 style="font-size:${h2Size}px;font-weight:900;line-height:1.18;letter-spacing:-0.03em;max-width:95%;">${text}</h2>
+  </div>`;
+  return frameSlide(a, 2, 9, inner, cat);
+}
+
+/** Slides 3-7: Section (H2 ベース、本文要約 + 箇条書き) */
+function buildSection(a, section, idx, pageNum, isStory, cat) {
+  const headingSize = isStory ? 78 : 64;
+  const catchSize = isStory ? 38 : 32;
+  const bulletSize = isStory ? 28 : 24;
+  const numBadgeSize = isStory ? 64 : 56;
+  const numFontSize = isStory ? 30 : 26;
+
+  const heading = section.heading || `ポイント ${idx + 1}`;
+  const catchText = firstSentence(section.body, 110) || (a.description || '').split('。')[0];
+  const bullets = (section.bullets || []).slice(0, 3);
+  const bulletsHtml = bullets.length > 0
+    ? bullets.map((b) => `<div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="flex-shrink:0;width:${isStory?28:24}px;height:${isStory?28:24}px;border-radius:8px;background:linear-gradient(135deg,#34d399,#06b6d4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:${isStory?18:15}px;font-weight:900;margin-top:4px;">✓</div>
+        <p style="font-size:${bulletSize}px;line-height:1.5;color:#e4e6f0;font-weight:500;">${b}</p>
+      </div>`).join('')
+    : '';
+
+  const inner = `<div class="body">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:${isStory?28:24}px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:${numBadgeSize}px;height:${numBadgeSize}px;border-radius:16px;background:linear-gradient(135deg,#a78bfa,#ec4899);font-size:${numFontSize}px;font-weight:900;color:#fff;">${String(idx + 1).padStart(2, '0')}</span>
+      <span style="font-size:${isStory?22:20}px;letter-spacing:0.14em;color:#c7cbde;font-weight:700;">SECTION ${idx + 1}</span>
+    </div>
+    <h2 style="font-size:${headingSize}px;font-weight:900;line-height:1.15;letter-spacing:-0.035em;margin-bottom:${isStory?32:24}px;">${heading}</h2>
+    ${catchText ? `<p style="font-size:${catchSize}px;line-height:1.4;color:#fff;font-weight:500;margin-bottom:${isStory?40:28}px;">${catchText}</p>` : ''}
+    ${bulletsHtml ? `<div style="display:flex;flex-direction:column;gap:${isStory?20:16}px;">${bulletsHtml}</div>` : ''}
+  </div>`;
+  return frameSlide(a, pageNum, 9, inner, cat);
+}
+
+/** Slide 8: Summary (記事の章タイトル一覧 / 目次的) */
+function buildSummary(a, sections, isStory, cat) {
+  const h2Size = isStory ? 70 : 58;
+  const itemSize = isStory ? 28 : 24;
+  const eyebrowSize = isStory ? 22 : 20;
+
+  const items = sections.slice(0, 5).map((s, i) =>
+    `<div style="display:grid;grid-template-columns:auto 1fr;gap:${isStory?24:20}px;align-items:center;padding:${isStory?'22px 28px':'18px 24px'};${i < sections.length - 1 ? 'border-bottom:1px solid rgba(255,255,255,0.06);' : ''}">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:${isStory?44:38}px;height:${isStory?44:38}px;border-radius:10px;background:rgba(167,139,250,0.18);color:#ddd6fe;font-size:${isStory?22:18}px;font-weight:900;">${i + 1}</span>
+      <span style="font-size:${itemSize}px;color:#fff;font-weight:700;line-height:1.35;">${s.heading || `ポイント ${i + 1}`}</span>
+    </div>`
+  ).join('');
+
+  const inner = `<div class="body">
+    <div style="font-size:${eyebrowSize}px;letter-spacing:0.18em;color:#34d399;font-weight:700;margin-bottom:${isStory?24:20}px;">🏆 SUMMARY</div>
+    <h2 style="font-size:${h2Size}px;font-weight:900;line-height:1.15;letter-spacing:-0.03em;margin-bottom:${isStory?40:32}px;max-width:95%;">この記事のポイント</h2>
+    <div style="border:1px solid rgba(255,255,255,0.12);border-radius:24px;overflow:hidden;background:rgba(255,255,255,0.03);">${items}</div>
+  </div>`;
+  return frameSlide(a, 8, 9, inner, cat);
+}
+
+/** Slide 9: CTA (URL + 続きはサイトで + フォロー誘導) */
+function buildCta(a, isStory, cat) {
+  const h2Size = isStory ? 82 : 68;
+  const stepSize = isStory ? 34 : 30;
+  const eyebrowSize = isStory ? 22 : 20;
+  const url = `ai-pedia.jp/guides/${a.slug}`;
+
+  const steps = [
+    'この投稿を「💾 保存」しておく',
+    '@aipediajp をフォロー',
+    'プロフのリンクで詳細記事を読む',
+  ];
+
+  const stepsHtml = steps.map((s, i) =>
+    `<div style="display:flex;gap:${isStory?28:24}px;align-items:center;padding:${isStory?'28px 32px':'24px 28px'};background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;">
+      <div style="flex-shrink:0;width:${isStory?56:48}px;height:${isStory?56:48}px;border-radius:14px;background:linear-gradient(135deg,#a78bfa,#ec4899);display:flex;align-items:center;justify-content:center;font-size:${isStory?28:24}px;font-weight:900;color:#fff;">${i + 1}</div>
+      <p style="font-size:${stepSize}px;color:#fff;font-weight:700;">${s}</p>
+    </div>`
+  ).join('');
+
+  const inner = `<div class="body" style="justify-content:center;">
+    <div style="font-size:${eyebrowSize}px;letter-spacing:0.18em;color:#f472b6;font-weight:700;margin-bottom:${isStory?32:24}px;">💾 SAVE & FOLLOW</div>
+    <h2 style="font-size:${h2Size}px;font-weight:900;line-height:1.15;letter-spacing:-0.03em;margin-bottom:${isStory?64:48}px;max-width:95%;">ブックマークして、<em>あとで読み返す。</em></h2>
+    <div style="display:flex;flex-direction:column;gap:${isStory?24:20}px;margin-bottom:${isStory?56:40}px;">${stepsHtml}</div>
+    <div style="padding:${isStory?'32px 36px':'28px 32px'};border-radius:24px;background:linear-gradient(135deg,rgba(139,92,246,0.25),rgba(236,72,153,0.25));border:1px solid rgba(167,139,250,0.5);text-align:center;">
+      <div style="font-size:${isStory?22:20}px;color:#ddd6fe;font-weight:700;letter-spacing:0.08em;margin-bottom:10px;">READ THE FULL ARTICLE</div>
+      <div style="font-size:${isStory?34:30}px;color:#fff;font-weight:900;letter-spacing:-0.02em;">${url}</div>
+    </div>
+  </div>`;
+  return frameSlide(a, 9, 9, inner, cat);
+}
+
+/** 9スライドを束ねた完全 HTML */
+function buildAutoCarouselHtml(a, sections, size) {
+  const isStory = size.name === 'tiktok';
+  const cat = CATEGORY_JA[a.category] || a.category;
+  const gradient = tailwindToCSSGradient(a.heroGradient);
+
+  // セクションを必ず5つに（足りなければ frontmatter から補完）
+  const items = [...sections];
+  while (items.length < 5) {
+    items.push({
+      heading: a.tags[items.length] || `関連トピック ${items.length + 1}`,
+      body: a.description || '',
+      bullets: [],
+    });
+  }
+
+  const slides = [
+    buildCover(a, isStory, cat),
+    buildHook(a, isStory, cat),
+    buildSection(a, items[0], 0, 3, isStory, cat),
+    buildSection(a, items[1], 1, 4, isStory, cat),
+    buildSection(a, items[2], 2, 5, isStory, cat),
+    buildSection(a, items[3], 3, 6, isStory, cat),
+    buildSection(a, items[4], 4, 7, isStory, cat),
+    buildSummary(a, items, isStory, cat),
+    buildCta(a, isStory, cat),
+  ];
+
+  return `<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<title>${a.slug} [${size.name}]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--theme-grad:${gradient};}
+${buildCarouselCss(size.w, size.h, isStory)}
+</style></head><body>${slides.join('\n')}</body></html>`;
+}
+
+/** auto-article 用 9スライド × 2サイズ を生成（IG=1080×1350, TikTok=1080×1920） */
+async function generateAutoCarousel(browser, a, sections, baseDir) {
+  const SIZES = [
+    { name: 'instagram', w: 1080, h: 1350 },
+    { name: 'tiktok',    w: 1080, h: 1920 },
+  ];
+  for (const size of SIZES) {
+    const outDir = path.join(baseDir, 'images', size.name);
+    fs.mkdirSync(outDir, { recursive: true });
+
+    const html = buildAutoCarouselHtml(a, sections, size);
+    const ctx = await browser.newContext({ viewport: { width: size.w, height: size.h }, deviceScaleFactor: 1 });
+    const page = await ctx.newPage();
+    await page.setContent(html, { waitUntil: 'networkidle' });
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForTimeout(800);
+
+    const slideEls = await page.$$('.slide');
+    for (let i = 0; i < slideEls.length; i++) {
+      const out = path.join(outDir, `slide-${String(i + 1).padStart(2, '0')}.png`);
+      if (FORCE || !fs.existsSync(out)) {
+        await slideEls[i].screenshot({ path: out, type: 'png' });
+      }
+    }
+    await ctx.close();
+  }
+}
+
+/** 9枚のtiktok スライドから 27秒の MP4（クロスフェード）を生成 */
+function generateCarouselVideo(slidesDir, outMp4) {
+  if (!FORCE && fs.existsSync(outMp4)) return;
+  fs.mkdirSync(path.dirname(outMp4), { recursive: true });
+
+  const SLIDE_DURATION = 3.0;
+  const FADE_DURATION = 0.3;
+  const slides = Array.from({ length: 9 }, (_, i) =>
+    path.join(slidesDir, `slide-${String(i + 1).padStart(2, '0')}.png`),
+  );
+  for (const s of slides) {
+    if (!fs.existsSync(s)) {
+      console.log(`  ⚠ missing slide ${path.basename(s)}, skipping video`);
+      return;
+    }
+  }
+
+  const args = ['-y'];
+  for (const s of slides) {
+    args.push('-loop', '1', '-t', String(SLIDE_DURATION), '-i', s);
+  }
+  let filter = '';
+  for (let i = 0; i < slides.length; i++) {
+    filter += `[${i}:v]scale=1080:1920,setsar=1,fps=30[v${i}];`;
+  }
+  let prev = 'v0';
+  let cumulativeOffset = SLIDE_DURATION - FADE_DURATION;
+  for (let i = 1; i < slides.length; i++) {
+    const out = i === slides.length - 1 ? 'vout' : `vx${i}`;
+    filter += `[${prev}][v${i}]xfade=transition=fade:duration=${FADE_DURATION}:offset=${cumulativeOffset.toFixed(2)}[${out}];`;
+    prev = out;
+    cumulativeOffset += SLIDE_DURATION - FADE_DURATION;
+  }
+  filter = filter.replace(/;$/, '');
+
+  args.push('-filter_complex', filter, '-map', '[vout]', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-r', '30', '-movflags', '+faststart', outMp4);
+
+  try {
+    execFileSync('ffmpeg', args, { stdio: 'pipe' });
+  } catch (e) {
+    console.error(`  ✗ slideshow video failed:`, String(e.stderr || e.message).slice(-300));
+  }
+}
+
+// 旧: 5スライド版（互換のため残す、本流ではない）
 function buildAutoSlideHtml(a, slideIndex) {
   const gradient = tailwindToCSSGradient(a.heroGradient);
   const cleanTitle = a.title.split('｜')[0];
@@ -518,17 +854,14 @@ async function main() {
         await generatePreviewCards(browser, a, previewDir);
       }
 
-      // TikTok video
-      // - premium テーマは既に hand-crafted な9スライド動画があるのでスキップ
-      // - auto-article は 5スライドショー動画を生成（cover/hook/desc/highlights/cta）
+      // 9スライド × IG/TikTok 2サイズの carousel + 動画
+      // - premium テーマは sns-images.mjs / sns-tiktok-videos.mjs で hand-crafted 版を生成済みなのでスキップ
+      // - auto-article は記事本文の H2 セクションから 9スライドを auto 生成
       if (!isPremium) {
-        const slidesDir = path.join(folder, 'images', 'tiktok-slides');
-        if (FORCE || !fs.existsSync(path.join(slidesDir, 'slide-05.png'))) {
-          await generateAutoSlides(browser, a, slidesDir);
-        }
-        if (FORCE || !fs.existsSync(videoFile)) {
-          generateAutoSlideshow(slidesDir, videoFile);
-        }
+        const sections = parseArticleSections(path.join(GUIDES_DIR, fs.readdirSync(GUIDES_DIR).find((f) => f.startsWith(a.slug + '.'))));
+        await generateAutoCarousel(browser, a, sections, folder);
+        const tiktokSlidesDir = path.join(folder, 'images', 'tiktok');
+        generateCarouselVideo(tiktokSlidesDir, videoFile);
       }
 
       // post-drafts.md は常に最新化
