@@ -1,0 +1,89 @@
+name: Generate SNS pack on new article
+
+# src/content/guides/ に新規追加または変更があった時、その記事の SNS パック
+# （preview-cards 3サイズ・TikTok 動画15秒・post-drafts.md）を自動生成し、
+# Artifact としてダウンロード可能にする。
+#
+# 運用フロー:
+#   1. 記事を書く → push to main
+#   2. このワークフローが起動 → SNS パック生成
+#   3. ユーザーは Actions タブから artifact をダウンロード
+#   4. zip 解凍 → OneDrive/sns/ai-pedia-contents-YYYY-MM-DD/ 配下にコピー
+#   5. Buffer に画像/動画をアップロード → 予約投稿
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/guides/**.md'
+      - 'src/content/guides/**.mdx'
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: '特定記事のみ生成（slug指定、空欄なら変更分のみ）'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  generate-pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # 直前コミットとの差分取得用
+
+      # 変更された記事の slug を抽出
+      - name: Detect changed articles
+        id: changed
+        run: |
+          if [ -n "${{ github.event.inputs.slug }}" ]; then
+            echo "slugs=${{ github.event.inputs.slug }}" >> $GITHUB_OUTPUT
+            echo "Manual trigger: ${{ github.event.inputs.slug }}"
+          else
+            changed=$(git diff --name-only HEAD^ HEAD -- 'src/content/guides/*.md' 'src/content/guides/*.mdx' 2>/dev/null | xargs -n1 -I{} basename {} 2>/dev/null | sed 's/\.\(md\|mdx\)$//' | tr '\n' ',' | sed 's/,$//')
+            echo "slugs=$changed" >> $GITHUB_OUTPUT
+            echo "Changed articles: $changed"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.changed.outputs.slugs != ''
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        if: steps.changed.outputs.slugs != ''
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        if: steps.changed.outputs.slugs != ''
+        run: npx playwright install --with-deps chromium
+
+      - name: Install ffmpeg
+        if: steps.changed.outputs.slugs != ''
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Generate SNS pack for changed articles
+        if: steps.changed.outputs.slugs != ''
+        env:
+          SNS_PACK_OUTPUT_DIR: ${{ github.workspace }}/sns-out
+        run: |
+          mkdir -p sns-out
+          IFS=',' read -ra SLUGS <<< "${{ steps.changed.outputs.slugs }}"
+          for slug in "${SLUGS[@]}"; do
+            if [ -n "$slug" ]; then
+              echo "::group::Generating pack for $slug"
+              node scripts/sns-pack-all.mjs --slug="$slug" --force || echo "Failed for $slug, continuing"
+              echo "::endgroup::"
+            fi
+          done
+
+      - name: Upload SNS pack as artifact
+        if: steps.changed.outputs.slugs != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: sns-pack-${{ github.run_number }}
+          path: sns-out/
+          retention-days: 60
+          if-no-files-found: warn
