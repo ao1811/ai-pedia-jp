@@ -1,1 +1,39 @@
 /tools  /category  301
+
+# タグ統合リダイレクト（2026-04-24 のシノニムタグ統合に伴う旧URL → 正規URL）
+# Google が古いタグページの404を検出しないよう、301で正規URLへ転送する。
+# シノニム統合の詳細は ac91847 コミット参照。
+/tags/自律型AI            /tags/AIエージェント            301
+/tags/自律型AI/           /tags/AIエージェント/           301
+/tags/エージェント         /tags/AIエージェント            301
+/tags/エージェント/        /tags/AIエージェント/           301
+/tags/Agent              /tags/AIエージェント            301
+/tags/Agent/             /tags/AIエージェント/           301
+/tags/Agent%20Mode       /tags/AIエージェント            301
+/tags/Agent%20Mode/      /tags/AIエージェント/           301
+/tags/議事録              /tags/AI議事録                  301
+/tags/議事録/             /tags/AI議事録/                 301
+/tags/会議                /tags/AI議事録                  301
+/tags/会議/               /tags/AI議事録/                 301
+/tags/翻訳                /tags/AI翻訳                    301
+/tags/翻訳/               /tags/AI翻訳/                   301
+/tags/音声                /tags/文字起こし                301
+/tags/音声/               /tags/文字起こし/               301
+/tags/料金                /tags/コスパ                    301
+/tags/料金/               /tags/コスパ/                   301
+/tags/コスト              /tags/コスパ                    301
+/tags/コスト/             /tags/コスパ/                   301
+/tags/無料                /tags/コスパ                    301
+/tags/無料/               /tags/コスパ/                   301
+/tags/節約                /tags/コスパ                    301
+/tags/節約/               /tags/コスパ/                   301
+/tags/入門                /tags/初心者                    301
+/tags/入門/               /tags/初心者/                   301
+/tags/選び方              /tags/初心者                    301
+/tags/選び方/             /tags/初心者/                   301
+/tags/収益化              /tags/副業                      301
+/tags/収益化/             /tags/副業/                     301
+/tags/業務自動化           /tags/業務効率化                301
+/tags/業務自動化/          /tags/業務効率化/               301
+/tags/デザイン            /tags/AIデザイン                301
+/tags/デザイン/           /tags/AIデザイン/               301
