@@ -334,3 +334,5 @@ ai-pedia 編集部（非専業エンジニア）の日常：
 - **段階的な積み上げ**が事故防止の最大の決定打
 
 ツール選定の詳細は[コーディングAI 料金完全比較](/guides/coding-ai-pricing)、Claude Code は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、Cursor は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)、3本の機能比較は[コーディングAI 比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)、**導入失敗を避けたい**なら[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)を参照してください。
+
+そのままコピペで使える具体的なプロンプトが欲しい方は、[Claude Code に投げるべき5つの神プロンプト集](/guides/claude-code-prompts-for-non-engineers)で「プロジェクト設計」「Content Collections」「SEO 完璧化」「記事テンプレ化」「クラスター一括生成」の5本を全文公開しています。
