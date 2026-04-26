@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "💻"
 heroGradient: "from-cyan-500 via-blue-600 to-indigo-700"
-featured: true
+featured: false
 relatedTools: ["cursor", "claude-code", "github-copilot"]
 readTimeMin: 8
 tags: ["コーディング", "AI", "料金", "Cursor", "Claude Code", "Copilot", "2026"]

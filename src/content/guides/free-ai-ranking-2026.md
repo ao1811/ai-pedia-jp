@@ -2,7 +2,7 @@
 title: "【完全無料】2026年おすすめAIツールランキング10選｜課金ゼロで本気で使える"
 description: "「とりあえず無料で試したい」を叶える、課金一切不要で実用レベルのAIツール10選。ChatGPT Free から隠れた国産ツールまで、2026年時点で本当に使える無料枠を徹底レビュー。"
 publishedAt: 2026-04-19
-updatedAt: 2026-04-20
+updatedAt: 2026-04-26
 category: guide
 heroEmoji: "🆓"
 heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"

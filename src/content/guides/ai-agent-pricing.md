@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "🤖"
 heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 8
 tags: ["AIエージェント", "料金", "ChatGPT", "Claude", "Copilot", "2026"]

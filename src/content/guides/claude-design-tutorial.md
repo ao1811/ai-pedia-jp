@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "🎨"
 heroGradient: "from-violet-500 via-fuchsia-500 to-pink-500"
-featured: true
+featured: false
 relatedTools: ["claude", "v0", "claude-code"]
 readTimeMin: 9
 tags: ["Claude", "Claude Design", "AIデザイン", "使い方", "初心者", "2026"]

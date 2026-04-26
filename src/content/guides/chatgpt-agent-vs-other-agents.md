@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "⚔️"
 heroGradient: "from-cyan-500 via-blue-500 to-violet-600"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 10
 tags: ["ChatGPT", "Claude", "AIエージェント", "比較", "2026"]

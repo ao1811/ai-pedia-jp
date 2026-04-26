@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "📈"
 heroGradient: "from-violet-500 via-fuchsia-500 to-pink-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "value-ai-writer"]
 readTimeMin: 9
 tags: ["ライティング", "SEO", "AI", "ブログ", "副業", "2026"]

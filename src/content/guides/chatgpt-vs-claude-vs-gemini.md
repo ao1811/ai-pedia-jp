@@ -6,7 +6,7 @@ updatedAt: 2026-04-18
 category: comparison
 heroEmoji: "⚔️"
 heroGradient: "from-violet-500 via-fuchsia-500 to-orange-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 9
 tags: ["対話AI", "比較", "ChatGPT", "Claude", "Gemini"]

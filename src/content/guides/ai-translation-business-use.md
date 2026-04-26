@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "🌍"
 heroGradient: "from-violet-500 via-blue-500 to-cyan-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "languise"]
 readTimeMin: 8
 tags: ["翻訳", "AI", "法人", "業務効率化", "DeepL", "Languise", "2026"]

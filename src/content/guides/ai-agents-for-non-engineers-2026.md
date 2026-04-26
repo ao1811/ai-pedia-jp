@@ -6,7 +6,7 @@ updatedAt: 2026-04-23
 category: comparison
 heroEmoji: "🤖"
 heroGradient: "from-amber-400 via-orange-500 to-rose-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "claude-code"]
 readTimeMin: 9
 tags: ["AIエージェント", "業務効率化", "Copilot Cowork", "Claude Computer Use", "Dify"]

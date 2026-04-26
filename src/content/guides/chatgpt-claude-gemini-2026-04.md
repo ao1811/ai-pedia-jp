@@ -2,7 +2,7 @@
 title: "【2026年4月版】ChatGPT・Claude・Gemini 徹底比較｜GPT-5.4 / Opus 4.7 / Deep Research 時代の決定版"
 description: "OpenAI GPT-5.4、Anthropic Claude Opus 4.7、Google Gemini 2.5 Proが出揃った2026年4月時点の対話AI御三家を、8項目で徹底比較。今月の新機能も整理し、「結局どれを契約すべきか」の明確な答えを提示します。"
 publishedAt: 2026-04-23
-updatedAt: 2026-04-23
+updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "⚔️"
 heroGradient: "from-violet-500 via-fuchsia-500 to-orange-500"

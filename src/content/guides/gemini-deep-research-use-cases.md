@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "🔬"
 heroGradient: "from-cyan-500 via-blue-500 to-indigo-600"
-featured: true
+featured: false
 relatedTools: ["gemini"]
 readTimeMin: 9
 tags: ["Gemini", "Deep Research", "AI", "業務活用", "プロンプト", "2026"]

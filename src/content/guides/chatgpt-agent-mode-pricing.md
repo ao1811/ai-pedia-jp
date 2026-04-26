@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "💰"
 heroGradient: "from-amber-400 via-orange-500 to-rose-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt"]
 readTimeMin: 8
 tags: ["ChatGPT", "AIエージェント", "料金", "コスパ", "2026"]

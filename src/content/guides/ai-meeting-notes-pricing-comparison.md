@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "💴"
 heroGradient: "from-emerald-400 via-teal-500 to-cyan-600"
-featured: true
+featured: false
 relatedTools: ["notta", "notta-memo", "plaud"]
 readTimeMin: 9
 tags: ["AI議事録", "料金", "コスパ", "Notta", "PLAUD", "2026"]

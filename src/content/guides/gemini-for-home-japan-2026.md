@@ -6,7 +6,7 @@ updatedAt: 2026-04-23
 category: trend
 heroEmoji: "🏠"
 heroGradient: "from-sky-400 via-indigo-500 to-violet-600"
-featured: true
+featured: false
 relatedTools: ["gemini", "chatgpt"]
 readTimeMin: 7
 tags: ["Gemini for Home", "スマートスピーカー", "Alexa+", "Apple Intelligence", "Copilot+ PC", "AI家電"]

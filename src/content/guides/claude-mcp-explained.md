@@ -6,7 +6,7 @@ updatedAt: 2026-04-21
 category: trend
 heroEmoji: "🔗"
 heroGradient: "from-violet-500 via-purple-500 to-fuchsia-500"
-featured: true
+featured: false
 relatedTools: ["claude", "claude-code", "cursor"]
 readTimeMin: 9
 tags: ["Claude", "MCP", "新機能", "AIエージェント", "2026", "プロトコル"]

@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "🌐"
 heroGradient: "from-blue-500 via-cyan-500 to-teal-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "languise"]
 readTimeMin: 7
 tags: ["翻訳", "AI", "料金", "DeepL", "Languise", "2026"]

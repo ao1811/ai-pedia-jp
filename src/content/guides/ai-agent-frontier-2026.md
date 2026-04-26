@@ -6,7 +6,7 @@ updatedAt: 2026-04-20
 category: trend
 heroEmoji: "🤖"
 heroGradient: "from-violet-500 via-fuchsia-500 to-rose-500"
-featured: true
+featured: false
 relatedTools: ["claude-code", "cursor", "chatgpt", "v0"]
 readTimeMin: 9
 tags: ["AIエージェント", "2026", "業務効率化"]

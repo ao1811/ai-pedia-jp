@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: review
 heroEmoji: "🛡️"
 heroGradient: "from-slate-500 via-blue-600 to-indigo-700"
-featured: true
+featured: false
 relatedTools: ["notta", "notta-memo", "plaud"]
 readTimeMin: 9
 tags: ["AI議事録", "セキュリティ", "コンプライアンス", "法人", "Notta", "2026"]

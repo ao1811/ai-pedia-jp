@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: review
 heroEmoji: "⚖️"
 heroGradient: "from-amber-500 via-orange-500 to-red-500"
-featured: true
+featured: false
 relatedTools: ["midjourney", "conoha-ai-canvas"]
 readTimeMin: 8
 tags: ["画像生成", "AI", "商用利用", "著作権", "ライセンス", "2026"]

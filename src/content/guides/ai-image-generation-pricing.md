@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "🎨"
 heroGradient: "from-pink-500 via-rose-500 to-orange-500"
-featured: true
+featured: false
 relatedTools: ["midjourney", "conoha-ai-canvas", "aiarty"]
 readTimeMin: 8
 tags: ["画像生成", "AI", "料金", "コスパ", "Midjourney", "2026"]

@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "💎"
 heroGradient: "from-blue-500 via-cyan-500 to-emerald-500"
-featured: true
+featured: false
 relatedTools: ["gemini"]
 readTimeMin: 7
 tags: ["Gemini", "Google", "AI", "料金", "コスパ", "2026"]

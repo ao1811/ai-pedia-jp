@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "💼"
 heroGradient: "from-amber-500 via-orange-500 to-rose-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt"]
 readTimeMin: 11
 tags: ["ChatGPT", "AIエージェント", "業務効率化", "プロンプト", "2026"]

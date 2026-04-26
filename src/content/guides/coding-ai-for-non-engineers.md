@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "🚀"
 heroGradient: "from-emerald-400 via-teal-500 to-blue-600"
-featured: true
+featured: false
 relatedTools: ["claude-code", "cursor", "github-copilot"]
 readTimeMin: 9
 tags: ["コーディング", "AI", "非エンジニア", "個人開発", "Claude Code", "2026"]

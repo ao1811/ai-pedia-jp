@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "💎"
 heroGradient: "from-violet-400 via-fuchsia-500 to-pink-500"
-featured: true
+featured: false
 relatedTools: ["claude", "v0", "claude-code"]
 readTimeMin: 8
 tags: ["Claude", "Claude Design", "AIデザイン", "料金", "コスパ", "2026"]

@@ -115,3 +115,11 @@ Slack などとの連携は便利ですが、初期設定に30分〜1時間か�
 - 会議議事録機能は一度使うと戻れない
 
 月1,500円で元が取れるかどうかは、あなたの Notion 利用密度次第です。
+
+## Notion AI 関連記事クラスター
+
+- 料金詳細：[Notion AI 料金完全比較](/guides/notion-ai-pricing)
+- 業務活用10事例：[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use)
+- ChatGPT との比較：[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04)
+- AI議事録特化なら：[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)
+- AIライティング特化なら：[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)

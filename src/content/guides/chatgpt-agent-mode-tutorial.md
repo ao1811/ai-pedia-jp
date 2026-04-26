@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "🚀"
 heroGradient: "from-indigo-500 via-purple-500 to-pink-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt"]
 readTimeMin: 9
 tags: ["ChatGPT", "AIエージェント", "使い方", "初心者", "2026"]
