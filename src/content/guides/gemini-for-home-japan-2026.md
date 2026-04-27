@@ -1,8 +1,8 @@
 ---
-title: "【2026年4月速報】Gemini for Home 日本上陸で始まる「家庭AI元年」｜Alexa+・Apple Intelligence・Copilot+ PC との違い"
-description: "Google が Gemini for Home の日本向け早期アクセスを開始。Nest スピーカー/ディスプレイの刷新で本物の会話パートナーが家庭に。Alexa+、Apple Intelligence、Copilot+ PC と比較しながら「家庭AI元年」の選び方を徹底解説します。"
+title: "Gemini for Home の使い方完全ガイド【2026年4月最新】日本上陸の機能・対応デバイス・料金・設定方法を徹底解説"
+description: "Gemini for Home（日本上陸版）の使い方を完全解説。対応スマートスピーカー（Nest Mini・Nest Hub）、料金プラン、初期設定の手順、Alexa+ / Apple Intelligence との違い、ファミリー向け活用例まで2026年4月最新情報で網羅。"
 publishedAt: 2026-04-23
-updatedAt: 2026-04-23
+updatedAt: 2026-04-27
 category: trend
 heroEmoji: "🏠"
 heroGradient: "from-sky-400 via-indigo-500 to-violet-600"
