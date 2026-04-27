@@ -1,0 +1,217 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+
+type Term = { term: string; reading?: string; en?: string; def: string; related?: string[] };
+type Section = { id: string; title: string; emoji: string; terms: Term[] };
+
+const sections: Section[] = [
+  {
+    id: 'basics',
+    title: '基礎用語',
+    emoji: '📘',
+    terms: [
+      { term: '生成AI', reading: 'せいせいエーアイ', en: 'Generative AI', def: 'テキスト・画像・動画・音声などを自動生成する AI の総称。ChatGPT、Claude、Gemini、Midjourney などが代表例。' },
+      { term: 'LLM', reading: 'エルエルエム', en: 'Large Language Model', def: '大規模言語モデル。膨大なテキストデータから言語のパターンを学習し、自然な文章を生成する AI モデル。GPT-5.5、Claude Opus 4.7、Gemini 3.1 Pro などがある。' },
+      { term: 'プロンプト', en: 'Prompt', def: 'AI に対する指示文。「以下を要約して」「コードを書いて」など、AI への入力全般を指す。プロンプトの書き方で出力品質が大きく変わる。' },
+      { term: 'プロンプトエンジニアリング', en: 'Prompt Engineering', def: 'AI から望む出力を得るためのプロンプト設計技術。役割指定・出力形式の指定・段階的指示などのパターンがある。' },
+      { term: 'ハルシネーション', en: 'Hallucination', def: 'AI が事実と異なる情報を生成する現象。「もっともらしいが間違った答え」を出力する問題で、生成 AI 利用時の最大の注意点。' },
+      { term: 'ファインチューニング', en: 'Fine-tuning', def: '既存の AI モデルを特定タスク向けに追加学習させる手法。社内データで業務特化モデルを作る際などに使う。' },
+      { term: 'RAG', en: 'Retrieval-Augmented Generation', def: '検索拡張生成。AI が回答する前に外部データベースから関連情報を検索・参照する仕組み。社内文書を参照する AI チャットボットで使われる。' },
+      { term: 'トークン', en: 'Token', def: 'AI が文章を処理する単位。日本語は1文字あたり約1〜2トークン、英語は単語1つで1〜2トークン。API 料金やコンテキスト長の単位として使われる。' },
+      { term: 'コンテキストウィンドウ', en: 'Context Window', def: 'AI が一度に扱えるトークン数の上限。GPT-5.5 は400K、Claude Opus 4.7 は200K、Gemini 3.1 Pro は2M トークンなど。長いほど大量の文書を扱える。' },
+      { term: '推論モード', en: 'Reasoning Mode', def: 'AI が複雑な問題に時間をかけて考える機能。Claude の High / xhigh、ChatGPT の o3 / o3-pro 等。一般的な対話より精度が高いが応答時間も長い。' },
+    ],
+  },
+  {
+    id: 'agent',
+    title: 'エージェント・自動化',
+    emoji: '🤖',
+    terms: [
+      { term: 'AI エージェント', en: 'AI Agent', def: '自律的にタスクを実行する AI。指示を受けて複数ステップを自動実行する。ChatGPT Agent Mode、Claude Cowork、Gemini Deep Research など。' },
+      { term: 'Computer Use', def: 'AI が PC を直接操作する機能。マウスクリック・キーボード入力・ファイル操作を AI が自律実行。Claude Cowork、ChatGPT Codex Cloud などが提供。' },
+      { term: 'MCP', en: 'Model Context Protocol', def: 'Anthropic が提唱した、AI モデルと外部ツール／データを接続するためのオープンプロトコル。各社 AI が共通の方法でツール連携できるようになる仕組み。' },
+      { term: 'ツールユース', en: 'Tool Use / Function Calling', def: 'AI が外部 API・関数を呼び出す機能。検索・計算・データベース照会など、AI 単体では困難なタスクを実行可能にする。' },
+      { term: 'Deep Research', def: '長時間かけて複数ソースを調査する AI 機能。ChatGPT、Gemini が提供。1回の質問で20〜100ページ規模のレポートを生成する。' },
+      { term: 'マルチモーダル', en: 'Multimodal', def: 'テキスト・画像・音声・動画など複数の形式を扱える AI。GPT-5.5 や Gemini 3.1 Pro などが代表的。' },
+    ],
+  },
+  {
+    id: 'main-services',
+    title: '主要サービス',
+    emoji: '🏢',
+    terms: [
+      { term: 'ChatGPT', def: 'OpenAI が提供する対話型 AI サービス。Free / Plus（¥3,000）/ Codex（¥16,800・新設）/ Pro（¥30,000）の4プラン体系。', related: ['/guides/chatgpt-plans-which-to-choose'] },
+      { term: 'Claude', def: 'Anthropic が提供する対話型 AI サービス。Free / Pro（¥3,000）/ Max（¥30,000）。コーディング精度で業界最高。', related: ['/guides/claude-opus-4-7-explained'] },
+      { term: 'Gemini', def: 'Google が提供する対話型 AI サービス。Free / Advanced（¥2,900）。Workspace 連携と Deep Research が強み。', related: ['/guides/gemini-pricing'] },
+      { term: 'GPT-5.5', def: 'OpenAI が2026年4月23日にリリースした最新モデル。エージェント型コーディング・PC 操作で大幅性能 UP。', related: ['/guides/gpt-5-5-complete-guide'] },
+      { term: 'Claude Opus 4.7', def: 'Anthropic が2026年4月16日にリリースした最新フラッグシップ。SWE-bench Verified 87.6% で業界最高コーディング精度。', related: ['/guides/claude-opus-4-7-explained'] },
+      { term: 'Gemini 3.1 Pro', def: '2026年4月21日にリリースされた Google の最新モデル。Deep Research Max、MCP 対応、ネイティブ可視化が強み。' },
+      { term: 'Veo', def: 'Google の AI 動画生成サービス。Veo 3.1 が2026年4月2日に個人無料化。Lyria 3 音楽統合で音声付き動画生成可能。', related: ['/guides/veo-3-1-free-guide'] },
+      { term: 'Sora', def: 'OpenAI の AI 動画生成サービス。2026年4月26日にアプリ終了、9月24日に API 終了予定。', related: ['/guides/sora-shutdown-alternatives'] },
+      { term: 'Apple Intelligence', def: 'Apple が iPhone 15 Pro 以降・M1 以降の Mac/iPad で提供する AI 機能。Writing Tools、Genmoji、Image Playground、Siri 強化など。', related: ['/guides/apple-intelligence-overview'] },
+    ],
+  },
+  {
+    id: 'image-video',
+    title: '画像・動画生成',
+    emoji: '🎨',
+    terms: [
+      { term: 'Midjourney', def: '米国発の AI 画像生成サービス。Discord ベースで動作。芸術性・質感の表現に強い。' },
+      { term: 'Stable Diffusion', def: 'Stability AI が公開したオープンソースの AI 画像生成モデル。ローカル実行可能で、カスタマイズ性が高い。' },
+      { term: 'DALL-E 3', def: 'OpenAI の AI 画像生成モデル。ChatGPT Plus / Pro 内で利用可能。' },
+      { term: 'Runway', def: 'AI 動画生成のリーディングカンパニー。Gen-4 が最新。映画・広告・MV 制作で広く採用。' },
+      { term: 'Pika', def: 'SNS・カジュアル動画特化の AI 動画生成サービス。Pikaffects が独自機能。' },
+      { term: 'Genmoji', def: 'Apple Intelligence の機能。プロンプトからカスタム絵文字を生成。' },
+      { term: 'Image Playground', def: 'Apple Intelligence の AI 画像生成機能。Animation / Illustration / Sketch の3スタイル。' },
+    ],
+  },
+  {
+    id: 'coding',
+    title: 'コーディングAI',
+    emoji: '💻',
+    terms: [
+      { term: 'Claude Code', def: 'Anthropic 公式のコーディング特化 CLI / IDE 拡張。MCP 標準対応。Pro / Max プランで利用可能。', related: ['/guides/claude-code-practical-guide'] },
+      { term: 'ChatGPT Codex', def: 'OpenAI のコーディング特化機能。CLI（Codex CLI）、IDE 拡張、Codex Cloud（Computer Use）を含む。新設¥16,800プランで実質無制限利用可能。', related: ['/guides/chatgpt-codex-plan-16800'] },
+      { term: 'Cursor', def: 'AI 統合 IDE（VS Code フォーク）。Composer 2、Design Mode、複数 AI モデル切替が特徴。', related: ['/guides/cursor-practical-guide'] },
+      { term: 'GitHub Copilot', def: 'Microsoft / GitHub が提供する AI コード補完サービス。VS Code 等の主要 IDE で利用可能。' },
+      { term: 'SWE-bench', def: 'AI のソフトウェアエンジニアリング能力を測るベンチマーク。実際の GitHub issue を解決できるかを評価。Claude Opus 4.7 が87.6%で業界最高。' },
+      { term: 'Devin', def: 'Cognition 社の自律型 AI ソフトウェアエンジニア。Windsurf 2.0 で IDE 統合。' },
+    ],
+  },
+  {
+    id: 'business',
+    title: 'ビジネス・業務',
+    emoji: '📊',
+    terms: [
+      { term: 'AI 議事録', def: '会議の音声を録音 → 自動文字起こし → AI 要約する仕組み。PLAUD、Notta、tl;dv、Otter.ai などのツールがある。', related: ['/guides/ai-meeting-notes-pricing-comparison'] },
+      { term: 'PLAUD', def: 'AI ボイスレコーダーのリーディングブランド。NOTE（卓上型）、H1（カード型）、Note Pin S（ピン型）などのモデルを展開。', related: ['/guides/plaud-h1-vs-plaud-note'] },
+      { term: 'Notion AI', def: 'Notion が提供する AI 機能。文書作成・要約・翻訳をワークスペース内で実行可能。' },
+      { term: 'Notta', def: 'オンライン会議特化の AI 議事録ツール。Zoom / Teams / Meet 連携が強み。' },
+      { term: 'AI 翻訳', def: 'DeepL、Google 翻訳、ChatGPT、Gemini など、AI を活用した翻訳サービスの総称。', related: ['/guides/ai-translation-pricing'] },
+      { term: 'AI ライティング', def: 'AI を活用した文章作成。ChatGPT、Claude、Notion AI、文賢など、目的別に使い分ける。', related: ['/guides/ai-writing-tools-pricing'] },
+    ],
+  },
+  {
+    id: 'tech',
+    title: 'テクノロジー',
+    emoji: '⚙️',
+    terms: [
+      { term: 'API', def: 'Application Programming Interface。AI モデルをプログラムから呼び出すためのインターフェース。OpenAI API、Anthropic API、Google AI API など。' },
+      { term: 'Webhook', def: 'イベント発生時に外部システムへ自動通知する仕組み。AI 自動化ワークフローで頻出。' },
+      { term: 'Embedding', en: 'Embedding（埋め込み）', def: 'テキストや画像をベクトル（数値配列）に変換する技術。RAG や類似検索の基盤。' },
+      { term: 'Transformer', def: '2017年に Google 研究者が発表した、現代 AI の基盤となるアーキテクチャ。論文タイトル "Attention Is All You Need"。著者の1人 Llion Jones は Sakana AI の CTO。', related: ['/guides/sakana-ai-japan-deep-dive'] },
+      { term: 'On-Device AI', def: '端末内で完結する AI 処理。Apple Intelligence の主要設計思想。プライバシー保護に強い。' },
+      { term: 'Private Cloud Compute（PCC）', def: 'Apple が独自設計した、プライバシー保護型のクラウド AI 処理基盤。Apple Intelligence で使用。' },
+    ],
+  },
+  {
+    id: 'jp-ecosystem',
+    title: '日本の AI エコシステム',
+    emoji: '🇯🇵',
+    terms: [
+      { term: 'Sakana AI', def: '2023年7月創業の日本発 AI スタートアップ。進化的アルゴリズムで AI モデルを最適化する独自技術。創業者は元 Google Brain の David Ha・Llion Jones。', related: ['/guides/sakana-ai-japan-deep-dive'] },
+      { term: 'Preferred Networks', def: '日本のディープラーニング企業。MN-Core という独自 AI チップを開発。製造業 AI で実績。' },
+      { term: '源内（げんない）', def: '日本政府が2026年5月から開始する大規模生成 AI 実証プロジェクト。国家公務員18万人にアカウント配布。', related: ['/guides/japan-government-ai-gennai'] },
+      { term: 'tsuzumi', def: 'NTT が開発する軽量・省電力日本語 LLM。' },
+      { term: 'cotomi', def: 'NEC が開発する行政・ビジネス特化日本語 LLM。' },
+    ],
+  },
+];
+
+const totalTerms = sections.reduce((sum, s) => sum + s.terms.length, 0);
+
+// Schema: DefinedTermSet（用語集スキーマ）
+const glossarySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'AIpedia AI 用語集',
+  description: `AI・生成AI 関連の主要用語${totalTerms}語を分野別にまとめた用語集。`,
+  hasDefinedTerm: sections.flatMap((s) =>
+    s.terms.map((t) => ({
+      '@type': 'DefinedTerm',
+      name: t.term,
+      description: t.def,
+      inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'AIpedia AI 用語集' },
+    })),
+  ),
+};
+---
+
+<BaseLayout
+  title="AI 用語集｜生成AI・LLM・エージェント・コーディングAIの主要用語を分野別に解説"
+  description={`AI・生成AI に関する主要用語${totalTerms}語を分野別にわかりやすく解説。LLM、プロンプト、ハルシネーション、MCP、Computer Use、SWE-bench、Sakana AI、源内 など2026年の最新用語まで網羅。`}
+  extraJsonLd={glossarySchema}
+>
+  <article class="mx-auto max-w-4xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <Breadcrumbs items={[{ label: 'ホーム', href: '/' }, { label: 'AI 用語集' }]} />
+
+    <header class="mt-4">
+      <h1 class="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">AI 用語集</h1>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde] text-balance">
+        AI・生成AI に関する主要用語を分野別にまとめました。基礎用語から、エージェント、主要サービス、コーディング AI、日本のエコシステム、最新の専門用語まで、全 {totalTerms} 語を継続的にアップデートしています。
+      </p>
+      <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#8a90a8]">
+        <span>収録語数 <span class="text-white font-bold">{totalTerms}</span></span>
+        <span>カテゴリ <span class="text-white font-bold">{sections.length}</span></span>
+        <span>最終更新 <span class="text-[#c7cbde]">2026.04.27</span></span>
+      </div>
+    </header>
+
+    {/* セクション目次 */}
+    <nav class="mt-8 rounded-2xl border border-white/5 bg-[#10121a] p-5">
+      <div class="text-xs font-semibold uppercase tracking-widest text-violet-300 mb-3">目次</div>
+      <ul class="grid gap-2 sm:grid-cols-2">
+        {sections.map((s) => (
+          <li>
+            <a href={`#${s.id}`} class="flex items-center gap-2 text-sm text-[#c7cbde] hover:text-white transition">
+              <span>{s.emoji}</span>
+              <span>{s.title}</span>
+              <span class="text-xs text-[#8a90a8]">（{s.terms.length}語）</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    {/* 用語集本体 */}
+    <div class="mt-10 space-y-12">
+      {sections.map((s) => (
+        <section id={s.id} class="scroll-mt-20">
+          <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight flex items-center gap-2">
+            <span>{s.emoji}</span>
+            <span>{s.title}</span>
+          </h2>
+          <div class="mt-5 space-y-4">
+            {s.terms.map((t) => (
+              <div class="rounded-2xl border border-white/5 bg-[#10121a] p-5">
+                <div class="flex flex-wrap items-baseline gap-2">
+                  <span class="text-base sm:text-lg font-bold text-white">{t.term}</span>
+                  {t.reading && <span class="text-xs text-[#8a90a8]">（{t.reading}）</span>}
+                  {t.en && <span class="text-xs text-[#c7cbde]">／ {t.en}</span>}
+                </div>
+                <p class="mt-2 text-sm leading-relaxed text-[#c7cbde]">{t.def}</p>
+                {t.related && t.related.length > 0 && (
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    {t.related.map((href) => (
+                      <a href={href} class="inline-flex items-center gap-1 rounded-full border border-violet-400/30 bg-violet-400/10 px-2.5 py-0.5 text-xs text-violet-200 hover:bg-violet-400/20 transition">
+                        詳しく解説 →
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-12 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-5">
+      <h2 class="text-base font-bold">用語の追加・修正リクエスト</h2>
+      <p class="mt-2 text-sm text-[#c7cbde]">
+        収録してほしい用語、定義の誤りのご指摘は<a href="/contact" class="underline">お問い合わせフォーム</a>からお寄せください。継続的に拡充していきます。
+      </p>
+    </section>
+  </article>
+</BaseLayout>

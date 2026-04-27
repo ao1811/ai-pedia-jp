@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: trend
 heroEmoji: "🎨"
 heroGradient: "from-orange-400 via-rose-500 to-fuchsia-600"
-featured: true
+featured: false
 relatedTools: ["claude", "v0", "cursor"]
 readTimeMin: 7
 tags: ["Claude", "Claude Design", "UI", "新機能", "2026", "Artifacts"]

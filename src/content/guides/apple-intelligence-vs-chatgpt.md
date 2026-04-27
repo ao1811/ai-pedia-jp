@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: comparison
 heroEmoji: "⚔️"
 heroGradient: "from-gray-700 via-emerald-600 to-cyan-600"
-featured: true
+featured: false
 relatedTools: ["chatgpt"]
 readTimeMin: 7
 tags: ["Apple Intelligence", "ChatGPT", "比較", "AI", "iPhone", "2026"]

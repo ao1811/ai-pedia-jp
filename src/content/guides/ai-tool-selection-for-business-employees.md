@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: guide
 heroEmoji: "🎯"
 heroGradient: "from-amber-500 via-orange-500 to-rose-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "notion-ai"]
 readTimeMin: 8
 tags: ["AI", "会社", "ツール選び", "業務効率化", "ChatGPT", "2026"]

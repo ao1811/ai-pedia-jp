@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: review
 heroEmoji: "🛡️"
 heroGradient: "from-slate-500 via-blue-700 to-indigo-800"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "notion-ai"]
 readTimeMin: 9
 tags: ["AI", "会社", "セキュリティ", "コンプライアンス", "法人", "2026"]

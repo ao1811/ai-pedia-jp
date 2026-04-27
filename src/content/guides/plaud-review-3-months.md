@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: review
 heroEmoji: "⭐"
 heroGradient: "from-yellow-500 via-orange-600 to-red-700"
-featured: true
+featured: false
 relatedTools: ["plaud"]
 readTimeMin: 8
 tags: ["PLAUD", "AI議事録", "レビュー", "実機検証", "2026"]
@@ -25,7 +25,7 @@ faq:
     a: "Amazon 経由購入なら30日返金保証。公式サイト購入は60日。日本語サポートは LINE 公式から。実際に問い合わせた感想は『2営業日以内に返答、丁寧な対応』。"
 ---
 
-「PLAUD 実際どうなの？」——購入前にレビューを探す人に向けた、編集部の **3ヶ月実機運用レポート** です。良い点・悪い点を**包み隠さず**書きます。
+「PLAUD 実際どうなの？」——購入前にレビューを探す人に向けた、編集部の **長期利用レポート** です。良い点・悪い点を**包み隠さず**書きます。
 
 ## 結論：総合評価 4.5/5（買って後悔ゼロ）
 

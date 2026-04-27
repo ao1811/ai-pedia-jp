@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: howto
 heroEmoji: "🏠"
 heroGradient: "from-blue-500 via-indigo-500 to-purple-600"
-featured: true
+featured: false
 relatedTools: ["gemini"]
 readTimeMin: 7
 tags: ["Gemini for Home", "Nest Hub", "Nest Mini", "Google Home", "スマートスピーカー", "2026"]
@@ -25,7 +25,7 @@ faq:
     a: "Google Home アプリの「ヘルプ」から公式サポートに問い合わせ可能。本記事の『よくあるトラブル』セクションで主要なつまづきポイントは解決できるはずです。"
 ---
 
-「Nest Hub に Gemini for Home を入れたいけど、どうやって設定する？」——日本上陸後、設定方法が分からず止まっている人向けの完全ガイドです。本記事では、編集部が **3台のデバイスで実機検証**した手順を画面付きで公開します。
+「Nest Hub に Gemini for Home を入れたいけど、どうやって設定する？」——日本上陸後、設定方法が分からず止まっている人向けの完全ガイドです。本記事では、Google 公式情報・主要メディア解説・編集部の利用所感をもとに、設定手順をわかりやすくまとめました。
 
 ## 結論：3ステップ・15分で完了
 

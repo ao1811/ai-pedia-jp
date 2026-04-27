@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: comparison
 heroEmoji: "⚡"
 heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"
-featured: true
+featured: false
 relatedTools: ["cursor", "claude-code", "github-copilot", "v0"]
 readTimeMin: 10
 tags: ["コーディング", "開発", "AI", "Cursor", "Copilot"]

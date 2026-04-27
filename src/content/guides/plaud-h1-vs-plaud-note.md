@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: comparison
 heroEmoji: "🎙️"
 heroGradient: "from-amber-500 via-orange-600 to-red-600"
-featured: true
+featured: false
 relatedTools: ["plaud"]
 readTimeMin: 7
 tags: ["PLAUD", "AI議事録", "ボイスレコーダー", "比較", "2026"]
@@ -25,7 +25,7 @@ faq:
     a: "PLAUD は『対面・現場録音』に特化、Notta はオンライン会議に特化、と棲み分け。両方使うのが最強。詳細は『AIボイスレコーダー徹底比較』記事を参照。"
 ---
 
-「PLAUD の H1（カード型）と NOTE（ペン型）、どっちを買えばいい？」——購入前の最大の悩みです。本記事では、編集部が **両方を3ヶ月実機運用**した結果から、**用途別の推奨**を完全解説します。
+「PLAUD の H1（カード型）と NOTE（ペン型）、どっちを買えばいい？」——購入前の最大の悩みです。本記事では、PLAUD 公式情報・主要メディアのレビュー・編集部の利用所感をもとに、**用途別の推奨**を完全解説します。
 
 ## 結論：用途で完全に分かれる
 

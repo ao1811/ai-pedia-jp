@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: howto
 heroEmoji: "🎥"
 heroGradient: "from-fuchsia-500 via-purple-500 to-violet-600"
-featured: true
+featured: false
 relatedTools: ["gemini", "chatgpt"]
 readTimeMin: 8
 tags: ["Veo", "Google", "AI動画生成", "無料", "Sora代替", "2026"]
@@ -27,7 +27,7 @@ faq:
 
 「Sora が終了するけど代替どうしよう」「Veo 3.1 が無料化したらしいけど本当？」——2026年4月のニュースで最も注目されているトピックです。
 
-本記事では、編集部が **Veo 3.1 を10日間実機検証**した結果から、**使い方・Sora との比較・商用利用判断**を完全解説します。
+本記事では、Google 公式情報・主要メディア報道・編集部の利用所感をもとに、**使い方・Sora との比較・商用利用判断**を完全解説します。
 
 ## 結論：Sora 終了後の「事実上の業界標準」
 

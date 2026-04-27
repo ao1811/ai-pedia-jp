@@ -262,4 +262,4 @@ ai-pedia 編集部では現在、以下の組み合わせで運用：
 - **グローバルチーム → tl;dv**
 - **無料で試したい → Notta Free（月120分）**
 
-各ツールの実機検証は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide)、文字起こしフォーカスなら[AI文字起こしツール徹底比較](/guides/ai-transcription-comparison)、ハードウェア型は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026)、**セキュリティ詳細**は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)、**導入失敗を避けたい**なら[AI議事録ツール導入の失敗事例と回避策](/guides/ai-meeting-notes-failure-cases)を参照してください。
+各ツールの詳細解説は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide)、文字起こしフォーカスなら[AI文字起こしツール徹底比較](/guides/ai-transcription-comparison)、ハードウェア型は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026)、**セキュリティ詳細**は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)、**導入失敗を避けたい**なら[AI議事録ツール導入の失敗事例と回避策](/guides/ai-meeting-notes-failure-cases)を参照してください。

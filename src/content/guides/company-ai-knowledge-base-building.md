@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "📚"
 heroGradient: "from-violet-500 via-blue-600 to-cyan-600"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "notion-ai"]
 readTimeMin: 9
 tags: ["AI", "会社", "ナレッジベース", "Notion", "業務効率化", "2026"]

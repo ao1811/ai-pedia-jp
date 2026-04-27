@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: howto
 heroEmoji: "🚀"
 heroGradient: "from-slate-700 via-zinc-700 to-gray-800"
-featured: true
+featured: false
 relatedTools: ["chatgpt"]
 readTimeMin: 7
 tags: ["Apple Intelligence", "iPhone", "iPad", "Mac", "使い方", "2026"]
@@ -25,7 +25,7 @@ faq:
     a: "①端末がアップデート最新（iOS 18.4以降）か確認、②容量に2GB以上の空きがあるか確認、③Wi-Fi 接続を確認、④Siri 音声認識を再学習（設定 → Siri → 「Hey Siri」を再登録）。それでも動かなければ Apple サポートに問い合わせ。"
 ---
 
-「Apple Intelligence を有効化したけど、何から使えばいい？」——iPhone ユーザーの最大の悩みです。本記事では、編集部が **3ヶ月実機運用**した結果から、**30分で使いこなす完全チュートリアル**を公開します。
+「Apple Intelligence を有効化したけど、何から使えばいい？」——iPhone ユーザーの最大の悩みです。本記事では、Apple 公式ドキュメント・主要メディア解説・編集部の利用所感をもとに、**30分で使いこなす完全チュートリアル**を公開します。
 
 ## 結論：30分で覚える3ステップ
 

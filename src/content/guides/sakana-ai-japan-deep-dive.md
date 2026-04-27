@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: trend
 heroEmoji: "🐟"
 heroGradient: "from-cyan-500 via-sky-500 to-blue-600"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 9
 tags: ["Sakana AI", "日本", "AIスタートアップ", "進化的アルゴリズム", "総務省", "2026"]

@@ -6,17 +6,17 @@ updatedAt: 2026-04-27
 category: howto
 heroEmoji: "🎩"
 heroGradient: "from-zinc-700 via-slate-800 to-stone-900"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 10
 tags: ["Apple Intelligence", "iPhone", "Mac", "iPad", "裏技", "隠し機能", "2026"]
 amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
-tldr: "Apple Intelligence は表面的な機能（Writing Tools・Genmoji）以外に、知る人ぞ知る上級テクニックが30以上ある。本記事では Compose（カスタム指示）、画面認識 Siri、Notes の音声録音→文字起こし→要約、Math Notes、Image Wand、Visual Intelligence の Google 連携、ChatGPT 都度確認モード、Shortcuts 連携まで、編集部が3ヶ月実機検証した『公式マニュアルに載らない裏技』を完全公開。"
+tldr: "Apple Intelligence は表面的な機能（Writing Tools・Genmoji）以外に、知る人ぞ知る上級テクニックが30以上ある。本記事では Compose（カスタム指示）、画面認識 Siri、Notes の音声録音→文字起こし→要約、Math Notes、Image Wand、Visual Intelligence の Google 連携、ChatGPT 都度確認モード、Shortcuts 連携まで、Apple 公式情報と編集部の利用所感をもとに『公式マニュアルに載らない上級テクニック』を完全公開。"
 faq:
   - q: "Apple Intelligence の裏技を使うのに追加料金は？"
     a: "基本は対応端末（iPhone 15 Pro 以降・M1 以降の Mac/iPad）があれば追加料金不要。ChatGPT Plus 連携で精度が上がる機能（複雑な質問、画像解析）は ChatGPT Plus（¥3,000/月）が別途必要だが、無料アカウント連携でも基本機能は使える。"
   - q: "ベータ版に入らないと使えない裏技はある？"
-    a: "本記事の30個のうち、約25個は iOS 18.4（2026年4月リリース）の安定版で利用可能。残りはベータ版で先行リリース、または近日中に正式提供予定。実機検証していない機能は『未確認』と明記している。"
+    a: "本記事の30個のうち、約25個は iOS 18.4（2026年4月リリース）の安定版で利用可能。残りはベータ版で先行リリース、または近日中に正式提供予定。動作未確認の機能は『未確認』『ベータのみ』と明記している。"
   - q: "日本語環境で使える？"
     a: "iOS 18.4 で日本語が正式対応したため、ほぼ全機能が日本語で使える。ただし Visual Intelligence のレストラン情報など、データ依存機能は日本語環境で精度が下がるケースあり。代替テクニックも併せて紹介。"
   - q: "プライバシーが心配です"
@@ -27,7 +27,7 @@ faq:
 
 「Apple Intelligence、Writing Tools と Genmoji 以外に何があるの？」——iPhone ユーザーから最も多い質問です。
 
-実は **公式マニュアルに載らない裏技が30以上** あります。本記事では編集部が3ヶ月実機検証して厳選した、**知らないと損する上級テクニック**を完全公開します。
+実は **公式マニュアルに載らない上級テクニックが30以上** あります。本記事では Apple 公式情報・主要メディア報道・編集部の利用所感をもとに厳選した、**知らないと損する上級テクニック**を完全公開します。
 
 ## 結論：本気で使えば「ChatGPT Plus 不要」レベル
 

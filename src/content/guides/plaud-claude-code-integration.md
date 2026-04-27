@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: howto
 heroEmoji: "🔗"
 heroGradient: "from-amber-500 via-violet-500 to-cyan-600"
-featured: true
+featured: false
 relatedTools: ["plaud", "claude-code"]
 readTimeMin: 7
 tags: ["PLAUD", "Claude Code", "AI議事録", "自動化", "Notion", "2026"]

@@ -11,7 +11,7 @@ const axes = [
   { label: 'トレンド', weight: 15, desc: '検索ボリューム・採用企業数・アップデート頻度の成長率。' },
 ];
 
-// E-E-A-T 対応：編集部の明示化とスキーマ
+// E-E-A-T 対応：個人運営メディアとしての明示
 const editorialSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -19,7 +19,7 @@ const editorialSchema = {
   name: SITE.author.name,
   url: SITE.author.url,
   parentOrganization: { '@id': `${SITE.url}/#organization` },
-  description: 'AIpedia 編集部。2026年設立。AIツール・生成AI領域の実使用・比較レビューを専門とし、月次で情報を更新。',
+  description: 'AIpedia 編集部（個人運営）。2026年4月開設。AIツール・生成AI領域の比較・解説メディア。公式情報と編集部の検証をもとに継続的に情報を更新。',
   knowsAbout: [
     'AIツール',
     '生成AI',
@@ -27,10 +27,8 @@ const editorialSchema = {
     'Claude',
     'Gemini',
     'プロンプトエンジニアリング',
-    'AI副業',
     'AI議事録',
     'AIコーディング',
-    'Midjourney',
   ],
   makesOffer: {
     '@type': 'Offer',
@@ -41,12 +39,24 @@ const editorialSchema = {
     },
   },
 };
+
+// Person（編集長）スキーマ
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${SITE.url}/#editor`,
+  name: '直輝（Naoki）',
+  jobTitle: '編集長',
+  worksFor: { '@id': `${SITE.url}/#editorial` },
+  description: 'AIpedia 編集長。AIツール領域を中心に、ビジネス向けの実用的な比較・解説記事を執筆。',
+  knowsAbout: ['AIツール', '生成AI', 'ChatGPT', 'Claude', 'Gemini'],
+};
 ---
 
 <BaseLayout
   title="運営方針・評価基準・編集部"
-  description="AIpedia（AIツール比較ランキング）の運営方針・評価基準・編集部紹介。応答品質・日本語精度・コスパ・拡張性・トレンドの5軸で独自スコアを算出しています。"
-  extraJsonLd={editorialSchema}
+  description="AIpedia（AIツール比較ランキング）の運営方針・評価基準・編集長紹介。応答品質・日本語精度・コスパ・拡張性・トレンドの5軸で独自スコアを算出しています。個人運営の独立メディア。"
+  extraJsonLd={[editorialSchema, personSchema]}
 >
   <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10">
     <Breadcrumbs items={[{ label: 'ホーム', href: '/' }, { label: '運営方針・評価基準' }]} />
@@ -55,37 +65,43 @@ const editorialSchema = {
       運営方針・評価基準・編集部
     </h1>
     <p class="mt-4 text-[15px] leading-relaxed text-[#c7cbde]">
-      AIpedia（AIツール比較ランキング）は、乱立するAIツールの中から「本当に使えるもの」を見抜く判断材料を、できるだけフェアに提供することを目的としています。
+      AIpedia（AIツール比較ランキング）は、乱立するAIツールの中から「本当に使えるもの」を見抜く判断材料を、できるだけフェアに提供することを目的とした **個人運営の独立メディア** です。
       ランキングは下記の5軸による独自スコアで決定しており、アフィリエイト契約の有無・報酬単価は一切考慮していません。
     </p>
 
     <section class="mt-8 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
-      <h2 class="text-lg font-bold">✍️ 編集部について</h2>
-      <p class="mt-3 text-sm leading-relaxed text-[#c7cbde]">
-        AIpedia 編集部は、国内外のAIツールを実使用した上で記事執筆を行う専門チームです。エンジニア・ライター・マーケター・クリエイター各領域の実務経験者で構成し、**読者の選択を助ける正確な情報**を最優先に制作しています。
-      </p>
+      <h2 class="text-lg font-bold">✍️ 編集長プロフィール</h2>
 
-      <div class="mt-5 grid gap-4 sm:grid-cols-2">
-        <div class="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-          <div class="text-xs font-semibold uppercase tracking-widest text-violet-300">編集責任者</div>
-          <p class="mt-2 text-sm text-white font-semibold">N.M.（編集責任者イニシャル）</p>
-          <p class="mt-1 text-xs text-[#8a90a8] leading-relaxed">本サイトの編集方針・掲載内容・公開判断の最終責任を負います。</p>
+      <div class="mt-4 flex items-start gap-4">
+        <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-2xl font-bold text-white">
+          直
         </div>
-        <div class="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-          <div class="text-xs font-semibold uppercase tracking-widest text-violet-300">お問い合わせ</div>
-          <p class="mt-2 text-sm text-white font-semibold"><a href="/contact" class="underline">お問い合わせフォーム</a></p>
-          <p class="mt-1 text-xs text-[#8a90a8] leading-relaxed">記事の誤り指摘・取材・業務依頼は通常2営業日以内にご返信します。</p>
+        <div class="flex-1">
+          <p class="text-base font-bold text-white">直輝（Naoki）</p>
+          <p class="mt-1 text-xs text-violet-300">AIpedia 編集長 ／ 個人運営</p>
+          <p class="mt-2 text-sm leading-relaxed text-[#c7cbde]">
+            ビジネスパーソン向けに AIツールの比較・解説記事を執筆。日々の業務で ChatGPT・Claude・Gemini を併用しており、その実用感をもとに、過度な煽りなく中立的な情報提供を心がけています。
+          </p>
+          <p class="mt-2 text-xs text-[#8a90a8]">
+            主な使用ツール：ChatGPT Plus / Claude Pro / Gemini（無料枠）
+          </p>
         </div>
+      </div>
+
+      <div class="mt-5 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+        <div class="text-xs font-semibold uppercase tracking-widest text-violet-300">お問い合わせ</div>
+        <p class="mt-2 text-sm text-white font-semibold"><a href="/contact" class="underline">お問い合わせフォーム</a></p>
+        <p class="mt-1 text-xs text-[#8a90a8] leading-relaxed">記事の誤り指摘・取材・業務依頼は通常2営業日以内にご返信します。</p>
       </div>
 
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
         <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
           <div class="text-xs font-semibold uppercase tracking-widest text-violet-300">編集責任</div>
-          <p class="mt-2 text-sm text-[#c7cbde]">記事内容の事実確認・最新化・ユーザー向けの読みやすさを編集部が保証します。掲載後も**月次で価格・機能を再確認**。</p>
+          <p class="mt-2 text-sm text-[#c7cbde]">記事内容は公式ドキュメント・一次情報を基に編集長が確認のうえ公開。明確な誤りが判明した場合は速やかに修正します。</p>
         </div>
         <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
-          <div class="text-xs font-semibold uppercase tracking-widest text-amber-300">専門性</div>
-          <p class="mt-2 text-sm text-[#c7cbde]">ChatGPT Plus / Claude Pro / Gemini Advanced / Cursor Pro / Midjourney Standard を**全て契約・実利用**しての比較レビューを実施。</p>
+          <div class="text-xs font-semibold uppercase tracking-widest text-amber-300">情報源</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">各 AI ベンダーの公式ブログ・リリースノート、主要メディア（The Verge / TechCrunch / 日経 xTECH 等）を継続モニタリング。</p>
         </div>
         <div class="rounded-xl border border-white/5 bg-white/[0.02] p-4">
           <div class="text-xs font-semibold uppercase tracking-widest text-emerald-300">独立性</div>
@@ -104,9 +120,9 @@ const editorialSchema = {
         <dt class="text-[#8a90a8]">サイト名</dt>
         <dd class="text-white">AIpedia（AIツール比較ランキング）</dd>
         <dt class="text-[#8a90a8]">運営開始</dt>
-        <dd class="text-[#c7cbde]">2026年4月</dd>
+        <dd class="text-[#c7cbde]">2026年4月20日</dd>
         <dt class="text-[#8a90a8]">運営形態</dt>
-        <dd class="text-[#c7cbde]">個人運営（編集責任者：N.M.）</dd>
+        <dd class="text-[#c7cbde]">個人運営（編集長：直輝／Naoki）</dd>
         <dt class="text-[#8a90a8]">連絡手段</dt>
         <dd class="text-[#c7cbde]"><a href="/contact" class="underline">お問い合わせフォーム</a>（通常2営業日以内に返信）</dd>
         <dt class="text-[#8a90a8]">所在地</dt>
@@ -137,12 +153,14 @@ const editorialSchema = {
     <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">
       <h2 class="text-lg font-bold">編集方針（E-E-A-T 対応）</h2>
       <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
-        <li><strong class="text-white">Experience（経験）</strong>：全てのツールを編集部員が実契約・実使用した上で執筆。</li>
-        <li><strong class="text-white">Expertise（専門性）</strong>：業界動向を月次でモニタリング、一次情報（公式ドキュメント・リリースノート）を基に判断。</li>
+        <li><strong class="text-white">Experience（経験）</strong>：編集長が普段の業務で利用しているツールを中心に解説。利用していないツールは公式情報・主要メディアの一次情報をもとに整理し、その旨を記事内で明示します。</li>
+        <li><strong class="text-white">Expertise（専門性）</strong>：各 AI ベンダーの公式ブログ・リリースノートを継続モニタリング、一次情報を基に判断。</li>
         <li><strong class="text-white">Authoritativeness（権威性）</strong>：評価軸・配点・手法を全て開示し、検証可能な形で提示。</li>
         <li><strong class="text-white">Trustworthiness（信頼性）</strong>：アフィリエイトの影響を遮断、誤情報の指摘があれば速やかに修正。</li>
       </ul>
-      <p class="mt-4 text-xs text-[#8a90a8]">生成AIを下書きに活用する場合も、**事実確認と最終編集は人間が担当**。AI生成記事をそのまま公開することはありません。</p>
+      <div class="mt-4 rounded-lg border border-amber-400/20 bg-amber-400/5 p-3">
+        <p class="text-xs leading-relaxed text-[#c7cbde]"><strong class="text-amber-200">AI 利用方針：</strong>本サイトでは、記事の構成・下書きに生成AI（ChatGPT・Claude 等）を活用する場合があります。その場合も<strong class="text-white">公開前に編集長が事実確認・編集を行い</strong>、明らかな事実誤認は修正・削除しています。読者から誤情報のご指摘をいただいた場合は速やかに訂正します。</p>
+      </div>
     </section>
 
     <section class="mt-6 rounded-2xl border border-white/5 bg-[#10121a] p-5 sm:p-6">

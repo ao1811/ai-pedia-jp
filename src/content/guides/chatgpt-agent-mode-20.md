@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: trend
 heroEmoji: "🤖"
 heroGradient: "from-emerald-400 via-teal-500 to-cyan-600"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 7
 tags: ["ChatGPT", "AIエージェント", "新機能", "2026"]

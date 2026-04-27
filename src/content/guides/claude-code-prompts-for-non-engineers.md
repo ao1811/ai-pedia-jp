@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "✨"
 heroGradient: "from-amber-400 via-orange-500 to-rose-600"
-featured: true
+featured: false
 relatedTools: ["claude-code", "cursor", "claude"]
 readTimeMin: 10
 tags: ["Claude Code", "プロンプト", "個人開発", "AI", "Astro", "2026"]

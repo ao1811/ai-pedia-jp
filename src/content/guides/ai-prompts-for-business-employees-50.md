@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "📋"
 heroGradient: "from-emerald-500 via-teal-600 to-cyan-700"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "notion-ai"]
 readTimeMin: 11
 tags: ["AI", "プロンプト", "業務効率化", "ChatGPT", "会社", "2026"]

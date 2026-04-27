@@ -259,4 +259,4 @@ ai-pedia 編集部では現在、以下の組み合わせで運用：
 - **社内 → Notion AI（¥1,200/人）**
 - **校正 → 文賢（¥2,178）**
 
-各ツールの実機検証は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow)、**SEO に効くAI活用法**は[AIライティングで検索順位を上げる戦略](/guides/ai-writing-for-seo)、**導入失敗を避けたい**なら[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)、副業全体の収益化は[AIで始める副業ガイド](/guides/ai-side-business-guide)を参照してください。
+各ツールの詳細解説は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow)、**SEO に効くAI活用法**は[AIライティングで検索順位を上げる戦略](/guides/ai-writing-for-seo)、**導入失敗を避けたい**なら[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)、副業全体の収益化は[AIで始める副業ガイド](/guides/ai-side-business-guide)を参照してください。

@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: comparison
 heroEmoji: "⚖️"
 heroGradient: "from-blue-500 via-violet-500 to-orange-500"
-featured: true
+featured: false
 relatedTools: ["gemini"]
 readTimeMin: 7
 tags: ["Nest Hub", "Echo Show", "Gemini for Home", "Alexa+", "スマートスピーカー", "2026"]
@@ -25,7 +25,7 @@ faq:
     a: "Nest Hub × Family Link が最強。子供アカウント作成 → コンテンツフィルタ → 使用時間制限の細かい設定可能。Echo Show は子供向け『Echo Dot Kids』もあるが、Family Link ほどの柔軟性はない。"
 ---
 
-「Nest Hub と Echo Show 5、どちらを買えばいい？」——スマートスピーカー選びの最大の悩みです。本記事では、編集部が **両方を3ヶ月実機運用**した結果から、**4軸で徹底比較**します。
+「Nest Hub と Echo Show 5、どちらを買えばいい？」——スマートスピーカー選びの最大の悩みです。本記事では、Google・Amazon の公式情報、主要メディアのレビュー、編集部の利用所感をもとに、**4軸で徹底比較**します。
 
 ## 結論：エコシステムで選ぶ
 

@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: guide
 heroEmoji: "📱"
 heroGradient: "from-cyan-500 via-blue-600 to-indigo-700"
-featured: true
+featured: false
 relatedTools: ["gemini"]
 readTimeMin: 7
 tags: ["Gemini for Home", "Nest", "Matter", "スマートホーム", "Philips Hue", "SwitchBot", "2026"]

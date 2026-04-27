@@ -6,7 +6,7 @@ updatedAt: 2026-04-26
 category: howto
 heroEmoji: "🗓️"
 heroGradient: "from-sky-500 via-blue-600 to-indigo-700"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "notion-ai"]
 readTimeMin: 9
 tags: ["AI", "会社", "業務効率化", "ChatGPT", "初心者", "2026"]

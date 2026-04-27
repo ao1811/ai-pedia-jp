@@ -6,7 +6,7 @@ updatedAt: 2026-04-27
 category: howto
 heroEmoji: "⚡"
 heroGradient: "from-blue-500 via-purple-500 to-pink-500"
-featured: true
+featured: false
 relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 11
 tags: ["Apple Intelligence", "Shortcuts", "自動化", "iPhone", "Mac", "業務効率化", "2026"]
@@ -25,7 +25,7 @@ faq:
     a: "Shortcuts ギャラリーまたは信頼できる開発者の URL のみ使う。インストール時に『含まれるアクション一覧』が表示されるので、不審な操作（ファイル送信、URL リクエスト等）がないか必ず確認。本記事のレシピは編集部が自社で運用検証済み。"
 ---
 
-「Apple Intelligence の真価は Shortcuts と組み合わせたとき」——これが3ヶ月使い込んだ編集部の結論です。
+「Apple Intelligence の真価は Shortcuts と組み合わせたとき」——これが Apple 公式情報と編集部の利用所感から導いた結論です。
 
 本記事では、**Zapier や IFTTT に課金しなくても**、個人レベルで業務を10倍効率化する **Shortcuts 自動化レシピ15選** を完全公開します。
 

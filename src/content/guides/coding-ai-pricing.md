@@ -261,4 +261,4 @@ ai-pedia 編集部では現在、以下の組み合わせで運用：
 - **大規模自動化 → Devin $500（要予算）**
 - **両刀 → Cursor + Claude Code $40 で最強**
 
-各ツールの実機検証は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)、Cursor 詳細は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)・[Cursor Composer 解説](/guides/cursor-composer-agent)、Claude Code 詳細は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、**非エンジニア向けの活用法**は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)、**導入失敗を避けたい**なら[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)を参照してください。
+各ツールの詳細解説は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)、Cursor 詳細は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)・[Cursor Composer 解説](/guides/cursor-composer-agent)、Claude Code 詳細は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、**非エンジニア向けの活用法**は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)、**導入失敗を避けたい**なら[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)を参照してください。
