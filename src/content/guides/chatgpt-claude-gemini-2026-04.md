@@ -29,7 +29,7 @@ faq:
 - **Anthropic**：[Claude Opus 4.7](/guides/claude-opus-4-7-explained) リリース（4/16）、Claude Design（4/17）、Claude Cowork GA（4/9）
 - **Google**：[Gemini 3.1 Pro](/guides/gemini-deep-research) + Deep Research Max（4/21）、[Veo 3.1 全アカウント無料化](/guides/veo-3-1-free-guide)（4/2）、[Gemini for Home](/guides/gemini-for-home-japan-2026) 日本上陸
 
-この1ヶ月だけで3社とも大型アップデートがあり、**「以前の比較記事」はすべて古くなりました**。本記事では、編集部が直近2週間で3ツールを並行使用した上で、8項目で比較し、用途別の結論を提示します。
+この1ヶ月だけで3社とも大型アップデートがあり、**「以前の比較記事」はすべて古くなりました**。本記事では、各社公式情報・主要メディア報道・編集部の利用所感をもとに、8項目で比較し、用途別の結論を提示します。
 
 ## 選ぶ基準：3つのポイント
 

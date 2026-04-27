@@ -328,7 +328,7 @@ OpenAI に送信（OpenAI のプライバシーポリシー適用）
 
 詳細は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)を参照。
 
-## 編集部の運用：Apple + ChatGPT の併用
+## 編集部おすすめの構成：Apple + ChatGPT の併用
 
 ai-pedia 編集部での実際の使い分け：
 

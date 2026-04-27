@@ -228,7 +228,7 @@ Claude Code の詳細は[Claude Code 実践ガイド](/guides/claude-code-practi
 
 加えて、**Google Gemini 系のエージェント**が2026年後半に大幅刷新の予兆あり。Vertex AI 経由で SaaS 連携が一気に広がれば、勢力図が変わる可能性が高いです。詳しくは[AIエージェント最前線（2026年版）](/guides/ai-agent-frontier-2026)で追跡しています。
 
-## 編集部の運用：3ツール並行利用
+## 編集部おすすめの構成：3ツール並行利用
 
 ai-pedia 編集部は現在、以下の組み合わせで運用：
 
