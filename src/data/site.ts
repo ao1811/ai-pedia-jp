@@ -11,7 +11,7 @@ export const SITE = {
   shortName: 'AIpedia',
   url: 'https://ai-pedia.jp',
   description:
-    'ChatGPT・Claude・Gemini など主要AIツールを独自評価5軸（応答品質・日本語精度・コスパ・拡張性・トレンド）で徹底比較。初心者の選び方から業務導入まで、最適な1本を数字で示します。',
+    'AIランキング 2026年4月最新版。ChatGPT・Claude・Gemini など主要AIツールを独自評価5軸（応答品質・日本語精度・コスパ・拡張性・トレンド）で徹底比較。初心者のAIツール選びから業務導入まで、最適な1本を数字で示すAIランキングメディア。',
   locale: 'ja_JP',
   author: {
     name: 'AIpedia 編集部',
@@ -23,15 +23,19 @@ export const SITE = {
     tiktok: '@ai_pedia_jp',    // TikTok
   },
   keywords: [
+    'AIランキング',
+    'AIランキング 2026',
     'AIツール比較',
+    'AIツール ランキング',
     'ChatGPT',
     'Claude',
     'Gemini',
-    'AIランキング',
     '生成AI',
     'AIライティング',
     'AI画像生成',
     'AIコーディング',
+    'AI議事録',
+    'AI翻訳',
     'Midjourney',
     'Cursor',
     'Notion AI',
