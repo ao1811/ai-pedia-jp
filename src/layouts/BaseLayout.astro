@@ -32,7 +32,7 @@ const {
   description,
   canonical,
   ogImage,
-  noIndex = false,
+  noIndex: noIndexProp = false,
   ogType = 'website',
   articleMeta,
   extraJsonLd,
@@ -50,6 +50,12 @@ const adsenseClient =
   (import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined) || ADSENSE_CLIENT;
 const ga4Id =
   (import.meta.env.PUBLIC_GA4_MEASUREMENT_ID as string | undefined) || GA4_MEASUREMENT_ID;
+
+// AdSense 審査対策：管理画面は GA4 / AdSense / インデックスの対象外
+// （編集者の運用アクセスがデータ汚染するのと、Google が admin を誤クロールするのを防ぐ）
+const isAdminPath = Astro.url.pathname.startsWith('/admin');
+const trackingEnabled = !isAdminPath;
+const noIndex = noIndexProp || isAdminPath;
 
 const extraSchemas = extraJsonLd
   ? Array.isArray(extraJsonLd)
@@ -139,7 +145,7 @@ const extraSchemas = extraJsonLd
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
 
-    {adsenseClient && ADSENSE_SCRIPT_ENABLED && (
+    {adsenseClient && ADSENSE_SCRIPT_ENABLED && trackingEnabled && (
       <script
         async
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
@@ -147,7 +153,7 @@ const extraSchemas = extraJsonLd
       ></script>
     )}
 
-    {ga4Id && (
+    {ga4Id && trackingEnabled && (
       <>
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
         <script is:inline define:vars={{ ga4Id }}>
