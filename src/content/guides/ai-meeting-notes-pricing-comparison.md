@@ -1,6 +1,6 @@
 ---
-title: "AI議事録ツールの料金完全比較【2026年版】Notta・PLAUD・さくらAI議事録・JAPAN AI SPEECH・tl;dvの月額・年額・ROI試算"
-description: "AI議事録ツール5社の料金プラン・無料枠・年間コストを完全比較。Notta(¥1,317〜)・PLAUD(¥27,500買切)・さくらAI議事録(¥4,900〜)・JAPAN AI SPEECH(¥3,500〜)・tl;dv($18〜)の月額/年額と、1年使った場合の総コスト・回収ラインを編集部が試算。"
+title: "AI議事録 料金比較5選【2026年4月最新】Notta ¥1,317・PLAUD ¥27,500買切・さくらAI議事録 ¥4,900 どれが一番安い？早見表で即決"
+description: "AI議事録 料金 5社（Notta・PLAUD・さくらAI議事録・JAPAN AI SPEECH・tl;dv）を月額/年額/3年総コストで早見表比較。Free プランの限界、コスパ最強プラン、買い切り vs サブスクの境目、1年使った時の人件費削減 ROI まで完全解説。週3件以上の会議があるなら確実に元が取れる選び方を解説。"
 publishedAt: 2026-04-26
 updatedAt: 2026-04-26
 category: comparison
