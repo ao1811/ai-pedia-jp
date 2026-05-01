@@ -10,13 +10,22 @@ Disallow: /sns/
 # Google
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /sns/
 
 User-agent: Googlebot-Image
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /sns/
 
 # Bing
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /sns/
 
 # AI 検索エンジン（参照されることで被リンク／認知獲得）
 User-agent: GPTBot
