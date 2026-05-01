@@ -360,3 +360,4 @@ faq:
 - **継続的なルール見直し**（半期に1度）を習慣化
 
 ツール選定は[コーディングAI 料金完全比較](/guides/coding-ai-pricing)、Claude Code 詳細は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、Cursor は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)・[Cursor Composer 解説](/guides/cursor-composer-agent)、3本機能比較は[コーディングAI 比較](/guides/coding-ai-comparison)、非エンジニア向けは[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)を参照してください。
+- Web制作特化 → [AI Web制作 失敗事例10選](/guides/ai-web-development-failure-cases)

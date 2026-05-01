@@ -448,3 +448,4 @@ ai-pedia 編集部では、上記10事例のプロンプトをベースに以下
 Claude Design に初めて触れる方は[使い方完全チュートリアル](/guides/claude-design-tutorial)、料金プランの選び方は[Claude Design 料金完全比較](/guides/claude-design-pricing)を先に読むと、本記事のプロンプトをすぐに実行できます。
 
 Figma や Canva との具体比較は[AIデザインツール5選比較](/guides/claude-design-vs-figma-canva)、**導入前のリスク評価**は[Claude Design の限界とできないこと](/guides/claude-design-limitations)、Claude Design 全体像は[新機能Claude Designとは？](/guides/claude-design-feature)が参考になります。
+- トラブル対処 → [Claude Design トラブルシューティング](/guides/claude-design-troubleshooting)

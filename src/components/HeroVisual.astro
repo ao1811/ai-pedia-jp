@@ -1,0 +1,152 @@
+---
+/**
+ * 記事用ヒーローSVG ビジュアル。
+ * 各記事のジャンル・トーンに合わせて装飾的な SVG を表示する。
+ *
+ * 用途：
+ * - emoji だけでは「コンテンツ価値が低い」と AdSense に判定されるリスクを下げる
+ * - 各記事に1枚のオリジナル装飾を提供し、視覚的な差別化を実現
+ * - 軽量（インライン SVG・<5KB）でPageSpeed への影響なし
+ *
+ * 使い方：
+ *   <HeroVisual variant="comparison" gradient="from-violet-500 to-fuchsia-500" />
+ */
+type Variant = 'comparison' | 'guide' | 'review' | 'trend' | 'howto';
+
+type Props = {
+  variant?: Variant;
+  gradient?: string;
+  className?: string;
+};
+
+const { variant = 'guide', gradient = 'from-violet-500 to-fuchsia-500', className = '' } = Astro.props;
+---
+
+<div class={`relative aspect-[3/1] w-full overflow-hidden rounded-2xl border border-white/10 ${className}`}>
+  {/* グラデ背景 */}
+  <div class={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-30`}></div>
+
+  {/* ノイズ背景レイヤー */}
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(255,255,255,0.1),_transparent_50%)]"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(0,0,0,0.4),_transparent_50%)]"></div>
+
+  {/* バリアント別の装飾SVG */}
+  {variant === 'comparison' && (
+    <svg class="absolute inset-0 h-full w-full opacity-60" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="cmp-bar" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="white" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="white" stop-opacity="0.05"/>
+        </linearGradient>
+      </defs>
+      {/* 比較バー */}
+      <rect x="60" y="80" width="40" height="100" rx="4" fill="url(#cmp-bar)" />
+      <rect x="120" y="40" width="40" height="140" rx="4" fill="url(#cmp-bar)" />
+      <rect x="180" y="60" width="40" height="120" rx="4" fill="url(#cmp-bar)" />
+      <rect x="240" y="100" width="40" height="80" rx="4" fill="url(#cmp-bar)" />
+      <rect x="300" y="50" width="40" height="130" rx="4" fill="url(#cmp-bar)" />
+      {/* 軸 */}
+      <line x1="40" y1="180" x2="560" y2="180" stroke="white" stroke-opacity="0.4" stroke-width="1.5" />
+      {/* 装飾点 */}
+      <circle cx="400" cy="60" r="4" fill="white" fill-opacity="0.6" />
+      <circle cx="450" cy="100" r="4" fill="white" fill-opacity="0.4" />
+      <circle cx="500" cy="80" r="4" fill="white" fill-opacity="0.5" />
+    </svg>
+  )}
+
+  {variant === 'howto' && (
+    <svg class="absolute inset-0 h-full w-full opacity-60" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      {/* ステップ円 */}
+      <circle cx="120" cy="100" r="30" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="120" y="108" text-anchor="middle" fill="white" font-size="22" font-weight="700">1</text>
+
+      <line x1="155" y1="100" x2="225" y2="100" stroke="white" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="4,4"/>
+
+      <circle cx="260" cy="100" r="30" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="260" y="108" text-anchor="middle" fill="white" font-size="22" font-weight="700">2</text>
+
+      <line x1="295" y1="100" x2="365" y2="100" stroke="white" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="4,4"/>
+
+      <circle cx="400" cy="100" r="30" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+      <text x="400" y="108" text-anchor="middle" fill="white" font-size="22" font-weight="700">3</text>
+
+      <line x1="435" y1="100" x2="505" y2="100" stroke="white" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="4,4"/>
+
+      <circle cx="540" cy="100" r="30" fill="white" fill-opacity="0.25" stroke="white" stroke-opacity="0.7" stroke-width="2"/>
+      <text x="540" y="106" text-anchor="middle" fill="white" font-size="20">✓</text>
+    </svg>
+  )}
+
+  {variant === 'review' && (
+    <svg class="absolute inset-0 h-full w-full opacity-60" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      {/* 星評価 */}
+      <g transform="translate(180, 70)">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <polygon
+            points="20,0 26,15 42,16 28,26 34,42 20,32 6,42 12,26 -2,16 14,15"
+            fill="white"
+            fill-opacity={i < 4 ? '0.7' : '0.25'}
+            transform={`translate(${i * 50}, 0)`}
+          />
+        ))}
+      </g>
+      {/* バーチャート */}
+      <g transform="translate(60, 130)">
+        <rect x="0" y="0" width="100" height="6" rx="3" fill="white" fill-opacity="0.1"/>
+        <rect x="0" y="0" width="85" height="6" rx="3" fill="white" fill-opacity="0.6"/>
+        <rect x="120" y="0" width="100" height="6" rx="3" fill="white" fill-opacity="0.1"/>
+        <rect x="120" y="0" width="70" height="6" rx="3" fill="white" fill-opacity="0.6"/>
+        <rect x="240" y="0" width="100" height="6" rx="3" fill="white" fill-opacity="0.1"/>
+        <rect x="240" y="0" width="92" height="6" rx="3" fill="white" fill-opacity="0.6"/>
+      </g>
+    </svg>
+  )}
+
+  {variant === 'trend' && (
+    <svg class="absolute inset-0 h-full w-full opacity-60" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="trend-line" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="white" stop-opacity="0.2"/>
+          <stop offset="100%" stop-color="white" stop-opacity="0.9"/>
+        </linearGradient>
+        <linearGradient id="trend-fill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      {/* 上昇トレンド線 */}
+      <path d="M 50 160 L 130 140 L 210 130 L 290 110 L 370 80 L 450 60 L 540 30" fill="none" stroke="url(#trend-line)" stroke-width="3" stroke-linecap="round"/>
+      {/* エリアフィル */}
+      <path d="M 50 160 L 130 140 L 210 130 L 290 110 L 370 80 L 450 60 L 540 30 L 540 200 L 50 200 Z" fill="url(#trend-fill)"/>
+      {/* データポイント */}
+      <circle cx="50" cy="160" r="4" fill="white" fill-opacity="0.6"/>
+      <circle cx="210" cy="130" r="4" fill="white" fill-opacity="0.7"/>
+      <circle cx="370" cy="80" r="4" fill="white" fill-opacity="0.85"/>
+      <circle cx="540" cy="30" r="6" fill="white"/>
+      {/* 上昇矢印 */}
+      <path d="M 530 35 L 545 25 L 555 40" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )}
+
+  {variant === 'guide' && (
+    <svg class="absolute inset-0 h-full w-full opacity-60" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      {/* 開かれた本の装飾 */}
+      <g transform="translate(150, 50)">
+        <rect x="0" y="0" width="130" height="100" rx="6" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.4" stroke-width="1.5"/>
+        <line x1="20" y1="25" x2="110" y2="25" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+        <line x1="20" y1="40" x2="100" y2="40" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+        <line x1="20" y1="55" x2="110" y2="55" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+        <line x1="20" y1="70" x2="80" y2="70" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+      </g>
+      <g transform="translate(320, 50)">
+        <rect x="0" y="0" width="130" height="100" rx="6" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.4" stroke-width="1.5"/>
+        <line x1="20" y1="25" x2="110" y2="25" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+        <line x1="20" y1="40" x2="100" y2="40" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+        <line x1="20" y1="55" x2="110" y2="55" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+        <line x1="20" y1="70" x2="80" y2="70" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+      </g>
+      {/* 接続線 */}
+      <path d="M 280 100 L 320 100" stroke="white" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="4,4"/>
+    </svg>
+  )}
+</div>

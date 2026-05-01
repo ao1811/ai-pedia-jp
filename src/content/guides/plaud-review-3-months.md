@@ -333,3 +333,5 @@ Wi-Fi 環境でも結構待つ。**会議直後の議事録**は厳しい。
 - **総合評価 4.5/5**、買って後悔ゼロ
 
 PLAUD の機能詳細は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note)、Notta との比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、料金詳細は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison)、Claude Code 連携活用は[PLAUD × Claude Code 連携活用法](/guides/plaud-claude-code-integration)を参照してください。
+
+- 最新モデル → [PLAUD Note Pin S レビュー](/guides/plaud-note-pin-s-review)

@@ -92,3 +92,9 @@ faq:
 - 月3,000円以内で始める
 
 あなたの目的にマッチする1本を、本サイトのランキングから選んでみてください。
+
+## 関連記事
+
+- 失敗回避 → [AIツール導入で起きた失敗事例10選](/guides/ai-tool-failure-cases)
+- コスト最適化 → [AI 利用コスト最適化ガイド](/guides/ai-cost-optimization)
+- 業務利用 → [会社でAIを使え、と言われた人の30日プラン](/guides/ai-at-work-first-30-days-plan)

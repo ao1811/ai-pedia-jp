@@ -275,3 +275,4 @@ Claude Design を含む AI ツールは、**デザイナー職の終焉ではな
 Claude Design は「便利ツール」ではなく「**ジュニアデザイナー相当の権限を持つ存在**」として扱うのが現実的です。新人を採用したときと同じ、**段階的な権限委譲と教育**が必要です。
 
 導入を本気で検討するなら、[Claude Design の料金完全比較](/guides/claude-design-pricing)で Pro / Max / Team プランを確認してください。実際の業務シナリオは[業務活用10事例](/guides/claude-design-real-examples)、操作の基本は[使い方完全チュートリアル](/guides/claude-design-tutorial)、Figma・Canva との比較は[AIデザインツール5選](/guides/claude-design-vs-figma-canva)、機能全体像は[新機能Claude Designとは？](/guides/claude-design-feature)が参考になります。
+- トラブル対処 → [Claude Design トラブルシューティング](/guides/claude-design-troubleshooting)

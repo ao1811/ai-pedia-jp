@@ -1,0 +1,154 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import HeroVisual from '@/components/HeroVisual.astro';
+import { getCollection } from 'astro:content';
+import { getRankedTools } from '@/data/tools';
+import { CATEGORY_LABELS } from '@/types/tool';
+
+// 全記事を取得
+const allGuides = (await getCollection('guides')).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+
+// カテゴリ別に分類
+type GuideCategory = 'comparison' | 'howto' | 'guide' | 'review' | 'trend';
+const CATEGORY_LABEL_MAP: Record<GuideCategory, { label: string; emoji: string }> = {
+  comparison: { label: '比較', emoji: '⚖️' },
+  howto: { label: 'How-to', emoji: '🛠️' },
+  guide: { label: 'ガイド', emoji: '📚' },
+  review: { label: 'レビュー', emoji: '⭐' },
+  trend: { label: 'トレンド', emoji: '🔥' },
+};
+
+const guidesByCategory = (Object.keys(CATEGORY_LABEL_MAP) as GuideCategory[]).reduce(
+  (acc, cat) => {
+    acc[cat] = allGuides.filter((g) => g.data.category === cat);
+    return acc;
+  },
+  {} as Record<GuideCategory, typeof allGuides>,
+);
+
+const allTools = getRankedTools();
+const totalArticles = allGuides.length;
+const totalTools = allTools.length;
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+
+<BaseLayout
+  title="サイトマップ｜AIpedia 全記事・全ツール一覧"
+  description={`AIpedia の全記事${totalArticles}本と全ツール${totalTools}本を一覧で。比較・How-to・ガイド・レビュー・トレンドのカテゴリ別、対話AI/画像生成/動画生成/コーディング/AI検索など分野別に整理。読みたい記事をすぐ見つけられます。`}
+>
+  <article class="mx-auto max-w-5xl px-4 sm:px-6 pt-6 sm:pt-10 pb-16">
+    <Breadcrumbs items={[{ label: 'ホーム', href: '/' }, { label: 'サイトマップ' }]} />
+
+    <HeroVisual variant="guide" gradient="from-blue-500 to-indigo-600" className="mt-4 mb-6" />
+
+    <header class="mt-2 mb-8">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">サイトマップ</h1>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        AIpedia の全記事 <strong class="text-white">{totalArticles}本</strong> と全ツール <strong class="text-white">{totalTools}本</strong> を一覧で確認できます。読みたい記事を最短で見つけてください。
+      </p>
+      <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#8a90a8]">
+        <span>記事カテゴリ <span class="text-white font-bold">5</span></span>
+        <span>ツール分野 <span class="text-white font-bold">{Object.keys(CATEGORY_LABELS).length}</span></span>
+        <span>最終更新 <span class="text-[#c7cbde]">2026.05.02</span></span>
+      </div>
+    </header>
+
+    {/* メインナビゲーション */}
+    <nav class="mb-12 rounded-2xl border border-white/5 bg-[#10121a] p-5">
+      <h2 class="text-base font-bold mb-3">📌 主要ページ</h2>
+      <ul class="grid gap-2 sm:grid-cols-2 text-sm">
+        <li><a href="/" class="text-[#c7cbde] hover:text-white">🏠 ホーム（AIランキング）</a></li>
+        <li><a href="/guides" class="text-[#c7cbde] hover:text-white">📚 徹底特集・ガイド一覧</a></li>
+        <li><a href="/category" class="text-[#c7cbde] hover:text-white">📂 カテゴリ一覧</a></li>
+        <li><a href="/glossary" class="text-[#c7cbde] hover:text-white">📖 AI用語集</a></li>
+        <li><a href="/compare" class="text-[#c7cbde] hover:text-white">⚔️ ツール比較</a></li>
+        <li><a href="/search" class="text-[#c7cbde] hover:text-white">🔍 サイト内検索</a></li>
+        <li><a href="/about" class="text-[#c7cbde] hover:text-white">✍️ 運営方針・編集長プロフィール</a></li>
+        <li><a href="/contact" class="text-[#c7cbde] hover:text-white">✉️ お問い合わせ</a></li>
+        <li><a href="/privacy" class="text-[#c7cbde] hover:text-white">🔒 プライバシーポリシー</a></li>
+        <li><a href="/disclosure" class="text-[#c7cbde] hover:text-white">📋 アフィリエイト開示</a></li>
+        <li><a href="/rss.xml" class="text-[#c7cbde] hover:text-white">📡 RSS フィード</a></li>
+        <li><a href="/sitemap-index.xml" class="text-[#c7cbde] hover:text-white">🗺️ XML サイトマップ（検索エンジン用）</a></li>
+      </ul>
+    </nav>
+
+    {/* 記事カテゴリ別 */}
+    <section class="mb-12">
+      <h2 class="text-2xl font-extrabold tracking-tight mb-6">📚 記事一覧（カテゴリ別 全{totalArticles}本）</h2>
+
+      {(Object.keys(CATEGORY_LABEL_MAP) as GuideCategory[]).map((cat) => {
+        const guides = guidesByCategory[cat];
+        if (guides.length === 0) return null;
+        const meta = CATEGORY_LABEL_MAP[cat];
+        return (
+          <section class="mb-8 scroll-mt-20" id={`cat-${cat}`}>
+            <h3 class="text-lg font-bold tracking-tight flex items-center gap-2 mb-3">
+              <span>{meta.emoji}</span>
+              <span>{meta.label}（{guides.length}本）</span>
+            </h3>
+            <ul class="grid gap-2 sm:grid-cols-2 text-sm">
+              {guides.map((g) => (
+                <li class="rounded-lg border border-white/5 bg-white/[0.02] p-3 hover:bg-white/[0.04] transition">
+                  <a href={`/guides/${g.id}`} class="block">
+                    <div class="font-semibold text-[#c7cbde] line-clamp-2">{g.data.title}</div>
+                    <div class="mt-1 text-[11px] text-[#8a90a8] flex items-center gap-2">
+                      <span>{fmt(g.data.publishedAt)}</span>
+                      {g.data.updatedAt && <span>更新 {fmt(g.data.updatedAt)}</span>}
+                      <span>·</span>
+                      <span>{g.data.readTimeMin}分</span>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
+    </section>
+
+    {/* ツール分野別 */}
+    <section class="mb-12">
+      <h2 class="text-2xl font-extrabold tracking-tight mb-6">🛠️ AIツール一覧（分野別 全{totalTools}本）</h2>
+
+      {Object.keys(CATEGORY_LABELS).map((catKey) => {
+        const tools = allTools.filter((t) => t.category === catKey);
+        if (tools.length === 0) return null;
+        const cat = CATEGORY_LABELS[catKey as keyof typeof CATEGORY_LABELS];
+        return (
+          <section class="mb-8 scroll-mt-20" id={`tool-${catKey}`}>
+            <h3 class="text-lg font-bold tracking-tight flex items-center gap-2 mb-3">
+              <span>{cat.emoji}</span>
+              <span>{cat.ja}（{tools.length}本）</span>
+            </h3>
+            <ul class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+              {tools.map((tool) => (
+                <li class="rounded-lg border border-white/5 bg-white/[0.02] p-3 hover:bg-white/[0.04] transition">
+                  <a href={`/tools/${tool.slug}`} class="block">
+                    <div class="flex items-center gap-2">
+                      <span class="text-lg">{tool.logoEmoji}</span>
+                      <span class="font-semibold text-[#c7cbde]">{tool.name}</span>
+                    </div>
+                    <div class="mt-1 text-[11px] text-[#8a90a8] line-clamp-1">{tool.tagline}</div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
+    </section>
+
+    {/* 注釈 */}
+    <section class="mt-12 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-5">
+      <h2 class="text-base font-bold">💡 このサイトマップについて</h2>
+      <p class="mt-2 text-sm text-[#c7cbde]">
+        このページは人間の読者向けの全記事一覧です。検索エンジン用の XML サイトマップは <a href="/sitemap-index.xml" class="underline">/sitemap-index.xml</a> から確認できます。記事追加・更新は自動的に反映されます。
+      </p>
+    </section>
+  </article>
+</BaseLayout>

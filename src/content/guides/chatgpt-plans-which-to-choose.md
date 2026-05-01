@@ -156,3 +156,4 @@ ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）
 - 動画生成 → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives)
 - 動画無料化 → [Veo 3.1 完全無料化ガイド](/guides/veo-3-1-free-guide)
 - 競合 → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained)
+- コスト最適化 → [AI 利用コスト最適化ガイド](/guides/ai-cost-optimization)

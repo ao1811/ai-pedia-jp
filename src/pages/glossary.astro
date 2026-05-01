@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import HeroVisual from '@/components/HeroVisual.astro';
 
 type Term = { term: string; reading?: string; en?: string; def: string; related?: string[] };
 type Section = { id: string; title: string; emoji: string; terms: Term[] };
@@ -146,7 +147,9 @@ const glossarySchema = {
   <article class="mx-auto max-w-4xl px-4 sm:px-6 pt-6 sm:pt-10">
     <Breadcrumbs items={[{ label: 'ホーム', href: '/' }, { label: 'AI 用語集' }]} />
 
-    <header class="mt-4">
+    <HeroVisual variant="guide" gradient="from-violet-500 to-fuchsia-500" className="mt-4" />
+
+    <header class="mt-6">
       <h1 class="text-balance text-3xl sm:text-4xl font-extrabold tracking-tight">AI 用語集</h1>
       <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde] text-balance">
         AI・生成AI に関する主要用語を分野別にまとめました。基礎用語から、エージェント、主要サービス、コーディング AI、日本のエコシステム、最新の専門用語まで、全 {totalTerms} 語を継続的にアップデートしています。
