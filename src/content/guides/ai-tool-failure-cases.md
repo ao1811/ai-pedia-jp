@@ -9,7 +9,7 @@ heroGradient: "from-rose-500 via-red-500 to-orange-500"
 featured: false
 relatedTools: ["chatgpt", "claude", "notion-ai"]
 readTimeMin: 8
-tags: ["失敗例", "導入", "注意", "トラブル"]
+tags: ["失敗事例", "導入", "注意", "トラブル"]
 amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
 tldr: "AIツールの失敗は『過信』と『無知』から生まれます。複数契約の無駄課金、機密情報の漏洩、AI生成記事の量産ペナルティ、などは事前知識で回避可能。最初は1本から、機密はローカルAIで、AI出力は必ず人間がレビューする、を徹底しましょう。"
 faq:
