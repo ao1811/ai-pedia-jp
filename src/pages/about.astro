@@ -45,11 +45,13 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   '@id': `${SITE.url}/#editor`,
-  name: '直輝（Naoki）',
+  name: 'Ao',
+  alternateName: ['AIpedia 編集長 Ao', 'Ao（あお）'],
+  url: `${SITE.url}/author/ao`,
   jobTitle: '編集長',
   worksFor: { '@id': `${SITE.url}/#editorial` },
-  description: 'AIpedia 編集長。AIツール領域を中心に、ビジネス向けの実用的な比較・解説記事を執筆。',
-  knowsAbout: ['AIツール', '生成AI', 'ChatGPT', 'Claude', 'Gemini'],
+  description: 'AIpedia 編集長。AIツール・生成AI 領域を中心に、ビジネスパーソン向けの実用的な比較・解説記事を執筆。中立性と分かりやすさを重視。',
+  knowsAbout: ['AIツール', '生成AI', 'ChatGPT', 'Claude', 'Gemini', 'AIライティング', 'AI画像生成', 'AIコーディング', 'AI議事録'],
 };
 ---
 
@@ -73,17 +75,20 @@ const personSchema = {
       <h2 class="text-lg font-bold">✍️ 編集長プロフィール</h2>
 
       <div class="mt-4 flex items-start gap-4">
-        <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-2xl font-bold text-white">
-          直
+        <div class="flex-shrink-0 h-16 w-16 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-3xl font-bold text-white" aria-hidden="true">
+          Ao
         </div>
         <div class="flex-1">
-          <p class="text-base font-bold text-white">直輝（Naoki）</p>
+          <p class="text-base font-bold text-white">Ao <span class="text-xs font-normal text-[#8a90a8]">（あお）</span></p>
           <p class="mt-1 text-xs text-violet-300">AIpedia 編集長 ／ 個人運営</p>
           <p class="mt-2 text-sm leading-relaxed text-[#c7cbde]">
             ビジネスパーソン向けに AIツールの比較・解説記事を執筆。日々の業務で ChatGPT・Claude・Gemini を併用しており、その実用感をもとに、過度な煽りなく中立的な情報提供を心がけています。
           </p>
           <p class="mt-2 text-xs text-[#8a90a8]">
             主な使用ツール：ChatGPT Plus / Claude Pro / Gemini（無料枠）
+          </p>
+          <p class="mt-3">
+            <a href="/author/ao" class="text-xs text-violet-300 hover:text-violet-200 underline">→ 詳しいプロフィールを見る</a>
           </p>
         </div>
       </div>
@@ -122,7 +127,7 @@ const personSchema = {
         <dt class="text-[#8a90a8]">運営開始</dt>
         <dd class="text-[#c7cbde]">2026年4月20日</dd>
         <dt class="text-[#8a90a8]">運営形態</dt>
-        <dd class="text-[#c7cbde]">個人運営（編集長：直輝／Naoki）</dd>
+        <dd class="text-[#c7cbde]">個人運営（編集長：<a href="/author/ao" class="underline">Ao</a>）</dd>
         <dt class="text-[#8a90a8]">連絡手段</dt>
         <dd class="text-[#c7cbde]"><a href="/contact" class="underline">お問い合わせフォーム</a>（通常2営業日以内に返信）</dd>
         <dt class="text-[#8a90a8]">所在地</dt>

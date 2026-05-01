@@ -15,6 +15,7 @@ import TldrBlock from '@/components/TldrBlock.astro';
 import FaqSection from '@/components/FaqSection.astro';
 import ReadingProgress from '@/components/ReadingProgress.astro';
 import ShareButtons from '@/components/ShareButtons.astro';
+import AuthorBio from '@/components/AuthorBio.astro';
 import { getToolBySlug } from '@/data/tools';
 import { getAffiliateUrl } from '@/data/affiliate';
 import { getProduct } from '@/data/amazon';
@@ -83,13 +84,21 @@ const articleLd: Record<string, unknown> = {
   dateModified: modifiedIso,
   inLanguage: 'ja-JP',
   mainEntityOfPage: { '@type': 'WebPage', '@id': guideUrl },
-  author: {
-    '@type': 'Organization',
-    // author は About ページで公開している編集部名に統一
-    // （frontmatter で個別設定があればそちらを優先）
-    name: guide.data.author === '編集部' ? 'AIpedia 編集部' : guide.data.author,
-    url: `${SITE.url}/about`,
-  },
+  // author はデフォルトで編集長 Ao（個人運営の独立メディア）
+  // frontmatter で個別設定があればそちらを優先
+  author:
+    guide.data.author === '編集部'
+      ? {
+          '@type': 'Person',
+          '@id': `${SITE.url}/#editor`,
+          name: 'Ao',
+          url: `${SITE.url}/author/ao`,
+        }
+      : {
+          '@type': 'Person',
+          name: guide.data.author,
+          url: `${SITE.url}/author/ao`,
+        },
   publisher: { '@id': `${SITE.url}/#organization` },
   keywords: (guide.data.tags ?? []).join(', '),
   articleSection: guide.data.category,
@@ -175,7 +184,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
         <div class="mt-4 flex items-center gap-3 text-xs text-[#c7cbde]">
           <span>公開 {fmt(guide.data.publishedAt)}</span>
           {guide.data.updatedAt && <span>· 更新 {fmt(guide.data.updatedAt)}</span>}
-          <span>· by {guide.data.author}</span>
+          <span>· by <a href="/author/ao" class="underline hover:text-white">{guide.data.author === '編集部' ? 'Ao' : guide.data.author}</a></span>
         </div>
       </div>
     </header>
@@ -271,6 +280,9 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
     />
 
     <PopularGuides currentSlug={guide.id} limit={5} />
+
+    {/* 著者プロフィール（E-E-A-T 強化） */}
+    <AuthorBio />
 
     <div class="mt-10 mb-4 flex items-center justify-between text-sm">
       <a href="/guides" class="text-[#c7cbde] hover:text-white">← ガイド一覧</a>
