@@ -150,7 +150,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
   articleMeta={{
     publishedTime: publishedIso,
     modifiedTime: modifiedIso,
-    author: guide.data.author,
+    author: guide.data.author === '編集部' ? 'Ao' : guide.data.author,
     section: CATEGORY_JA[guide.data.category] ?? guide.data.category,
     tags: guide.data.tags,
   }}
@@ -181,10 +181,10 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
           {guide.data.title}
         </h1>
         <p class="mt-4 text-sm sm:text-base text-[#e6e8ef] text-balance">{guide.data.description}</p>
-        <div class="mt-4 flex items-center gap-3 text-xs text-[#c7cbde]">
+        <div class="mt-4 flex items-center gap-3 text-xs text-[#c7cbde] flex-wrap">
           <span>公開 {fmt(guide.data.publishedAt)}</span>
           {guide.data.updatedAt && <span>· 更新 {fmt(guide.data.updatedAt)}</span>}
-          <span>· by <a href="/author/ao" class="underline hover:text-white">{guide.data.author === '編集部' ? 'Ao' : guide.data.author}</a></span>
+          <span>· AIpedia 編集部（執筆：<a href="/author/ao" class="underline hover:text-white">{guide.data.author === '編集部' ? 'Ao' : guide.data.author}</a>）</span>
         </div>
       </div>
     </header>
