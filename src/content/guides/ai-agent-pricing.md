@@ -39,7 +39,7 @@ faq:
 - **スタートアップ・自律実装** → **Devin（$500/月）**
 - **無料で試したい** → **Coze・Dify Cloud Free**
 
-ツールの機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026)で解説しています。
+ツールの機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026/)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026/)で解説しています。
 
 ## 8ツール料金プラン早見表
 
@@ -55,7 +55,7 @@ faq:
 
 ## ChatGPT Agent Mode（Plus / Pro / Team）
 
-詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)、[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)を参照。
+詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)、[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)を参照。
 
 ### 強み
 
@@ -132,7 +132,7 @@ Claude が **ローカル PC を直接操作** できる機能：
 
 ## Devin：自律的コーディング
 
-詳細は[コーディングAI料金完全比較](/guides/coding-ai-pricing)を参照。月$500（約¥75,000）で**個人には高額すぎる**が、スタートアップでエンジニア不足を補う用途で使われます。
+詳細は[コーディングAI料金完全比較](/guides/coding-ai-pricing/)を参照。月$500（約¥75,000）で**個人には高額すぎる**が、スタートアップでエンジニア不足を補う用途で使われます。
 
 ## ROI試算ケーススタディ
 
@@ -186,4 +186,4 @@ END
 - **エンジニアリング → Devin（要予算）**
 - **無料で試す → Coze / Dify Cloud Free**
 
-詳しい機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026)、ChatGPT Agent 詳細は[ChatGPT エージェントモードとは？](/guides/chatgpt-agent-mode-20)、**選び方フロー**は[AIエージェントの選び方完全フロー](/guides/ai-agent-selection-guide)を参照してください。
+詳しい機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026/)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026/)、ChatGPT Agent 詳細は[ChatGPT エージェントモードとは？](/guides/chatgpt-agent-mode-20/)、**選び方フロー**は[AIエージェントの選び方完全フロー](/guides/ai-agent-selection-guide/)を参照してください。

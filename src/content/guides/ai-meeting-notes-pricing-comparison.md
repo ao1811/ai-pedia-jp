@@ -37,7 +37,7 @@ faq:
 - **法人セキュリティ要件あり** → **さくらAI議事録 or JAPAN AI SPEECH**
 - **海外チームと多用** → **tl;dv（$18/月〜）**
 
-5ツール全体像は[AI議事録ツール徹底比較5選（2026年4月版）](/guides/ai-meeting-notes-2026-spring)、導入の始め方は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide)で解説しています。
+5ツール全体像は[AI議事録ツール徹底比較5選（2026年4月版）](/guides/ai-meeting-notes-2026-spring/)、導入の始め方は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide/)で解説しています。
 
 ## 5ツール料金プラン早見表（2026年4月時点）
 
@@ -76,7 +76,7 @@ faq:
 
 - **対面会議や現場での音声収録**にはマイクアプリ起動が必要 → PLAUD などのハードと組合せが現実解
 - **大規模チーム導入**は SAML/SSO が Business プラン以上限定
-- 詳しくは[Nottaを軸にした再評価と乗り換え判断](/guides/transcription-reselect-2026)を参照
+- 詳しくは[Nottaを軸にした再評価と乗り換え判断](/guides/transcription-reselect-2026/)を参照
 
 ## PLAUD：買い切り型ハードウェアの強み
 
@@ -104,7 +104,7 @@ PLAUD H1 +クラウドPro を3年使う場合：
 
 Notta Premium の同期間：¥1,317 × 36 = **¥47,412**
 
-→ 月額換算では Notta の方が安いが、**PLAUD は対面会議・現場録音に強い**。詳細は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026)で解説。
+→ 月額換算では Notta の方が安いが、**PLAUD は対面会議・現場録音に強い**。詳細は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026/)で解説。
 
 ### PLAUD が向く人
 
@@ -132,7 +132,7 @@ Notta Premium の同期間：¥1,317 × 36 = **¥47,412**
 
 ### 個人利用には高い
 
-月¥4,900 は個人勢にとって割高ですが、法人で「セキュリティ要件 > 価格」の組織なら最有力候補です。詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)で解説しています。
+月¥4,900 は個人勢にとって割高ですが、法人で「セキュリティ要件 > 価格」の組織なら最有力候補です。詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)で解説しています。
 
 ## JAPAN AI SPEECH：国産の中位プレイヤー
 
@@ -250,7 +250,7 @@ END
 - [ ] **契約プランの利用率**：Free / Pro / Premium の利用枠を実際使い切っているか
 - [ ] **時間削減の実感**：議事録作成時間が体感半分以下になっているか
 - [ ] **チーム展開**：個人で使ってチームメンバーも欲しがっているか
-- [ ] **競合の進化**：年に1度は[Nottaを軸にした再評価](/guides/transcription-reselect-2026)的に見直し
+- [ ] **競合の進化**：年に1度は[Nottaを軸にした再評価](/guides/transcription-reselect-2026/)的に見直し
 
 3つ以上「Yes」なら現状維持、それ以下なら乗り換え検討の合図です。
 
@@ -262,4 +262,4 @@ END
 - **グローバルチーム → tl;dv**
 - **無料で試したい → Notta Free（月120分）**
 
-各ツールの詳細解説は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide)、文字起こしフォーカスなら[AI文字起こしツール徹底比較](/guides/ai-transcription-comparison)、ハードウェア型は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026)、**セキュリティ詳細**は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)、**導入失敗を避けたい**なら[AI議事録ツール導入の失敗事例と回避策](/guides/ai-meeting-notes-failure-cases)を参照してください。
+各ツールの詳細解説は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide/)、文字起こしフォーカスなら[AI文字起こしツール徹底比較](/guides/ai-transcription-comparison/)、ハードウェア型は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026/)、**セキュリティ詳細**は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)、**導入失敗を避けたい**なら[AI議事録ツール導入の失敗事例と回避策](/guides/ai-meeting-notes-failure-cases/)を参照してください。

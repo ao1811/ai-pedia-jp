@@ -41,7 +41,7 @@ Apple Intelligence + Shortcuts：¥0（無料）
 
 Apple のエコシステム内なら、外部 SaaS なしで業務自動化が完結します。
 
-[Apple Intelligence とは？](/guides/apple-intelligence-overview)、[使い方完全ガイド](/guides/apple-intelligence-how-to-use)、[隠し機能30選](/guides/apple-intelligence-hidden-tips-30)、[ChatGPT との比較](/guides/apple-intelligence-vs-chatgpt)も併せてどうぞ。
+[Apple Intelligence とは？](/guides/apple-intelligence-overview/)、[使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、[隠し機能30選](/guides/apple-intelligence-hidden-tips-30/)、[ChatGPT との比較](/guides/apple-intelligence-vs-chatgpt/)も併せてどうぞ。
 
 ---
 
@@ -468,9 +468,9 @@ Mac：標準搭載（macOS Monterey 以降）
 
 ## 次に読むべき記事
 
-- 隠し機能の総まとめ → [Apple Intelligence 隠し機能・裏技30選](/guides/apple-intelligence-hidden-tips-30)
-- 全体像 → [Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)
-- 30分で覚える → [使い方完全ガイド](/guides/apple-intelligence-how-to-use)
-- ChatGPT との比較 → [Apple Intelligence vs ChatGPT](/guides/apple-intelligence-vs-chatgpt)
-- どの端末で使える？ → [対応端末完全リスト](/guides/apple-intelligence-compatible-devices)
-- Gemini for Home でスマートホーム自動化 → [Gemini for Home 音声コマンド100選](/guides/gemini-for-home-voice-commands-100)
+- 隠し機能の総まとめ → [Apple Intelligence 隠し機能・裏技30選](/guides/apple-intelligence-hidden-tips-30/)
+- 全体像 → [Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)
+- 30分で覚える → [使い方完全ガイド](/guides/apple-intelligence-how-to-use/)
+- ChatGPT との比較 → [Apple Intelligence vs ChatGPT](/guides/apple-intelligence-vs-chatgpt/)
+- どの端末で使える？ → [対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)
+- Gemini for Home でスマートホーム自動化 → [Gemini for Home 音声コマンド100選](/guides/gemini-for-home-voice-commands-100/)

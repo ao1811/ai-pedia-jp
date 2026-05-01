@@ -42,7 +42,7 @@ faq:
 
 この規模で生成 AI を組織導入するのは **世界的にも異例**で、成功すれば各国政府のモデルケースになります。
 
-[Sakana AI 完全解説](/guides/sakana-ai-japan-deep-dive)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)、[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04)、[ChatGPT エージェントモード活用](/guides/chatgpt-agent-mode-tutorial)も併せてどうぞ。
+[Sakana AI 完全解説](/guides/sakana-ai-japan-deep-dive/)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)、[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04/)、[ChatGPT エージェントモード活用](/guides/chatgpt-agent-mode-tutorial/)も併せてどうぞ。
 
 ## 「源内」プロジェクトの全貌
 
@@ -322,9 +322,9 @@ faq:
 
 ## 関連記事
 
-- 国産 AI 企業 → [Sakana AI 完全解説](/guides/sakana-ai-japan-deep-dive)
-- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- 比較で選ぶ → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)
-- 業務効率化 → [ChatGPT エージェントモード使い方20選](/guides/chatgpt-agent-mode-20)
-- 会議効率化 → [Plaud と Claude Code 連携](/guides/plaud-claude-code-integration)
-- AI 全体観 → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained)
+- 国産 AI 企業 → [Sakana AI 完全解説](/guides/sakana-ai-japan-deep-dive/)
+- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- 比較で選ぶ → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)
+- 業務効率化 → [ChatGPT エージェントモード使い方20選](/guides/chatgpt-agent-mode-20/)
+- 会議効率化 → [Plaud と Claude Code 連携](/guides/plaud-claude-code-integration/)
+- AI 全体観 → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained/)

@@ -38,7 +38,7 @@ faq:
 
 これら4つをクリアしているのは、**Notta Business 以上、さくらAI議事録、JAPAN AI SPEECH** の3択です。
 
-導入の全体像は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide)、料金とのバランスは[AI議事録ツールの料金完全比較](/guides/ai-meeting-notes-pricing-comparison)で解説しています。
+導入の全体像は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide/)、料金とのバランスは[AI議事録ツールの料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)で解説しています。
 
 ## AI議事録 セキュリティ：5ツール要件比較表
 
@@ -303,4 +303,4 @@ Business プラン以上を契約する際、ベンダーから **DPA（Data Pro
 - **契約前チェックリスト18項目** を必ず確認
 - **インシデント対応フロー** を事前に整備
 
-ツール5社の機能比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、料金詳細は[料金完全比較](/guides/ai-meeting-notes-pricing-comparison)、**実際の導入失敗事例**は[AI議事録ツール導入の失敗事例と回避策](/guides/ai-meeting-notes-failure-cases)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide)、ハードウェアの選定は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026)を参照してください。
+ツール5社の機能比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)、料金詳細は[料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)、**実際の導入失敗事例**は[AI議事録ツール導入の失敗事例と回避策](/guides/ai-meeting-notes-failure-cases/)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide/)、ハードウェアの選定は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026/)を参照してください。

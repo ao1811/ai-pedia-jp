@@ -41,7 +41,7 @@ Pro（¥30,000）：全機能・Sora（終了）・Deep Research 無制限
 
 **コーディング業務がメインの人は、Codex 一択**になりました。Pro より44%安く、Plus より圧倒的に高機能です。
 
-[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)、[ChatGPTのプラン選び方](/guides/chatgpt-plans-which-to-choose)、[Claude Code 実践ガイド](/guides/claude-code-practical-guide)、[Cursor Composer エージェント](/guides/cursor-composer-agent)も併せてどうぞ。
+[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04/)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)、[ChatGPTのプラン選び方](/guides/chatgpt-plans-which-to-choose/)、[Claude Code 実践ガイド](/guides/claude-code-practical-guide/)、[Cursor Composer エージェント](/guides/cursor-composer-agent/)も併せてどうぞ。
 
 ## ChatGPT Codex プランの概要
 
@@ -206,7 +206,7 @@ GPT-5.5：80%前後（推定）
    = 月¥16,800 で ChatGPT エコシステム派
 ```
 
-詳しくは[Claude Code 実践ガイド](/guides/claude-code-practical-guide)、[Claude Code とプロンプト50選](/guides/claude-code-prompts-for-non-engineers)で解説。
+詳しくは[Claude Code 実践ガイド](/guides/claude-code-practical-guide/)、[Claude Code とプロンプト50選](/guides/claude-code-prompts-for-non-engineers/)で解説。
 
 ## Codex vs Cursor：エディタ派の比較
 
@@ -227,7 +227,7 @@ GPT-5.5：80%前後（推定）
 ✅ モデル自由切替が欲しい → Cursor
 ```
 
-詳しくは[Cursor Composer エージェント実践ガイド](/guides/cursor-composer-agent)で解説。
+詳しくは[Cursor Composer エージェント実践ガイド](/guides/cursor-composer-agent/)で解説。
 
 ## コスパ計算：時給換算で考える
 
@@ -330,10 +330,10 @@ ChatGPT Plus でコーディングに限界を感じている方は、**1ヶ月�
 
 ## 関連記事
 
-- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- 全プラン比較 → [ChatGPTのプラン選び方完全ガイド](/guides/chatgpt-plans-which-to-choose)
-- 競合 → [Claude Code 実践ガイド](/guides/claude-code-practical-guide)
-- エディタ派 → [Cursor Composer エージェント](/guides/cursor-composer-agent)
-- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)
-- Sora 代替 → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives)
-- 開発価格比較 → [コーディングAI料金比較](/guides/coding-ai-pricing)
+- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- 全プラン比較 → [ChatGPTのプラン選び方完全ガイド](/guides/chatgpt-plans-which-to-choose/)
+- 競合 → [Claude Code 実践ガイド](/guides/claude-code-practical-guide/)
+- エディタ派 → [Cursor Composer エージェント](/guides/cursor-composer-agent/)
+- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)
+- Sora 代替 → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives/)
+- 開発価格比較 → [コーディングAI料金比較](/guides/coding-ai-pricing/)

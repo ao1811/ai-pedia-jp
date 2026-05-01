@@ -35,7 +35,7 @@ Apple Intelligence は **iPhone 15 Pro 以降・M1 以降の Mac/iPad で無料*
 
 本記事のテクニックを身につければ、**ChatGPT Plus（¥3,000/月）に課金しなくても**、9割の業務がこなせます。
 
-[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)、[使い方完全ガイド](/guides/apple-intelligence-how-to-use)、[ChatGPT との比較](/guides/apple-intelligence-vs-chatgpt)、[対応端末リスト](/guides/apple-intelligence-compatible-devices)も併せてどうぞ。
+[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)、[使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、[ChatGPT との比較](/guides/apple-intelligence-vs-chatgpt/)、[対応端末リスト](/guides/apple-intelligence-compatible-devices/)も併せてどうぞ。
 
 ---
 
@@ -445,7 +445,7 @@ Apple Intelligence の真価は **Shortcuts 連携**で開放されます。
 例4：Safari で開いている記事を要約 → リマインダーに追加
 ```
 
-詳しくは続編記事「[Apple Intelligence × Shortcuts 自動化レシピ集](/guides/apple-intelligence-shortcuts-automation)」で解説します。
+詳しくは続編記事「[Apple Intelligence × Shortcuts 自動化レシピ集](/guides/apple-intelligence-shortcuts-automation/)」で解説します。
 
 ---
 
@@ -465,8 +465,8 @@ Apple Intelligence の真価は **Shortcuts 連携**で開放されます。
 
 ## 次に読むべき記事
 
-- 自動化の極み → [Apple Intelligence × Shortcuts 自動化レシピ集](/guides/apple-intelligence-shortcuts-automation)
-- 全体像 → [Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)
-- 30分で覚える → [使い方完全ガイド](/guides/apple-intelligence-how-to-use)
-- ChatGPT との比較 → [Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)
-- どの端末で使える？ → [対応端末完全リスト](/guides/apple-intelligence-compatible-devices)
+- 自動化の極み → [Apple Intelligence × Shortcuts 自動化レシピ集](/guides/apple-intelligence-shortcuts-automation/)
+- 全体像 → [Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)
+- 30分で覚える → [使い方完全ガイド](/guides/apple-intelligence-how-to-use/)
+- ChatGPT との比較 → [Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)
+- どの端末で使える？ → [対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)

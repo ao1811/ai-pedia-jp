@@ -39,7 +39,7 @@ faq:
 
 これら3軸をクリアできれば、AI 画像生成の商用利用は問題なく可能です。
 
-各ツールの料金詳細は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing)、ツール選定は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5)で解説しています。
+各ツールの料金詳細は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing/)、ツール選定は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5/)で解説しています。
 
 ## 6ツールの商用利用ライセンス早見表
 
@@ -281,4 +281,4 @@ AI 生成画像の権利侵害が後日発覚した場合の責任は、
 - **クライアント案件は契約書で明確化**
 - **法人導入は3 Phase の法務確認フロー**
 
-各ツールの料金は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing)、機能比較は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5)、Midjourney 詳細は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide)、**導入失敗を避けたい**なら[AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases)を参照してください。
+各ツールの料金は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing/)、機能比較は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5/)、Midjourney 詳細は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide/)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide/)、**導入失敗を避けたい**なら[AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases/)を参照してください。

@@ -37,7 +37,7 @@ faq:
 
 これら5つを避けるために、**「ルール先・運用後」**のフローが必須です。
 
-ツールの料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026)で解説しています。
+ツールの料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing/)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026/)で解説しています。
 
 ## 失敗事例1：契約書の誤訳で訴訟リスク
 
@@ -321,4 +321,4 @@ faq:
 - **重要文書は専門家の最終確認**必須
 - **継続的なルール見直し**（半期に1度）を習慣化
 
-ツール料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026)、**業務での実践活用**は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use)を参照してください。
+ツール料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing/)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026/)、**業務での実践活用**は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use/)を参照してください。

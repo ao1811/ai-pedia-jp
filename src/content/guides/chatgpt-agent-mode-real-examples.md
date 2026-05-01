@@ -42,7 +42,7 @@ faq:
 9. PR：自社報道履歴の収集
 10. 経営：競合M&A情報の追跡
 
-ChatGPT Plus（¥3,000/月）でこの10事例のうち1つでも週1回回せれば、月額の元は十分取れます。料金プランの選び方は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)、起動・操作の基本は[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)で解説しています。
+ChatGPT Plus（¥3,000/月）でこの10事例のうち1つでも週1回回せれば、月額の元は十分取れます。料金プランの選び方は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)、起動・操作の基本は[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)で解説しています。
 
 ## 事例1：営業｜見込み顧客の事前リサーチ（30分→5分）
 
@@ -471,6 +471,6 @@ ai-pedia 編集部では、上記10事例のうちいくつかを曜日固定で
 - **自分の業務に1つでも当てはまれば**、ChatGPT Plus の月¥3,000は確実に元が取れる
 - **プロンプト設計の3つの鉄則**を守ると精度が2〜3倍に
 
-ChatGPT エージェントモードに初めて触れる方は[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)、料金プランの選び方は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)を先に読むと、本記事のプロンプトをすぐに実行できます。
+ChatGPT エージェントモードに初めて触れる方は[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)、料金プランの選び方は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)を先に読むと、本記事のプロンプトをすぐに実行できます。
 
-他のAIエージェント（Claude Code / Manus / Devin）との違いを知りたい方は[エージェント横並び比較](/guides/chatgpt-agent-vs-other-agents)、業務効率化全般のAI活用は[AIで始める副業ガイド](/guides/ai-side-business-guide)が参考になります。
+他のAIエージェント（Claude Code / Manus / Devin）との違いを知りたい方は[エージェント横並び比較](/guides/chatgpt-agent-vs-other-agents/)、業務効率化全般のAI活用は[AIで始める副業ガイド](/guides/ai-side-business-guide/)が参考になります。

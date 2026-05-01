@@ -16,22 +16,22 @@ faq:
   - q: "Free と Plus の実用的な差は？"
     a: "Plus は GPT-5.5（最新最高性能モデル、4/23リリース）が使える、画像生成枠、Deep Research回数、優先応答速度の差。Free は GPT-5 軽量版のみで最新モデル不可。1日3回以上使う人は Plus にすると生産性が跳ね上がります。"
   - q: "新設の Codex プラン（¥16,800）とは？"
-    a: "2026年4月9日に OpenAI が新設したエンジニア向けコーディング特化プラン。GPT-5.5 ほぼ無制限、Codex CLI / IDE 拡張 / Computer Use（Codex Cloud）が利用可。Pro より44%安く、Plus より高機能。詳しくは[Codex プラン完全解説](/guides/chatgpt-codex-plan-16800)を参照。"
+    a: "2026年4月9日に OpenAI が新設したエンジニア向けコーディング特化プラン。GPT-5.5 ほぼ無制限、Codex CLI / IDE 拡張 / Computer Use（Codex Cloud）が利用可。Pro より44%安く、Plus より高機能。詳しくは[Codex プラン完全解説](/guides/chatgpt-codex-plan-16800/)を参照。"
   - q: "Pro プランは誰向け？"
-    a: "従来は Sora（動画生成）ヘビー利用者向けだったが、2026年4月26日に Sora 終了で価値が大幅低下。現在は Deep Research 無制限・API開発で月$100超使う人のみ。コーディング目的なら Codex（¥16,800）に移行すべき。動画生成は[Veo 3.1 無料化](/guides/veo-3-1-free-guide)で代替可能。"
+    a: "従来は Sora（動画生成）ヘビー利用者向けだったが、2026年4月26日に Sora 終了で価値が大幅低下。現在は Deep Research 無制限・API開発で月$100超使う人のみ。コーディング目的なら Codex（¥16,800）に移行すべき。動画生成は[Veo 3.1 無料化](/guides/veo-3-1-free-guide/)で代替可能。"
   - q: "年額払いはお得？"
     a: "Plus の年額払いは2ヶ月分お得ですが、解約時の返金はなし。まず月額で3ヶ月使ってから年額に切り替えるのが安全です。"
   - q: "Pro 利用者はどうすべき？"
     a: "Sora 終了で Pro の主訴求機能が消失。コーディング業務メインなら Codex（¥16,800）に移行で月¥13,200節約、Sora 動画は Veo 3.1（無料）で代替。Deep Research 無制限が本当に必要なヘビーユーザーのみ Pro 維持を検討。"
 ---
 
-ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）**・Pro（¥30,000/月）の4プランがあり、**2026年4月の [GPT-5.5 リリース](/guides/gpt-5-5-complete-guide)**と **[Sora 終了（4/26）](/guides/sora-shutdown-alternatives)** で各プランの価値が大きく変わりました。本記事では編集部が全プランを使い分けた結果から、あなたに最適なプランを解説します。
+ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）**・Pro（¥30,000/月）の4プランがあり、**2026年4月の [GPT-5.5 リリース](/guides/gpt-5-5-complete-guide/)**と **[Sora 終了（4/26）](/guides/sora-shutdown-alternatives/)** で各プランの価値が大きく変わりました。本記事では編集部が全プランを使い分けた結果から、あなたに最適なプランを解説します。
 
 ## 結論：用途別に4プランを使い分ける時代
 
 - **一般ユーザー** → **Plus**（¥3,000/月）一択、GPT-5.5 が使える
 - **Freeでもいい人** → 週1〜2回しか使わない、GPT-5 軽量版で十分
-- **エンジニア** → **[Codex](/guides/chatgpt-codex-plan-16800)**（¥16,800/月・新設）が最適解、Pro より安く Plus より高機能
+- **エンジニア** → **[Codex](/guides/chatgpt-codex-plan-16800/)**（¥16,800/月・新設）が最適解、Pro より安く Plus より高機能
 - **Proを検討してた人** → Sora 終了で価値低下、Codex に移行が現実的
 
 ## プラン別機能比較（2026年4月最新）
@@ -95,7 +95,7 @@ ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）
 - Codex Cloud（Computer Use エージェント）
 - 優先応答・低レイテンシ
 
-詳しくは[ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800)を参照。
+詳しくは[ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800/)を参照。
 
 ## 4. Pro プランは誰のためか（Sora 終了で価値低下）
 
@@ -109,7 +109,7 @@ ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）
 
 ### Pro に向かない人
 
-- ~~Sora で動画生成を毎日使う~~ → 4/26 で Sora 終了、[Veo 3.1 無料化](/guides/veo-3-1-free-guide)で代替可能
+- ~~Sora で動画生成を毎日使う~~ → 4/26 で Sora 終了、[Veo 3.1 無料化](/guides/veo-3-1-free-guide/)で代替可能
 - たまにしか使わない → Plus で十分
 - コーディングメイン → Codex（¥16,800）が圧倒的にコスパ良い
 - チーム利用 → Team プラン（¥3,750/月/ユーザー）の方がコスパ良い
@@ -120,10 +120,10 @@ ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）
 → **Plus**。Deep Research と画像生成で十分元が取れる
 
 ### エンジニア
-→ **[Codex](/guides/chatgpt-codex-plan-16800)**（¥16,800）が最適。コーディング無制限。[Claude Pro](/guides/claude-opus-4-7-explained) と併用なら合計¥19,800で AI 開発最強体制
+→ **[Codex](/guides/chatgpt-codex-plan-16800/)**（¥16,800）が最適。コーディング無制限。[Claude Pro](/guides/claude-opus-4-7-explained/) と併用なら合計¥19,800で AI 開発最強体制
 
 ### デザイナー・クリエイター
-→ **Plus**。動画は[Veo 3.1（無料）](/guides/veo-3-1-free-guide)で代替推奨
+→ **Plus**。動画は[Veo 3.1（無料）](/guides/veo-3-1-free-guide/)で代替推奨
 
 ### 学生・初心者
 → **Free**（まず無料枠の実力を知る）→ 必要に応じて Plus
@@ -142,7 +142,7 @@ ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）
 - まず **Free** で試す（2週間）
 - 日常ツールにするなら **Plus**（¥3,000・GPT-5.5 利用可）
 - エンジニア・コーディングメインなら **Codex**（¥16,800・新設）
-- 動画は [Veo 3.1 無料](/guides/veo-3-1-free-guide) で代替、Sora は4月26日終了
+- 動画は [Veo 3.1 無料](/guides/veo-3-1-free-guide/) で代替、Sora は4月26日終了
 - Deep Research 無制限が必須なら **Pro**（¥30,000）
 - 法人は **Team** を優先検討
 
@@ -150,10 +150,10 @@ ChatGPT には Free・Plus（¥3,000/月）・**Codex（¥16,800/月・新設）
 
 ## 関連記事
 
-- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- エンジニア向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800)
-- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)
-- 動画生成 → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives)
-- 動画無料化 → [Veo 3.1 完全無料化ガイド](/guides/veo-3-1-free-guide)
-- 競合 → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained)
-- コスト最適化 → [AI 利用コスト最適化ガイド](/guides/ai-cost-optimization)
+- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- エンジニア向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800/)
+- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)
+- 動画生成 → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives/)
+- 動画無料化 → [Veo 3.1 完全無料化ガイド](/guides/veo-3-1-free-guide/)
+- 競合 → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained/)
+- コスト最適化 → [AI 利用コスト最適化ガイド](/guides/ai-cost-optimization/)

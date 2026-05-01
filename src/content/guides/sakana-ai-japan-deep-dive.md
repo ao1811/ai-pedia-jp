@@ -41,7 +41,7 @@ Sakana AI = 進化的アルゴリズムで効率的に賢い AI を作る日本�
 
 OpenAI・Anthropic が **「巨大化」で勝負する**のに対し、Sakana AI は **「賢く効率的」で勝負する**全く異なるアプローチで、日本の AI 自立を支えています。
 
-[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04)、[政府ガバメントAI「源内」18万人実証](/guides/japan-government-ai-gennai)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)、[AIエージェント全体像](/guides/chatgpt-agent-mode-tutorial)も併せてどうぞ。
+[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04/)、[政府ガバメントAI「源内」18万人実証](/guides/japan-government-ai-gennai/)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)、[AIエージェント全体像](/guides/chatgpt-agent-mode-tutorial/)も併せてどうぞ。
 
 ## Sakana AI とは
 
@@ -382,9 +382,9 @@ OpenAI・Anthropic・Google にばかり目が行きがちですが、**Sakana A
 
 ## 関連記事
 
-- 政府の AI 動向 → [政府ガバメントAI「源内」18万人実証](/guides/japan-government-ai-gennai)
-- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)
-- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- 競合 → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained)
-- AI エージェント → [ChatGPT エージェントモード使い方20選](/guides/chatgpt-agent-mode-20)
-- Apple 派なら → [Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)
+- 政府の AI 動向 → [政府ガバメントAI「源内」18万人実証](/guides/japan-government-ai-gennai/)
+- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)
+- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- 競合 → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained/)
+- AI エージェント → [ChatGPT エージェントモード使い方20選](/guides/chatgpt-agent-mode-20/)
+- Apple 派なら → [Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)

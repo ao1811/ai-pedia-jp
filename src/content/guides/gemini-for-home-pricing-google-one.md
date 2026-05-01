@@ -300,8 +300,8 @@ Google One AI Premium ¥2,900
 
 ## 次に読むべき記事
 
-- 全体像 → [Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)
-- 何が言える？ → [Gemini for Home 音声コマンド100選](/guides/gemini-for-home-voice-commands-100)
-- 機器選び → [Gemini for Home 対応デバイス一覧](/guides/gemini-for-home-compatible-devices)
-- 設定で迷ったら → [Nest Hub Gemini セットアップガイド](/guides/nest-hub-gemini-setup)
-- 競合比較 → [Nest Hub vs Echo Show 5](/guides/nest-hub-vs-echo-show-5)
+- 全体像 → [Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)
+- 何が言える？ → [Gemini for Home 音声コマンド100選](/guides/gemini-for-home-voice-commands-100/)
+- 機器選び → [Gemini for Home 対応デバイス一覧](/guides/gemini-for-home-compatible-devices/)
+- 設定で迷ったら → [Nest Hub Gemini セットアップガイド](/guides/nest-hub-gemini-setup/)
+- 競合比較 → [Nest Hub vs Echo Show 5](/guides/nest-hub-vs-echo-show-5/)

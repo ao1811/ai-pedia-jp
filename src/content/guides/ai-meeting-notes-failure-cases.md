@@ -41,7 +41,7 @@ faq:
 
 これら5つを契約前に文書化しておくと、**10の失敗パターンの大半は防げます**。
 
-ツール選定の全体像は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、料金は[料金完全比較](/guides/ai-meeting-notes-pricing-comparison)、セキュリティ詳細は[セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)で解説しています。
+ツール選定の全体像は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)、料金は[料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)、セキュリティ詳細は[セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)で解説しています。
 
 ## 失敗事例1：録音同意の取り忘れでクライアントから抗議
 
@@ -107,7 +107,7 @@ faq:
 - **SAML/SSO 必須化**：人事システムと自動連携
 - 退職時の**チェックリスト**にツールアクセス削除を明記
 - 月次で**全アカウントの利用状況**をレビュー（90日以上未ログインは停止）
-- 詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)を参照
+- 詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)を参照
 
 ## 失敗事例4：複数ツールが乱立して議事録の所在が不明に
 
@@ -219,7 +219,7 @@ faq:
 - 全社ツールの**デフォルト共有設定を「非公開」**に変更
 - 機密話題が出る前に**録音停止する運用ルール**を作る
 - 人事・財務・M&A は**録音しない会議**として明文化
-- 詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)を参照
+- 詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)を参照
 
 ## 失敗事例9：海外サービスのデータ保管地を確認せず契約
 
@@ -373,4 +373,4 @@ faq:
 - **「ツール先・ルール後」ではなく「ルール先・ツール後」**が王道
 - **継続的なルール見直し**（半期に1度）を習慣化
 
-ツール5社の機能比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、料金詳細は[料金完全比較](/guides/ai-meeting-notes-pricing-comparison)、**セキュリティ要件**は[セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide)、ハードウェア型は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026)、Notta 中心の乗り換え判断は[AI文字起こしツール選び直し2026](/guides/transcription-reselect-2026)を参照してください。
+ツール5社の機能比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)、料金詳細は[料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)、**セキュリティ要件**は[セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)、操作の基本は[AI議事録の始め方完全ガイド](/guides/ai-meeting-notes-guide/)、ハードウェア型は[AIボイスレコーダー徹底比較](/guides/ai-voice-recorder-hardware-2026/)、Notta 中心の乗り換え判断は[AI文字起こしツール選び直し2026](/guides/transcription-reselect-2026/)を参照してください。

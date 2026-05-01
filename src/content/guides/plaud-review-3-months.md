@@ -41,7 +41,7 @@ faq:
 | 日本語精度（固有名詞・方言） | ⭐⭐⭐ 3/5 |
 | **総合** | **⭐⭐⭐⭐ 4.5/5** |
 
-機能比較は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note)、料金は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison)を参照。
+機能比較は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note/)、料金は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)を参照。
 
 ## 編集部の運用環境
 
@@ -301,7 +301,7 @@ Wi-Fi 環境でも結構待つ。**会議直後の議事録**は厳しい。
 
 これで **全シーンの議事録**を AI 化できる。
 
-詳細は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)・[Nottaを軸にした再評価と乗り換え判断](/guides/transcription-reselect-2026)を参照。
+詳細は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)・[Nottaを軸にした再評価と乗り換え判断](/guides/transcription-reselect-2026/)を参照。
 
 ## 編集部の最終評価
 
@@ -322,7 +322,7 @@ Wi-Fi 環境でも結構待つ。**会議直後の議事録**は厳しい。
 #### 余裕があれば
 **H1 + NOTE 両方**（用途で使い分け）
 
-詳しい選び方は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note)を参照。
+詳しい選び方は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note/)を参照。
 
 ## まとめ
 
@@ -332,6 +332,6 @@ Wi-Fi 環境でも結構待つ。**会議直後の議事録**は厳しい。
 - **日本語固有名詞・方言**は手修正必要
 - **総合評価 4.5/5**、買って後悔ゼロ
 
-PLAUD の機能詳細は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note)、Notta との比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)、料金詳細は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison)、Claude Code 連携活用は[PLAUD × Claude Code 連携活用法](/guides/plaud-claude-code-integration)を参照してください。
+PLAUD の機能詳細は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note/)、Notta との比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)、料金詳細は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)、Claude Code 連携活用は[PLAUD × Claude Code 連携活用法](/guides/plaud-claude-code-integration/)を参照してください。
 
-- 最新モデル → [PLAUD Note Pin S レビュー](/guides/plaud-note-pin-s-review)
+- 最新モデル → [PLAUD Note Pin S レビュー](/guides/plaud-note-pin-s-review/)

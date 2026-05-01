@@ -18,11 +18,11 @@ faq:
   - q: "Opus 4.6（前世代）との違いは？"
     a: "①SWE-bench Verified 80.8% → 87.6%（+6.8pt）、②SWE-bench Pro 53.4% → 64.3%（+10.9pt）、③新『xhigh』推論モード（複雑問題を時間をかけて解く）、④Computer Use 精度向上、⑤長文一貫性向上、⑥価格据え置き。コーディング・推論で大幅改善。"
   - q: "GPT-5.5 とどっちが強い？"
-    a: "純粋なコーディング精度では Claude Opus 4.7 が依然リード（SWE-bench 87.6% vs 約80%）。汎用エージェント・PC 操作・マルチモーダルは GPT-5.5 が強い。長文書類分析は Opus、画像認識は GPT が優勢。両者は2026年4月の2強で、用途で選ぶのが正解。比較は[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)を参照。"
+    a: "純粋なコーディング精度では Claude Opus 4.7 が依然リード（SWE-bench 87.6% vs 約80%）。汎用エージェント・PC 操作・マルチモーダルは GPT-5.5 が強い。長文書類分析は Opus、画像認識は GPT が優勢。両者は2026年4月の2強で、用途で選ぶのが正解。比較は[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)を参照。"
   - q: "新しい『xhigh』推論モードとは？"
     a: "従来の『High』推論モードを上回る新モード。複雑な問題（数学証明、長期計画、複雑なリファクタリング）に対し、思考時間を大幅に延ばして精度を最優先。応答時間は数十秒〜数分かかるが、結果の質は飛躍的に向上。研究者・上級エンジニアの『最後の砦』として設計されている。"
   - q: "Claude Code との連携は？"
-    a: "Claude Code（コーディング特化 CLI / IDE 拡張）は2026年4月23日から Opus 4.7 をデフォルトモデルに変更。Claude Code Pro（¥3,000/月）から利用可能、Max（¥30,000/月）で実質無制限。GitHub の README にも公式アナウンスあり。詳細は[Claude Code 実践ガイド](/guides/claude-code-practical-guide)で解説。"
+    a: "Claude Code（コーディング特化 CLI / IDE 拡張）は2026年4月23日から Opus 4.7 をデフォルトモデルに変更。Claude Code Pro（¥3,000/月）から利用可能、Max（¥30,000/月）で実質無制限。GitHub の README にも公式アナウンスあり。詳細は[Claude Code 実践ガイド](/guides/claude-code-practical-guide/)で解説。"
 ---
 
 「Claude Opus 4.7 が出たけど、4.6 と何が違うの？」「GPT-5.5 とどっちが強い？」——2026年4月16日のリリース以降、AI 業界で最も活発な議論です。
@@ -42,7 +42,7 @@ xhigh モード：複雑問題を時間をかけて高精度に解く
 
 GPT-5.5 と並ぶ **「2026年4月の2強」** ですが、純粋なコーディング精度では Opus 4.7 が依然リード。**エンジニアには必携のモデル**です。
 
-[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)、[Claude Code 実践ガイド](/guides/claude-code-practical-guide)、[Claude Code プロンプト50選](/guides/claude-code-prompts-for-non-engineers)、[Claude MCP 解説](/guides/claude-mcp-explained)も併せてどうぞ。
+[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04/)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)、[Claude Code 実践ガイド](/guides/claude-code-practical-guide/)、[Claude Code プロンプト50選](/guides/claude-code-prompts-for-non-engineers/)、[Claude MCP 解説](/guides/claude-mcp-explained/)も併せてどうぞ。
 
 ## Claude Opus 4.7 の概要
 
@@ -182,7 +182,7 @@ Claude Code = Anthropic 公式のコーディング特化ツール
   ✅ MCP（Model Context Protocol）標準対応
 ```
 
-詳しくは[Claude Code 実践ガイド](/guides/claude-code-practical-guide)、[Claude MCP 解説](/guides/claude-mcp-explained)で解説。
+詳しくは[Claude Code 実践ガイド](/guides/claude-code-practical-guide/)、[Claude MCP 解説](/guides/claude-mcp-explained/)で解説。
 
 ### 既存ユーザーへの影響
 
@@ -231,7 +231,7 @@ Claude Code = Anthropic 公式のコーディング特化ツール
    → どちらも互角、ユーザーの好みで
 ```
 
-詳しくは[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)で解説。
+詳しくは[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)で解説。
 
 ## 料金とプラン
 
@@ -402,10 +402,10 @@ ChatGPT 派の方も、**Claude Pro（¥3,000）の追加**を強く推奨しま
 
 ## 関連記事
 
-- 競合 → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)
-- Claude Code 実践 → [Claude Code 実践ガイド](/guides/claude-code-practical-guide)
-- プロンプト集 → [Claude Code プロンプト50選](/guides/claude-code-prompts-for-non-engineers)
-- MCP 解説 → [Claude MCP 解説](/guides/claude-mcp-explained)
-- Claude Design → [Claude Design 機能解説](/guides/claude-design-feature)
-- 開発者向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800)
+- 競合 → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)
+- Claude Code 実践 → [Claude Code 実践ガイド](/guides/claude-code-practical-guide/)
+- プロンプト集 → [Claude Code プロンプト50選](/guides/claude-code-prompts-for-non-engineers/)
+- MCP 解説 → [Claude MCP 解説](/guides/claude-mcp-explained/)
+- Claude Design → [Claude Design 機能解説](/guides/claude-design-feature/)
+- 開発者向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800/)

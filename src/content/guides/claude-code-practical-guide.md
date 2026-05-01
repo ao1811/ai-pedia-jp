@@ -170,8 +170,8 @@ Claude Code に Slack・GitHub・PostgreSQL などを繋げ、**Claude がそれ
 
 ## 関連記事クラスター
 
-- 料金詳細：[コーディングAI ツール料金完全比較](/guides/coding-ai-pricing)
-- 非エンジニア向け活用：[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)
-- **コピペで使えるプロンプト集**：[Claude Code に投げるべき5つの神プロンプト集](/guides/claude-code-prompts-for-non-engineers)
-- 失敗事例：[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)
-- 3本の機能比較：[コーディングAI 比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)
+- 料金詳細：[コーディングAI ツール料金完全比較](/guides/coding-ai-pricing/)
+- 非エンジニア向け活用：[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers/)
+- **コピペで使えるプロンプト集**：[Claude Code に投げるべき5つの神プロンプト集](/guides/claude-code-prompts-for-non-engineers/)
+- 失敗事例：[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)
+- 3本の機能比較：[コーディングAI 比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison/)

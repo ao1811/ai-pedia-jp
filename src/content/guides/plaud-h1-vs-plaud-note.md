@@ -54,7 +54,7 @@ AI議事録ツールは大別すると：
 | **スマホ背面に装着したい** | **H1**（カード型） |
 | **迷ったら** | **H1**（汎用性勝ち） |
 
-PLAUD の全体像は[AIボイスレコーダー徹底比較（2026年版）](/guides/ai-voice-recorder-hardware-2026)、料金詳細は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison)を参照。
+PLAUD の全体像は[AIボイスレコーダー徹底比較（2026年版）](/guides/ai-voice-recorder-hardware-2026/)、料金詳細は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)を参照。
 
 ## 4軸の徹底比較
 
@@ -219,7 +219,7 @@ PLAUD の全体像は[AIボイスレコーダー徹底比較（2026年版）](/g
 - H1 で長時間記録、NOTE で対面の証拠
 - 契約書精読・打合せ全て記録
 
-**注意**：弁護士業務上の守秘義務を踏まえて運用。詳細は[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist)を参照。
+**注意**：弁護士業務上の守秘義務を踏まえて運用。詳細は[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist/)を参照。
 
 ## サブスク型 vs 買い切り型：3年総コスト比較
 
@@ -254,7 +254,7 @@ AI議事録 買い切り型（PLAUD）と主要サブスク型を **3年使っ�
 
 **営業・取材・医療・コンサル**など対面業務がメインなら、**AI議事録 買い切り** 型のPLAUD が事実上の唯一解。オンライン会議メインで対面ゼロなら Notta 単体で十分です。
 
-詳しい料金比較は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison)を参照。
+詳しい料金比較は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)を参照。
 
 ## 1年運用での総コスト
 
@@ -361,5 +361,5 @@ END
 - **¥5,700の価格差は3年で見れば誤差**
 - **両方持ちでもROI極大**（1ヶ月でペイ）
 
-PLAUD の全体像は[AIボイスレコーダー徹底比較（2026年版）](/guides/ai-voice-recorder-hardware-2026)、料金は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison)、Claude Code との連携用途は[PLAUD × Claude Code 連携活用法](/guides/plaud-claude-code-integration)、Notta との比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)を参照してください。
-- 最新モデル → [PLAUD Note Pin S レビュー](/guides/plaud-note-pin-s-review)
+PLAUD の全体像は[AIボイスレコーダー徹底比較（2026年版）](/guides/ai-voice-recorder-hardware-2026/)、料金は[AI議事録ツール料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)、Claude Code との連携用途は[PLAUD × Claude Code 連携活用法](/guides/plaud-claude-code-integration/)、Notta との比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)を参照してください。
+- 最新モデル → [PLAUD Note Pin S レビュー](/guides/plaud-note-pin-s-review/)

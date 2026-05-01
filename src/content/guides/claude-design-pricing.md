@@ -37,7 +37,7 @@ faq:
 - **企業導入・機密案件あり** → **Enterprise（要相談）**
 - **Free プランは Claude Design 非対応** → 体験すらできない
 
-Claude Design の機能全体像は[新機能「Claude Design」とは？](/guides/claude-design-feature)で解説、起動から最初のプロンプトは[使い方完全チュートリアル](/guides/claude-design-tutorial)で紹介しています。
+Claude Design の機能全体像は[新機能「Claude Design」とは？](/guides/claude-design-feature/)で解説、起動から最初のプロンプトは[使い方完全チュートリアル](/guides/claude-design-tutorial/)で紹介しています。
 
 ## Claude 全プランの Claude Design 対応状況（2026年4月時点）
 
@@ -225,4 +225,4 @@ END
 - **Enterprise は法人専用**、個人の選択肢ではない
 - **年額プランは2ヶ月分お得**だが、まず月額で試すのが安全
 
-Claude Design を使い始める具体的な手順は[使い方完全チュートリアル](/guides/claude-design-tutorial)、業務での活用例は[Claude Design 業務活用10事例](/guides/claude-design-real-examples)、Figma・Canva など他ツールとの違いは[AIデザインツール5選比較](/guides/claude-design-vs-figma-canva)を参照してください。**導入前のリスク評価**は[Claude Design の限界とできないこと](/guides/claude-design-limitations)が参考になります。
+Claude Design を使い始める具体的な手順は[使い方完全チュートリアル](/guides/claude-design-tutorial/)、業務での活用例は[Claude Design 業務活用10事例](/guides/claude-design-real-examples/)、Figma・Canva など他ツールとの違いは[AIデザインツール5選比較](/guides/claude-design-vs-figma-canva/)を参照してください。**導入前のリスク評価**は[Claude Design の限界とできないこと](/guides/claude-design-limitations/)が参考になります。

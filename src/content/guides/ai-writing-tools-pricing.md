@@ -38,7 +38,7 @@ faq:
 - **校正だけ強化** → **文賢（¥2,178/月）**
 - **無料で試す** → **ChatGPT Free + Claude Free（併用）**
 
-ツール6本の機能比較は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、文賢を使った校正ワークフローは[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow)で解説しています。
+ツール6本の機能比較は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)、文賢を使った校正ワークフローは[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow/)で解説しています。
 
 ## 6ツール料金プラン早見表
 
@@ -59,7 +59,7 @@ faq:
 
 - **GPT-5 / GPT-5.3 への優先アクセス**：通常チャット、長文、リサーチ
 - **画像生成（DALL-E 3）**：1日数十枚レベル
-- **エージェントモード**：[ChatGPT エージェントモード解説](/guides/chatgpt-agent-mode-20)
+- **エージェントモード**：[ChatGPT エージェントモード解説](/guides/chatgpt-agent-mode-20/)
 - **音声会話モード**：制限なし
 - **Deep Research**：1日3回（深いリサーチ）
 
@@ -84,7 +84,7 @@ faq:
 
 - **Claude Sonnet / Opus への優先アクセス**
 - **Projects 機能**：プロジェクト単位で文脈保持
-- **Artifacts**：構造化文書生成（[Claude Design](/guides/claude-design-feature) と同基盤）
+- **Artifacts**：構造化文書生成（[Claude Design](/guides/claude-design-feature/) と同基盤）
 - **画像理解**：参考記事のスクショから類似生成
 
 ### ライティングでの強み
@@ -101,7 +101,7 @@ ChatGPT Plus と Claude Pro を**両方契約**すると、用途で使い分け
 - **リサーチ・速記** → ChatGPT
 - **長文整形・論理チェック** → Claude
 - **画像理解** → 両方OK
-- **コード絡み** → Claude（[Claude Code 実践ガイド](/guides/claude-code-practical-guide)）
+- **コード絡み** → Claude（[Claude Code 実践ガイド](/guides/claude-code-practical-guide/)）
 
 月¥6,000で**プロブロガー級の執筆環境**が手に入ります。
 
@@ -184,7 +184,7 @@ ChatGPT Plus と Claude Pro を**両方契約**すると、用途で使い分け
 3. 文賢の指摘を反映して完成
 ```
 
-詳しい運用は[文賢で仕上げるSEOライティング完全ガイド](/guides/bun-ken-seo-writer-workflow)で解説。
+詳しい運用は[文賢で仕上げるSEOライティング完全ガイド](/guides/bun-ken-seo-writer-workflow/)で解説。
 
 ## 1年運用での総コスト・ROI試算
 
@@ -259,4 +259,4 @@ END
 - **社内 → Notion AI（¥1,200/人）**
 - **校正 → 文賢（¥2,178）**
 
-各ツールの詳細解説は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow)、**SEO に効くAI活用法**は[AIライティングで検索順位を上げる戦略](/guides/ai-writing-for-seo)、**導入失敗を避けたい**なら[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)、副業全体の収益化は[AIで始める副業ガイド](/guides/ai-side-business-guide)を参照してください。
+各ツールの詳細解説は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow/)、**SEO に効くAI活用法**は[AIライティングで検索順位を上げる戦略](/guides/ai-writing-for-seo/)、**導入失敗を避けたい**なら[AIライティング失敗事例10選](/guides/ai-writing-failure-cases/)、副業全体の収益化は[AIで始める副業ガイド](/guides/ai-side-business-guide/)を参照してください。

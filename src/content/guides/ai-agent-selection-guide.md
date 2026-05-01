@@ -39,7 +39,7 @@ faq:
 - **スタートアップ・自律実装** → **Devin（$500/月）**
 - **ノーコード派** → **Coze or Dify Cloud**
 
-各ツールの料金詳細は[AIエージェント料金完全比較](/guides/ai-agent-pricing)、機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026)で解説しています。
+各ツールの料金詳細は[AIエージェント料金完全比較](/guides/ai-agent-pricing/)、機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026/)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026/)で解説しています。
 
 ## 5分で決まる意思決定フロー
 
@@ -67,32 +67,32 @@ faq:
 - Claude Pro（$20）：長文整形・論理性
 - ChatGPT Plus（¥3,000）：短文・SNS・トーン調整
 - **計：月¥6,000程度**
-- 詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)
+- 詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)
 
 #### C. SaaS 操作 → **ChatGPT Agent or Microsoft Copilot Cowork**
 
 - 個人：ChatGPT Plus（¥3,000）
 - M365 法人：Microsoft Copilot Cowork（$30/人）
-- 詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)
+- 詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)
 
 #### D. コード編集・PC 操作 → **Cursor + Claude Code**
 
 - Cursor Pro（$20）：GUI型 IDE
 - Claude Pro + Claude Code（$20）：CLI型
 - **計：月¥6,000程度**
-- 詳細は[コーディングAI料金完全比較](/guides/coding-ai-pricing)
+- 詳細は[コーディングAI料金完全比較](/guides/coding-ai-pricing/)
 
 #### E. 会議・議事録 → **Notta Premium + ChatGPT Plus**
 
 - Notta Premium（¥1,317/月）：議事録自動生成
 - ChatGPT Plus（¥3,000）：内容の整形・要約
-- 詳細は[AI議事録ツールの料金完全比較](/guides/ai-meeting-notes-pricing-comparison)
+- 詳細は[AI議事録ツールの料金完全比較](/guides/ai-meeting-notes-pricing-comparison/)
 
 #### F. 大規模実装 → **Devin or Cursor Business**
 
 - Devin（$500/月）：自律的コーディング
 - Cursor Business（$40/人）：チーム開発
-- 詳細は[コーディングAI料金完全比較](/guides/coding-ai-pricing)
+- 詳細は[コーディングAI料金完全比較](/guides/coding-ai-pricing/)
 
 ### ステップ3：「予算」で絞る
 
@@ -226,4 +226,4 @@ ai-pedia 編集部は以下の3層で運用：
 - **乗り換えは月単位**で可能
 - **段階的拡大**（1ヶ月 → 3ヶ月 → 半年 → 1年）が王道
 
-各ツールの料金詳細は[AIエージェント料金完全比較](/guides/ai-agent-pricing)、機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026)、用途別の専用クラスター記事は本サイトで網羅しています。
+各ツールの料金詳細は[AIエージェント料金完全比較](/guides/ai-agent-pricing/)、機能比較は[非エンジニア向けAIエージェント比較](/guides/ai-agents-for-non-engineers-2026/)、最新動向は[AIエージェント最前線](/guides/ai-agent-frontier-2026/)、用途別の専用クラスター記事は本サイトで網羅しています。

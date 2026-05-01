@@ -41,7 +41,7 @@ faq:
 
 これら5つを避けるために、**「ルール先・生成後」**のフローが必須です。
 
-ツール別の詳細は[Claude Design 業務活用10事例](/guides/claude-design-real-examples)、コーディングAI 全体は[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)、料金は[コーディングAI 料金完全比較](/guides/coding-ai-pricing)で解説しています。
+ツール別の詳細は[Claude Design 業務活用10事例](/guides/claude-design-real-examples/)、コーディングAI 全体は[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)、料金は[コーディングAI 料金完全比較](/guides/coding-ai-pricing/)で解説しています。
 
 ## 失敗事例1：AI 生成 LP の SEO 構造が崩壊して順位激落ち
 
@@ -68,7 +68,7 @@ faq:
   - robots.txt / sitemap.xml が機能しているか
 ```
 
-詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)を参照。
+詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)を参照。
 
 ## 失敗事例2：v0 で作った LP のフォームが動かず機会損失
 
@@ -93,7 +93,7 @@ faq:
   - 営業時間外の自動応答
 ```
 
-UI 生成と動作ロジックは別フェーズで実装するのが鉄則。詳しくは[Claude Design の限界とできないこと](/guides/claude-design-limitations)で解説。
+UI 生成と動作ロジックは別フェーズで実装するのが鉄則。詳しくは[Claude Design の限界とできないこと](/guides/claude-design-limitations/)で解説。
 
 ## 失敗事例3：Wix AI で作った商用サイトが規約違反
 
@@ -167,7 +167,7 @@ UI 生成と動作ロジックは別フェーズで実装するのが鉄則。�
   - 公開前に OWASP ZAP / Burp Suite で脆弱性スキャン
 ```
 
-詳しくは[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)を参照。
+詳しくは[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)を参照。
 
 ## 失敗事例6：ブランドガイド逸脱でデザイン統一性消失
 
@@ -193,7 +193,7 @@ UI 生成と動作ロジックは別フェーズで実装するのが鉄則。�
   - 公開前にブランドマネージャー or デザイナーがレビュー
 ```
 
-詳しくは[Claude Design の限界](/guides/claude-design-limitations)を参照。
+詳しくは[Claude Design の限界](/guides/claude-design-limitations/)を参照。
 
 ## 失敗事例7：AI 生成画像の著作権トラブル
 
@@ -218,7 +218,7 @@ UI 生成と動作ロジックは別フェーズで実装するのが鉄則。�
   - 公開前に Google 画像逆検索で類似性チェック
 ```
 
-詳しくは[AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases)を参照。
+詳しくは[AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases/)を参照。
 
 ## 失敗事例8：依存ライブラリのバージョン不整合
 
@@ -379,10 +379,10 @@ UI 生成と動作ロジックは別フェーズで実装するのが鉄則。�
 
 ## 関連記事
 
-- ツール別失敗事例 → [コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)
-- Claude Design 限界 → [Claude Design の限界とできないこと](/guides/claude-design-limitations)
-- Claude Design 活用 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples)
-- AI画像 失敗事例 → [AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases)
-- AIライティング 失敗 → [AIライティング失敗事例10選](/guides/ai-writing-failure-cases)
-- 料金比較 → [コーディングAI 料金完全比較](/guides/coding-ai-pricing)
-- SEO戦略 → [AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)
+- ツール別失敗事例 → [コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)
+- Claude Design 限界 → [Claude Design の限界とできないこと](/guides/claude-design-limitations/)
+- Claude Design 活用 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples/)
+- AI画像 失敗事例 → [AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases/)
+- AIライティング 失敗 → [AIライティング失敗事例10選](/guides/ai-writing-failure-cases/)
+- 料金比較 → [コーディングAI 料金完全比較](/guides/coding-ai-pricing/)
+- SEO戦略 → [AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)

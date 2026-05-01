@@ -42,7 +42,7 @@ Veo 3.1 = Google が個人無料化した AI 動画生成サービス
 
 **Sora 終了（2026年4月26日）の代替として最有力**で、月¥0 から本格動画制作が始められます。
 
-[Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)、[Gemini Deep Research 解説](/guides/gemini-deep-research)、[Gemini 料金](/guides/gemini-pricing)、[Gemini for Home の使い方](/guides/gemini-for-home-japan-2026)も併せてどうぞ。
+[Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives/)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)、[Gemini Deep Research 解説](/guides/gemini-deep-research/)、[Gemini 料金](/guides/gemini-pricing/)、[Gemini for Home の使い方](/guides/gemini-for-home-japan-2026/)も併せてどうぞ。
 
 ## Veo 3.1 とは
 
@@ -356,10 +356,10 @@ Sora 終了は **個人クリエイターにとって朗報**でした。Google 
 
 ## 関連記事
 
-- 動画 AI 全体像 → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives)
-- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- Google AI 全般 → [Gemini 料金プラン解説](/guides/gemini-pricing)
-- Deep Research → [Gemini Deep Research 解説](/guides/gemini-deep-research)
-- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)
-- 画像生成 → [AI画像生成 料金比較](/guides/ai-image-generation-pricing)
-- Gemini for Home 連携 → [Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)
+- 動画 AI 全体像 → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives/)
+- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- Google AI 全般 → [Gemini 料金プラン解説](/guides/gemini-pricing/)
+- Deep Research → [Gemini Deep Research 解説](/guides/gemini-deep-research/)
+- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)
+- 画像生成 → [AI画像生成 料金比較](/guides/ai-image-generation-pricing/)
+- Gemini for Home 連携 → [Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)

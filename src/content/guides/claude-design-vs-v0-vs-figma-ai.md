@@ -38,7 +38,7 @@ faq:
 | **既存 Figma ワークフロー** | **Figma AI / Figma Make** | ¥1,800〜 |
 | **デザイン受託・チーム** | **3本併用** | 合計¥7,000程度 |
 
-各ツールの基礎は[Claude Design 完全解説](/guides/claude-design-feature)、[Claude Design vs Figma / Canva](/guides/claude-design-vs-figma-canva)、[Claude Design 業務活用10事例](/guides/claude-design-real-examples)で解説しています。
+各ツールの基礎は[Claude Design 完全解説](/guides/claude-design-feature/)、[Claude Design vs Figma / Canva](/guides/claude-design-vs-figma-canva/)、[Claude Design 業務活用10事例](/guides/claude-design-real-examples/)で解説しています。
 
 ## 3ツール基本スペック比較表（2026年4月時点）
 
@@ -83,7 +83,7 @@ faq:
 - **マーケター・PdM**：エンジニアと並行で動くプロトタイプ
 - **モックアップ・ワイヤー**：要件確認用
 
-詳しい使い方は[Claude Design 完全解説](/guides/claude-design-feature)、料金は[Claude Design 料金完全比較](/guides/claude-design-pricing)を参照。
+詳しい使い方は[Claude Design 完全解説](/guides/claude-design-feature/)、料金は[Claude Design 料金完全比較](/guides/claude-design-pricing/)を参照。
 
 ## v0（Vercel）：Next.js プロダクト UI の最速ルート
 
@@ -167,7 +167,7 @@ faq:
 - 認証・DB・決済との統合が滑らか
 ```
 
-詳しい開発フローは[Cursor + v0 + Vercel の構成](/guides/cursor-practical-guide)、Claude Code との比較は[Claude Code vs Cursor](/guides/claude-code-practical-guide)を参照。
+詳しい開発フローは[Cursor + v0 + Vercel の構成](/guides/cursor-practical-guide/)、Claude Code との比較は[Claude Code vs Cursor](/guides/claude-code-practical-guide/)を参照。
 
 ### ユース3：デザイン代理店・受託案件
 
@@ -296,11 +296,11 @@ START
 
 ## 関連記事
 
-- 機能詳細 → [Claude Design 完全解説](/guides/claude-design-feature)
-- 料金比較 → [Claude Design 料金完全比較](/guides/claude-design-pricing)
-- 業務活用10事例 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples)
-- 限界とできないこと → [Claude Design の限界](/guides/claude-design-limitations)
-- 使い方チュートリアル → [Claude Design 使い方完全チュートリアル](/guides/claude-design-tutorial)
-- Figma / Canva 比較 → [Claude Design vs Figma / Canva](/guides/claude-design-vs-figma-canva)
-- Cursor 連携 → [Cursor 完全実践ガイド](/guides/cursor-practical-guide)
-- Claude Code 連携 → [Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)
+- 機能詳細 → [Claude Design 完全解説](/guides/claude-design-feature/)
+- 料金比較 → [Claude Design 料金完全比較](/guides/claude-design-pricing/)
+- 業務活用10事例 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples/)
+- 限界とできないこと → [Claude Design の限界](/guides/claude-design-limitations/)
+- 使い方チュートリアル → [Claude Design 使い方完全チュートリアル](/guides/claude-design-tutorial/)
+- Figma / Canva 比較 → [Claude Design vs Figma / Canva](/guides/claude-design-vs-figma-canva/)
+- Cursor 連携 → [Cursor 完全実践ガイド](/guides/cursor-practical-guide/)
+- Claude Code 連携 → [Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)

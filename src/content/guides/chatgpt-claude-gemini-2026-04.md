@@ -25,9 +25,9 @@ faq:
 
 2026年4月は、対話AI御三家にとって **歴史的な月** になりました。
 
-- **OpenAI**：[GPT-5.5](/guides/gpt-5-5-complete-guide) リリース（4/23）、[Codex プラン¥16,800](/guides/chatgpt-codex-plan-16800) 新設（4/9）、[Sora 終了予告](/guides/sora-shutdown-alternatives)（4/26 アプリ終了）
-- **Anthropic**：[Claude Opus 4.7](/guides/claude-opus-4-7-explained) リリース（4/16）、Claude Design（4/17）、Claude Cowork GA（4/9）
-- **Google**：[Gemini 3.1 Pro](/guides/gemini-deep-research) + Deep Research Max（4/21）、[Veo 3.1 全アカウント無料化](/guides/veo-3-1-free-guide)（4/2）、[Gemini for Home](/guides/gemini-for-home-japan-2026) 日本上陸
+- **OpenAI**：[GPT-5.5](/guides/gpt-5-5-complete-guide/) リリース（4/23）、[Codex プラン¥16,800](/guides/chatgpt-codex-plan-16800/) 新設（4/9）、[Sora 終了予告](/guides/sora-shutdown-alternatives/)（4/26 アプリ終了）
+- **Anthropic**：[Claude Opus 4.7](/guides/claude-opus-4-7-explained/) リリース（4/16）、Claude Design（4/17）、Claude Cowork GA（4/9）
+- **Google**：[Gemini 3.1 Pro](/guides/gemini-deep-research/) + Deep Research Max（4/21）、[Veo 3.1 全アカウント無料化](/guides/veo-3-1-free-guide/)（4/2）、[Gemini for Home](/guides/gemini-for-home-japan-2026/) 日本上陸
 
 この1ヶ月だけで3社とも大型アップデートがあり、**「以前の比較記事」はすべて古くなりました**。本記事では、各社公式情報・主要メディア報道・編集部の利用所感をもとに、8項目で比較し、用途別の結論を提示します。
 
@@ -47,7 +47,7 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 
 ## ① ChatGPT（GPT-5.5）
 
-2026年4月23日に **[GPT-5.5](/guides/gpt-5-5-complete-guide)** がリリース。前世代から6週間という異例の早さで投入された最新モデルで、エージェント型コーディング・PC 操作・知識作業で大幅性能UP。**万能型で初心者から上級者まで、最も失敗の少ない選択肢** です。
+2026年4月23日に **[GPT-5.5](/guides/gpt-5-5-complete-guide/)** がリリース。前世代から6週間という異例の早さで投入された最新モデルで、エージェント型コーディング・PC 操作・知識作業で大幅性能UP。**万能型で初心者から上級者まで、最も失敗の少ない選択肢** です。
 
 **メリット**
 
@@ -62,7 +62,7 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 - モデル更新で応答品質にムラが出ることがある
 - コーディング精度は Claude Opus 4.7 にやや劣る場面あり
 - Proプラン（月3万円）は Sora 終了で価値が低下、個人には割高
-- 2026年4月から[Codex プラン¥16,800](/guides/chatgpt-codex-plan-16800) が新設、エンジニアは選択肢が増えた
+- 2026年4月から[Codex プラン¥16,800](/guides/chatgpt-codex-plan-16800/) が新設、エンジニアは選択肢が増えた
 
 **料金**：Free / Plus¥3,000 / **Codex¥16,800（新設）** / Pro¥30,000
 
@@ -70,20 +70,20 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 
 ## ② Claude（Opus 4.7）
 
-2026年4月16日にリリースされた **[Opus 4.7](/guides/claude-opus-4-7-explained)** がフラッグシップ。SWE-bench Verified **87.6%**（前世代80.8%から大幅向上）で **業界最高のコーディング精度**を再奪還。新たに『xhigh』推論モードを追加、複雑問題に時間をかけて思考する機能で研究者・上級エンジニアの支持を集めています。
+2026年4月16日にリリースされた **[Opus 4.7](/guides/claude-opus-4-7-explained/)** がフラッグシップ。SWE-bench Verified **87.6%**（前世代80.8%から大幅向上）で **業界最高のコーディング精度**を再奪還。新たに『xhigh』推論モードを追加、複雑問題に時間をかけて思考する機能で研究者・上級エンジニアの支持を集めています。
 
 **メリット**
 
 - SWE-bench Verified 87.6%・SWE-bench Pro 64.3% で業界最高コーディング精度
 - 推論と視覚認識が業界トップクラス
-- 200Kトークンの長文処理、[Claude Code](/guides/claude-code-practical-guide)・[Claude Design](/guides/claude-design-feature) で拡張
+- 200Kトークンの長文処理、[Claude Code](/guides/claude-code-practical-guide/)・[Claude Design](/guides/claude-design-feature/) で拡張
 - 新『xhigh』推論モードで複雑問題を高精度に解決
-- Computer Use（[Claude Cowork](/guides/claude-design-feature)）の精度が大幅UP
+- Computer Use（[Claude Cowork](/guides/claude-design-feature/)）の精度が大幅UP
 - 価格据え置き（$5/$25 per M tokens）
 
 **デメリット**
 
-- 画像・動画生成機能は他社より弱い（[Veo 3.1 無料化](/guides/veo-3-1-free-guide)で代替）
+- 画像・動画生成機能は他社より弱い（[Veo 3.1 無料化](/guides/veo-3-1-free-guide/)で代替）
 - 音声会話モードは未実装
 - 日本語圏の知名度はChatGPTにまだ劣る
 
@@ -93,7 +93,7 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 
 ## ③ Gemini（3.1 Pro）
 
-2026年4月21日に **Gemini 3.1 Pro** + Deep Research Max が登場。MCP サポート、ネイティブ可視化対応で、**リサーチ・データ分析業務ではChatGPT・Claudeを上回る場面が多い** です。さらに [Veo 3.1 動画生成も全 Google アカウントで無料化](/guides/veo-3-1-free-guide)（4/2）と、無料枠の充実度が圧倒的。
+2026年4月21日に **Gemini 3.1 Pro** + Deep Research Max が登場。MCP サポート、ネイティブ可視化対応で、**リサーチ・データ分析業務ではChatGPT・Claudeを上回る場面が多い** です。さらに [Veo 3.1 動画生成も全 Google アカウントで無料化](/guides/veo-3-1-free-guide/)（4/2）と、無料枠の充実度が圧倒的。
 
 **メリット**
 
@@ -110,7 +110,7 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 - 日本語のニュアンスはChatGPT / Claudeにやや劣る
 - 独自機能の学習コストが高い
 
-**料金**：Free / Advanced（[Google One AI Premium](/guides/gemini-for-home-pricing-google-one)）¥2,900
+**料金**：Free / Advanced（[Google One AI Premium](/guides/gemini-for-home-pricing-google-one/)）¥2,900
 
 **こんな人におすすめ**：Google Workspaceユーザー・リサーチ業務・動画生成・ニュース調査が多い人。
 
@@ -131,13 +131,13 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 
 ### OpenAI（2026年4月）
 
-- **[GPT-5.5 リリース](/guides/gpt-5-5-complete-guide)**（4/23）：エージェント精度大幅UP、SWE-bench スコア向上、Greg Brockman「super app への一歩」
-- **[Codex プラン¥16,800 新設](/guides/chatgpt-codex-plan-16800)**（4/9）：エンジニア向け中間プラン、Pro より44%安く Plus より高機能
-- **[Sora 終了予告](/guides/sora-shutdown-alternatives)**：アプリ4/26終了、API は9/24 終了。動画生成事業から戦略的撤退
+- **[GPT-5.5 リリース](/guides/gpt-5-5-complete-guide/)**（4/23）：エージェント精度大幅UP、SWE-bench スコア向上、Greg Brockman「super app への一歩」
+- **[Codex プラン¥16,800 新設](/guides/chatgpt-codex-plan-16800/)**（4/9）：エンジニア向け中間プラン、Pro より44%安く Plus より高機能
+- **[Sora 終了予告](/guides/sora-shutdown-alternatives/)**：アプリ4/26終了、API は9/24 終了。動画生成事業から戦略的撤退
 
 ### Anthropic（2026年4月）
 
-- **[Claude Opus 4.7 リリース](/guides/claude-opus-4-7-explained)**（4/16）：SWE-bench Verified 87.6%、業界最高コーディング精度、新『xhigh』推論モード、価格据え置き
+- **[Claude Opus 4.7 リリース](/guides/claude-opus-4-7-explained/)**（4/16）：SWE-bench Verified 87.6%、業界最高コーディング精度、新『xhigh』推論モード、価格据え置き
 - **Claude Cowork GA**（4/9）：Pro/Max ユーザー向け Computer Use 機能解禁
 - **Claude Design** 発表（4/17）：チャットで LP・スライド・プロトタイプ生成
 - **Claude Codeデスクトップ版** 刷新：並列エージェント対応
@@ -145,8 +145,8 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 ### Google（2026年4月）
 
 - **Gemini 3.1 Pro + Deep Research Max**（4/21）：MCP 対応、ネイティブ可視化
-- **[Veo 3.1 全アカウント無料化](/guides/veo-3-1-free-guide)**（4/2）：Sora 終了後の最有力代替
-- **[Gemini for Home](/guides/gemini-for-home-japan-2026)** 日本上陸：スマートスピーカー刷新
+- **[Veo 3.1 全アカウント無料化](/guides/veo-3-1-free-guide/)**（4/2）：Sora 終了後の最有力代替
+- **[Gemini for Home](/guides/gemini-for-home-japan-2026/)** 日本上陸：スマートスピーカー刷新
 - **Google AI Studio** 制限緩和：Pro/Ultra 向け
 
 ## 用途別早見表
@@ -172,4 +172,4 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 ## 参考情報
 
 本記事は2026年4月23日時点の情報に基づいています。料金・機能は公式発表に準拠しますが、契約前に必ず最新情報をご確認ください。
-- 業界トレンド → [AI業界トレンド 2026年Q2 完全レポート](/guides/ai-trend-2026-q2)
+- 業界トレンド → [AI業界トレンド 2026年Q2 完全レポート](/guides/ai-trend-2026-q2/)

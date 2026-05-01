@@ -39,7 +39,7 @@ Step 3（15分）：Siri 強化機能を試す
 
 これだけで **Apple Intelligence の感覚が掴めます**。
 
-機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices)を参照。
+機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)を参照。
 
 ## Step 1：有効化（5分）
 
@@ -415,4 +415,4 @@ ai-pedia 編集部での実際の使い分け：
 - **ChatGPT 連携**で複雑な質問もカバー
 - **3ヶ月で習慣化**
 
-機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices)、Gemini for Home との比較は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)を参照してください。
+機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)、Gemini for Home との比較は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)を参照してください。

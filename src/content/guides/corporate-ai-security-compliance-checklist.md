@@ -41,7 +41,7 @@ faq:
 
 これら5軸を整えずに使い始めると、致命的トラブルが起きます。
 
-セキュリティ前の30日プランは[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan)、ツール選びは[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)、ナレッジ整備は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)を参照。
+セキュリティ前の30日プランは[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、ツール選びは[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)、ナレッジ整備は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)を参照。
 
 ## 軸1：プラン選び（最重要）
 
@@ -69,7 +69,7 @@ faq:
 | チーム展開（5人〜） | Team プラン | ¥3,750/人 |
 | 大企業・機密多い | Enterprise | 月数十万〜 |
 
-詳細は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)、料金詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)・[AIライティングツール料金比較](/guides/ai-writing-tools-pricing)を参照。
+詳細は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)、料金詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)・[AIライティングツール料金比較](/guides/ai-writing-tools-pricing/)を参照。
 
 ### チェックリスト（プラン選び）
 
@@ -184,7 +184,7 @@ Team / Enterprise プランは **規約上学習しない** ことが明示さ�
 - 法務部門の承認
 - 契約書原本を内部保管
 
-詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)も参照。
+詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)も参照。
 
 ### チェックリスト（学習オプトアウト）
 
@@ -244,7 +244,7 @@ Team / Enterprise プランは **規約上学習しない** ことが明示さ�
 
 ### 社内ルールの作り方
 
-詳細手順は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)で解説していますが、基本的な流れ：
+詳細手順は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)で解説していますが、基本的な流れ：
 
 1. 現場のキーマンが叩き台を30分で作る
 2. 情シス・法務に1週間でレビュー依頼
@@ -310,7 +310,7 @@ Team / Enterprise プランは **規約上学習しない** ことが明示さ�
 
 **追加リスク**：金融庁の監督指針・FISC ガイドライン
 
-**推奨**：データ国内保管必須 → さくらAI議事録 / JAPAN AI SPEECH 系。詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)。
+**推奨**：データ国内保管必須 → さくらAI議事録 / JAPAN AI SPEECH 系。詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)。
 
 ### 医療機関
 
@@ -322,7 +322,7 @@ Team / Enterprise プランは **規約上学習しない** ことが明示さ�
 
 **追加リスク**：弁護士業務上の守秘義務
 
-**推奨**：Claude Pro（長文得意）+ 弁護士最終確認。AI 生成物は **下訳のみ** に限定。詳細は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use)。
+**推奨**：Claude Pro（長文得意）+ 弁護士最終確認。AI 生成物は **下訳のみ** に限定。詳細は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use/)。
 
 ### 製造業（特許関連）
 
@@ -352,7 +352,7 @@ Team / Enterprise プランは **規約上学習しない** ことが明示さ�
 
 **結果**：取引先と争い、訴訟リスクに発展。
 
-**回避策**：契約書翻訳は **下訳のみ** に AI 利用、最終版は弁護士確認。詳細は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use)。
+**回避策**：契約書翻訳は **下訳のみ** に AI 利用、最終版は弁護士確認。詳細は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use/)。
 
 ### やらかし3：人事評価データを AI に投入
 
@@ -368,7 +368,7 @@ Team / Enterprise プランは **規約上学習しない** ことが明示さ�
 
 **結果**：機密情報の漏洩リスク。
 
-**回避策**：機密会議は法人プラン + DPA 取得済みツール。詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)。
+**回避策**：機密会議は法人プラン + DPA 取得済みツール。詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)。
 
 ### やらかし5：競合製品の中身を AI に分析させた
 
@@ -425,6 +425,6 @@ Team / Enterprise プランは **規約上学習しない** ことが明示さ�
 
 「**会社で AI 使え**」と言われた人がやってはいけないのは「**ルールなしで突入**」すること。本記事のチェックリストで、まず安全圏を確保してから本格運用に入ってください。
 
-セキュリティ整備後の **30日プラン** は[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan)、**ツール選定** は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)、**ナレッジベース** は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)、**業務別プロンプト** は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)を参照してください。
+セキュリティ整備後の **30日プラン** は[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、**ツール選定** は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)、**ナレッジベース** は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)、**業務別プロンプト** は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)を参照してください。
 
-業界別の詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)・[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use)・[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use) もあわせてどうぞ。
+業界別の詳細は[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)・[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use/)・[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use/) もあわせてどうぞ。

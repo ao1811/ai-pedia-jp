@@ -33,7 +33,7 @@ ChatGPT エージェントモード（Agent Mode 2.0）を**今日から使い�
 2. **初回タスク**：「指定3サイトの料金比較表を作って」と依頼（15分）
 3. **エラー対処**：途中停止したら「続けて」と打つ（10分）
 
-これだけで「**ChatGPT エージェントモードに何を頼めばいいか**」の感覚が掴めます。料金プランを先に決めたい方は[ChatGPT エージェントモードの料金完全比較](/guides/chatgpt-agent-mode-pricing)、機能の全体像は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20)を先に読むと理解が早まります。
+これだけで「**ChatGPT エージェントモードに何を頼めばいいか**」の感覚が掴めます。料金プランを先に決めたい方は[ChatGPT エージェントモードの料金完全比較](/guides/chatgpt-agent-mode-pricing/)、機能の全体像は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20/)を先に読むと理解が早まります。
 
 ## 前提：必要なプランと準備
 
@@ -223,7 +223,7 @@ ChatGPT iOS / Android アプリ（バージョン 1.2025.4 以降）：
 
 - Plus は1タスク約1時間が上限
 - **対処1**：タスクを2つに分けて実行
-- **対処2**：Pro へアップグレード（[料金詳細](/guides/chatgpt-agent-mode-pricing)）
+- **対処2**：Pro へアップグレード（[料金詳細](/guides/chatgpt-agent-mode-pricing/)）
 
 ### エラー3：「Connector authentication failed」
 
@@ -267,8 +267,8 @@ SaaS連携の認証エラー：
 
 「Plus 課金前にどうしても試したい」という方は：
 
-- **Gemini Deep Research**（無料・1日3回）：リサーチ系なら近い体験ができます。詳しくは[Gemini Deep Research の使い方](/guides/gemini-deep-research)
-- **Perplexity Free**：Web検索＋出典つきのレポートまでなら可能。[Perplexity vs Google 比較](/guides/perplexity-vs-google)
+- **Gemini Deep Research**（無料・1日3回）：リサーチ系なら近い体験ができます。詳しくは[Gemini Deep Research の使い方](/guides/gemini-deep-research/)
+- **Perplexity Free**：Web検索＋出典つきのレポートまでなら可能。[Perplexity vs Google 比較](/guides/perplexity-vs-google/)
 - **Claude Free**：エージェント機能はないが、長文整形・コードレビューは無料で強い
 
 これらを使ってみて「**SaaS連携と長時間自律タスクが必要**」と感じたら、ChatGPT Plus への課金が筋です。
@@ -281,4 +281,4 @@ SaaS連携の認証エラー：
 
 ChatGPT エージェントモードは「**指示の書き方が上手いほど結果も良くなる**」という意味で、**人を育てる感覚に近い**ツールです。最初の1週間は試行錯誤しますが、コツが掴めると業務の30〜50%は任せられるようになります。
 
-次のステップとしては、[料金完全比較](/guides/chatgpt-agent-mode-pricing)で Plus / Pro の見極め基準を確認するか、[業務活用10事例とプロンプト集](/guides/chatgpt-agent-mode-real-examples)で実践的なシナリオを掴むのが早道です。**導入前のリスク評価**は[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks)、他のAIエージェント（Claude / Manus / Devin）との違いは[エージェント横並び比較](/guides/chatgpt-agent-vs-other-agents)が参考になります。
+次のステップとしては、[料金完全比較](/guides/chatgpt-agent-mode-pricing/)で Plus / Pro の見極め基準を確認するか、[業務活用10事例とプロンプト集](/guides/chatgpt-agent-mode-real-examples/)で実践的なシナリオを掴むのが早道です。**導入前のリスク評価**は[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks/)、他のAIエージェント（Claude / Manus / Devin）との違いは[エージェント横並び比較](/guides/chatgpt-agent-vs-other-agents/)が参考になります。

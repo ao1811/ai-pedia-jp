@@ -41,7 +41,7 @@ faq:
 
 これら5つを避けるために、**「ルール先・運用後」**のフローが必須です。
 
-商用利用の詳細は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use)、料金は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing)、ツール選定は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5)で解説しています。
+商用利用の詳細は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use/)、料金は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing/)、ツール選定は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5/)で解説しています。
 
 ## 失敗事例1：Stable Diffusion 特殊モデルで DMCA 申し立て
 
@@ -63,7 +63,7 @@ faq:
 - **公式モデル（SD3 / SDXL）のみ商用利用**
 - コミュニティモデルは**個人実験用**に限定
 - ConoHa AI Canvas のような**クラウド版で運営側が選別**しているサービスを使う
-- 詳しくは[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use)を参照
+- 詳しくは[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use/)を参照
 
 ## 失敗事例2：Midjourney Free 時代の画像を法人広告に転用
 
@@ -144,7 +144,7 @@ faq:
 - 公開前に**画像の品質チェック**（手の指・顔・文字）を必ず実施
 - 不自然な部分があれば**Aiarty で修復**または**生成し直し**
 - 画像レビュー工程を**運用ルールに明記**
-- 詳しくは[AI画像の品質を上げる Aiarty 活用ガイド](/tools/aiarty)を参照
+- 詳しくは[AI画像の品質を上げる Aiarty 活用ガイド](/tools/aiarty/)を参照
 
 ## 失敗事例6：クライアント不告知で納品 → 関係破綻
 
@@ -165,7 +165,7 @@ faq:
 - 契約前に**AI 使用の許可**をクライアントから明示的に取る
 - **使用するツール名・利用プラン**を契約書に明記
 - 「**伝統的な手作業を期待していたか**」を確認
-- 詳しい契約書文言は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use)を参照
+- 詳しい契約書文言は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use/)を参照
 
 ## 失敗事例7：機密情報をプロンプトに入力して漏洩リスク
 
@@ -206,7 +206,7 @@ faq:
 
 - **最初は1ツールのみ**で半年運用
 - 業務量と要件が見えてから他ツール追加
-- ツール選定は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing)で**段階的に**
+- ツール選定は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing/)で**段階的に**
 
 ## 失敗事例9：プロンプトテンプレ流出で他社に真似される
 
@@ -247,7 +247,7 @@ faq:
 - AI 画像は**多様性を持たせる**（複数ツール併用）
 - **写真・実物画像との使い分け**を意識
 - 重要記事は**手作業のデザイナー画像**または**プロ写真**を使用
-- 詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)も参照
+- 詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases/)も参照
 
 ## 共通パターン：技術 < 運用ルール
 
@@ -320,7 +320,7 @@ faq:
 
 実際、本サイト ai-pedia.jp も AI 主導で運用しつつ Search Console で初期段階から狙ったキーワードで順位上位を取れているケースがあります。
 
-詳しい戦略は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)、画像のブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide)、Midjourney 詳細は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide)を参照してください。
+詳しい戦略は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)、画像のブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide/)、Midjourney 詳細は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide/)を参照してください。
 
 ## まとめ：失敗を避ける唯一の方法は「ルール先・運用後」
 
@@ -329,4 +329,4 @@ faq:
 - **「AI 導入 → 即運用」ではなく「ルール先・運用後」**が王道
 - **継続的なルール見直し**（半期に1度）を習慣化
 
-商用利用の詳細は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use)、料金は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing)、機能比較は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5)、Midjourney は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide)を参照してください。
+商用利用の詳細は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use/)、料金は[AI画像生成ツール料金完全比較](/guides/ai-image-generation-pricing/)、機能比較は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5/)、Midjourney は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide/)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide/)を参照してください。

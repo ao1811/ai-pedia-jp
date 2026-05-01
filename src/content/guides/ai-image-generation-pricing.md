@@ -38,7 +38,7 @@ faq:
 - **大量生成（月500枚〜）** → **Stable Diffusion ローカル（¥0、要GPU）**
 - **写真の高解像度化・修復** → **Aiarty（¥7,920買切）**
 
-ツール5本の機能比較は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5)、Midjourney 特化は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide)で解説しています。
+ツール5本の機能比較は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5/)、Midjourney 特化は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide/)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide/)で解説しています。
 
 ## 6ツール料金プラン早見表（2026年4月時点）
 
@@ -75,7 +75,7 @@ faq:
 - **日本語プロンプトは精度低め**：英語推奨
 - **Discord 経由のUI**：Web 版もあるが慣れが必要
 
-詳しい使い方は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide)を参照。
+詳しい使い方は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide/)を参照。
 
 ## DALL-E 3（ChatGPT Plus 内蔵）：万能型
 
@@ -259,4 +259,4 @@ END
 - **多用途 → ChatGPT Plus に DALL-E 3 含む（¥3,000）**
 - **ヘビーユース → Stable Diffusion ローカル（要GPU）**
 
-各ツールの詳細解説は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5)、Midjourney 特化は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide)、**商用利用の詳細**は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use)、**導入失敗を避けたい**なら[AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases)を参照してください。
+各ツールの詳細解説は[日本語に強いAI画像生成5選](/guides/japanese-image-ai-5/)、Midjourney 特化は[Midjourney v7 プロンプト教科書](/guides/midjourney-prompt-guide/)、ブログ運用は[ブログ記事用のAI画像生成完全ガイド](/guides/ai-image-blog-guide/)、**商用利用の詳細**は[AI画像生成の商用利用完全ガイド](/guides/ai-image-commercial-use/)、**導入失敗を避けたい**なら[AI画像生成の失敗事例10選](/guides/ai-image-generation-failure-cases/)を参照してください。

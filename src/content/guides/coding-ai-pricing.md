@@ -38,7 +38,7 @@ faq:
 - **両刀（Cursor + Claude Code）** → **月$40 で最強環境**
 - **自律的コーディング** → **Devin（$500/月、要相談）**
 
-ツール3本の機能比較は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)、Cursor 特化は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)、Claude Code 特化は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)で解説しています。
+ツール3本の機能比較は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison/)、Cursor 特化は[Cursor 完全実践ガイド](/guides/cursor-practical-guide/)、Claude Code 特化は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)で解説しています。
 
 ## 6ツール料金プラン早見表（2026年4月時点）
 
@@ -103,7 +103,7 @@ faq:
 - **対話で大規模コード変更**したい
 - **チーム開発**で同じ環境を統一したい
 
-詳しい使い方は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)、Composer は[Cursor Composer / Agent Mode 解説](/guides/cursor-composer-agent)を参照。
+詳しい使い方は[Cursor 完全実践ガイド](/guides/cursor-practical-guide/)、Composer は[Cursor Composer / Agent Mode 解説](/guides/cursor-composer-agent/)を参照。
 
 ## Claude Code：CLI 派の最強
 
@@ -133,7 +133,7 @@ Claude Code は **Claude Pro / Max / Team / Enterprise の利用枠**を消費�
 - **VS Code 拡張は別途**（Continue.dev など）
 - **コード補完単体**は Copilot に劣る
 
-詳しい使い方は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)を参照。
+詳しい使い方は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)を参照。
 
 ## v0（Vercel）：UI/UX 特化
 
@@ -157,7 +157,7 @@ Claude Code は **Claude Pro / Max / Team / Enterprise の利用枠**を消費�
 - **Backend ロジック**は別途実装必要
 - 一般的なコード編集は Cursor / Claude Code 推奨
 
-[Claude Design](/guides/claude-design-feature) との比較は別記事で詳述しています。
+[Claude Design](/guides/claude-design-feature/) との比較は別記事で詳述しています。
 
 ## Devin：自律的コーディング
 
@@ -261,4 +261,4 @@ END
 - **大規模自動化 → Devin $500（要予算）**
 - **両刀 → Cursor + Claude Code $40 で最強**
 
-各ツールの詳細解説は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)、Cursor 詳細は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)・[Cursor Composer 解説](/guides/cursor-composer-agent)、Claude Code 詳細は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、**非エンジニア向けの活用法**は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)、**導入失敗を避けたい**なら[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)を参照してください。
+各ツールの詳細解説は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison/)、Cursor 詳細は[Cursor 完全実践ガイド](/guides/cursor-practical-guide/)・[Cursor Composer 解説](/guides/cursor-composer-agent/)、Claude Code 詳細は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)、**非エンジニア向けの活用法**は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers/)、**導入失敗を避けたい**なら[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)を参照してください。

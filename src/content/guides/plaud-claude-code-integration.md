@@ -45,7 +45,7 @@ faq:
 
 これだけです。月60件の会議で **従来30時間 → 1時間に短縮**。
 
-PLAUD の機能は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note)・[PLAUD 実機3ヶ月レビュー](/guides/plaud-review-3-months)、Claude Code の機能は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)を参照。
+PLAUD の機能は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note/)・[PLAUD 実機3ヶ月レビュー](/guides/plaud-review-3-months/)、Claude Code の機能は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)を参照。
 
 ## なぜ PLAUD だけでは足りないか
 
@@ -59,7 +59,7 @@ PLAUD の機能は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plau
 ✅ マインドマップ生成
 ```
 
-これだけで議事録作成時間が90%削減されます。詳細は[PLAUD 実機3ヶ月レビュー](/guides/plaud-review-3-months)。
+これだけで議事録作成時間が90%削減されます。詳細は[PLAUD 実機3ヶ月レビュー](/guides/plaud-review-3-months/)。
 
 ### PLAUD 単独では弱い場面
 
@@ -168,7 +168,7 @@ NOTION_DB_ID=xxx-xxx-xxx
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
 ```
 
-**重要**：`.env` は `.gitignore` に追加して **絶対に commit しない**。詳細は[コーディングAI失敗事例10選](/guides/coding-ai-failure-cases)を参照。
+**重要**：`.env` は `.gitignore` に追加して **絶対に commit しない**。詳細は[コーディングAI失敗事例10選](/guides/coding-ai-failure-cases/)を参照。
 
 ### Step 4：cron で定期実行設定（5分）
 
@@ -361,4 +361,4 @@ if __name__ == "__main__":
 - Notion / Slack / Asana / Linear 全部連携可能
 - 業務シーン別にカスタマイズ自由
 
-PLAUD 機能詳細は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note)・[PLAUD 実機3ヶ月レビュー](/guides/plaud-review-3-months)、Claude Code は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)・[Claude Code に投げるべき5つの神プロンプト集](/guides/claude-code-prompts-for-non-engineers)、Notta との比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)を参照してください。
+PLAUD 機能詳細は[PLAUD H1 vs PLAUD NOTE 徹底比較](/guides/plaud-h1-vs-plaud-note/)・[PLAUD 実機3ヶ月レビュー](/guides/plaud-review-3-months/)、Claude Code は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)・[Claude Code に投げるべき5つの神プロンプト集](/guides/claude-code-prompts-for-non-engineers/)、Notta との比較は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)を参照してください。

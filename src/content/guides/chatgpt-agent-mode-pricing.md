@@ -37,7 +37,7 @@ faq:
 - **企業導入・機密情報あり** → **Enterprise（要相談）**
 - **Free プランはエージェント非対応** → 体験すらできない
 
-ChatGPT エージェントモードの全体像は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20)で先に把握しておくと、本記事の料金比較が腹落ちしやすくなります。
+ChatGPT エージェントモードの全体像は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20/)で先に把握しておくと、本記事の料金比較が腹落ちしやすくなります。
 
 ## ChatGPT 全プランのエージェントモード対応状況（2026年4月時点）
 
@@ -214,6 +214,6 @@ END
 - **Enterprise は法人専用**、個人の選択肢ではない
 - **年額プランは2ヶ月分お得**だが、まず月額で試すのが安全
 
-ChatGPT エージェントモードを使い始める具体的な手順は、[ChatGPT エージェントモード 使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)にまとめました。料金プランを決めたら、次は「最初に試す3つのタスク例」から実践に移れます。
+ChatGPT エージェントモードを使い始める具体的な手順は、[ChatGPT エージェントモード 使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)にまとめました。料金プランを決めたら、次は「最初に試す3つのタスク例」から実践に移れます。
 
-「Plus に課金する前に他のAIエージェントも比較したい」という方は[ChatGPT エージェントモード vs Claude / Manus / Devin 徹底比較](/guides/chatgpt-agent-vs-other-agents)、「**業務でのリアルなユースケース**」が知りたい方は[業務活用10事例とプロンプト集](/guides/chatgpt-agent-mode-real-examples)、「**導入前のリスク評価**」が必要な方は[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks)もあわせてどうぞ。
+「Plus に課金する前に他のAIエージェントも比較したい」という方は[ChatGPT エージェントモード vs Claude / Manus / Devin 徹底比較](/guides/chatgpt-agent-vs-other-agents/)、「**業務でのリアルなユースケース**」が知りたい方は[業務活用10事例とプロンプト集](/guides/chatgpt-agent-mode-real-examples/)、「**導入前のリスク評価**」が必要な方は[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks/)もあわせてどうぞ。

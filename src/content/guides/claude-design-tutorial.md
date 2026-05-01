@@ -33,7 +33,7 @@ faq:
 2. **初回プロンプト**：「シンプルなランディングページのヘッダーを作って」（15分）
 3. **微調整**：「色を青系に」「ボタンを大きく」と対話で改善（10分）
 
-これだけで Claude Design の感覚が掴めます。Claude Design の機能全体像は[新機能「Claude Design」とは？2026年版徹底解説](/guides/claude-design-feature)、Figma・Canva など他ツールとの比較は[Claude Design登場で変わるAIデザインツール5選](/guides/claude-design-vs-figma-canva)で先に把握すると、本記事の手順が腹落ちしやすくなります。
+これだけで Claude Design の感覚が掴めます。Claude Design の機能全体像は[新機能「Claude Design」とは？2026年版徹底解説](/guides/claude-design-feature/)、Figma・Canva など他ツールとの比較は[Claude Design登場で変わるAIデザインツール5選](/guides/claude-design-vs-figma-canva/)で先に把握すると、本記事の手順が腹落ちしやすくなります。
 
 ## 前提：必要なプランと準備
 
@@ -192,7 +192,7 @@ CTAボタンは「無料で試す」と「料金を見る」の2つ。
 
 ### Claude Code に渡してさらに編集
 
-生成された React コードを **[Claude Code](/guides/claude-code-practical-guide)** に渡せば、機能追加・テスト・型付けが一気にできます：
+生成された React コードを **[Claude Code](/guides/claude-code-practical-guide/)** に渡せば、機能追加・テスト・型付けが一気にできます：
 
 - 「このコンポーネントに onClick ハンドラを追加して」
 - 「TypeScript 型を厳格に」
@@ -225,7 +225,7 @@ Claude Design + Claude Code の組み合わせは、**フロントエンド開�
 生成が長すぎて切れる場合：
 
 - 1コンポーネントずつ分割して依頼
-- Pro プランの上限超過の可能性 → Max プランへ。詳細は[Claude Design の料金プラン解説](/guides/claude-design-pricing)
+- Pro プランの上限超過の可能性 → Max プランへ。詳細は[Claude Design の料金プラン解説](/guides/claude-design-pricing/)
 
 ### エラー3：「日本語フォントが崩れる」
 
@@ -264,4 +264,4 @@ Tailwind デフォルトでは Inter が読み込まれるため日本語が美�
 
 Claude Design は「**プロンプト力＝デザイン力**」が問われるツール。最初の1週間は試行錯誤しますが、コツが掴めると業務の30〜50%は AI 完結できます。
 
-次のステップとしては、[Claude Design の料金プラン完全比較](/guides/claude-design-pricing)で Pro / Max / Team の見極め基準を確認するか、[Claude Design 業務活用10事例](/guides/claude-design-real-examples)で実践的なシナリオを掴むのが早道です。**導入前のリスク評価**は[Claude Design の限界とできないこと](/guides/claude-design-limitations)、Figma・Canva との具体比較は[AIデザインツール5選](/guides/claude-design-vs-figma-canva)が参考になります。
+次のステップとしては、[Claude Design の料金プラン完全比較](/guides/claude-design-pricing/)で Pro / Max / Team の見極め基準を確認するか、[Claude Design 業務活用10事例](/guides/claude-design-real-examples/)で実践的なシナリオを掴むのが早道です。**導入前のリスク評価**は[Claude Design の限界とできないこと](/guides/claude-design-limitations/)、Figma・Canva との具体比較は[AIデザインツール5選](/guides/claude-design-vs-figma-canva/)が参考になります。

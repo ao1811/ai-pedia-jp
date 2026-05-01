@@ -41,7 +41,7 @@ ChatGPT エージェントモードは確かに業務効率化の革命ですが
 
 これら5領域は **「AIに下案を作らせる→人間が最終承認」** の運用が必須です。それ以外の業務（リサーチ、レポート作成、ドラフト作成など）は積極的に任せてOK。
 
-ChatGPT エージェントモードの基礎は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20)、料金プランは[料金完全比較](/guides/chatgpt-agent-mode-pricing)で解説しています。
+ChatGPT エージェントモードの基礎は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20/)、料金プランは[料金完全比較](/guides/chatgpt-agent-mode-pricing/)で解説しています。
 
 ## 領域1：送金・決済・購入
 
@@ -138,7 +138,7 @@ SNSの古い投稿を掘り起こして「適性なし」と判断するのは�
 - **匿名化・マスキング**してから AI に渡す（個人名→「Aさん」など）
 - 機密性の高い業務は **Enterprise プラン**（学習オプトアウト + データ管理）必須
 - 社内で「**エージェントに渡してOKな情報レベル**」のクラス分けルールを作る
-- 詳しくは[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)の Enterprise セクションを参照
+- 詳しくは[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)の Enterprise セクションを参照
 
 ## 領域5：法務・コンプラ判断
 
@@ -205,7 +205,7 @@ ChatGPT エージェントモードの仮想ブラウザは進化しています
 
 ### 教育・運用
 
-- [ ] **利用者向けのトレーニング**を実施したか（[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)を参考に）
+- [ ] **利用者向けのトレーニング**を実施したか（[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)を参考に）
 - [ ] **やってはいけないプロンプト例**を社内に共有したか
 - [ ] **問い合わせ窓口**（社内 IT / 情シス）を決めたか
 - [ ] **退職者の利用停止**フローを設計したか
@@ -261,4 +261,4 @@ ChatGPT エージェントモードの仮想ブラウザは進化しています
 
 ChatGPT エージェントモードは「便利ツール」ではなく「**ジュニア社員相当の権限を持つ存在**」として扱うのが現実的です。新人を採用したときと同じ、**段階的な権限委譲と教育**が必要です。
 
-導入を本気で検討するなら、[エージェントモードの料金完全比較](/guides/chatgpt-agent-mode-pricing)で Enterprise や Team プランも視野に入れてください。実際の業務シナリオは[業務活用10事例](/guides/chatgpt-agent-mode-real-examples)、操作の基本は[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)、他のAIエージェントとの違いは[エージェント横並び比較](/guides/chatgpt-agent-vs-other-agents)が参考になります。
+導入を本気で検討するなら、[エージェントモードの料金完全比較](/guides/chatgpt-agent-mode-pricing/)で Enterprise や Team プランも視野に入れてください。実際の業務シナリオは[業務活用10事例](/guides/chatgpt-agent-mode-real-examples/)、操作の基本は[使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)、他のAIエージェントとの違いは[エージェント横並び比較](/guides/chatgpt-agent-vs-other-agents/)が参考になります。

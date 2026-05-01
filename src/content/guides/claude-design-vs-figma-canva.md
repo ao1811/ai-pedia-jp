@@ -167,11 +167,11 @@ Microsoft 365 Copilot に統合された生成AIデザイン機能。PowerPoint 
 
 本記事は5ツールの横並び比較ですが、Claude Design 単体について詳しく知りたい方は以下の記事もどうぞ：
 
-- 機能全体像：[新機能「Claude Design」とは？2026年版徹底解説](/guides/claude-design-feature)
-- 起動・操作の基本：[使い方完全チュートリアル（30分で UI 生成）](/guides/claude-design-tutorial)
-- 料金プランの選び方：[Pro / Max / Team / Enterprise 料金完全比較](/guides/claude-design-pricing)
-- 実際の業務シナリオ：[業務活用10事例とコピペプロンプト集](/guides/claude-design-real-examples)
-- 導入前のリスク評価：[限界とできないこと・5つのNG業務](/guides/claude-design-limitations)
+- 機能全体像：[新機能「Claude Design」とは？2026年版徹底解説](/guides/claude-design-feature/)
+- 起動・操作の基本：[使い方完全チュートリアル（30分で UI 生成）](/guides/claude-design-tutorial/)
+- 料金プランの選び方：[Pro / Max / Team / Enterprise 料金完全比較](/guides/claude-design-pricing/)
+- 実際の業務シナリオ：[業務活用10事例とコピペプロンプト集](/guides/claude-design-real-examples/)
+- 導入前のリスク評価：[限界とできないこと・5つのNG業務](/guides/claude-design-limitations/)
 
 ## 参考情報
 

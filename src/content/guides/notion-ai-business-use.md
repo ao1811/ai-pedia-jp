@@ -42,7 +42,7 @@ faq:
 9. ナレッジ抽出
 10. 週次サマリー自動生成
 
-各事例には **コピペで使える完成プロンプト**を掲載します。料金は[Notion AI 料金完全比較](/guides/notion-ai-pricing)、機能詳細は[Notion AI レビュー](/guides/notion-ai-review)を参照。
+各事例には **コピペで使える完成プロンプト**を掲載します。料金は[Notion AI 料金完全比較](/guides/notion-ai-pricing/)、機能詳細は[Notion AI レビュー](/guides/notion-ai-review/)を参照。
 
 ## 事例1：議事録の自動整形（30分→3分）
 
@@ -250,4 +250,4 @@ ai-pedia 編集部では：
 - **プロンプトテンプレを社内共有**で組織全体が効率化
 - **3ヶ月運用で年¥720,000相当の節約**が現実値
 
-料金は[Notion AI 料金完全比較](/guides/notion-ai-pricing)、機能詳細は[Notion AI レビュー](/guides/notion-ai-review)、汎用 AI との使い分けは[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04)を参照してください。
+料金は[Notion AI 料金完全比較](/guides/notion-ai-pricing/)、機能詳細は[Notion AI レビュー](/guides/notion-ai-review/)、汎用 AI との使い分けは[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04/)を参照してください。

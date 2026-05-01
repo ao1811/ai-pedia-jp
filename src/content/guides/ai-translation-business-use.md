@@ -37,7 +37,7 @@ faq:
 
 このフローで**翻訳コストが80〜95%削減**、品質も人間翻訳に近づきます。
 
-ツールの料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026)で解説しています。
+ツールの料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing/)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026/)で解説しています。
 
 ## 法人導入の3 Phase ロードマップ
 
@@ -126,7 +126,7 @@ def translate_with_localization(text, target_lang):
 - Zoom / Meet / Teams 連携
 - リアルタイム字幕（多言語）
 - 終了後の議事録自動翻訳
-- 詳しくは[AI議事録ツール徹底比較](/guides/ai-meeting-notes-2026-spring)を参照
+- 詳しくは[AI議事録ツール徹底比較](/guides/ai-meeting-notes-2026-spring/)を参照
 
 ## 業界別の推奨運用
 
@@ -225,4 +225,4 @@ def translate_with_localization(text, target_lang):
 - **Web 多言語化は API ハイブリッド**
 - **翻訳メモリで品質と効率の両立**
 
-料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026)、**導入失敗を避けたい**なら[AI翻訳の失敗事例10選](/guides/ai-translation-failure-cases)を参照してください。
+料金詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing/)、機能比較は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026/)、**導入失敗を避けたい**なら[AI翻訳の失敗事例10選](/guides/ai-translation-failure-cases/)を参照してください。

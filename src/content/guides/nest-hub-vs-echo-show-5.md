@@ -40,7 +40,7 @@ faq:
 | **ショッピング多用** | **Echo Show 5**（Alexa+ 強い） |
 | **子供の教育用** | **Nest Hub**（Family Link 強い） |
 
-設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup)、Gemini for Home 全体像は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)を参照。
+設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup/)、Gemini for Home 全体像は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)を参照。
 
 ## 4軸の徹底比較
 
@@ -257,4 +257,4 @@ END
 - **iPhone派 = 両方△、HomePod を待つ**
 - **両方買って部屋別運用** も合理的
 
-設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup)、対応デバイス比較は[Gemini for Home が使えるデバイス一覧](/guides/gemini-for-home-compatible-devices)、Gemini for Home 全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)、Gemini 料金は[Gemini 料金完全比較](/guides/gemini-pricing)を参照してください。
+設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup/)、対応デバイス比較は[Gemini for Home が使えるデバイス一覧](/guides/gemini-for-home-compatible-devices/)、Gemini for Home 全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)、Gemini 料金は[Gemini 料金完全比較](/guides/gemini-pricing/)を参照してください。

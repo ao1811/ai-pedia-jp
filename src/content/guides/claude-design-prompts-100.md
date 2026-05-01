@@ -44,7 +44,7 @@ faq:
 
 各プロンプトには **「カスタマイズ箇所」「推奨スタック」「コツ」** を明記しています。
 
-機能全体は[Claude Design 完全解説](/guides/claude-design-feature)、料金は[Claude Design 料金](/guides/claude-design-pricing)、業務事例は[Claude Design 業務活用10事例](/guides/claude-design-real-examples)も併せてどうぞ。
+機能全体は[Claude Design 完全解説](/guides/claude-design-feature/)、料金は[Claude Design 料金](/guides/claude-design-pricing/)、業務事例は[Claude Design 業務活用10事例](/guides/claude-design-real-examples/)も併せてどうぞ。
 
 ---
 
@@ -235,7 +235,7 @@ Coming Soon ページを作って。
 20. 設定タブ画面（Profile/Billing/Team/Notifications/Security）
 ```
 
-各プロンプトの詳細は[Claude Design 業務活用10事例](/guides/claude-design-real-examples)で実例紹介。
+各プロンプトの詳細は[Claude Design 業務活用10事例](/guides/claude-design-real-examples/)で実例紹介。
 
 ---
 
@@ -476,9 +476,9 @@ Coming Soon ページを作って。
 
 ## 関連記事
 
-- 機能詳細 → [Claude Design 完全解説](/guides/claude-design-feature)
-- 料金比較 → [Claude Design 料金完全比較](/guides/claude-design-pricing)
-- 業務活用10事例 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples)
-- v0 / Figma AI 比較 → [Claude Design vs v0 vs Figma AI](/guides/claude-design-vs-v0-vs-figma-ai)
-- 限界とできないこと → [Claude Design の限界](/guides/claude-design-limitations)
-- 使い方チュートリアル → [Claude Design 使い方完全チュートリアル](/guides/claude-design-tutorial)
+- 機能詳細 → [Claude Design 完全解説](/guides/claude-design-feature/)
+- 料金比較 → [Claude Design 料金完全比較](/guides/claude-design-pricing/)
+- 業務活用10事例 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples/)
+- v0 / Figma AI 比較 → [Claude Design vs v0 vs Figma AI](/guides/claude-design-vs-v0-vs-figma-ai/)
+- 限界とできないこと → [Claude Design の限界](/guides/claude-design-limitations/)
+- 使い方チュートリアル → [Claude Design 使い方完全チュートリアル](/guides/claude-design-tutorial/)

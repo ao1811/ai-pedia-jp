@@ -97,8 +97,8 @@ Vercel 謹製。**プロンプトや画像から React/Next.js コンポーネ�
 
 ## コーディングAI 関連記事クラスター
 
-- 料金詳細：[コーディングAI ツール料金完全比較](/guides/coding-ai-pricing)
-- 非エンジニア向け活用：[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)
-- 失敗事例：[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)
-- Claude Code 詳細：[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)
-- Cursor 詳細：[Cursor 完全実践ガイド](/guides/cursor-practical-guide)・[Cursor Composer 解説](/guides/cursor-composer-agent)
+- 料金詳細：[コーディングAI ツール料金完全比較](/guides/coding-ai-pricing/)
+- 非エンジニア向け活用：[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers/)
+- 失敗事例：[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)
+- Claude Code 詳細：[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)
+- Cursor 詳細：[Cursor 完全実践ガイド](/guides/cursor-practical-guide/)・[Cursor Composer 解説](/guides/cursor-composer-agent/)

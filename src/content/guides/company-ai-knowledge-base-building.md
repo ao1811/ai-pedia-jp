@@ -42,7 +42,7 @@ faq:
 
 これだけです。**完璧を目指さず叩き台で公開** → 同僚レビュー → 改善のサイクルが鉄則。
 
-ナレッジベース構築前の30日プランは[「会社でAIを使え」と言われた人の最初の30日ロードマップ](/guides/ai-at-work-first-30-days-plan)、ツール選定は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)を先に読むと話が早いです。
+ナレッジベース構築前の30日プランは[「会社でAIを使え」と言われた人の最初の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、ツール選定は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)を先に読むと話が早いです。
 
 ## なぜ Notion がベストか
 
@@ -74,7 +74,7 @@ Notion 内のページを **Notion AI が学習データ**として参照。社�
 
 非エンジニアでも30分で慣れる UI。新人も自分で更新できる。
 
-詳細は[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use)を参照。
+詳細は[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use/)を参照。
 
 ## ナレッジベース 5セクションの作り方
 
@@ -133,7 +133,7 @@ Notion 内のページを **Notion AI が学習データ**として参照。社�
 
 - **ホワイトリスト** vs **ブラックリスト** 形式で明確に
 - 詳細な選定フローは別記事に**外部リンク**（記事を肥大化させない）
-- 編集部の[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)を引用
+- 編集部の[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)を引用
 
 ### Section 3：業務別プロンプト集
 
@@ -162,7 +162,7 @@ Notion 内のページを **Notion AI が学習データ**として参照。社�
 - **注意事項** を必ず添える
 - 業界・部署用語に置き換えやすいテンプレ化
 
-ベースとして使えるプロンプトは[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)から流用可能。
+ベースとして使えるプロンプトは[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)から流用可能。
 
 ### Section 4：セキュリティ・コンプラルール
 
@@ -191,7 +191,7 @@ Notion 内のページを **Notion AI が学習データ**として参照。社�
 
 - **3カテゴリ**（NG / 要注意 / OK）で分類
 - **具体例**を必ず添える
-- 詳細は[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist)に飛ばす
+- 詳細は[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist/)に飛ばす
 
 ### Section 5：失敗事例と FAQ
 
@@ -391,7 +391,7 @@ A: 部署長の承認があれば経費精算可能。3ヶ月実績で報告書�
 ### C. データ分析
 [プロンプト]
 
-→ 詳細は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)参照
+→ 詳細は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)参照
 
 ---
 
@@ -425,6 +425,6 @@ A: 部署長の承認があれば経費精算可能。3ヶ月実績で報告書�
 
 「**会社で AI 使え**」と言われた人が次に詰まるのが「**ナレッジがない**」問題です。本記事のテンプレを使って、今日30分で叩き台を作ってください。
 
-ナレッジベース構築前の **30日プラン** は[「会社でAIを使え」と言われた人の最初の30日ロードマップ](/guides/ai-at-work-first-30-days-plan)、**ツール選定** は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)、**セキュリティ詳細** は[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist)、**業務別プロンプト** は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)を参照してください。
+ナレッジベース構築前の **30日プラン** は[「会社でAIを使え」と言われた人の最初の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、**ツール選定** は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)、**セキュリティ詳細** は[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist/)、**業務別プロンプト** は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)を参照してください。
 
-Notion AI の活用法は[Notion AI レビュー](/guides/notion-ai-review)・[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use)もあわせてどうぞ。
+Notion AI の活用法は[Notion AI レビュー](/guides/notion-ai-review/)・[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use/)もあわせてどうぞ。

@@ -39,7 +39,7 @@ faq:
 6. **内部リンクで「トピック権威」を作る**
 7. **編集者の体験談・数字**を必ず入れる
 
-ツール6本の機能比較は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、料金詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow)で解説しています。
+ツール6本の機能比較は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)、料金詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow/)で解説しています。
 
 ## 戦略1：キーワードクラスター戦略
 
@@ -379,7 +379,7 @@ ai-pedia 編集長は現在、以下の組み合わせで運用しています�
 → Google が「トピック権威」を認識できず、順位が上がらない
 ```
 
-詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)で解説しています。
+詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases/)で解説しています。
 
 ## まとめ：AI 時代の SEO は「クラスター × E-E-A-T」
 
@@ -391,4 +391,4 @@ ai-pedia 編集長は現在、以下の組み合わせで運用しています�
 - **内部リンク10〜15本**で「トピック権威」形成
 - **編集者の体験談・数字**で人間化
 
-ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、料金は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)、校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow)、**失敗事例**は[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)、副業全体は[AIで始める副業ガイド](/guides/ai-side-business-guide)を参照してください。
+ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)、料金は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)、校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow/)、**失敗事例**は[AIライティング失敗事例10選](/guides/ai-writing-failure-cases/)、副業全体は[AIで始める副業ガイド](/guides/ai-side-business-guide/)を参照してください。

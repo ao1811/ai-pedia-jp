@@ -42,7 +42,7 @@ SNS向けカジュアル：Pika 2.0
 
 Sora の機能を **無料 + ¥1,500/月程度**で完全カバーできる時代になりました。
 
-[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)、[Veo 3.1 無料化完全ガイド](/guides/veo-3-1-free-guide)、[AI画像生成料金比較](/guides/ai-image-generation-pricing)も併せてどうぞ。
+[ChatGPT・Claude・Gemini 比較](/guides/chatgpt-claude-gemini-2026-04/)、[GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)、[Veo 3.1 無料化完全ガイド](/guides/veo-3-1-free-guide/)、[AI画像生成料金比較](/guides/ai-image-generation-pricing/)も併せてどうぞ。
 
 ## Sora 終了の経緯と影響
 
@@ -143,7 +143,7 @@ Veo 3.1：同等品質 + 着物の擦れる音・川のせせらぎ・遠くの�
 ✅ 月¥0〜¥2,900 で済ませたい
 ```
 
-詳細は[Veo 3.1 無料化完全ガイド](/guides/veo-3-1-free-guide)で解説。
+詳細は[Veo 3.1 無料化完全ガイド](/guides/veo-3-1-free-guide/)で解説。
 
 ## 2位：Runway Gen-4（プロ・商用案件の決定版）
 
@@ -394,9 +394,9 @@ Sora 終了は **OpenAI の戦略的撤退**ですが、**個人ユーザーに�
 
 ## 関連記事
 
-- 無料化の詳細 → [Veo 3.1 無料化完全ガイド](/guides/veo-3-1-free-guide)
-- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)
-- プラン選び → [ChatGPTのプラン選び方完全ガイド](/guides/chatgpt-plans-which-to-choose)
-- 開発者向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800)
-- 画像生成料金 → [AI画像生成 料金比較](/guides/ai-image-generation-pricing)
+- 無料化の詳細 → [Veo 3.1 無料化完全ガイド](/guides/veo-3-1-free-guide/)
+- 最新モデル → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- 比較 → [ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)
+- プラン選び → [ChatGPTのプラン選び方完全ガイド](/guides/chatgpt-plans-which-to-choose/)
+- 開発者向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800/)
+- 画像生成料金 → [AI画像生成 料金比較](/guides/ai-image-generation-pricing/)

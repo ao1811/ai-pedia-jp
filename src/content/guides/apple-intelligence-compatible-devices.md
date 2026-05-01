@@ -37,7 +37,7 @@ faq:
 | **Apple Watch** | 非対応 | 全モデル |
 | **Vision Pro** | 対応 | - |
 
-機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)を参照。
+機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)を参照。
 
 ## iPhone 対応端末
 
@@ -293,4 +293,4 @@ iPhone 16 Pro（¥159,800）
 - **Mac mini M4（¥94,800）** がデスクトップ最安
 - **業務利用なら2ヶ月でペイ**
 
-機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)、Gemini for Home との比較は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)を参照してください。
+機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)、Gemini for Home との比較は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)を参照してください。

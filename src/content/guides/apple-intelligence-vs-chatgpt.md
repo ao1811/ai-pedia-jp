@@ -39,7 +39,7 @@ faq:
 | **プライバシー超重視** | Apple Intelligence 優先 |
 | **iPhone 持ってない** | ChatGPT Plus（Apple Intelligence 使えない） |
 
-機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)、ChatGPT 料金は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)を参照。
+機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、ChatGPT 料金は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)を参照。
 
 ## 5軸の徹底比較
 
@@ -341,4 +341,4 @@ ROI：50倍
 - **月¥3,000で両方併用**が現実解
 - **iPhone ユーザーは ChatGPT Plus 追加で全領域カバー**
 
-機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices)、ChatGPT 料金詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing)、AI ツール選び方は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)を参照してください。
+機能全体は[Apple Intelligence とは？2026年版完全解説](/guides/apple-intelligence-overview/)、使い方は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)、ChatGPT 料金詳細は[ChatGPT エージェントモード料金完全比較](/guides/chatgpt-agent-mode-pricing/)、AI ツール選び方は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)を参照してください。

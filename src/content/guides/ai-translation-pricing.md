@@ -38,7 +38,7 @@ faq:
 - **長文・契約書精読** → **Claude Pro（$20）**
 - **法人・チーム** → **DeepL Business（¥4,500/人/月）+ Languise**
 
-ツールの機能比較は[AI翻訳ツール徹底比較（2026年版）](/guides/ai-translation-tools-2026)で解説しています。
+ツールの機能比較は[AI翻訳ツール徹底比較（2026年版）](/guides/ai-translation-tools-2026/)で解説しています。
 
 ## AI翻訳 有料プラン早見表（6ツール）
 
@@ -90,7 +90,7 @@ faq:
 - **法人営業・コンサル**で英語の提案書を作成
 - **国内で展開する SaaS**で多言語化
 
-詳しい使い方は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026)を参照。
+詳しい使い方は[AI翻訳ツール徹底比較](/guides/ai-translation-tools-2026/)を参照。
 
 ## ChatGPT Plus：対話型翻訳の柔軟性
 
@@ -158,7 +158,7 @@ faq:
 
 ### 翻訳特化ではない
 
-純粋なテキスト翻訳には DeepL や ChatGPT の方が向きます。**音声・会議文脈**で Notta を使うのが現実解。詳しくは[AI議事録ツール徹底比較](/guides/ai-meeting-notes-2026-spring)を参照。
+純粋なテキスト翻訳には DeepL や ChatGPT の方が向きます。**音声・会議文脈**で Notta を使うのが現実解。詳しくは[AI議事録ツール徹底比較](/guides/ai-meeting-notes-2026-spring/)を参照。
 
 ## 1年運用での総コスト・ROI試算
 
@@ -236,4 +236,4 @@ END
 - **長文・論理性 → Claude Pro（$20）**
 - **音声・会議 → Notta Premium**
 
-ツール5本の機能比較は[AI翻訳ツール徹底比較（2026年版）](/guides/ai-translation-tools-2026)、**法人活用法**は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use)、**導入失敗を避けたい**なら[AI翻訳の失敗事例10選](/guides/ai-translation-failure-cases)を参照してください。
+ツール5本の機能比較は[AI翻訳ツール徹底比較（2026年版）](/guides/ai-translation-tools-2026/)、**法人活用法**は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use/)、**導入失敗を避けたい**なら[AI翻訳の失敗事例10選](/guides/ai-translation-failure-cases/)を参照してください。

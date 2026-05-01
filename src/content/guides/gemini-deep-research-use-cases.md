@@ -42,7 +42,7 @@ faq:
 9. コンサル：業界トレンド分析
 10. 投資：銘柄の事前調査
 
-各事例には **コピペで使える完成プロンプト**を掲載します。Gemini の機能全体は[Gemini Deep Research 解説](/guides/gemini-deep-research)、料金は[Gemini 料金完全比較](/guides/gemini-pricing)を参照。
+各事例には **コピペで使える完成プロンプト**を掲載します。Gemini の機能全体は[Gemini Deep Research 解説](/guides/gemini-deep-research/)、料金は[Gemini 料金完全比較](/guides/gemini-pricing/)を参照。
 
 ## 事例1：営業｜見込み顧客リサーチ（30分→3分）
 
@@ -353,4 +353,4 @@ ai-pedia 編集部では、上記10事例を曜日固定で運用：
 - **3つのコツ**（フォーマット・情報源・判断基準）で精度2〜3倍
 - **曜日固定で自動化**すれば週5時間削減
 
-Gemini の機能全体は[Gemini Deep Research 解説](/guides/gemini-deep-research)、料金は[Gemini 料金完全比較](/guides/gemini-pricing)、家庭向け展開は[Gemini for Home（日本上陸）](/guides/gemini-for-home-japan-2026)、ChatGPT・Claude との比較は[3強の使い分け完全ガイド](/guides/chatgpt-vs-claude-vs-gemini)を参照してください。
+Gemini の機能全体は[Gemini Deep Research 解説](/guides/gemini-deep-research/)、料金は[Gemini 料金完全比較](/guides/gemini-pricing/)、家庭向け展開は[Gemini for Home（日本上陸）](/guides/gemini-for-home-japan-2026/)、ChatGPT・Claude との比較は[3強の使い分け完全ガイド](/guides/chatgpt-vs-claude-vs-gemini/)を参照してください。

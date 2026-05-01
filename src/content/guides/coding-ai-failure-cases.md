@@ -41,7 +41,7 @@ faq:
 
 これら5つを避けるために、**「ルール先・運用後」**のフローが必須です。
 
-ツール詳細は[コーディングAI 料金完全比較](/guides/coding-ai-pricing)、[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、[Cursor 完全実践ガイド](/guides/cursor-practical-guide)、非エンジニア向けは[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)で解説しています。
+ツール詳細は[コーディングAI 料金完全比較](/guides/coding-ai-pricing/)、[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)、[Cursor 完全実践ガイド](/guides/cursor-practical-guide/)、非エンジニア向けは[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers/)で解説しています。
 
 ## 失敗事例1：本番 DB を AI が直接操作して全データ消失
 
@@ -169,7 +169,7 @@ faq:
 - **業務コードは Pro / Team / Enterprise プラン**でのみ使用
 - 機密性の高い箇所は**変数名を匿名化**して入力
 - 法人は**学習オプトアウト可能なプラン**を全社展開
-- 詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)も参考
+- 詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases/)も参考
 
 ## 失敗事例7：SQL インジェクション脆弱性を量産
 
@@ -359,5 +359,5 @@ faq:
 - **AI は補助、人間が監督者**という役割分担
 - **継続的なルール見直し**（半期に1度）を習慣化
 
-ツール選定は[コーディングAI 料金完全比較](/guides/coding-ai-pricing)、Claude Code 詳細は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、Cursor は[Cursor 完全実践ガイド](/guides/cursor-practical-guide)・[Cursor Composer 解説](/guides/cursor-composer-agent)、3本機能比較は[コーディングAI 比較](/guides/coding-ai-comparison)、非エンジニア向けは[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)を参照してください。
-- Web制作特化 → [AI Web制作 失敗事例10選](/guides/ai-web-development-failure-cases)
+ツール選定は[コーディングAI 料金完全比較](/guides/coding-ai-pricing/)、Claude Code 詳細は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)、Cursor は[Cursor 完全実践ガイド](/guides/cursor-practical-guide/)・[Cursor Composer 解説](/guides/cursor-composer-agent/)、3本機能比較は[コーディングAI 比較](/guides/coding-ai-comparison/)、非エンジニア向けは[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers/)を参照してください。
+- Web制作特化 → [AI Web制作 失敗事例10選](/guides/ai-web-development-failure-cases/)

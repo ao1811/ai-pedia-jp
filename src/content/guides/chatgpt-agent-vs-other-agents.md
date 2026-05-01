@@ -37,7 +37,7 @@ faq:
 - **大規模システム開発** → **Devin**
 - **「とりあえず試す」目的** → **ChatGPT Plus（¥3,000）から**
 
-ChatGPT エージェントモードの基礎は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20)、料金は[料金完全比較](/guides/chatgpt-agent-mode-pricing)で解説しています。
+ChatGPT エージェントモードの基礎は[ChatGPT エージェントモードとは？2026年版徹底解説](/guides/chatgpt-agent-mode-20/)、料金は[料金完全比較](/guides/chatgpt-agent-mode-pricing/)で解説しています。
 
 ## 2026年Q2 自律型AIエージェント勢力図
 
@@ -84,7 +84,7 @@ ChatGPT エージェントモードの基礎は[ChatGPT エージェントモー
 - 個人事業主・副業勢で**1ツールで完結したい**人
 - 日本語で**自然なレポートを生成**したい人
 
-詳しい[使い方は完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)、料金プラン選びは[料金完全比較](/guides/chatgpt-agent-mode-pricing)を参照。
+詳しい[使い方は完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)、料金プラン選びは[料金完全比較](/guides/chatgpt-agent-mode-pricing/)を参照。
 
 ## Claude Code：コード編集の最強
 
@@ -107,7 +107,7 @@ ChatGPT エージェントモードの基礎は[ChatGPT エージェントモー
 - **既存リポジトリのリファクタリング**を頻繁にやる人
 - **Cursor や VS Code 派**で AI 補完に慣れている人
 
-Claude Code の詳細は[Claude Code 実践ガイド](/guides/claude-code-practical-guide)で深掘りしています。
+Claude Code の詳細は[Claude Code 実践ガイド](/guides/claude-code-practical-guide/)で深掘りしています。
 
 ## Manus：リサーチ職人
 
@@ -226,7 +226,7 @@ Claude Code の詳細は[Claude Code 実践ガイド](/guides/claude-code-practi
 - **Manus**：リサーチ専門ニッチで生存。M&A 対象になる可能性
 - **Devin**：大企業 R&D 専用ツールに収束。個人利用は消える
 
-加えて、**Google Gemini 系のエージェント**が2026年後半に大幅刷新の予兆あり。Vertex AI 経由で SaaS 連携が一気に広がれば、勢力図が変わる可能性が高いです。詳しくは[AIエージェント最前線（2026年版）](/guides/ai-agent-frontier-2026)で追跡しています。
+加えて、**Google Gemini 系のエージェント**が2026年後半に大幅刷新の予兆あり。Vertex AI 経由で SaaS 連携が一気に広がれば、勢力図が変わる可能性が高いです。詳しくは[AIエージェント最前線（2026年版）](/guides/ai-agent-frontier-2026/)で追跡しています。
 
 ## 編集部おすすめの構成：3ツール並行利用
 
@@ -246,4 +246,4 @@ ai-pedia 編集部は現在、以下の組み合わせで運用：
 - **Devin は個人には現実的に高すぎ**
 - **日本語ユーザーは ChatGPT を軸に他を補助で使うのが現実解**
 
-最初に試すなら、迷わず[ChatGPT エージェントモードの使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)から始めて、エージェントの感覚を掴むのがおすすめです。料金プラン選びで迷ったら[ChatGPT エージェントモード 料金完全比較](/guides/chatgpt-agent-mode-pricing)を参照。エンジニア視点のコーディングAI比較は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)もあわせてどうぞ。
+最初に試すなら、迷わず[ChatGPT エージェントモードの使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)から始めて、エージェントの感覚を掴むのがおすすめです。料金プラン選びで迷ったら[ChatGPT エージェントモード 料金完全比較](/guides/chatgpt-agent-mode-pricing/)を参照。エンジニア視点のコーディングAI比較は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison/)もあわせてどうぞ。

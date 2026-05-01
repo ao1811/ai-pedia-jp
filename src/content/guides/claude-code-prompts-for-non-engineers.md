@@ -37,7 +37,7 @@ faq:
 4. **記事のテンプレート化**：FAQ・TL;DR・内部リンクの自動組込
 5. **キーワードクラスターの一括生成**：1日で1クラスター完成
 
-各プロンプトには **「使うときのコツ」「カスタマイズ例」「実行結果」「ありがちな失敗」** を必ず添えています。Claude Code の機能全体は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、料金は[コーディングAI料金完全比較](/guides/coding-ai-pricing)、非エンジニア向け活用法は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)で解説しています。
+各プロンプトには **「使うときのコツ」「カスタマイズ例」「実行結果」「ありがちな失敗」** を必ず添えています。Claude Code の機能全体は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)、料金は[コーディングAI料金完全比較](/guides/coding-ai-pricing/)、非エンジニア向け活用法は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers/)で解説しています。
 
 ---
 
@@ -447,7 +447,7 @@ Claude Code が **半日で**：
 - **編集部の体験談を追記**（AI には書けない）
 - **アフィリエイトリンクは自分が使ったツールのみ**（信頼性のため）
 
-これを守れば、**AI で量産しても helpful content として高評価**されます。詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases)も参照してください。
+これを守れば、**AI で量産しても helpful content として高評価**されます。詳しくは[AIライティング失敗事例10選](/guides/ai-writing-failure-cases/)も参照してください。
 
 ---
 
@@ -461,6 +461,6 @@ Claude Code が **半日で**：
 
 すべて**コピペで動作確認済み**。`[業界]` `[ターゲット]` `[コアキーワード]` などの**4〜5箇所だけ自分用に置換**すれば、どんなジャンルでも適用可能です。
 
-Claude Code の機能全体は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide)、料金プランは[コーディングAI料金完全比較](/guides/coding-ai-pricing)、非エンジニア向けの活用法は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers)、失敗を避けるための運用ルールは[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)、3本の機能比較は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison)を参照してください。
+Claude Code の機能全体は[Claude Code 完全実践ガイド](/guides/claude-code-practical-guide/)、料金プランは[コーディングAI料金完全比較](/guides/coding-ai-pricing/)、非エンジニア向けの活用法は[非エンジニアのためのコーディングAI 活用ガイド](/guides/coding-ai-for-non-engineers/)、失敗を避けるための運用ルールは[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)、3本の機能比較は[コーディングAI比較（Cursor / Copilot / Claude Code）](/guides/coding-ai-comparison/)を参照してください。
 
-副業として個人開発をしたい方は[AIで始める副業ガイド](/guides/ai-side-business-guide)、AI 時代の SEO 戦略は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)もあわせてどうぞ。
+副業として個人開発をしたい方は[AIで始める副業ガイド](/guides/ai-side-business-guide/)、AI 時代の SEO 戦略は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)もあわせてどうぞ。

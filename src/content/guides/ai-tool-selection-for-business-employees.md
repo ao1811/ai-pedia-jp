@@ -37,7 +37,7 @@ faq:
 
 本記事のフローチャートで、あなたの最適解が30秒で分かります。
 
-ツールを選んだ後の運用ロードマップは[「会社でAIを使え」と言われた人の最初の30日プラン](/guides/ai-at-work-first-30-days-plan)、業務別プロンプトは[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)を参照してください。
+ツールを選んだ後の運用ロードマップは[「会社でAIを使え」と言われた人の最初の30日プラン](/guides/ai-at-work-first-30-days-plan/)、業務別プロンプトは[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)を参照してください。
 
 ## 30秒で診断：あなたに合うAIツール
 
@@ -96,7 +96,7 @@ END
 
 合わなければ翌月解約OK。長期契約縛りなし。
 
-詳細な比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04)で解説しています。
+詳細な比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04/)で解説しています。
 
 ## 部署別の推奨ツール
 
@@ -116,7 +116,7 @@ END
 - 月20〜30時間削減
 
 #### 追加するなら
-- **Notta Premium（¥1,317/月）** — 商談議事録の自動文字起こし。詳細は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)。
+- **Notta Premium（¥1,317/月）** — 商談議事録の自動文字起こし。詳細は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)。
 
 ### マーケティング職
 
@@ -132,7 +132,7 @@ END
 - 月40時間以上削減
 
 #### 追加するなら
-- **Value AI Writer（¥9,800/月）** — SEO 記事量産が多いなら。詳細は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)。
+- **Value AI Writer（¥9,800/月）** — SEO 記事量産が多いなら。詳細は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)。
 - **Catchy（¥3,300/月）** — 広告コピー特化。
 
 ### 人事・総務職
@@ -149,7 +149,7 @@ END
 - 問い合わせ対応：70% 削減
 - 規程集アップデート時間：50% 削減
 
-詳しくは[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use)を参照。
+詳しくは[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use/)を参照。
 
 ### 経理・財務職
 
@@ -164,7 +164,7 @@ END
 #### 注意点
 - **機密データは法人 Team / Enterprise プラン**で扱う
 - 個人情報・口座情報は **必ず匿名化**してから入力
-- 詳細は[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist)
+- 詳細は[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist/)
 
 ### PdM・企画職
 
@@ -198,7 +198,7 @@ END
 - 業界レポートの要約
 - 論理的整合性のチェック
 
-ChatGPT との比較は[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)で。
+ChatGPT との比較は[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)で。
 
 ### 法務職
 
@@ -212,7 +212,7 @@ ChatGPT との比較は[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-
 
 #### 注意
 - AI 翻訳・要約は **必ず弁護士の最終確認**を経る
-- 詳細は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use)を参照
+- 詳細は[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use/)を参照
 
 ### 広報・PR
 
@@ -232,7 +232,7 @@ ChatGPT Plus + DeepL Pro = 月¥4,200
 
 - DeepL で正確に翻訳
 - ChatGPT で日本のビジネス文化に合わせて調整
-- 詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing)
+- 詳細は[AI翻訳ツール料金完全比較](/guides/ai-translation-pricing/)
 
 ### シーン2：社内会議の議事録・共有
 
@@ -242,7 +242,7 @@ Notta Premium + ChatGPT Plus = 月¥4,317
 
 - Notta で文字起こし → 自動要約
 - ChatGPT で議事録のフォーマット調整
-- 詳細は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring)
+- 詳細は[AI議事録ツール徹底比較5選](/guides/ai-meeting-notes-2026-spring/)
 
 ### シーン3：ブログ・オウンドメディア運営
 
@@ -252,7 +252,7 @@ ChatGPT Plus + Claude Pro + 文賢 = 月¥8,178
 
 - ChatGPT/Claude で執筆
 - 文賢で校正
-- 詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)
+- 詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)
 
 ### シーン4：プロダクト・サービスの UI/LP 作成
 
@@ -262,7 +262,7 @@ Claude Pro（Claude Design 含む）+ v0 = 月¥6,000
 
 - Claude Design で UI 生成
 - v0 で即デプロイ
-- 詳細は[Claude Design vs Figma / Canva / v0 比較](/guides/claude-design-vs-figma-canva)
+- 詳細は[Claude Design vs Figma / Canva / v0 比較](/guides/claude-design-vs-figma-canva/)
 
 ## やってはいけない3つのパターン
 
@@ -316,7 +316,7 @@ ChatGPT Plus + Claude Pro + 専門ツール（Notion AI / Notta / Catchy 等）
 ChatGPT Team + Claude Team + Notion Business 等
 ```
 
-→ 5人以上のチーム導入。詳細は[コーディングAI料金比較](/guides/coding-ai-pricing)・[AIライティング料金比較](/guides/ai-writing-tools-pricing) 等を参照。
+→ 5人以上のチーム導入。詳細は[コーディングAI料金比較](/guides/coding-ai-pricing/)・[AIライティング料金比較](/guides/ai-writing-tools-pricing/) 等を参照。
 
 ## 編集部の推奨：個人 → 部署のロードマップ
 
@@ -337,6 +337,6 @@ ai-pedia 編集部が推奨する **3ヶ月の段階的導入**：
 - **やってはいけないパターン3つ**を避ける
 - **3ヶ月の段階的導入**が王道
 
-ツールを選んだ後の **30日プラン** は[「会社でAIを使え」と言われた人の最初の30日ロードマップ](/guides/ai-at-work-first-30-days-plan)、**社内ナレッジベース** 構築は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)、**セキュリティ確認** は[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist)、**業務別プロンプト** は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)を参照してください。
+ツールを選んだ後の **30日プラン** は[「会社でAIを使え」と言われた人の最初の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、**社内ナレッジベース** 構築は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)、**セキュリティ確認** は[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist/)、**業務別プロンプト** は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)を参照してください。
 
-ツール選びの全体像は[失敗しないAIツール選び方ガイド](/guides/how-to-choose-ai-tool)、3強の比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04) もあわせてどうぞ。
+ツール選びの全体像は[失敗しないAIツール選び方ガイド](/guides/how-to-choose-ai-tool/)、3強の比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04/) もあわせてどうぞ。

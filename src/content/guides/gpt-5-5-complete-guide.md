@@ -18,7 +18,7 @@ faq:
   - q: "GPT-5 / GPT-5.4 と何が違う？"
     a: "①エージェント型コーディングで SWE-bench スコアが顕著に向上、②PC 操作（Computer Use 系）の指示理解と精度UP、③長文知識作業の一貫性向上、④推論時間の安定化。日常の対話品質も微妙に改善。GPT-5.4 から6週間という異例の早さでのリリースで、OpenAI の競争速度が加速している。"
   - q: "Claude Opus 4.7 とどっちが強い？"
-    a: "コーディングは Claude Opus 4.7（SWE-bench Verified 87.6%）が依然リード、ただし汎用エージェント・PC 操作・マルチモーダルは GPT-5.5 が強い。両者は2026年4月時点で『最強モデル』を競う2強で、用途で選ぶのが正解。比較は[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)を参照。"
+    a: "コーディングは Claude Opus 4.7（SWE-bench Verified 87.6%）が依然リード、ただし汎用エージェント・PC 操作・マルチモーダルは GPT-5.5 が強い。両者は2026年4月時点で『最強モデル』を競う2強で、用途で選ぶのが正解。比較は[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)を参照。"
   - q: "Greg Brockman の『super app』発言の意味は？"
     a: "OpenAI が ChatGPT を単なるチャットボットから、メール・コーディング・PC 操作・調査・予約・ショッピングまで全てこなす『スーパーアプリ』へ進化させる戦略を示唆。GPT-5.5 はその第一歩で、ユーザーの全ての作業をエージェントが代行する未来を見据えている。"
   - q: "今すぐ ChatGPT Plus に加入すべき？"
@@ -42,7 +42,7 @@ GPT-5.5 の本質：
 
 特に **エージェント機能（Computer Use・Codex）** の進化が顕著で、Greg Brockman が **「super app への一歩」**と表現したのも頷けます。
 
-[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04)、[ChatGPTのプラン選び方](/guides/chatgpt-plans-which-to-choose)、[ChatGPT エージェントモード解説](/guides/chatgpt-agent-mode-tutorial)も併せてどうぞ。
+[ChatGPT・Claude・Gemini 徹底比較](/guides/chatgpt-claude-gemini-2026-04/)、[ChatGPTのプラン選び方](/guides/chatgpt-plans-which-to-choose/)、[ChatGPT エージェントモード解説](/guides/chatgpt-agent-mode-tutorial/)も併せてどうぞ。
 
 ## GPT-5.5 の概要
 
@@ -126,7 +126,7 @@ GPT-5.5 の本質：
 ✅ Codex（¥16,800/月・新設）
    - エンジニア・コーディング業務メインなら最適
    - Claude Code 派の対抗馬になる
-   - 詳しくは[ChatGPT Codex プラン完全解説](/guides/chatgpt-codex-plan-16800)
+   - 詳しくは[ChatGPT Codex プラン完全解説](/guides/chatgpt-codex-plan-16800/)
 
 ✅ Pro（¥30,000/月）
    - Sora 終了（2026-04-26）で価値が低下
@@ -235,7 +235,7 @@ GPT-5.5：ブレが大幅縮小、平均レイテンシも短縮
    → Apple Intelligence + ChatGPT 連携
 ```
 
-詳細比較は[GPT-5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro 完全比較](/guides/chatgpt-claude-gemini-2026-04)で解説しています。
+詳細比較は[GPT-5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro 完全比較](/guides/chatgpt-claude-gemini-2026-04/)で解説しています。
 
 ## API 利用者向け：価格と性能
 
@@ -279,11 +279,11 @@ GPT-5.5 リリース後も GPT-5 / GPT-5.4 は ChatGPT 内で選択可能です�
 
 ### 2. Sora 終了の影響（2026-04-26）
 
-OpenAI は Sora（動画生成）を 4月26日にアプリ終了、API も9月24日終了予定。Pro プラン（¥30,000/月）の主な訴求機能だった Sora がなくなり、**Pro 加入者は実質的にダウングレード**を検討すべき時期です。代替は[Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives)で解説。
+OpenAI は Sora（動画生成）を 4月26日にアプリ終了、API も9月24日終了予定。Pro プラン（¥30,000/月）の主な訴求機能だった Sora がなくなり、**Pro 加入者は実質的にダウングレード**を検討すべき時期です。代替は[Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives/)で解説。
 
 ### 3. ChatGPT 16,800円 Codex プランの新設
 
-エンジニア向けに **¥16,800/月の Codex プラン**が4月9日に新設されました。GPT-5.5 + コーディング特化機能で、Pro プランより安価。詳しくは[ChatGPT Codex プラン完全解説](/guides/chatgpt-codex-plan-16800)を参照。
+エンジニア向けに **¥16,800/月の Codex プラン**が4月9日に新設されました。GPT-5.5 + コーディング特化機能で、Pro プランより安価。詳しくは[ChatGPT Codex プラン完全解説](/guides/chatgpt-codex-plan-16800/)を参照。
 
 ### 4. プロンプトの最適化が必要
 
@@ -310,10 +310,10 @@ GPT-5.5 のエージェント機能は **段階的に有効化**されている�
 
 ## 関連記事
 
-- 比較で選ぶ → [GPT-5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro 完全比較](/guides/chatgpt-claude-gemini-2026-04)
-- プラン選び → [ChatGPTのプラン選び方完全ガイド](/guides/chatgpt-plans-which-to-choose)
-- 開発者向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800)
-- エージェント活用 → [ChatGPT エージェントモード使い方20選](/guides/chatgpt-agent-mode-20)
-- Sora 代替を探すなら → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives)
-- Claude 派なら → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained)
-- 競合 → [Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)
+- 比較で選ぶ → [GPT-5.5 vs Claude Opus 4.7 vs Gemini 3.1 Pro 完全比較](/guides/chatgpt-claude-gemini-2026-04/)
+- プラン選び → [ChatGPTのプラン選び方完全ガイド](/guides/chatgpt-plans-which-to-choose/)
+- 開発者向け → [ChatGPT Codex プラン 16,800円 完全解説](/guides/chatgpt-codex-plan-16800/)
+- エージェント活用 → [ChatGPT エージェントモード使い方20選](/guides/chatgpt-agent-mode-20/)
+- Sora 代替を探すなら → [Sora 終了→代替AI動画生成5選](/guides/sora-shutdown-alternatives/)
+- Claude 派なら → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained/)
+- 競合 → [Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)

@@ -37,7 +37,7 @@ Step 2（5分）：音声アシスタントを Gemini に切替
 Step 3（5分）：ファミリー設定で家族のボイスマッチ登録
 ```
 
-これだけです。Gemini for Home の機能全体像は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)、デバイス比較は[Gemini for Home が使えるデバイス一覧](/guides/gemini-for-home-compatible-devices)を参照。
+これだけです。Gemini for Home の機能全体像は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)、デバイス比較は[Gemini for Home が使えるデバイス一覧](/guides/gemini-for-home-compatible-devices/)を参照。
 
 ## 前提：必要なもの
 
@@ -288,4 +288,4 @@ ai-pedia 編集部の家族では：
 - **トラブル対処**は本記事のセクションで自己解決
 - **Matter 対応機器**との連携で家中スマート化
 
-Gemini for Home の機能全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)、対応デバイス比較は[Gemini for Home が使えるデバイス一覧](/guides/gemini-for-home-compatible-devices)、Echo Show との比較は[Nest Hub vs Echo Show 5 徹底比較](/guides/nest-hub-vs-echo-show-5)、Gemini 全般の料金は[Gemini 料金完全比較](/guides/gemini-pricing)を参照してください。
+Gemini for Home の機能全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)、対応デバイス比較は[Gemini for Home が使えるデバイス一覧](/guides/gemini-for-home-compatible-devices/)、Echo Show との比較は[Nest Hub vs Echo Show 5 徹底比較](/guides/nest-hub-vs-echo-show-5/)、Gemini 全般の料金は[Gemini 料金完全比較](/guides/gemini-pricing/)を参照してください。

@@ -16,7 +16,7 @@ faq:
   - q: "PLAUD Note Pin S と Note Pin（旧）の違いは？"
     a: "Pin S の主な進化は①ハードボタン搭載（旧はタッチ操作のみ）、②ハイライト機能（録音中に重要部分をマーキング）、③iF Design Award 2026 受賞のリデザイン、④バッテリー持ち改善（最大40時間→48時間）、⑤マイク感度改善。価格は旧 Pin と同等だが機能は大幅進化。旧 Pin ユーザーも乗り換える価値あり。"
   - q: "Note Pin S と PLAUD NOTE の違いは？"
-    a: "Pin S はピン型（胸ポケット・襟元装着、ハンズフリー）、NOTE は卓上型（会議机置き）。Pin S は移動中・対面ヒアリング・営業同行に最適、NOTE は会議室・固定的な打ち合わせ・取材に最適。両方所有して使い分けるユーザーも多い。詳しくは[PLAUD H1 vs NOTE](/guides/plaud-h1-vs-plaud-note)参照。"
+    a: "Pin S はピン型（胸ポケット・襟元装着、ハンズフリー）、NOTE は卓上型（会議机置き）。Pin S は移動中・対面ヒアリング・営業同行に最適、NOTE は会議室・固定的な打ち合わせ・取材に最適。両方所有して使い分けるユーザーも多い。詳しくは[PLAUD H1 vs NOTE](/guides/plaud-h1-vs-plaud-note/)参照。"
   - q: "ハイライト機能とは？"
     a: "録音中に物理ボタンを押すと、その瞬間に『ハイライト』マーカーが付く機能。後から AI 文字起こしを見返す時、ハイライト箇所だけ抽出して要約できる。会議の重要発言、面接での印象的回答、商談の契約合意ポイントなどを瞬時にマーキング可能。議事録作成効率を大幅UP。"
   - q: "Amazon 新生活セールで安く買える？"
@@ -42,7 +42,7 @@ PLAUD Note Pin S = ピン型 AI ボイスレコーダーの最新決定版
 
 旧 Pin から **「実用性が劇的に向上」** したモデルで、**ピン型なら Pin S 一択** と言える完成度です。
 
-[PLAUD H1 vs NOTE 比較](/guides/plaud-h1-vs-plaud-note)、[PLAUD 3ヶ月レビュー](/guides/plaud-review-3-months)、[PLAUD と Claude Code 連携](/guides/plaud-claude-code-integration)、[AI議事録ツール料金比較](/guides/ai-meeting-notes-pricing-comparison)も併せてどうぞ。
+[PLAUD H1 vs NOTE 比較](/guides/plaud-h1-vs-plaud-note/)、[PLAUD 3ヶ月レビュー](/guides/plaud-review-3-months/)、[PLAUD と Claude Code 連携](/guides/plaud-claude-code-integration/)、[AI議事録ツール料金比較](/guides/ai-meeting-notes-pricing-comparison/)も併せてどうぞ。
 
 ## PLAUD Note Pin S の概要
 
@@ -148,7 +148,7 @@ Q1：主に座って使う？立って使う？
   ┃
   ├─ 座って使う（デスクワーク）
   │   └→ PLAUD H1（薄型・スマートフォン同サイズ）
-  │       詳細：[PLAUD H1 vs NOTE](/guides/plaud-h1-vs-plaud-note)
+  │       詳細：[PLAUD H1 vs NOTE](/guides/plaud-h1-vs-plaud-note/)
   │
   └─ 立って使う・移動する
       ┃
@@ -390,7 +390,7 @@ PLAUD Pin S は **ハードボタン・ハイライト・AI モデル選択** �
 ✅ ハイライト → リマインダー自動化
 ```
 
-詳しい連携手順は[PLAUD と Claude Code 連携ガイド](/guides/plaud-claude-code-integration)で解説。
+詳しい連携手順は[PLAUD と Claude Code 連携ガイド](/guides/plaud-claude-code-integration/)で解説。
 
 ## まとめ：ピン型 AI レコーダーの最高峰
 
@@ -409,9 +409,9 @@ Amazon 新生活セール時の購入が最もお得です。
 
 ## 関連記事
 
-- 他モデルとの比較 → [PLAUD H1 vs NOTE](/guides/plaud-h1-vs-plaud-note)
-- 長期実機レビュー → [PLAUD 3ヶ月レビュー](/guides/plaud-review-3-months)
-- 自動化ガイド → [PLAUD と Claude Code 連携](/guides/plaud-claude-code-integration)
-- 議事録AI 価格比較 → [AI議事録ツール料金比較](/guides/ai-meeting-notes-pricing-comparison)
-- ChatGPT 派なら → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide)
-- Claude 派なら → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained)
+- 他モデルとの比較 → [PLAUD H1 vs NOTE](/guides/plaud-h1-vs-plaud-note/)
+- 長期実機レビュー → [PLAUD 3ヶ月レビュー](/guides/plaud-review-3-months/)
+- 自動化ガイド → [PLAUD と Claude Code 連携](/guides/plaud-claude-code-integration/)
+- 議事録AI 価格比較 → [AI議事録ツール料金比較](/guides/ai-meeting-notes-pricing-comparison/)
+- ChatGPT 派なら → [GPT-5.5 完全ガイド](/guides/gpt-5-5-complete-guide/)
+- Claude 派なら → [Claude Opus 4.7 完全解説](/guides/claude-opus-4-7-explained/)

@@ -37,7 +37,7 @@ faq:
 - **API 開発者** → **Vertex AI（従量課金）**
 - **両刀（Gemini + ChatGPT）** → **月¥5,900で最強リサーチ環境**
 
-Gemini の機能詳細は[Gemini Deep Research 解説](/guides/gemini-deep-research)、家庭向け展開は[Gemini for Home（日本上陸）](/guides/gemini-for-home-japan-2026)で解説しています。
+Gemini の機能詳細は[Gemini Deep Research 解説](/guides/gemini-deep-research/)、家庭向け展開は[Gemini for Home（日本上陸）](/guides/gemini-for-home-japan-2026/)で解説しています。
 
 ## 4プラン料金早見表（2026年4月時点）
 
@@ -223,4 +223,4 @@ END
 - **API 開発者は Vertex AI（OpenAI より安い）**
 - **両刀（Gemini + ChatGPT）が最強リサーチ環境**
 
-Gemini の機能詳細は[Gemini Deep Research 解説](/guides/gemini-deep-research)、家庭向け展開は[Gemini for Home（日本上陸）](/guides/gemini-for-home-japan-2026)、ChatGPT・Claude との比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04)、**Deep Research 活用法**は[Gemini Deep Research の業務活用ガイド](/guides/gemini-deep-research-use-cases)、**ChatGPT・Claude・Geminiの使い分け**は[3強の使い分け完全ガイド](/guides/chatgpt-vs-claude-vs-gemini)を参照してください。
+Gemini の機能詳細は[Gemini Deep Research 解説](/guides/gemini-deep-research/)、家庭向け展開は[Gemini for Home（日本上陸）](/guides/gemini-for-home-japan-2026/)、ChatGPT・Claude との比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04/)、**Deep Research 活用法**は[Gemini Deep Research の業務活用ガイド](/guides/gemini-deep-research-use-cases/)、**ChatGPT・Claude・Geminiの使い分け**は[3強の使い分け完全ガイド](/guides/chatgpt-vs-claude-vs-gemini/)を参照してください。

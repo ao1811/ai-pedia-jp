@@ -44,7 +44,7 @@ Gemini時代：「そろそろ寝るからリビングだけ薄暗くして、�
 
 それでは、シーン別に100コマンドを見ていきましょう。
 
-[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)、[Nest Hub セットアップ](/guides/nest-hub-gemini-setup)、[対応デバイス一覧](/guides/gemini-for-home-compatible-devices)も合わせてどうぞ。
+[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)、[Nest Hub セットアップ](/guides/nest-hub-gemini-setup/)、[対応デバイス一覧](/guides/gemini-for-home-compatible-devices/)も合わせてどうぞ。
 
 ## シーン1：朝のルーティン（15コマンド）
 
@@ -318,8 +318,8 @@ Week 4：週末・家族時間（コマンド81〜100）
 
 ## 次に読むべき記事
 
-- 各デバイスとの相性 → [Gemini for Home 対応デバイス一覧](/guides/gemini-for-home-compatible-devices)
-- スピーカー比較 → [Nest Hub vs Echo Show 5](/guides/nest-hub-vs-echo-show-5)
-- 初期設定で詰まったら → [Nest Hub Gemini セットアップガイド](/guides/nest-hub-gemini-setup)
-- 全体像を再確認 → [Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)
-- iPhone派なら → [Apple Intelligence とは？2026年版](/guides/apple-intelligence-overview)
+- 各デバイスとの相性 → [Gemini for Home 対応デバイス一覧](/guides/gemini-for-home-compatible-devices/)
+- スピーカー比較 → [Nest Hub vs Echo Show 5](/guides/nest-hub-vs-echo-show-5/)
+- 初期設定で詰まったら → [Nest Hub Gemini セットアップガイド](/guides/nest-hub-gemini-setup/)
+- 全体像を再確認 → [Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)
+- iPhone派なら → [Apple Intelligence とは？2026年版](/guides/apple-intelligence-overview/)

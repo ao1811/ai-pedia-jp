@@ -39,7 +39,7 @@ faq:
 
 これで **7割のトラブルは解決**します。それでも解決しないものについて、20種類を分類別に解説します。
 
-機能全体は[Claude Design 完全解説](/guides/claude-design-feature)、限界・できないことは[Claude Design の限界](/guides/claude-design-limitations)、料金は[Claude Design 料金](/guides/claude-design-pricing)を参照。
+機能全体は[Claude Design 完全解説](/guides/claude-design-feature/)、限界・できないことは[Claude Design の限界](/guides/claude-design-limitations/)、料金は[Claude Design 料金](/guides/claude-design-pricing/)を参照。
 
 ---
 
@@ -320,7 +320,7 @@ Claude のプロジェクト機能（Pro/Max）で：
 - form_template.txt
 ```
 
-詳しくは[Claude Design プロンプト100選](/guides/claude-design-prompts-100)参照。
+詳しくは[Claude Design プロンプト100選](/guides/claude-design-prompts-100/)参照。
 
 ### ベスト3：Artifact をこまめに保存
 
@@ -349,7 +349,7 @@ Max（¥30,000/月）：
 - 最終調整：Figma AI
 - コード統合：Cursor / Claude Code
 
-詳しくは[Claude Design vs v0 vs Figma AI](/guides/claude-design-vs-v0-vs-figma-ai)を参照。
+詳しくは[Claude Design vs v0 vs Figma AI](/guides/claude-design-vs-v0-vs-figma-ai/)を参照。
 
 ---
 
@@ -363,10 +363,10 @@ Max（¥30,000/月）：
 
 ## 関連記事
 
-- 機能詳細 → [Claude Design 完全解説](/guides/claude-design-feature)
-- 料金比較 → [Claude Design 料金完全比較](/guides/claude-design-pricing)
-- 業務活用10事例 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples)
-- 限界とできないこと → [Claude Design の限界](/guides/claude-design-limitations)
-- 使い方チュートリアル → [Claude Design 使い方完全チュートリアル](/guides/claude-design-tutorial)
-- プロンプト100選 → [Claude Design プロンプト100選](/guides/claude-design-prompts-100)
-- 競合比較 → [Claude Design vs v0 vs Figma AI](/guides/claude-design-vs-v0-vs-figma-ai)
+- 機能詳細 → [Claude Design 完全解説](/guides/claude-design-feature/)
+- 料金比較 → [Claude Design 料金完全比較](/guides/claude-design-pricing/)
+- 業務活用10事例 → [Claude Design 業務活用10事例](/guides/claude-design-real-examples/)
+- 限界とできないこと → [Claude Design の限界](/guides/claude-design-limitations/)
+- 使い方チュートリアル → [Claude Design 使い方完全チュートリアル](/guides/claude-design-tutorial/)
+- プロンプト100選 → [Claude Design プロンプト100選](/guides/claude-design-prompts-100/)
+- 競合比較 → [Claude Design vs v0 vs Figma AI](/guides/claude-design-vs-v0-vs-figma-ai/)

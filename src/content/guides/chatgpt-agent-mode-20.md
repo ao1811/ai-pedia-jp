@@ -35,7 +35,7 @@ faq:
 - **長時間タスクの自律実行**：1回の指示で数時間動作し、競合調査・レポート作成を完遂
 - **業務SaaSと直接連携**：Notion・Slack・Google Workspace・Asana などを横断操作
 
-利用には **ChatGPT Plus（¥3,000/月）以上のプラン** が必要で、Free プランは非対応です。Plus で基本機能、**Pro（¥30,000/月）で長時間タスク・高度な推論** が可能になります。料金プランの詳しい比較は[ChatGPT エージェントモードの料金完全比較（Plus・Pro・Team・Enterprise）](/guides/chatgpt-agent-mode-pricing)、起動方法と初回タスクの選び方は[ChatGPT エージェントモードの使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)にまとめました。
+利用には **ChatGPT Plus（¥3,000/月）以上のプラン** が必要で、Free プランは非対応です。Plus で基本機能、**Pro（¥30,000/月）で長時間タスク・高度な推論** が可能になります。料金プランの詳しい比較は[ChatGPT エージェントモードの料金完全比較（Plus・Pro・Team・Enterprise）](/guides/chatgpt-agent-mode-pricing/)、起動方法と初回タスクの選び方は[ChatGPT エージェントモードの使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)にまとめました。
 
 「ChatGPT エージェントモードを今すぐ試したい人」は本記事の[プラン別の使い分け早見表](#プラン別の使い分け早見表)、「**ユースケースを知りたい人**」は[実例：業務効率化のユースケース](#実例業務効率化のユースケース)へ進んでください。
 
@@ -109,7 +109,7 @@ Plus では1日数回、Pro ではほぼ無制限。ヘビー利用者は Pro �
 | Team | ¥3,750/ユーザー | ○ | チーム運用 |
 | Enterprise | 要相談 | ◎（セキュア運用） | 企業導入 |
 
-各プランの利用回数・対応機能・1年使った場合のコスト試算は[ChatGPT エージェントモードの料金完全比較](/guides/chatgpt-agent-mode-pricing)で詳細に整理しています。
+各プランの利用回数・対応機能・1年使った場合のコスト試算は[ChatGPT エージェントモードの料金完全比較](/guides/chatgpt-agent-mode-pricing/)で詳細に整理しています。
 
 ## まとめ
 
@@ -122,8 +122,8 @@ Plus では1日数回、Pro ではほぼ無制限。ヘビー利用者は Pro �
 
 ### 関連記事クラスター
 
-- 起動・操作の基本：[ChatGPT エージェントモードの使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial)
-- 料金プランで迷ったら：[料金完全比較（Plus/Pro/Team/Enterprise）](/guides/chatgpt-agent-mode-pricing)
-- 実際の業務シナリオ：[業務活用10事例とコピペプロンプト集](/guides/chatgpt-agent-mode-real-examples)
-- 他のAIエージェントとの比較：[ChatGPT vs Claude / Manus / Devin](/guides/chatgpt-agent-vs-other-agents)
-- 導入前のリスク評価：[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks)
+- 起動・操作の基本：[ChatGPT エージェントモードの使い方完全チュートリアル](/guides/chatgpt-agent-mode-tutorial/)
+- 料金プランで迷ったら：[料金完全比較（Plus/Pro/Team/Enterprise）](/guides/chatgpt-agent-mode-pricing/)
+- 実際の業務シナリオ：[業務活用10事例とコピペプロンプト集](/guides/chatgpt-agent-mode-real-examples/)
+- 他のAIエージェントとの比較：[ChatGPT vs Claude / Manus / Devin](/guides/chatgpt-agent-vs-other-agents/)
+- 導入前のリスク評価：[ChatGPT エージェントモードの限界と落とし穴](/guides/chatgpt-agent-mode-risks/)

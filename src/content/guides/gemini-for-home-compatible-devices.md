@@ -37,7 +37,7 @@ faq:
 | **¥30,000** | Nest Hub + 照明3つ + 家電制御 | フル音声操作環境 |
 | **¥80,000** | Nest Hub Max + 全部屋スピーカー + 照明・カーテン・鍵 | スマートホーム完成形 |
 
-設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup)、機能全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)を参照。
+設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup/)、機能全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)を参照。
 
 ## カテゴリ1：Google 純正スマートスピーカー
 
@@ -356,4 +356,4 @@ ai-pedia 編集部の家庭で**実際に使っている**構成：
 - **Matter 対応**を購入前に必ず確認
 - **段階的に追加**するのが現実解
 
-設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup)、Echo Show 5との比較は[Nest Hub vs Echo Show 5 徹底比較](/guides/nest-hub-vs-echo-show-5)、Gemini for Home 全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)、Gemini 料金は[Gemini 料金完全比較](/guides/gemini-pricing)を参照してください。
+設定方法は[Nest Hub × Gemini の設定方法](/guides/nest-hub-gemini-setup/)、Echo Show 5との比較は[Nest Hub vs Echo Show 5 徹底比較](/guides/nest-hub-vs-echo-show-5/)、Gemini for Home 全体は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)、Gemini 料金は[Gemini 料金完全比較](/guides/gemini-pricing/)を参照してください。

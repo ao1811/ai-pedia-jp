@@ -44,7 +44,7 @@ faq:
 
 すべて ChatGPT Plus / Claude Pro で動作検証済みです。
 
-ツール選定は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)、運用前提は[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan)、セキュリティは[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist)を参照。
+ツール選定は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)、運用前提は[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、セキュリティは[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist/)を参照。
 
 ## 営業職（5本）
 
@@ -221,7 +221,7 @@ faq:
 データに基づく現実的なペルソナにしてください。
 ```
 
-詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)も参照。
+詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)も参照。
 
 ## 人事・総務職（5本）
 
@@ -314,7 +314,7 @@ LinkedIn URL: [URL]
 各項目に質問例を3つずつ含めてください。
 ```
 
-詳しくは[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use)も参照。
+詳しくは[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use/)も参照。
 
 ## 経理・財務職（5本）
 
@@ -403,7 +403,7 @@ Google Drive の「[フォルダ名]」にある全 PDF を読み込み、以下
 規模：[従業員数]
 ```
 
-詳しくは[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist)も併読。
+詳しくは[会社でAIを使う前のセキュリティチェックリスト](/guides/corporate-ai-security-compliance-checklist/)も併読。
 
 ## PdM・企画職（5本）
 
@@ -512,7 +512,7 @@ Google Drive の「[フォルダ名]」にある全 PDF を読み込み、以下
 ガントチャート形式で出力。
 ```
 
-詳しくは[ChatGPT エージェントモードの業務活用10事例](/guides/chatgpt-agent-mode-real-examples)も参照。
+詳しくは[ChatGPT エージェントモードの業務活用10事例](/guides/chatgpt-agent-mode-real-examples/)も参照。
 
 ## CS・カスタマーサポート（5本）
 
@@ -798,7 +798,7 @@ Google Drive の「[フォルダ名]」にある全 PDF を読み込み、以下
 最終版は弁護士確認必須。
 ```
 
-詳しくは[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use)も参照。
+詳しくは[AI翻訳の業務活用完全ガイド](/guides/ai-translation-business-use/)も参照。
 
 ## IT・情シス（5本）
 
@@ -874,7 +874,7 @@ Google Drive の「[フォルダ名]」にある全 PDF を読み込み、以下
 トピック：
 1. パスワード管理
 2. フィッシング対策
-3. AI ツール利用時の注意（[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist) を踏まえて）
+3. AI ツール利用時の注意（[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist/) を踏まえて）
 4. データ取扱い
 5. インシデント発生時の連絡
 
@@ -906,7 +906,7 @@ Google Drive の「[フォルダ名]」にある全 PDF を読み込み、以下
 業界固有の規制（金融・医療等）にも触れる。
 ```
 
-詳しくは[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases)も参照。
+詳しくは[コーディングAI 失敗事例10選](/guides/coding-ai-failure-cases/)も参照。
 
 ## 広報・PR（5本）
 
@@ -1046,7 +1046,7 @@ ai-pedia 編集部の検証で **特に効果が高いと評価される** プ�
 
 ## 社内プロンプトテンプレ集の構築
 
-社内に展開する場合は、Notion などで **テンプレ集** を作るのが王道。詳しくは[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)を参照。
+社内に展開する場合は、Notion などで **テンプレ集** を作るのが王道。詳しくは[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)を参照。
 
 ## まとめ
 
@@ -1058,12 +1058,12 @@ ai-pedia 編集部の検証で **特に効果が高いと評価される** プ�
 
 「**会社で AI 使え**」と言われた人が **次に詰まるのが「何を頼めばいいか」**問題です。本記事のプロンプトをコピペして、まず試してみてください。
 
-プロンプト前の **30日プラン** は[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan)、**ツール選定** は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)、**ナレッジベース** は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)、**セキュリティ** は[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist)を参照してください。
+プロンプト前の **30日プラン** は[「会社でAIを使え」と言われた人の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、**ツール選定** は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)、**ナレッジベース** は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)、**セキュリティ** は[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist/)を参照してください。
 
 特定領域のプロンプトは：
-- [ChatGPT エージェントモードの業務活用10事例](/guides/chatgpt-agent-mode-real-examples)
-- [Claude Design 業務活用10事例](/guides/claude-design-real-examples)
-- [Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use)
-- [Gemini Deep Research の業務活用10事例](/guides/gemini-deep-research-use-cases)
+- [ChatGPT エージェントモードの業務活用10事例](/guides/chatgpt-agent-mode-real-examples/)
+- [Claude Design 業務活用10事例](/guides/claude-design-real-examples/)
+- [Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use/)
+- [Gemini Deep Research の業務活用10事例](/guides/gemini-deep-research-use-cases/)
 
 もあわせてご覧ください。

@@ -44,7 +44,7 @@ Apple Intelligence の特徴：
 ❌ 高度な対話・リサーチ（ChatGPT/Claude が強い）
 ```
 
-Apple Intelligence の設定方法は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)、対応端末詳細は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices)を参照。
+Apple Intelligence の設定方法は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)、対応端末詳細は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)を参照。
 
 ## Apple Intelligence の主要5機能
 
@@ -217,7 +217,7 @@ OpenAI に送信（OpenAI のプライバシーポリシー適用）
 - エージェントモード使いたい
 - コード書く
 
-→ **多くの人は両方併用**が現実解。詳細は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)。
+→ **多くの人は両方併用**が現実解。詳細は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)。
 
 ## 対応端末
 
@@ -254,7 +254,7 @@ OpenAI に送信（OpenAI のプライバシーポリシー適用）
 
 ❌ **非対応**（処理性能不足）
 
-詳細は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices)を参照。
+詳細は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)を参照。
 
 ## 無料で使える範囲
 
@@ -326,7 +326,7 @@ OpenAI に送信（OpenAI のプライバシーポリシー適用）
 同様の手順
 ```
 
-詳細は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)を参照。
+詳細は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use/)を参照。
 
 ## 編集部おすすめの構成：Apple + ChatGPT の併用
 
@@ -358,4 +358,4 @@ ai-pedia 編集部での実際の使い分け：
 - **iPhone 15 Pro 以降・M1 以降 Mac/iPad** が必要
 - **ChatGPT Plus との併用**が現実解
 
-使い方の詳細は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices)、Gemini for Home との比較は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026)を参照してください。
+使い方の詳細は[Apple Intelligence の使い方完全ガイド](/guides/apple-intelligence-how-to-use/)、ChatGPT との比較は[Apple Intelligence vs ChatGPT 徹底比較](/guides/apple-intelligence-vs-chatgpt/)、対応端末は[Apple Intelligence 対応端末完全リスト](/guides/apple-intelligence-compatible-devices/)、Gemini for Home との比較は[Gemini for Home の使い方完全ガイド](/guides/gemini-for-home-japan-2026/)を参照してください。

@@ -36,7 +36,7 @@ faq:
 - **小チーム（5〜30人）** → **Notion Business + AI 統合（月¥3,000/人）**
 - **大企業** → **Enterprise + AI（要相談）**
 
-Notion AI の機能詳細は[Notion AI レビュー](/guides/notion-ai-review)で解説しています。
+Notion AI の機能詳細は[Notion AI レビュー](/guides/notion-ai-review/)で解説しています。
 
 ## 4プラン料金早見表（2026年4月時点）
 
@@ -145,4 +145,4 @@ END
 - **法人小チーム → Business + AI（月¥3,000/人）が最強**
 - **大企業 → Enterprise + DPA**
 
-機能詳細は[Notion AI レビュー](/guides/notion-ai-review)、業務活用法は[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use)、汎用 AI との比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04)を参照してください。
+機能詳細は[Notion AI レビュー](/guides/notion-ai-review/)、業務活用法は[Notion AI 業務活用完全ガイド](/guides/notion-ai-business-use/)、汎用 AI との比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04/)を参照してください。

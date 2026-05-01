@@ -41,7 +41,7 @@ Claude Design は確かに UI 生成の革命ですが、**何でもかんでも
 
 これら5領域は **「Claude Design に下案を作らせる→デザイナーが整える」** の運用が必須です。それ以外の業務（モックアップ、LP、社内資料、ワイヤーなど）は積極的に任せてOK。
 
-Claude Design の機能全体像は[新機能「Claude Design」とは？](/guides/claude-design-feature)、料金プランは[料金完全比較](/guides/claude-design-pricing)で解説しています。
+Claude Design の機能全体像は[新機能「Claude Design」とは？](/guides/claude-design-feature/)、料金プランは[料金完全比較](/guides/claude-design-pricing/)で解説しています。
 
 ## 領域1：ピクセルパーフェクトの再現
 
@@ -90,7 +90,7 @@ Claude Design は「**雰囲気に近い UI**」を生成しますが、**ピク
 - **ブランドガイドを CLAUDE.md / プロジェクト指示書に記載**：Projects 機能で文脈固定
 - **生成後は必ず色・余白・フォントをチェック**するレビュー工程を設ける
 - **Claude Code 経由で linter / Stylelint を通す**ことで自動補正
-- 詳しい運用は[Claude Design 業務活用10事例](/guides/claude-design-real-examples)を参照
+- 詳しい運用は[Claude Design 業務活用10事例](/guides/claude-design-real-examples/)を参照
 
 ## 領域3：複雑な状態管理
 
@@ -162,7 +162,7 @@ Claude Design は **Web UI** が得意領域。**印刷物**（名刺・チラ�
 - **印刷物は最初から Claude Design 対象外** にする
 - 印刷前提なら **Adobe Express / Canva（印刷モードあり）** を選ぶ
 - Web 用バナーから「印刷流用」したい場合は **デザイナーがリトレース** する前提
-- 詳細な使い分けは[AIデザインツール5選比較](/guides/claude-design-vs-figma-canva)を参照
+- 詳細な使い分けは[AIデザインツール5選比較](/guides/claude-design-vs-figma-canva/)を参照
 
 ## 仮想プレビューの精度の限界
 
@@ -207,7 +207,7 @@ Claude Design を組織で使う前に、最低限これだけは確認：
 
 ### 教育・運用
 
-- [ ] **利用者向けのトレーニング**を実施したか（[使い方完全チュートリアル](/guides/claude-design-tutorial)を参考に）
+- [ ] **利用者向けのトレーニング**を実施したか（[使い方完全チュートリアル](/guides/claude-design-tutorial/)を参考に）
 - [ ] **やってはいけないプロンプト例**を社内に共有したか
 - [ ] **問い合わせ窓口**（社内デザイン部）を決めたか
 - [ ] **退職者の利用停止**フローを設計したか
@@ -274,5 +274,5 @@ Claude Design を含む AI ツールは、**デザイナー職の終焉ではな
 
 Claude Design は「便利ツール」ではなく「**ジュニアデザイナー相当の権限を持つ存在**」として扱うのが現実的です。新人を採用したときと同じ、**段階的な権限委譲と教育**が必要です。
 
-導入を本気で検討するなら、[Claude Design の料金完全比較](/guides/claude-design-pricing)で Pro / Max / Team プランを確認してください。実際の業務シナリオは[業務活用10事例](/guides/claude-design-real-examples)、操作の基本は[使い方完全チュートリアル](/guides/claude-design-tutorial)、Figma・Canva との比較は[AIデザインツール5選](/guides/claude-design-vs-figma-canva)、機能全体像は[新機能Claude Designとは？](/guides/claude-design-feature)が参考になります。
-- トラブル対処 → [Claude Design トラブルシューティング](/guides/claude-design-troubleshooting)
+導入を本気で検討するなら、[Claude Design の料金完全比較](/guides/claude-design-pricing/)で Pro / Max / Team プランを確認してください。実際の業務シナリオは[業務活用10事例](/guides/claude-design-real-examples/)、操作の基本は[使い方完全チュートリアル](/guides/claude-design-tutorial/)、Figma・Canva との比較は[AIデザインツール5選](/guides/claude-design-vs-figma-canva/)、機能全体像は[新機能Claude Designとは？](/guides/claude-design-feature/)が参考になります。
+- トラブル対処 → [Claude Design トラブルシューティング](/guides/claude-design-troubleshooting/)

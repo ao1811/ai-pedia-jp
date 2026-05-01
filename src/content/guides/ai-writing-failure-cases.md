@@ -41,7 +41,7 @@ faq:
 
 これら5つを避けるために、**「ルール先・量産後」**のフローが必須です。
 
-戦略全体は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)、ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、料金は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)で解説しています。
+戦略全体は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)、ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)、料金は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)で解説しています。
 
 ## 失敗事例1：AI 丸投げで helpful content アップデート直撃
 
@@ -63,7 +63,7 @@ faq:
 - AI 生成 → **編集者が必ず手を入れる**フロー
 - 各記事に**編集部の体験談・運用例・失敗談**を追記
 - **数字や具体例**を必ず入れる（料金、所要時間、ROI試算）
-- 詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)を参照
+- 詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)を参照
 
 ## 失敗事例2：E-E-A-T 弱体でドメイン全体が低評価
 
@@ -128,7 +128,7 @@ faq:
 - AI への指示時に **「関連記事へのリンクを5本以上含めて」** と明示
 - 編集者が公開前に**さらに3〜5本の内部リンクを追加**
 - **キーワードクラスター戦略**で「ハブ」を作る
-- 詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)を参照
+- 詳しくは[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)を参照
 
 ## 失敗事例5：マンネリ・テンプレ感で読者離脱
 
@@ -213,7 +213,7 @@ faq:
 - **機密情報は Pro プラン以上（学習オプトアウト可能）でしか入力しない**
 - Free / 個人プランで業務利用する場合は**機密情報を匿名化**
 - 法人導入は **DPA（データ処理契約）取得 + Enterprise プラン**
-- 詳しくは[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security)も参考
+- 詳しくは[AI議事録セキュリティ・コンプラ完全ガイド](/guides/ai-meeting-notes-security/)も参考
 
 ## 失敗事例9：AI生成のまま投稿で著作権トラブル
 
@@ -254,7 +254,7 @@ faq:
 
 - **最初は ChatGPT Plus + Claude Pro の2本のみ**で半年運用
 - 業務量と要件が見えてから他ツールを追加検討
-- ツール選定は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)を参考に**段階的に**
+- ツール選定は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)を参考に**段階的に**
 - 月の生産量と必要機能を**先に明文化**してから契約
 
 ## 共通パターン：技術 < 運用ルール
@@ -328,7 +328,7 @@ faq:
 
 実際、本サイト ai-pedia.jp も AI 主導で運用しつつ Search Console で初期段階から狙ったキーワードで順位上位を取れているケースがあります。
 
-詳しい戦略は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)、ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、料金詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)を参照してください。
+詳しい戦略は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)、ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)、料金詳細は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)を参照してください。
 
 ## まとめ：失敗を避ける唯一の方法は「ルール先・運用後」
 
@@ -338,4 +338,4 @@ faq:
 - **AI は共著者、編集者は監修者**という役割分担
 - **継続的なルール見直し**（半期に1度）を習慣化
 
-戦略全体は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo)、ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison)、料金は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow)、副業全体の収益化は[AIで始める副業ガイド](/guides/ai-side-business-guide)を参照してください。
+戦略全体は[AIライティングで検索順位を上げる完全戦略](/guides/ai-writing-for-seo/)、ツール選定は[AIライティングツール徹底比較6選](/guides/ai-writing-tools-comparison/)、料金は[AIライティングツール料金完全比較](/guides/ai-writing-tools-pricing/)、文賢を使った校正は[文賢で仕上げるSEOライティング](/guides/bun-ken-seo-writer-workflow/)、副業全体の収益化は[AIで始める副業ガイド](/guides/ai-side-business-guide/)を参照してください。

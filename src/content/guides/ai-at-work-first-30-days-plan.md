@@ -76,7 +76,7 @@ faq:
 - カスタムGPTやエージェントモードなど機能が豊富
 - 国内での認知度・解説記事が圧倒的
 
-「**Claude が良い**」「**Gemini が良い**」と聞いても、最初の1ヶ月は ChatGPT Plus 単独で十分。複数ツール比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04)、選び方フローは[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)を参考に。
+「**Claude が良い**」「**Gemini が良い**」と聞いても、最初の1ヶ月は ChatGPT Plus 単独で十分。複数ツール比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04/)、選び方フローは[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)を参考に。
 
 ### Day 3：個人契約で開始
 
@@ -156,7 +156,7 @@ Week 1 で書き出した業務シーンに対して、**プロンプトを10本
 | メール返信 | 「以下のメールへの[丁寧な断り/前向きな検討]の返信を300字で」 |
 | 資料の構成案 | 「[テーマ] のプレゼン15分版の構成案を作って」 |
 
-業務別の詳細プロンプト集は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)で公開しています。
+業務別の詳細プロンプト集は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)で公開しています。
 
 ### Day 11〜13：Before / After 時間測定
 
@@ -249,7 +249,7 @@ Notion か Word で **「**自分の AI 活用記録**」**を作成：
 └─ 7. 編集者連絡先
 ```
 
-詳しい構築手順は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)で解説。
+詳しい構築手順は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)で解説。
 
 ### Day 26〜28：上司に成果報告
 
@@ -330,13 +330,13 @@ Notion か Word で **「**自分の AI 活用記録**」**を作成：
 
 **症状**：何を頼めばいいか思いつかない
 
-**対策**：[業務別プロンプト50選](/guides/ai-prompts-for-business-employees-50)からコピペ → 自分用に修正
+**対策**：[業務別プロンプト50選](/guides/ai-prompts-for-business-employees-50/)からコピペ → 自分用に修正
 
 ### つまずき3：「機密情報の扱いが怖い」
 
 **症状**：何を入れていいか分からず使わなくなる
 
-**対策**：[セキュリティ・コンプラチェックリスト](/guides/corporate-ai-security-compliance-checklist)で安全な範囲を確認
+**対策**：[セキュリティ・コンプラチェックリスト](/guides/corporate-ai-security-compliance-checklist/)で安全な範囲を確認
 
 ### つまずき4：「同僚が興味を示さない」
 
@@ -360,4 +360,4 @@ Notion か Word で **「**自分の AI 活用記録**」**を作成：
 
 「**会社で AI 使え**」と言われた人の最初の30日は、**自分1人で実績を作る期間**です。一気に全社展開するのは2〜3ヶ月目以降。まずは個人の月¥3,000から始めましょう。
 
-ツール選定の詳細は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees)、ナレッジベース構築は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building)、セキュリティは[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist)、業務別プロンプトは[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50)を参照してください。
+ツール選定の詳細は[AIツール選び方フローチャート](/guides/ai-tool-selection-for-business-employees/)、ナレッジベース構築は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)、セキュリティは[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist/)、業務別プロンプトは[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)を参照してください。
