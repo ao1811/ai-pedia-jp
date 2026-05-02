@@ -28,6 +28,11 @@ export const affiliateUrls: Record<string, string> = {
   'aiarty': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+WQV1U+428G+HVFKY',
   'languise': 'https://px.a8.net/svt/ejp?a8mat=4B1PLT+3KMEQ+5L4K+5Z6WY',
 
+  // a8.net 承認済 (2026-05-02 追加)
+  'catchy': 'https://px.a8.net/svt/ejp?a8mat=4B1PLS+F467OY+52IU+60H7M',
+  'dmm-ai-camp': 'https://px.a8.net/svt/ejp?a8mat=4B1PLS+F3KS36+5VEK+5YRHE',
+  'nizima-live': 'https://px.a8.net/svt/ejp?a8mat=4B1PLQ+4ZSXGY+4F56+HVFKY',
+
   // 以下は審査中 / 未登録。ASP承認後にURLを記入すると全ページ自動反映。
   // 'chatgpt': '',
   // 'claude': '',
