@@ -1,8 +1,8 @@
 ---
-title: "Apple Intelligence 対応端末完全リスト【2026年版】iPhone・iPad・Mac の対応モデル + 買い替え判断"
-description: "Apple Intelligence に対応する全端末を完全リスト化。iPhone・iPad・Mac の対応モデル、必要スペック、買い替えコスト、各端末の最安購入方法までガイド。「今のiPhone使い続けるべきか買い替えるべきか」の判断基準も解説。"
+title: "Apple Intelligence 対応機種一覧【2026年版】iPhone・iPad・Mac 買い替え判断つき"
+description: "Apple Intelligence 対応の全 iPhone / iPad / Mac モデルを一覧化。M1以降のチップ要件、買い替えコスト試算、「今の機種で使えるか」の早見チャート、各端末の最安購入方法まで網羅。買い替えるべきか迷っている人の判断材料に。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-05
 category: guide
 heroEmoji: "📱"
 heroGradient: "from-zinc-700 via-slate-600 to-gray-700"

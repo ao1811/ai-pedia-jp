@@ -1,8 +1,8 @@
 ---
-title: "Claude Design の料金は？Pro・Max・Team・Enterprise の月額・利用回数を2026年版で完全比較"
-description: "Claude Design（Anthropic）の料金プランを徹底比較。Pro(¥3,000)、Max(¥10,000)、Team(¥3,750/人)、Enterprise の利用回数・コンポーネント生成数・推奨ユーザーを表で整理。1年使った場合のコスト試算も。"
+title: "Claude Design 料金プラン徹底比較｜Pro vs Max どっちが得？月¥3,000から始める正解の選び方【2026年最新】"
+description: "Claude Design の Pro / Max / Team / Enterprise プランをコスパ・利用回数・推奨ユーザー軸で完全比較。「週数件なら Pro、毎日使うなら Max」と用途別に最適解を提示。年額試算・よくある質問も網羅した2026年版の決定版ガイド。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-05
 category: comparison
 heroEmoji: "💎"
 heroGradient: "from-violet-400 via-fuchsia-500 to-pink-500"

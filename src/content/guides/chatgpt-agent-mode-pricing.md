@@ -1,8 +1,8 @@
 ---
-title: "ChatGPT エージェントモード料金【2026年4月最新】Plus ¥3,000・Pro ¥30,000・Codex ¥16,800・Team どれがお得？月額×ROI試算で完全解説"
-description: "ChatGPT エージェントモード料金 4プラン徹底比較。Plus（¥3,000）/ Codex（¥16,800・新設）/ Pro（¥30,000）/ Team（¥3,750/人）の月額・利用回数・1年総コスト・元が取れる使用時間まで早見表で解説。週何時間使えば元が取れるかROI試算つき。エンジニアに最適なのは新設Codexプランです。"
+title: "ChatGPT エージェントモード料金プラン比較【2026年最新】Plus・Pro・Codex どれが得？"
+description: "ChatGPT エージェントモードの全プラン（Plus ¥3,000 / Codex ¥16,800 / Pro ¥30,000 / Team）を徹底比較。月額・利用回数・1年総コスト・「週何時間使えば元が取れるか」のROI試算まで早見表で解説。エンジニアは新設Codex、副業層はPlusが正解。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-05
 category: comparison
 heroEmoji: "💰"
 heroGradient: "from-amber-400 via-orange-500 to-rose-500"
