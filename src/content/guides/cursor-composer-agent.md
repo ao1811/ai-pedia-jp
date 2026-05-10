@@ -1,6 +1,7 @@
 ---
 title: "新機能「Cursor Composer Agent」とは？IDE でコードを書かない時代の実力を検証"
 description: "Cursor の Composer Agent モードを徹底解説。自然言語で指示するだけで複数ファイル編集・テスト実行・自己修正まで自律遂行する最新機能を、現役エンジニアが実務ベースで評価します。"
+noIndex: true
 publishedAt: 2026-04-20
 updatedAt: 2026-04-21
 category: trend

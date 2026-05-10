@@ -1,6 +1,7 @@
 ---
 title: "ChatGPT エージェントモード（Agent Mode 2.0）とは？使い方・料金・Plus/Pro/Free の違いを2026年版で徹底解説"
 description: "ChatGPT エージェントモード（Agent Mode 2.0）の使い方・料金・Plus/Pro/Free の違いを2026年4月時点の最新情報で解説。仮想ブラウザ操作、長時間タスク自動化、Notion/Slack 連携の業務効率化ユースケースも実例つきで紹介。"
+noIndex: true
 publishedAt: 2026-04-20
 updatedAt: 2026-04-26
 category: trend

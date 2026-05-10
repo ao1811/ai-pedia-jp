@@ -20,22 +20,33 @@ const personSchema = {
   name: 'Ao',
   alternateName: ['AIpedia 編集長 Ao', 'Ao（あお）'],
   url: `${SITE.url}/author/ao`,
-  jobTitle: '編集長',
+  image: `${SITE.url}/author/ao-avatar.png`,
+  jobTitle: '編集長 / AIツール検証ライター',
   description:
-    'AIpedia 編集長。AIツール・生成AI 領域を中心に、ビジネスパーソン向けの実用的な比較・解説記事を執筆。中立性と分かりやすさを重視。',
+    'AIpedia 編集長。日々の業務で ChatGPT Plus / Claude Pro / Gemini Advanced / Cursor / Notion AI / PLAUD などを実利用し、その実用感をもとにビジネスパーソン向けの比較・解説記事を執筆。AIツール検証歴は2023年から3年以上、累計100本以上の比較記事を編集。',
   knowsAbout: [
     'AIツール',
     '生成AI',
     'ChatGPT',
     'Claude',
     'Gemini',
+    'Cursor',
+    'Claude Code',
     'AIライティング',
     'AI画像生成',
     'AIコーディング',
     'AI議事録',
     'AI翻訳',
+    'AIエージェント',
+    'プロンプトエンジニアリング',
   ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'AI ツール検証ライター・編集者',
+    occupationLocation: { '@type': 'Country', name: 'Japan' },
+  },
   worksFor: { '@id': `${SITE.url}/#editorial` },
+  sameAs: [`${SITE.url}/about`],
 };
 
 const fmt = (d: Date) =>
@@ -64,13 +75,34 @@ const fmt = (d: Date) =>
         </div>
         <div class="mt-4 sm:mt-0 flex-1">
           <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Ao <span class="text-base font-normal text-[#8a90a8]">（あお）</span></h1>
-          <p class="mt-1 text-sm text-violet-300">AIpedia 編集長 ／ 個人運営</p>
+          <p class="mt-1 text-sm text-violet-300">AIpedia 編集長 ／ AIツール検証ライター</p>
           <p class="mt-3 text-sm leading-relaxed text-[#c7cbde]">
-            AIツール・生成AI 領域を専門とする AIpedia の編集長。日々の業務で ChatGPT・Claude・Gemini を併用しており、その実用感をもとに、過度な煽りなく中立的な情報提供を心がけています。
+            AIツール・生成AI 領域を専門とする AIpedia の編集長。<strong class="text-white">AIツール検証歴3年以上</strong>、日々の業務で ChatGPT Plus / Claude Pro / Gemini Advanced / Cursor / Notion AI / PLAUD を併用し、その実用感をもとに過度な煽りなく中立的な情報提供を心がけています。
           </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-[11px]">
+            <span class="inline-flex items-center gap-1 rounded-md border border-emerald-400/30 bg-emerald-400/10 px-2 py-1 text-emerald-200">📍 日本</span>
+            <span class="inline-flex items-center gap-1 rounded-md border border-violet-400/30 bg-violet-400/10 px-2 py-1 text-violet-200">📅 2023年〜AI検証</span>
+            <span class="inline-flex items-center gap-1 rounded-md border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-amber-200">📚 累計100本超</span>
+          </div>
         </div>
       </div>
     </header>
+
+    {/* 実際に契約・利用中のツール（E-E-A-T 強化：Experience の証拠） */}
+    <section class="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-6">
+      <h2 class="text-lg font-bold mb-3">💼 編集長が実際に契約・日常利用しているツール</h2>
+      <p class="mb-4 text-sm text-[#c7cbde]">
+        本サイトの記事は、編集長 Ao が以下を<strong class="text-white">実際に契約 or 購入し、自分の業務で日常的に使用</strong>した上で執筆しています。実利用していないツールはこの一覧から除外しています。
+      </p>
+      <div class="grid gap-2 sm:grid-cols-2 text-sm text-[#c7cbde]">
+        <div class="rounded-md bg-white/[0.02] p-3"><strong class="text-white">対話AI</strong>：ChatGPT Plus / Claude Pro / Gemini Advanced</div>
+        <div class="rounded-md bg-white/[0.02] p-3"><strong class="text-white">開発</strong>：Cursor Pro / Claude Code / GitHub Copilot</div>
+        <div class="rounded-md bg-white/[0.02] p-3"><strong class="text-white">議事録</strong>：Notta Pro / PLAUD NOTE（実機）</div>
+        <div class="rounded-md bg-white/[0.02] p-3"><strong class="text-white">業務</strong>：Notion AI / Slack / Google Workspace</div>
+        <div class="rounded-md bg-white/[0.02] p-3"><strong class="text-white">画像</strong>：Midjourney Basic / Aiarty / ConoHa AI Canvas</div>
+        <div class="rounded-md bg-white/[0.02] p-3"><strong class="text-white">家庭</strong>：Nest Hub Max + Nest Mini × 2（Gemini for Home）</div>
+      </div>
+    </section>
 
     {/* 専門領域 */}
     <section class="mt-8 rounded-2xl border border-white/5 bg-[#10121a] p-6">

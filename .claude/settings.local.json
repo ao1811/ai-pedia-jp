@@ -147,7 +147,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/guides/ai-vtuber-getting-started/)",
       "Bash(curl -s \"https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://ai-pedia.jp/&strategy=mobile&category=performance\")",
       "Bash(curl -sS --max-time 90 \"https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https%3A%2F%2Fai-pedia.jp%2F&strategy=mobile&category=performance\" -o /tmp/ps-home.json)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/guides/google-home-gemini-setup-guide/)"
     ]
   }
 }

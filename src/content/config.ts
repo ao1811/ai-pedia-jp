@@ -30,6 +30,12 @@ const guides = defineCollection({
         }),
       )
       .default([]),
+    /**
+     * インデックス対象外フラグ。
+     * 推測情報を含む記事・品質改善前の旧記事を noindex 化するために使用。
+     * AdSense ポリシー対応で「有用性の低いコンテンツ」を Google 検索結果から外す。
+     */
+    noIndex: z.boolean().optional().default(false),
   }),
 });
 

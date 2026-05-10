@@ -1,6 +1,7 @@
 ---
 title: "GPT-5.5 完全ガイド【2026年4月最新】GPT-5 / GPT-5.4 との違い・新機能・料金・使い方を徹底解説"
 description: "OpenAI が 2026年4月23日にリリースした GPT-5.5 を完全解説。GPT-5 / GPT-5.4 との違い、エージェント型コーディング・PC 操作・知識作業の性能向上、ChatGPT Plus / Pro / Business / Enterprise での利用方法、料金、Greg Brockman『super app への一歩』発言の意味まで徹底解説。"
+noIndex: true
 publishedAt: 2026-04-27
 updatedAt: 2026-04-27
 category: trend

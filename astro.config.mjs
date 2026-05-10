@@ -34,7 +34,28 @@ function getThinTagPaths() {
   );
 }
 
+/**
+ * frontmatter に noIndex: true があるガイド記事の URL を抽出。
+ * sitemap から除外して Google にクロールさせない。
+ */
+function getNoIndexGuidePaths() {
+  const dir = join(process.cwd(), 'src', 'content', 'guides');
+  const files = readdirSync(dir).filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
+  const noIndexSlugs = new Set();
+  for (const f of files) {
+    const content = readFileSync(join(dir, f), 'utf-8');
+    const m = content.match(/^---([\s\S]*?)---/);
+    if (!m) continue;
+    if (/^noIndex:\s*true\s*$/m.test(m[1])) {
+      const slug = f.replace(/\.(md|mdx)$/, '');
+      noIndexSlugs.add(`/guides/${slug}/`);
+    }
+  }
+  return noIndexSlugs;
+}
+
 const THIN_TAG_PATHS = getThinTagPaths();
+const NOINDEX_GUIDE_PATHS = getNoIndexGuidePaths();
 
 export default defineConfig({
   site: 'https://ai-pedia.jp',
@@ -53,9 +74,11 @@ export default defineConfig({
         if (page.includes('/admin/')) return false;
         if (page.includes('/sns/')) return false;
         if (page.endsWith('/404/')) return false;
-        // 1記事しかないタグページも除外（thin content）。
+        // frontmatter で noIndex: true を指定したガイド記事も除外。
         try {
           const pathOnly = new URL(page).pathname;
+          if (NOINDEX_GUIDE_PATHS.has(pathOnly)) return false;
+          // 1記事しかないタグページも除外（thin content）。
           if (THIN_TAG_PATHS.has(pathOnly)) return false;
         } catch {}
         return true;

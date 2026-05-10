@@ -147,6 +147,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
   description={guide.data.description}
   ogType="article"
   ogImage={articleImage}
+  noIndex={guide.data.noIndex}
   articleMeta={{
     publishedTime: publishedIso,
     modifiedTime: modifiedIso,

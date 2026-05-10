@@ -1,6 +1,7 @@
 ---
 title: "新機能「Claude Design」とは？UI/UXを対話で生成する最新機能の実力【2026年版】"
 description: "Anthropic が展開する Claude Design の全貌を解説。対話だけでUIコンポーネント・レイアウト・デザインシステムが生まれる新機能の仕組み、使い方、他ツールとの違いを徹底紹介。"
+noIndex: true
 publishedAt: 2026-04-20
 updatedAt: 2026-04-26
 category: trend
