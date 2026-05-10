@@ -205,15 +205,51 @@ START
 END
 ```
 
-## 編集部の運用：2ツール併用パターン
+## 編集部の運用：2ツール併用パターンと実体験
 
-編集部おすすめの組み合わせ：
+本記事の編集を担当する [Ao](/author/ao) は、Gemini Advanced + ChatGPT Plus + Claude Pro の**3社並行運用**を半年続けています。その実感をまとめます。
 
-- **常用：Gemini Free**（最新情報リサーチ・要約）
-- **本格：ChatGPT Plus（¥3,000）+ Claude Pro（$20）**（記事執筆・分析）
-- **必要時：Gemini Advanced 単月（¥2,900）**（Deep Research が必要な月のみ）
+### 3社併用で見えた使い分け
 
-合計 月¥6,000〜¥9,000 で**マルチプロバイダー環境**を構築。
+| シーン | 使うツール | 理由 |
+|---|---|---|
+| 最新情報リサーチ | **Gemini Advanced** | Google検索統合で最新性が最強 |
+| 記事執筆 | Claude Pro | 日本語の文章美しさが頭ひとつ抜けている |
+| コード | ChatGPT Plus（Codex） | 速度と統合環境 |
+| 画像分析 | ChatGPT Plus | Vision の精度が安定 |
+| 長文要約 | Gemini Advanced | 200万トークン窓が最大 |
+| 翻訳 | Claude Pro | ニュアンス保持が最良 |
+
+### Gemini Advanced（¥2,900）を3ヶ月使った率直な感想
+
+**よかったこと**
+- Google Drive / Docs / Gmail との連携が**完全シームレス**。コピペ作業が消える
+- **NotebookLM** が無料で付属するのが想像以上に強力。10本の論文を投入してQA可能
+- Deep Research（¥2,900で月100回）が**競合調査・市場分析で激変**を起こす
+
+**期待外れだったこと**
+- **画像生成（Imagen 3）はまだ Midjourney に大きく劣る**。デザイン用途は別ツール推奨
+- **応答の長さが ChatGPT より短め**。詳細を引き出すプロンプト調整が必要
+- **Workspace 非契約だと Drive 連携の魅力が半減**する
+
+### 編集部おすすめの組み合わせ（最終形）
+
+```
+常用：Gemini Advanced（¥2,900）        ← Google連携と最新性
+本格：ChatGPT Plus（¥3,000）           ← コードと画像分析
+仕上げ：Claude Pro（約¥3,000）         ← 日本語文章の最終磨き
+
+合計：月¥9,000で3社マルチ環境
+```
+
+### コスパで決めたいなら
+
+「全部はムリ、1つだけ」というなら、**Gemini Advanced が最もコスパ高い**：
+- Drive 2TB が付属（写真ストレージ問題が解決）
+- NotebookLM、Deep Research、Gemini for Home まで使える
+- 「AI＋クラウドストレージ＋家電連携」を**月¥2,900で全部**
+
+ChatGPT Plus / Claude Pro と比べて、**付加機能の幅**で勝負できるのが Gemini です。
 
 ## まとめ
 
