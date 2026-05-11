@@ -1,6 +1,7 @@
 ---
 title: "Perplexity vs Google検索｜AI検索時代の使い分けと情報収集を変える実践術"
 description: "AI検索 Perplexity と従来の Google 検索、どう使い分けるべきか？それぞれの強み・弱み・シーン別使い分けを、リサーチ業務のプロ目線で徹底解説。"
+noIndex: true
 publishedAt: 2026-04-03
 updatedAt: 2026-04-20
 category: comparison

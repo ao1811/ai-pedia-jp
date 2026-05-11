@@ -1,6 +1,7 @@
 ---
 title: "失敗しないAIツール選び方ガイド【初心者向け 2026年版】"
 description: "数百種類あるAIツールから、自分に合った1本を見抜く方法を解説。予算・目的・相性の3軸で、初心者がつまずかない選び方を紹介します。"
+noIndex: true
 publishedAt: 2026-03-28
 updatedAt: 2026-04-26
 category: howto

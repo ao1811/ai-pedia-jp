@@ -149,7 +149,9 @@
       "Bash(curl -sS --max-time 90 \"https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https%3A%2F%2Fai-pedia.jp%2F&strategy=mobile&category=performance\" -o /tmp/ps-home.json)",
       "Read(//tmp/**)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/guides/google-home-gemini-setup-guide/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/author/ao/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/author/ao/)",
+      "Bash(cd /c/Users/naoki/claude_projects/affiliate-site && grep -l \"noIndex: true\" src/content/guides/ai-meeting-notes-security*.md)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/editorial-policy/)"
     ]
   }
 }

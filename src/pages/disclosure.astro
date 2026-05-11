@@ -1,31 +1,181 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+
+const LAST_UPDATED = '2026-05-11';
+const EFFECTIVE_FROM = '2026-04-20';
 ---
 
 <BaseLayout
-  title="アフィリエイト開示"
-  description="本サイトのアフィリエイトプログラム参加状況および、広告表示・報酬に関する開示方針。"
+  title="アフィリエイト開示・広告掲載方針"
+  description="AIpedia のアフィリエイトプログラム参加状況、報酬・評価への影響、編集の独立性、推奨ツール選定の基準を明示。読者の信頼を最優先する透明性ポリシー。"
 >
-  <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10 prose-invert">
-    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">アフィリエイト開示</h1>
-    <div class="mt-6 space-y-5 text-[15px] leading-relaxed text-[#c7cbde]">
-      <p>
-        本サイト「AIpedia（AIツール比較ランキング）」は、以下のアフィリエイトプログラムに参加しています（予定含む）。
-        これらのプログラムを通じて、紹介した商品・サービスを閲覧者が契約・購入すると、当サイトに成果報酬が発生する場合があります。
-      </p>
-      <ul class="list-disc pl-5 space-y-1">
-        <li>A8.net</li>
-        <li>もしもアフィリエイト</li>
-        <li>Amazon アソシエイト・プログラム</li>
-        <li>各SaaS企業のパートナープログラム（Anthropic、OpenAI、Google、その他）</li>
-      </ul>
-      <p>
-        アフィリエイトリンクは <code class="rounded bg-white/5 px-1.5 py-0.5 text-xs">rel="sponsored"</code> 属性を付与して明示しています。
-        また、リンク近辺に「本リンクはアフィリエイトを含みます」という表記を添える運用としています。
-      </p>
-      <p>
-        成果報酬の有無・単価は、掲載の可否・ランキング順位・評価スコアに一切影響しません。編集部は常に読者の利益を最優先に情報を選定しています。
-      </p>
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <Breadcrumbs items={[
+      { label: 'ホーム', href: '/' },
+      { label: 'アフィリエイト開示' },
+    ]} />
+
+    <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">アフィリエイト開示・広告掲載方針</h1>
+
+    <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#8a90a8]">
+      <span>制定日: <time datetime={EFFECTIVE_FROM} class="text-[#c7cbde]">{EFFECTIVE_FROM}</time></span>
+      <span>最終更新日: <time datetime={LAST_UPDATED} class="text-[#c7cbde]">{LAST_UPDATED}</time></span>
     </div>
+
+    <p class="mt-6 text-[15px] leading-relaxed text-[#c7cbde]">
+      AIpedia（以下「本サイト」）は、読者の信頼を最優先するメディアとして、アフィリエイト広告に関する取り組みを以下のとおり明示します。
+    </p>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-white">1. 参加しているアフィリエイトプログラム</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトは、以下のアフィリエイトプログラムに参加しています。これらを通じて、紹介した商品・サービスを読者の方が契約・購入されると、本サイトに成果報酬が発生する場合があります。
+      </p>
+      <div class="mt-4 overflow-hidden rounded-xl border border-white/5">
+        <table class="w-full text-sm text-left text-[#c7cbde]">
+          <thead class="bg-white/[0.03] text-xs uppercase tracking-wider text-[#8a90a8]">
+            <tr>
+              <th class="px-4 py-3">ASP / プログラム</th>
+              <th class="px-4 py-3">主な対象</th>
+              <th class="px-4 py-3">状態</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <tr>
+              <td class="px-4 py-3 font-medium text-white">A8.net</td>
+              <td class="px-4 py-3">Notta、PLAUD、Aiarty、ConoHa AI Canvas 等</td>
+              <td class="px-4 py-3 text-emerald-300">参加中</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-white">もしもアフィリエイト</td>
+              <td class="px-4 py-3">各種 SaaS、ガジェット</td>
+              <td class="px-4 py-3 text-[#8a90a8]">登録予定</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-white">Amazon アソシエイト</td>
+              <td class="px-4 py-3">書籍、AI 関連ハードウェア</td>
+              <td class="px-4 py-3 text-[#8a90a8]">登録予定</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium text-white">各SaaSパートナープログラム</td>
+              <td class="px-4 py-3">Anthropic、OpenAI、Google、Notion 等</td>
+              <td class="px-4 py-3 text-[#8a90a8]">個別交渉中</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">2. アフィリエイトリンクの識別方法</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトのアフィリエイトリンクは、以下のいずれかの方法で読者に明示しています。
+      </p>
+      <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px] text-[#c7cbde]">
+        <li>
+          リンクの近くに <strong class="text-white">「PR」「スポンサード」「※本リンクはアフィリエイトを含みます」</strong> の表記を必ず添える
+        </li>
+        <li>
+          HTML 属性として <code class="rounded bg-white/5 px-1.5 py-0.5 text-xs">rel="sponsored noopener"</code> を自動付与（Google ガイドライン準拠）
+        </li>
+        <li>
+          推奨ツールを大きく訴求するブロック（SponsoredCTA）には、明確に「スポンサード」「PR」のラベルを表示
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">3. 編集の独立性と評価への影響</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトの編集方針として、以下を厳守しています。
+      </p>
+      <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px] text-[#c7cbde]">
+        <li>
+          <strong class="text-white">成果報酬の有無・単価は、ランキング順位・評価スコア・掲載可否に一切影響させない</strong>
+        </li>
+        <li>
+          アフィリエイト未提携のツール（例：ChatGPT、Claude、Gemini など）も、品質が高ければ常に上位に掲載する
+        </li>
+        <li>
+          編集部が実際に契約・利用し、使用感を確認したツールのみ詳細解説の対象とする
+        </li>
+        <li>
+          欠点・限界・「使うべきでない人」も明示し、ポジティブ情報だけに偏らせない
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">4. 推奨ツール選定の基準</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトで「推奨」「おすすめ」「編集部一押し」として紹介するツールは、以下の基準を**すべて**満たしているものに限定しています。
+      </p>
+      <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px] text-[#c7cbde]">
+        <li>編集部が実際に契約 or 購入し、業務で1ヶ月以上使用している</li>
+        <li>5評価軸（応答品質・日本語精度・コスパ・拡張性・トレンド）で総合点が一定以上</li>
+        <li>運営会社の信頼性が確認できる（公開情報・第三者認証）</li>
+        <li>商用利用可能・利用規約が明確</li>
+        <li>過去6ヶ月以内の重大なインシデント（情報漏洩等）の報告がない</li>
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">5. 広告主からの依頼・タイアップ案件について</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトは、広告主から金銭を受け取って記事を執筆する **「タイアップ」「PR 記事」「スポンサード記事」** の依頼については、現時点では受け付けておりません。すべての記事は編集部の独自判断と検証に基づき執筆されています。
+      </p>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        将来的にタイアップ記事を掲載する場合は、記事内に明確に「PR」「タイアップ」のラベルを表示し、編集部の自由意思で書かれた記事と明確に区別します。
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">6. 表示している広告について</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトは将来的に Google AdSense、忍者AdMax などのディスプレイ広告ネットワークを利用する予定があります。これらの広告は、配信事業者のアルゴリズムにより自動的に表示されるため、本サイトの編集部が個別の広告内容を選定・承認しているものではありません。
+      </p>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        万が一、不適切な広告が表示されていることに気づかれた際は、<a href="/contact" class="underline text-violet-300">お問い合わせフォーム</a>からお知らせください。配信事業者へ報告のうえ、表示停止を依頼します。
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">7. 誤情報・誇張表現を見つけたとき</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトの記事に誤情報・誇張表現・古い情報が含まれている場合は、<a href="/contact" class="underline text-violet-300">お問い合わせフォーム</a>からご指摘ください。確認のうえ、原則として2営業日以内に修正対応いたします。
+      </p>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        誤情報の発見経緯と修正履歴は、各記事の <strong class="text-white">「更新日」</strong> および <strong class="text-white">「修正履歴」</strong> セクション（重大な修正の場合）に明示します。
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">8. 価格・機能・仕様の最新性について</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        各 AI ツールの料金・機能・利用条件は、本サイト掲載時点での公式情報に基づきます。各社のアップデートにより内容が変わる可能性があるため、最終的なご判断は<strong class="text-white">必ず各サービスの公式サイトでご確認</strong>ください。
+      </p>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトはできる限り情報の最新性を維持するよう努めていますが、掲載情報の不正確性・古さに起因する損害について、責任を負いかねます。
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold text-white">9. お問い合わせ</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本ページに関するご質問・ご意見は、<a href="/contact" class="underline text-violet-300">お問い合わせフォーム</a>よりお寄せください。
+      </p>
+    </section>
+
+    <section class="mt-10 rounded-2xl border border-violet-400/20 bg-violet-400/5 p-6">
+      <h2 class="text-lg font-bold text-white">関連ページ</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li><a href="/about" class="text-violet-300 hover:underline">運営方針・評価基準</a> — 5軸の評価ロジック詳細</li>
+        <li><a href="/author/ao" class="text-violet-300 hover:underline">編集長 Ao プロフィール</a> — 編集者の経歴と利用ツール</li>
+        <li><a href="/privacy" class="text-violet-300 hover:underline">プライバシーポリシー</a> — Cookie・個人情報の取扱い</li>
+        <li><a href="/editorial-policy" class="text-violet-300 hover:underline">編集方針・ファクトチェック</a> — 記事の品質維持プロセス</li>
+        <li><a href="/contact" class="text-violet-300 hover:underline">お問い合わせ</a> — 修正依頼・取材・お問い合わせ</li>
+      </ul>
+    </section>
   </article>
 </BaseLayout>

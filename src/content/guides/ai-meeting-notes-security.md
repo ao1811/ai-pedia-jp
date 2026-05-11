@@ -1,6 +1,7 @@
 ---
 title: "AI議事録 セキュリティ完全ガイド【2026年版】データ保管・学習オプトアウト・SOC2/ISO27001 5ツール比較"
 description: "AI議事録 セキュリティの選定基準を徹底解説。データ保管リージョン、学習オプトアウト、SOC2/ISO27001取得状況、SAML/SSO対応、機密情報の取扱いまで、Notta・PLAUD・さくらAI議事録・JAPAN AI SPEECH・tl;dv の5ツールを比較。法人・金融・医療向けの安全な選び方を解説。"
+noIndex: true
 publishedAt: 2026-04-26
 updatedAt: 2026-04-28
 category: review

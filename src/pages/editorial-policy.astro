@@ -1,0 +1,198 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { SITE } from '@/data/site';
+
+const LAST_UPDATED = '2026-05-11';
+const EFFECTIVE_FROM = '2026-04-20';
+
+// schema.org/Article（編集方針自体もコンテンツとして構造化）
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '編集方針・ファクトチェック・品質管理プロセス',
+  description:
+    'AIpedia の記事品質を保つための編集方針、ファクトチェック手順、AI 利用方針、修正対応の流れを明文化。',
+  datePublished: EFFECTIVE_FROM,
+  dateModified: LAST_UPDATED,
+  author: { '@id': `${SITE.url}/author/ao#person` },
+  publisher: { '@id': `${SITE.url}/#editorial` },
+};
+---
+
+<BaseLayout
+  title="編集方針・ファクトチェック・品質管理"
+  description="AIpedia の記事品質を保つための編集方針、ファクトチェック手順、AI 利用方針を明示。読者の信頼を最優先する継続的な品質管理プロセスを公開。"
+  extraJsonLd={articleSchema}
+>
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 pt-6 sm:pt-10">
+    <Breadcrumbs items={[
+      { label: 'ホーム', href: '/' },
+      { label: '編集方針' },
+    ]} />
+
+    <h1 class="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight">編集方針・ファクトチェック・品質管理</h1>
+
+    <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#8a90a8]">
+      <span>制定日: <time datetime={EFFECTIVE_FROM} class="text-[#c7cbde]">{EFFECTIVE_FROM}</time></span>
+      <span>最終更新日: <time datetime={LAST_UPDATED} class="text-[#c7cbde]">{LAST_UPDATED}</time></span>
+    </div>
+
+    <p class="mt-6 text-[15px] leading-relaxed text-[#c7cbde]">
+      AIpedia は、AI ツールという <strong class="text-white">情報変化の速い領域</strong> を扱うメディアとして、読者の意思決定を誤らせない情報品質を維持することを最優先しています。本ページでは、その実現のために編集部が遵守しているプロセスを明示します。
+    </p>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-white">1. 編集の3原則</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-3">
+        <div class="rounded-xl border border-emerald-400/30 bg-emerald-400/5 p-5">
+          <div class="text-xs font-bold uppercase tracking-widest text-emerald-300">原則1</div>
+          <div class="mt-2 text-base font-bold text-white">読者ファースト</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">記事の評価軸はアフィリエイト報酬や PR 案件ではなく、「読者が正しい意思決定をできるか」のみ。</p>
+        </div>
+        <div class="rounded-xl border border-violet-400/30 bg-violet-400/5 p-5">
+          <div class="text-xs font-bold uppercase tracking-widest text-violet-300">原則2</div>
+          <div class="mt-2 text-base font-bold text-white">実体験ベース</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">編集部が実際に契約・使用したツールのみ「推奨」として紹介。机上の比較は明示する。</p>
+        </div>
+        <div class="rounded-xl border border-amber-400/30 bg-amber-400/5 p-5">
+          <div class="text-xs font-bold uppercase tracking-widest text-amber-300">原則3</div>
+          <div class="mt-2 text-base font-bold text-white">誠実な pushback</div>
+          <p class="mt-2 text-sm text-[#c7cbde]">流行ツールでも欠点・限界・向かない人を明示。「全員におすすめ」のような表現は避ける。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-white">2. ファクトチェックの6ステップ</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        記事公開前に編集部が必ず実施する確認プロセスです。
+      </p>
+      <ol class="mt-4 space-y-3 text-[15px] text-[#c7cbde]">
+        <li class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+          <div class="font-semibold text-white">① 一次情報の確認</div>
+          <div class="mt-1 text-sm">各 AI ツールの公式サイト・公式ドキュメント・公式プレスリリースを参照。プレスリリース日付と URL を記録。</div>
+        </li>
+        <li class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+          <div class="font-semibold text-white">② 料金・機能の最新性確認</div>
+          <div class="mt-1 text-sm">価格・利用条件は記事公開日時点の公式情報に揃える。為替変動が大きい場合は注記。</div>
+        </li>
+        <li class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+          <div class="font-semibold text-white">③ 編集部の検証実施</div>
+          <div class="mt-1 text-sm">「推奨」「おすすめ」として紹介するツールは、編集部が実際に契約・使用。使用期間・検証回数を記事内で明示。</div>
+        </li>
+        <li class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+          <div class="font-semibold text-white">④ 第三者情報の照合</div>
+          <div class="mt-1 text-sm">主要 IT メディア（TechCrunch、ITmedia、Impress Watch 等）・公式 Q4 報告書・SEC 提出資料も並行参照し、公式発表と齟齬がないか確認。</div>
+        </li>
+        <li class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+          <div class="font-semibold text-white">⑤ AI を用いる場合の検証</div>
+          <div class="mt-1 text-sm">記事下書きに ChatGPT・Claude 等を活用した場合も、編集長 Ao が事実関係を全項目チェック。AI のハルシネーションを必ず除去。</div>
+        </li>
+        <li class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+          <div class="font-semibold text-white">⑥ 公開後モニタリング</div>
+          <div class="mt-1 text-sm">Search Console・GA4 で記事の検索意図とのギャップを定期確認。読者からの指摘があれば速やかに修正。</div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-white">3. 生成AI 利用方針（透明性のため）</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトは AI ツールを扱うメディアの性質上、生成 AI 自体を編集業務の一部に利用しています。その方針を明示します。
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2">
+        <div class="rounded-lg border border-emerald-400/20 bg-emerald-400/5 p-4">
+          <div class="text-sm font-bold text-emerald-200">✓ AI を使う工程</div>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-sm text-[#c7cbde]">
+            <li>記事構成の下書き</li>
+            <li>文章の表現リライト</li>
+            <li>誤字脱字チェック</li>
+            <li>翻訳・要約の下訳</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-400/20 bg-rose-400/5 p-4">
+          <div class="text-sm font-bold text-rose-200">✗ AI に任せない工程</div>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-sm text-[#c7cbde]">
+            <li>事実関係の最終確認</li>
+            <li>ツールの推奨判断</li>
+            <li>ランキング順位の決定</li>
+            <li>読者からの指摘対応</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-4 text-[15px] leading-relaxed text-[#c7cbde]">
+        AI が生成した文章をそのまま掲載することはありません。<strong class="text-white">必ず編集長 Ao が事実確認・編集・推敲を経て公開</strong>します。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-white">4. 修正・訂正のプロセス</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        誤情報・古い情報の指摘を受けた場合の対応フローです。
+      </p>
+      <div class="mt-4 rounded-xl border border-white/5 bg-white/[0.02] p-5">
+        <ol class="space-y-3 text-sm text-[#c7cbde]">
+          <li><strong class="text-white">Step 1（受領後 24時間以内）</strong>：指摘内容を編集部内で確認</li>
+          <li><strong class="text-white">Step 2（〜2営業日）</strong>：事実関係を一次情報で再検証</li>
+          <li><strong class="text-white">Step 3（〜3営業日）</strong>：記事を修正、修正履歴を記事末尾に明記</li>
+          <li><strong class="text-white">Step 4（重大な誤りの場合）</strong>：トップページで訂正告知</li>
+          <li><strong class="text-white">Step 5</strong>：指摘者へ修正完了の連絡（任意）</li>
+        </ol>
+      </div>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        記事の「最終更新日」は、誤字修正等の軽微な変更も含めて常に最新化しています。「制定日」と「最終更新日」が大きく異なる記事は、能動的にメンテナンスされている証拠としてご参照ください。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-white">5. 取り扱わないコンテンツ</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        本サイトは以下のコンテンツを掲載しません。
+      </p>
+      <ul class="mt-3 list-disc pl-5 space-y-2 text-[15px] text-[#c7cbde]">
+        <li>未発表 AI モデル・未確認の機能に関する憶測記事</li>
+        <li>編集部が実際に確認していないツールの「実体験レビュー」</li>
+        <li>競合排除を目的とした特定ツールへの過剰なネガティブ評価</li>
+        <li>違法行為・脱税・健康被害のリスクを助長する情報</li>
+        <li>読者の判断を歪める誇張表現（「絶対に儲かる」「100%効果」等）</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-bold text-white">6. 評価スコアの算出方法</h2>
+      <p class="mt-3 text-[15px] leading-relaxed text-[#c7cbde]">
+        ランキングページ等で表示される独自スコアは、以下の5軸を加重平均して算出しています。
+      </p>
+      <div class="mt-4 overflow-hidden rounded-xl border border-white/5">
+        <table class="w-full text-sm text-left text-[#c7cbde]">
+          <thead class="bg-white/[0.03] text-xs uppercase tracking-wider text-[#8a90a8]">
+            <tr>
+              <th class="px-4 py-3">評価軸</th>
+              <th class="px-4 py-3">重み</th>
+              <th class="px-4 py-3">評価基準</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <tr><td class="px-4 py-3 font-medium text-white">応答品質</td><td class="px-4 py-3">30%</td><td class="px-4 py-3">Q&A・要約・推論精度</td></tr>
+            <tr><td class="px-4 py-3 font-medium text-white">日本語精度</td><td class="px-4 py-3">20%</td><td class="px-4 py-3">日本語の自然さ・誤訳率</td></tr>
+            <tr><td class="px-4 py-3 font-medium text-white">コスパ</td><td class="px-4 py-3">20%</td><td class="px-4 py-3">月額あたりの提供価値</td></tr>
+            <tr><td class="px-4 py-3 font-medium text-white">拡張性</td><td class="px-4 py-3">15%</td><td class="px-4 py-3">API / 連携の自由度</td></tr>
+            <tr><td class="px-4 py-3 font-medium text-white">トレンド</td><td class="px-4 py-3">15%</td><td class="px-4 py-3">アップデート頻度・採用企業数</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-10 rounded-2xl border border-violet-400/20 bg-violet-400/5 p-6">
+      <h2 class="text-lg font-bold text-white">関連ページ</h2>
+      <ul class="mt-3 space-y-2 text-sm text-[#c7cbde]">
+        <li><a href="/about" class="text-violet-300 hover:underline">運営方針・評価基準</a></li>
+        <li><a href="/author/ao" class="text-violet-300 hover:underline">編集長 Ao プロフィール</a></li>
+        <li><a href="/disclosure" class="text-violet-300 hover:underline">アフィリエイト開示</a></li>
+        <li><a href="/privacy" class="text-violet-300 hover:underline">プライバシーポリシー</a></li>
+        <li><a href="/contact" class="text-violet-300 hover:underline">お問い合わせ・修正依頼</a></li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
