@@ -151,7 +151,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/guides/google-home-gemini-setup-guide/)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/author/ao/)",
       "Bash(cd /c/Users/naoki/claude_projects/affiliate-site && grep -l \"noIndex: true\" src/content/guides/ai-meeting-notes-security*.md)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/editorial-policy/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://ai-pedia.jp/editorial-policy/)",
+      "WebFetch(domain:support.google.com)",
+      "WebFetch(domain:developers.google.com)"
     ]
   }
 }
