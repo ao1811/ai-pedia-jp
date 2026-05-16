@@ -24,9 +24,14 @@ const description = `${cat.ja}の最新AIツールランキング。${list.lengt
 
 const topPart = list.slice(0, Math.min(3, list.length));
 const bottomPart = list.slice(3);
+
+// ツール4本未満のカテゴリページは thin content とみなして noindex 化。
+// Google は3件程度でも「クロール済み - インデックス未登録」扱いにする傾向があるため。
+// 主要カテゴリ（chat / image / writing / productivity）はツール追加で 4本以上を目指す。
+const thinCategory = list.length < 4;
 ---
 
-<BaseLayout title={`${cat.ja} AIツールランキング`} description={description}>
+<BaseLayout title={`${cat.ja} AIツールランキング`} description={description} noIndex={thinCategory}>
   <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-6 sm:pt-10">
     <Breadcrumbs
       items={[

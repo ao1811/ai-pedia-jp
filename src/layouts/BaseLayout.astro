@@ -43,7 +43,14 @@ const siteName = SITE.name;
 const fullTitle =
   title === siteName || title.includes('AIpedia') ? title : `${title} | ${SITE.name}`;
 const siteUrl = Astro.site?.toString() ?? SITE.url;
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+// canonical は常に trailing slash 付きで正規化する。
+// trailing slash なしの旧URL（例：Google が古くインデックスした /guides/foo）で
+// アクセスされた場合も、canonical タグで /guides/foo/ を指定することで
+// Google が trailing slash 付きを正規URLとして認識し、リダイレクトエラーを防げる。
+const rawPath = Astro.url.pathname;
+const isAsset = /\.[a-zA-Z0-9]+$/.test(rawPath); // .xml / .txt / .json などはスラッシュ追加しない
+const normalizedPath = isAsset || rawPath.endsWith('/') ? rawPath : rawPath + '/';
+const canonicalUrl = canonical ?? new URL(normalizedPath, siteUrl).toString();
 // URL コンストラクタを使うことで、siteUrl が末尾 "/" で終わっていても二重スラッシュにならない。
 // 以前は `${siteUrl}/og-default.png` で `https://ai-pedia.jp//og-default.png` になっていた。
 const ogImageUrl = ogImage ?? new URL('/og-default.png', siteUrl).toString();

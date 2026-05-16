@@ -59,6 +59,11 @@ const NOINDEX_GUIDE_PATHS = getNoIndexGuidePaths();
 
 export default defineConfig({
   site: 'https://ai-pedia.jp',
+  // 全URL を trailing slash 付きで統一。
+  // - 内部リンクが自動的に末尾スラッシュ付きに正規化される
+  // - sitemap の URL も統一
+  // - trailing slash なしの旧URL は _redirects で 301 リダイレクト
+  trailingSlash: 'always',
   integrations: [
     // MDX 対応（記事内で <SponsoredCTA /> 等のコンポーネントを直接利用可能にする）
     mdx(),
