@@ -29,7 +29,7 @@ faq:
 
 本記事では、**無料プラン / Google One AI Premium / Workspace 連携**の3つの選択肢を、コスト構造と機能差から徹底比較します。
 
-## 結論：基本は無料、家族なら Premium が最強
+## 結論：基本は無料、家族なら Premium が最有力
 
 短く言うと、Gemini for Home の **「使える」レベルは無料で十分** です。
 
@@ -153,14 +153,14 @@ Premium ¥2,900：家族・在宅ワーク・Workspace 連携 → 実質¥580/�
 | サービス               | 月額    | 強み                          | 統合度 |
 |------------------------|---------|-------------------------------|--------|
 | Google One AI Premium  | ¥2,900  | AI + 2TB + Workspace          | ★★★★★ |
-| ChatGPT Plus           | ¥3,000  | AI 単体最強                   | ★★    |
-| Claude Pro             | ¥3,000  | AI 推論最強                   | ★     |
+| ChatGPT Plus           | ¥3,000  | AI 単体最有力                   | ★★    |
+| Claude Pro             | ¥3,000  | AI 推論最有力                   | ★     |
 | Apple One Premier      | ¥1,580  | Apple Music + iCloud + ニュース| ★★★   |
 | Amazon Prime           | ¥600    | 配送 + Prime Video             | ★★    |
 | Microsoft 365 Personal | ¥1,490  | Office + 1TB OneDrive          | ★★★★  |
 ```
 
-### コスパ最強パターン
+### コスパ最有力パターン
 
 ```
 家族プラン共有：
@@ -279,7 +279,7 @@ Google One AI Premium ¥2,900
         ↓                 ↓
    ファミリー Premium    単身 Premium
    ¥2,900/5人=¥580      ¥2,900/月
-   = コスパ最強          = ChatGPT Plus と同等
+   = コスパ最有力          = ChatGPT Plus と同等
 ```
 
 ## 結論：迷ったら無料、家族なら Premium

@@ -1,6 +1,7 @@
 ---
 title: "Gemini for Home の使い方完全ガイド【2026年4月最新】日本上陸の機能・対応デバイス・料金・設定方法を徹底解説"
 description: "Gemini for Home（日本上陸版）の使い方を完全解説。対応スマートスピーカー（Nest Mini・Nest Hub）、料金プラン、初期設定の手順、Alexa+ / Apple Intelligence との違い、ファミリー向け活用例まで2026年4月最新情報で網羅。"
+noIndex: true
 publishedAt: 2026-04-23
 updatedAt: 2026-04-27
 category: trend

@@ -354,7 +354,7 @@ ai-pedia 編集部での実際の使い分け：
 
 - **Apple Intelligence は対応端末持ってれば完全無料**
 - **5つの主要機能**：Writing Tools / Genmoji / Image Playground / Siri / ChatGPT 連携
-- **プライバシー設計が最強**（On-Device 中心）
+- **プライバシー設計が最有力**（On-Device 中心）
 - **iPhone 15 Pro 以降・M1 以降 Mac/iPad** が必要
 - **ChatGPT Plus との併用**が現実解
 

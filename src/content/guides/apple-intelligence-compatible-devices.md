@@ -16,7 +16,7 @@ faq:
   - q: "iPhone 14 でも使える？"
     a: "使えません。Apple Intelligence は A17 Pro チップ以降が必須で、iPhone 15 Pro / 15 Pro Max / 16 シリーズのみが対応。iPhone 15 標準モデル（A16 Bionic）は非対応。買い替えるなら iPhone 16e（¥99,800）が最安。"
   - q: "M1 Mac でも本当に使える？"
-    a: "使えます。M1 / M2 / M3 / M4 すべての Mac で対応。Intel Mac は非対応（買い替え必須）。M1 MacBook Air は新品¥139,800、中古なら¥80,000〜で入手可能、コスパ最強の選択肢。"
+    a: "使えます。M1 / M2 / M3 / M4 すべての Mac で対応。Intel Mac は非対応（買い替え必須）。M1 MacBook Air は新品¥139,800、中古なら¥80,000〜で入手可能、コスパ最有力の選択肢。"
   - q: "Apple Watch は対応する？"
     a: "非対応。Apple Watch は処理性能不足で Apple Intelligence の対象外。iPhone 経由で Siri 強化は享受できるが、Watch 単独では従来の Siri のまま。今後の世代でも対応見込み低い。"
   - q: "買い替えコストは元が取れる？"
@@ -66,7 +66,7 @@ faq:
 - カメラ性能は普通レベルでOK
 - 最低コストで最新AIを体験したい
 
-### コスパ最強：iPhone 15 Pro 中古
+### コスパ最有力：iPhone 15 Pro 中古
 
 #### 特徴
 - A17 Pro チップ搭載

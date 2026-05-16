@@ -11,7 +11,7 @@ relatedTools: ["gemini"]
 readTimeMin: 7
 tags: ["Nest Hub", "Echo Show", "Gemini for Home", "Alexa+", "スマートスピーカー", "2026"]
 amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
-tldr: "Nest Hub（¥15,000・Gemini for Home）と Echo Show 5（¥9,980・Alexa+）の選び方。Google Workspace 利用者は Nest Hub一択（カレンダー・Photos連携最強）、Amazon Prime会員は Echo Show 5（ショッピング統合・お得）、iPhone派はどちらも△で HomePod 待ち。Gemini for Home の会話品質は Alexa+ より一段上、ただし Echo はショッピングUXで圧勝。家族構成・既存契約で選ぶのが2026年版の正解。"
+tldr: "Nest Hub（¥15,000・Gemini for Home）と Echo Show 5（¥9,980・Alexa+）の選び方。Google Workspace 利用者は Nest Hub一択（カレンダー・Photos連携最有力）、Amazon Prime会員は Echo Show 5（ショッピング統合・お得）、iPhone派はどちらも△で HomePod 待ち。Gemini for Home の会話品質は Alexa+ より一段上、ただし Echo はショッピングUXで圧勝。家族構成・既存契約で選ぶのが2026年版の正解。"
 faq:
   - q: "結局どちらを買うべき？"
     a: "Google Workspace（Gmail / カレンダー / Photos）使用なら Nest Hub。Amazon Prime会員でショッピング多用なら Echo Show 5。両方の機能を比較したいなら、安価な Echo Show 5（¥9,980）から始めて、後で Nest Hub を追加するのも一手です。"
@@ -22,7 +22,7 @@ faq:
   - q: "iPhone との連携は？"
     a: "両方とも『そこそこ』のレベル。iOS との深い統合は HomePod が圧勝。iPhone がメインで AirPods 等使ってる人は HomePod mini（¥14,800）を待つのも選択肢。"
   - q: "子供への教育的な利用は？"
-    a: "Nest Hub × Family Link が最強。子供アカウント作成 → コンテンツフィルタ → 使用時間制限の細かい設定可能。Echo Show は子供向け『Echo Dot Kids』もあるが、Family Link ほどの柔軟性はない。"
+    a: "Nest Hub × Family Link が最有力。子供アカウント作成 → コンテンツフィルタ → 使用時間制限の細かい設定可能。Echo Show は子供向け『Echo Dot Kids』もあるが、Family Link ほどの柔軟性はない。"
 ---
 
 「Nest Hub と Echo Show 5、どちらを買えばいい？」——スマートスピーカー選びの最大の悩みです。本記事では、Google・Amazon の公式情報、主要メディアのレビュー、編集部の利用所感をもとに、**4軸で徹底比較**します。

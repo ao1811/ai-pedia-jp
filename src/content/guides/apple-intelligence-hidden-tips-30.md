@@ -295,7 +295,7 @@ iPhone 15 Pro 以降で使える **AI による不要物除去**。
 
 ### Tip 20｜Notes の Math Notes（iPad + Apple Pencil）
 
-iPad での **数式・計算** が革命的に変わります。
+iPad での **数式・計算** が大きく変わります。
 
 ```
 1. Apple Pencil で数式を手書き

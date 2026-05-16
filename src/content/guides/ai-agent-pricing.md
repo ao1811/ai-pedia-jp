@@ -11,7 +11,7 @@ relatedTools: ["chatgpt", "claude", "gemini"]
 readTimeMin: 8
 tags: ["AIエージェント", "料金", "ChatGPT", "Claude", "Copilot", "2026"]
 amazonProducts: ["chatgpt-strongest-work", "ai-thinking-techniques"]
-tldr: "AIエージェントの月額は¥0〜$500まで幅広い。コスパ最強は ChatGPT Plus（¥3,000）+ Claude Pro（$20）の併用で月¥6,000。法人なら Microsoft Copilot Cowork（$30/人/月）が既存M365統合で最強。Dify はオープンソースで月¥0〜可。Devin は$500/月の高額ツールでスタートアップ向け。週数件のタスク自動化で課金は月初日に元が取れます。"
+tldr: "AIエージェントの月額は¥0〜$500まで幅広い。コスパ最有力は ChatGPT Plus（¥3,000）+ Claude Pro（$20）の併用で月¥6,000。法人なら Microsoft Copilot Cowork（$30/人/月）が既存M365統合で最有力。Dify はオープンソースで月¥0〜可。Devin は$500/月の高額ツールでスタートアップ向け。週数件のタスク自動化で課金は月初日に元が取れます。"
 faq:
   - q: "AIエージェント無料プランで足りる？"
     a: "週1〜2件の軽量タスクなら ChatGPT Free + Claude Free の併用で足ります。週5件以上、業務利用するなら有料プラン必須。Free プランは利用回数制限とタスクの長さ制限があり、本格的なエージェント機能は使えません。"
@@ -106,7 +106,7 @@ Claude が **ローカル PC を直接操作** できる機能：
 
 「**M365 を使っている人なら ¥4,500/月で日常業務が自動化**」というコスパが魅力。
 
-## Dify：オープンソース最強
+## Dify：オープンソース最有力
 
 ### Dify の料金
 

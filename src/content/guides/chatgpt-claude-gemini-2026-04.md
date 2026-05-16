@@ -89,7 +89,7 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 
 **料金**：Free / Pro¥3,000 / Max¥30,000
 
-**こんな人におすすめ**：エンジニア・ライター・編集者・デザイン案を出したい企画者。コーディング業務メインなら Opus 4.7 が業界最強選択。
+**こんな人におすすめ**：エンジニア・ライター・編集者・デザイン案を出したい企画者。コーディング業務メインなら Opus 4.7 が業界最有力選択。
 
 ## ③ Gemini（3.1 Pro）
 
@@ -154,7 +154,7 @@ Google Workspace（Gmail・Docs・Sheets）ヘビーユーザーならGemini一�
 | 使い方の重点 | おすすめ | 月額目安 | 理由 |
 |---|---|---|---|
 | 初めてのAI / 幅広く | **ChatGPT Plus** | ¥3,000 | 万能・失敗しない |
-| コード書く | **Claude Pro** | ¥3,000 | 推論・長文で最強 |
+| コード書く | **Claude Pro** | ¥3,000 | 推論・長文で最有力 |
 | Google Workspace中心 | **Gemini Advanced** | ¥2,900 | 統合が最も深い |
 | デザイン案出し | **Claude Pro** | ¥3,000 | Claude Design付き |
 | 画像・音声生成 | **ChatGPT Plus** | ¥3,000 | エコシステム厚い |

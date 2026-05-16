@@ -1,6 +1,6 @@
 ---
 title: "Cursor 完全実践ガイド【2026年版】｜インストールから Composer 駆動の開発フローまで"
-description: "Cursor の導入から Composer・Agent モード・マルチモデル運用まで、開発生産性を3倍にする実践テクニックを、毎日使う編集部エンジニアが全公開します。"
+description: "Cursor の導入から Composer・Agent モード・マルチモデル運用まで、開発生産性を大きく押し上げる実践テクニックを、毎日使う編集部エンジニアが全公開します。"
 publishedAt: 2026-04-02
 updatedAt: 2026-04-20
 category: howto
@@ -11,7 +11,7 @@ relatedTools: ["cursor", "claude", "v0"]
 readTimeMin: 9
 tags: ["Cursor", "IDE", "開発", "エンジニア"]
 amazonProducts: ["claude-code-ai-driven", "llm-prompt-github"]
-tldr: "Cursorは導入5分、習得1ヶ月で生産性3倍。Tab補完→Cmd+K→Composer→Agentと段階的に習得し、.cursorrulesでチーム運用を統一するのがフル活用の王道です。"
+tldr: "Cursorは導入5分、習得1ヶ月で生産性が体感大きく向上。Tab補完→Cmd+K→Composer→Agentと段階的に習得し、.cursorrulesでチーム運用を統一するのがフル活用の王道です。"
 faq:
   - q: "VS Code から乗り換える価値は？"
     a: "Tab 補完と Composer だけでも十分価値あり。日常のコード書き込み量が2倍になる感覚です。VS Code 設定はワンクリックで引き継げます。"
@@ -150,9 +150,43 @@ Cursor は複数モデル選択可能。用途別推奨：
 
 **両方併用する開発者が増加中**。編集部も Cursor で日常、Claude Code で大タスク、の使い分けです。
 
+## 編集部の実体験：本サイト構築を Cursor で2年やってきた本音
+
+本記事の編集を担当する [Ao](/author/ao) は、本サイト（ai-pedia.jp / Astro + TypeScript + Tailwind）の開発を**Cursor Pro 2年継続**で行っています。VS Code から完全移行した実感を率直に共有します。
+
+### よかった点
+
+**1. Tab 補完だけで生産性が体感1.5倍**
+React コンポーネントを書くとき、型推論を含めて**数行先までまとまりで提案**してくる精度は VS Code + GitHub Copilot 時代より明確に高い。`useState` を打ち始めただけで、型推論された初期値まで補完される体験は移行価値あり。
+
+**2. Composer のマルチファイル編集が日常的に効く**
+本サイトの「全guide記事に新しいメタタグを追加」「全コンポーネントの className を Tailwind v4 形式に書き換え」など、**3-10ファイル横断の単純作業**は Composer で15分→3分に短縮。
+
+**3. `.cursorrules` の威力**
+プロジェクトルートに「Astro v5 を使う / TypeScript strict / 関数コンポーネント / Tailwind class は cn() で結合」と書き込んだだけで、**コーディング規約を自然に踏襲した提案**が出るように。チーム開発でも有効。
+
+### 期待外れだった点
+
+**1. Pro プランの高速リクエスト枠（月500回）は月末足りない**
+本サイトの大型改修週は、**月25日頃に高速枠を使い切る**ことがあります。それ以降は通常リクエストになり、応答が体感1.5倍遅くなる。
+
+**2. 巨大リポジトリで Composer が重い**
+本サイト記事100本超 + コンポーネント60超の状態で、Composer に「サイト全体の SEO 最適化」のような広い指示を出すと**コンテキスト超過で品質が落ちる**。`@filename` で対象を絞る運用が必須。
+
+**3. Agent モードは「半自律」止まり**
+2026年初期の Agent モードは「30分の自律タスク」までは安定するが、**数時間級のタスクは Claude Code に任せたほうが完遂率が高い**。Cursor は「IDE 内完結」、Claude Code は「CLI で大規模タスク」と棲み分け。
+
+### 編集部の運用ルール（2年運用版）
+
+- 日常コーディング（90%）：**Cursor Pro**
+- 大規模リファクタ・新機能の骨格設計（10%）：**Claude Code**
+- 両方契約して、用途で切り替え（合計月¥6,000）
+
+「**Cursor だけで完結**」を狙うと、巨大タスクで詰まる場面が必ず来ます。**Cursor 主軸 + Claude Code 補完**が、2026年時点の最適解だと感じています。
+
 ## まとめ
 
-- **導入5分、習得1ヶ月**で生産性3倍
+- **導入5分、習得1ヶ月**で生産性が体感大きく向上
 - Tab → Cmd+K → Composer → Agent と段階的に習得
 - `.cursorrules` でチーム運用を統一
 - モデル選択で用途別最適化
