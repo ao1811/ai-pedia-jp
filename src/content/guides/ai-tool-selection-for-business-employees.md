@@ -340,3 +340,9 @@ ai-pedia 編集部が推奨する **3ヶ月の段階的導入**：
 ツールを選んだ後の **30日プラン** は[「会社でAIを使え」と言われた人の最初の30日ロードマップ](/guides/ai-at-work-first-30-days-plan/)、**社内ナレッジベース** 構築は[社内AI活用ナレッジベースの作り方](/guides/company-ai-knowledge-base-building/)、**セキュリティ確認** は[会社でAIを使う前のチェックリスト](/guides/corporate-ai-security-compliance-checklist/)、**業務別プロンプト** は[業務別AI活用プロンプト50選](/guides/ai-prompts-for-business-employees-50/)を参照してください。
 
 ツール選びの全体像は[失敗しないAIツール選び方ガイド](/guides/how-to-choose-ai-tool/)、3強の比較は[ChatGPT・Claude・Gemini 徹底比較（2026年4月版）](/guides/chatgpt-claude-gemini-2026-04/) もあわせてどうぞ。
+
+## 職種別の選定軸
+
+汎用の選定フローを職種別に深掘りしたい場合:
+
+- **カスタマーサクセス・コールセンター業務向け** — 長文の議事録要約・FAQ生成・VOC分析という3軸で評価したCS現場向けの選定基準は、姉妹サイト **[CS Career Lab](https://cs-career-lab.jp/)** に現役CS管理職視点の解説があります。CS管理職のキャリアと現場ツールを別軸でカバーした姉妹メディアです。

@@ -1067,3 +1067,9 @@ ai-pedia 編集部の検証で **特に効果が高いと評価される** プ�
 - [Gemini Deep Research の業務活用10事例](/guides/gemini-deep-research-use-cases/)
 
 もあわせてご覧ください。
+
+## 職種別の深掘り
+
+50本の汎用プロンプトをベースに、職種ごとの応用が知りたい方へ:
+
+- **カスタマーサクセス・コールセンター向け** — VOC分析、1on1準備、評価コメント、RFP作成など、CS管理職が日常業務で使う10本のプロンプトを、姉妹サイト **[CS Career Lab — CS業務で本当に使えるAIプロンプト10選](https://cs-career-lab.jp/articles/ai-prompts-for-customer-success/)** に現役管理職の運用ノウハウとしてまとめています。汎用プロンプトでは届かない「現場の型」を必要としている方はそちらをご参照ください。
