@@ -3,7 +3,7 @@ title: "ChatGPT Codex プラン 16,800円 完全解説【2026年4月新設】Pro
 description: "OpenAI が2026年4月9日に新設した ChatGPT Codex プラン（月額16,800円）を徹底解説。Plus（¥3,000）/ Pro（¥30,000）との違い、コーディング特化機能、Claude Code との比較、Cursor 派からの乗り換え判断、エンジニアにとってのコスパを完全網羅。"
 noIndex: true
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: guide
 heroEmoji: "💻"
 heroGradient: "from-amber-400 via-orange-500 to-red-500"

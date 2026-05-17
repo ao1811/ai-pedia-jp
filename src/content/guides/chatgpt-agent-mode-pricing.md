@@ -2,7 +2,7 @@
 title: "ChatGPT エージェントモード料金プラン比較【2026年最新】Plus・Pro・Codex どれが得？"
 description: "ChatGPT エージェントモードの全プラン（Plus ¥3,000 / Codex ¥16,800 / Pro ¥30,000 / Team）を徹底比較。月額・利用回数・1年総コスト・「週何時間使えば元が取れるか」のROI試算まで早見表で解説。エンジニアは新設Codex、副業層はPlusが正解。"
 publishedAt: 2026-04-26
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "💰"
 heroGradient: "from-amber-400 via-orange-500 to-rose-500"

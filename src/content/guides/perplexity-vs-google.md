@@ -3,7 +3,7 @@ title: "Perplexity vs Google検索｜AI検索時代の使い分けと情報収�
 description: "AI検索 Perplexity と従来の Google 検索、どう使い分けるべきか？それぞれの強み・弱み・シーン別使い分けを、リサーチ業務のプロ目線で徹底解説。"
 noIndex: true
 publishedAt: 2026-04-03
-updatedAt: 2026-04-20
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🔍"
 heroGradient: "from-cyan-400 via-teal-500 to-blue-600"

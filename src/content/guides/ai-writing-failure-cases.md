@@ -2,7 +2,7 @@
 title: "AIライティング失敗事例10選【2026年版】helpful content アップデートで順位が落ちた実例と回避策"
 description: "AIライティングで実際に発生した失敗事例10選を公開報道・コミュニティ事例から整理。helpful content アップデートで順位が落ちた、E-E-A-T が弱くペナルティ、AI 量産で全記事が共倒れなど、契約前に知っておきたい落とし穴と回避策を実例つきで解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "💥"
 heroGradient: "from-red-500 via-orange-500 to-amber-500"

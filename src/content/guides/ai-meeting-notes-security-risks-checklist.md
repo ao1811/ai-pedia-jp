@@ -2,7 +2,7 @@
 title: "生成AI議事録のセキュリティリスク完全ガイド【2026年版】導入前チェック15項目と対策"
 description: "生成AI議事録ツール（Notta・PLAUD・JAPAN AI SPEECH 等）導入時のセキュリティリスクを実例で解説。情報漏洩リスク、社内規定との整合、学習オプトアウト設定、海外/国内クラウドの違い、無料 vs エンタープライズの安全度差まで2026年版で網羅。"
 publishedAt: 2026-05-05
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: guide
 heroEmoji: "🔒"
 heroGradient: "from-slate-500 via-zinc-600 to-gray-700"

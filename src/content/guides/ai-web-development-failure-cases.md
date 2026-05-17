@@ -2,7 +2,7 @@
 title: "AI Web制作 失敗事例10選【2026年版】コーディングAI・ノーコードAI・LP生成で起きたトラブルと回避策"
 description: "AI で Web制作する際に実際に発生した失敗事例10選を、公開報道・コミュニティ事例から整理。Claude Design / v0 / Cursor / Wix AI / Webflow AI の落とし穴、商用LPで炎上したケース、SEO評価が崩壊したケース、セキュリティ事故など、契約前に知っておきたい AI Web制作 失敗事例と回避策を完全解説。"
 publishedAt: 2026-04-28
-updatedAt: 2026-04-28
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "💥"
 heroGradient: "from-red-500 via-rose-500 to-orange-500"

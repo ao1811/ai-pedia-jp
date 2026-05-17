@@ -2,7 +2,7 @@
 title: "AIライティングで検索順位を上げる完全戦略【2026年版】helpful content時代に効く7つの実践テクニック"
 description: "AIライティングで Google 検索順位を上げるための実践戦略を解説。helpful content アップデート対応、E-E-A-T シグナル強化、キーワードクラスター戦略、内部リンク設計、AI Overview 対応まで、E-E-A-T を担保した AI 主導サイトの上位表示事例も解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "📈"
 heroGradient: "from-violet-500 via-fuchsia-500 to-pink-500"

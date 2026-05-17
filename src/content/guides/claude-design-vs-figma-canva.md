@@ -2,7 +2,7 @@
 title: "【2026年4月最新】Claude Design登場で変わるAIデザインツール5選｜Figma・Canvaと何が違う？"
 description: "Anthropicが2026年4月17日に公開した「Claude Design」を中心に、Figma Make・Canva Magic Studio・v0・Microsoft Designerの5ツールを実務目線で徹底比較。非エンジニアでもLP・資料・スライドを作れる新時代の選び方を解説します。"
 publishedAt: 2026-04-22
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🎨"
 heroGradient: "from-violet-500 via-fuchsia-500 to-rose-500"

@@ -2,7 +2,7 @@
 title: "Claude Design プロンプト100選【2026年版】LP・ダッシュボード・モバイルUI・スライド・図解で使える完成テンプレ集"
 description: "Claude Design で即動く完成プロンプト100本を公開。LP制作・SaaSダッシュボード・モバイルUI・営業資料スライド・インフォグラフィック・メールHTML・管理画面など10カテゴリ別にコピペで使えるテンプレ。プロンプトの作り方・カスタマイズ方法・出力品質を上げるコツも完全解説。"
 publishedAt: 2026-04-28
-updatedAt: 2026-04-28
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "✨"
 heroGradient: "from-fuchsia-400 via-pink-500 to-rose-500"

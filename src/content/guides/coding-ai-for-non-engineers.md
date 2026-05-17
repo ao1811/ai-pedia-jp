@@ -2,7 +2,7 @@
 title: "非エンジニアのためのコーディングAI 活用ガイド【2026年版】Claude Code・Cursor・Copilot で個人サイト・自動化を作る完全フロー"
 description: "コードが書けない非エンジニアでも Claude Code / Cursor / GitHub Copilot を使ってサイト構築・業務自動化・スクリプト作成を実現する完全ガイド。実際にエンジニアじゃない編集部が AI 主導で6日間でメディアサイト立ち上げた手順を公開。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🚀"
 heroGradient: "from-emerald-400 via-teal-500 to-blue-600"

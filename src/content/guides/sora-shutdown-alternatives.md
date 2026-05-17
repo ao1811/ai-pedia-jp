@@ -3,7 +3,7 @@ title: "Sora 終了後はどうする？代替AI動画生成5選【2026年4月�
 description: "OpenAI Sora アプリが2026年4月26日に終了、API も9月24日終了。Sora ユーザーが乗り換えるべき代替AI動画生成ツール5選を徹底比較。Veo 3.1（無料化）・Runway Gen-4・Pika 2.0・Wan 2.2・LTX 2 の料金・機能・日本語対応・商用利用可否を完全解説。"
 noIndex: true
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🎬"
 heroGradient: "from-rose-500 via-pink-500 to-purple-600"

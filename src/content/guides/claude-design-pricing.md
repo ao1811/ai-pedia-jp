@@ -2,7 +2,7 @@
 title: "Claude Design 料金プラン徹底比較｜Pro vs Max どっちが得？月¥3,000から始める正解の選び方【2026年最新】"
 description: "Claude Design の Pro / Max / Team / Enterprise プランをコスパ・利用回数・推奨ユーザー軸で完全比較。「週数件なら Pro、毎日使うなら Max」と用途別に最適解を提示。年額試算・よくある質問も網羅した2026年版の決定版ガイド。"
 publishedAt: 2026-04-26
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "💎"
 heroGradient: "from-violet-400 via-fuchsia-500 to-pink-500"

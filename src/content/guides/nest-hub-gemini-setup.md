@@ -2,7 +2,7 @@
 title: "Nest Hub で Gemini for Home を使う設定方法【2026年版】Mini・Audio 全対応"
 description: "Nest Hub・Nest Mini・Nest Audio で Gemini for Home を有効化する手順を画像付きで完全解説。Google Home アプリでの早期アクセス登録、音声アシスタント切替、ファミリー設定、トラブルシューティング15項目まで。所要15分で完了。"
 publishedAt: 2026-04-27
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🏠"
 heroGradient: "from-blue-500 via-indigo-500 to-purple-600"

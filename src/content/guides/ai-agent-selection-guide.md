@@ -2,7 +2,7 @@
 title: "AIエージェントの選び方完全フロー【2026年版】業務・予算・体制から最適ツールを5分で決める意思決定ガイド"
 description: "AIエージェント8ツール（ChatGPT Agent・Claude Computer Use・Microsoft Copilot Cowork・Dify・Coze・Manus・Devin）から最適な1本を5分で決められる意思決定フローを編集部が公開。業務・予算・チーム体制から逆算するロジックを解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: guide
 heroEmoji: "🧭"
 heroGradient: "from-violet-500 via-blue-600 to-cyan-500"

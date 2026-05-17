@@ -2,7 +2,7 @@
 title: "コーディングAI 失敗事例10選【2026年版】Cursor・Claude Code・Copilot 導入で起きたトラブルと回避策"
 description: "コーディングAI 導入で実際に発生した失敗事例10選を編集部とエンジニア取材から整理。本番DBの誤操作、API キー漏洩、依存関係破壊、無限ループでの月額爆増など、契約前に知っておきたい落とし穴と回避策を実例つきで解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "🚨"
 heroGradient: "from-red-500 via-orange-500 to-amber-500"

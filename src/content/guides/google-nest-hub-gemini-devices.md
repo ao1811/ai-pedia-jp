@@ -2,7 +2,7 @@
 title: "Google Nest Hub × Gemini 対応機種完全リスト【2026年版】Hub・Mini・Audio どれが最適？"
 description: "Gemini for Home が使える Google Nest 全機種を完全リスト化。Nest Hub / Hub Max / Mini / Audio / Wifi の対応状況、価格、機能差、買い替え判断まで2026年最新版で網羅。新規購入と既存機種の判断材料に。"
 publishedAt: 2026-05-05
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🏡"
 heroGradient: "from-sky-400 via-blue-500 to-indigo-600"

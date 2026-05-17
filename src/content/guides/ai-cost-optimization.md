@@ -2,7 +2,7 @@
 title: "AIツール課金、年間10万円削減する組み合わせ術【2026年版】"
 description: "複数のAIツールに課金しがちな現代。編集部が実践する、必要な機能を維持しつつコストを年間10万円削減する組み合わせ術を公開します。"
 publishedAt: 2026-03-22
-updatedAt: 2026-04-10
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "💰"
 heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"

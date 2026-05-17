@@ -2,7 +2,7 @@
 title: "AI翻訳の失敗事例10選【2026年版】契約書・ビジネスメール・Webサイトで起きたトラブルと回避策"
 description: "AI翻訳ツール導入で実際に発生した失敗事例10選を公開報道・コミュニティ事例から整理。契約書の誤訳、文化的差異の見落とし、機密情報漏洩、専門用語の誤訳、Webサイト品質劣化など、契約前に知っておきたい落とし穴を解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "⚠️"
 heroGradient: "from-red-500 via-orange-500 to-amber-500"

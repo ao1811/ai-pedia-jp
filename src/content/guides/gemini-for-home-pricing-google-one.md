@@ -2,7 +2,7 @@
 title: "Gemini for Home の料金完全ガイド【2026年版】無料プランと Google One AI Premium ¥2,900 の差は？"
 description: "Gemini for Home は無料で使える？Google One AI Premium（¥2,900/月）に入る価値は？無料プラン・有料プランの違い、課金で開放される機能、ファミリープランの活用、コスト最適化まで完全解説。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: guide
 heroEmoji: "💰"
 heroGradient: "from-emerald-400 via-teal-500 to-cyan-600"

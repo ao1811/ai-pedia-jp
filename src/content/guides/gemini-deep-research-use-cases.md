@@ -2,7 +2,7 @@
 title: "Gemini Deep Research の業務活用10事例【2026年版】競合調査・市場分析・論文要約のコピペで使えるプロンプト集"
 description: "Gemini Deep Research を業務で活用する10事例を編集部が公開。競合調査、市場分析、論文要約、採用リサーチ、規制対応など、コピペで使える完成プロンプトを掲載。Free でも月数回使える Deep Research をフル活用する手順。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🔬"
 heroGradient: "from-cyan-500 via-blue-500 to-indigo-600"

@@ -2,7 +2,7 @@
 title: "「会社でAIを使え」と言われた人の最初の30日ロードマップ【2026年版】非エンジニアの実践プラン"
 description: "「会社でAIを使え」と言われたけど何から始めればいいか分からない人向けの、30日で成果を出す実践ロードマップ。Week1のツール選定からWeek4のチーム展開まで、公式情報・主要メディアの導入事例・編集部の利用所感をもとに整理した実践プラン。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🗓️"
 heroGradient: "from-sky-500 via-blue-600 to-indigo-700"

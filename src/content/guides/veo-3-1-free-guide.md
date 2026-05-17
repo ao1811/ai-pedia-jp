@@ -3,7 +3,7 @@ title: "Veo 3.1 完全無料化【2026年4月】使い方・Sora との比較・
 description: "Google Veo 3.1 が2026年4月2日、全 Google アカウントで完全無料化。AI動画生成・Lyria 3 音楽生成・Google Vids 連携の使い方を完全解説。Sora 終了後の代替最有力候補、料金・無料枠・商用利用条件・日本語対応・無制限プランまで網羅。"
 noIndex: true
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🎥"
 heroGradient: "from-fuchsia-500 via-purple-500 to-violet-600"

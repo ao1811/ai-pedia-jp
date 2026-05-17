@@ -2,7 +2,7 @@
 title: "AIエージェント料金完全比較【2026年版】ChatGPT・Claude・Copilot Cowork・Dify・Manus の月額・利用枠・ROI試算"
 description: "AIエージェントツール8社の料金プラン・利用枠・ROIを完全比較。ChatGPT Agent Mode・Claude Computer Use・Microsoft Copilot Cowork・Dify・Coze・Manus・Devin の月額/年額と、個人・法人・スタートアップ別の最適解を編集部が試算。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🤖"
 heroGradient: "from-emerald-500 via-teal-500 to-cyan-600"

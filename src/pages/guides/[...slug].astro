@@ -62,7 +62,10 @@ const recommendationTags = [
 
 const publishedIso = guide.data.publishedAt.toISOString();
 const modifiedIso = (guide.data.updatedAt ?? guide.data.publishedAt).toISOString();
-const guideUrl = `${SITE.url}/guides/${guide.id}`;
+const guideUrl = `${SITE.url}/guides/${guide.id}/`;
+// 本文の文字数（HTML タグ等を除外した概算）。Article schema の wordCount に使用。
+const rawBody = (guide.body ?? '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ');
+const wordCount = rawBody.length;
 // 記事ごとに動的生成される OG 画像（Rich Results の Article.image 要件を満たす）
 const articleImage = `${SITE.url}/og/og/guides/${guide.id}.png`;
 
@@ -102,6 +105,10 @@ const articleLd: Record<string, unknown> = {
   publisher: { '@id': `${SITE.url}/#organization` },
   keywords: (guide.data.tags ?? []).join(', '),
   articleSection: guide.data.category,
+  wordCount,
+  isAccessibleForFree: true,
+  copyrightYear: new Date(guide.data.publishedAt).getFullYear(),
+  copyrightHolder: { '@id': `${SITE.url}/#organization` },
   // TL;DR を Speakable 対象に（音声検索・AI Overviews 引用対象）
   speakable: {
     '@type': 'SpeakableSpecification',
@@ -162,7 +169,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
     <Breadcrumbs
       items={[
         { label: 'ホーム', href: '/' },
-        { label: '徹底特集', href: '/guides' },
+        { label: '徹底特集', href: '/guides/' },
         { label: guide.data.title },
       ]}
     />
@@ -185,7 +192,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
         <div class="mt-4 flex items-center gap-3 text-xs text-[#c7cbde] flex-wrap">
           <span>公開 {fmt(guide.data.publishedAt)}</span>
           {guide.data.updatedAt && <span>· 更新 {fmt(guide.data.updatedAt)}</span>}
-          <span>· AIpedia 編集部（執筆：<a href="/author/ao" class="underline hover:text-white">{guide.data.author === '編集部' ? 'Ao' : guide.data.author}</a>）</span>
+          <span>· AIpedia 編集部（執筆：<a href="/author/ao/" class="underline hover:text-white">{guide.data.author === '編集部' ? 'Ao' : guide.data.author}</a>）</span>
         </div>
       </div>
     </header>
@@ -210,7 +217,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
         <span class="text-xs text-[#8a90a8]">🏷️ タグ:</span>
         {guide.data.tags.map((t) => (
           <a
-            href={`/tags/${encodeURIComponent(t)}`}
+            href={`/tags/${encodeURIComponent(t)}/`}
             class="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[11px] text-[#c7cbde] hover:bg-white/10 transition"
           >
             {t}
@@ -286,7 +293,7 @@ const extraLd = [articleLd, ...(faqLd ? [faqLd] : [])];
     <AuthorBio />
 
     <div class="mt-10 mb-4 flex items-center justify-between text-sm">
-      <a href="/guides" class="text-[#c7cbde] hover:text-white">← ガイド一覧</a>
+      <a href="/guides/" class="text-[#c7cbde] hover:text-white">← ガイド一覧</a>
       <a href="/" class="text-[#c7cbde] hover:text-white">総合ランキング →</a>
     </div>
   </article>

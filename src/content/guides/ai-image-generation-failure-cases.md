@@ -2,7 +2,7 @@
 title: "AI画像生成 失敗事例10選【2026年版】訴訟・炎上・¥150万損失から学ぶ「絶対やってはいけない」運用5パターン"
 description: "AI画像生成で実際に起きた失敗事例10選を実例つきで解説。Midjourney Free 時代の画像転用で広告制作費¥150万損失、Stable Diffusion で著作権訴訟、実在人物に酷似で名誉毀損、AI 開示なしで炎上など、契約前に知るべき落とし穴と回避策を網羅。導入前にこれを読めば致命的トラブルを未然に防げます。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "💥"
 heroGradient: "from-red-500 via-rose-500 to-pink-500"

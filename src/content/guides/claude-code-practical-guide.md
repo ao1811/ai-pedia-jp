@@ -2,7 +2,7 @@
 title: "Claude Code 完全実践ガイド｜インストールから自律型開発フローまで【2026年版】"
 description: "Claude Code の導入から実運用までを一気通貫で解説。サブエージェント・Hooks・MCP を使いこなし、シニアエンジニアの開発生産性を大きく押し上げる実践テクニック集。"
 publishedAt: 2026-04-13
-updatedAt: 2026-04-20
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🧠"
 heroGradient: "from-orange-400 via-red-500 to-rose-600"

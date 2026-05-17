@@ -2,7 +2,7 @@
 title: "AI議事録ツール導入の失敗事例と回避策【2026年版】10の落とし穴と「導入前に決めるべき5つのルール」"
 description: "AI議事録ツールの導入失敗事例10選と回避策を公開報道・コミュニティ事例から整理。同意忘れトラブル、専門用語の誤変換、外部参加者からの苦情、退職者アカウント残存、ツール乱立など、契約前に知っておきたい落とし穴を実例つきで解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "⚠️"
 heroGradient: "from-orange-500 via-red-500 to-rose-600"

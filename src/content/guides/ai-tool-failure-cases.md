@@ -2,7 +2,7 @@
 title: "AIツール導入失敗例10選｜編集部が見た「こうしてはいけない」実話集"
 description: "編集部が取材・見聞きしたAIツール導入の失敗例10選。月¥数万の無駄課金、情報漏洩ヒヤリ、生産性逆低下——あなたが同じ轍を踏まないための教訓集です。"
 publishedAt: 2026-03-26
-updatedAt: 2026-04-20
+updatedAt: 2026-05-17
 category: guide
 heroEmoji: "⚠️"
 heroGradient: "from-rose-500 via-red-500 to-orange-500"

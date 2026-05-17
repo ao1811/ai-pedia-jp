@@ -2,7 +2,7 @@
 title: "ChatGPT エージェントモードの限界と落とし穴｜2026年時点で「やってはいけない」5つの業務と安全運用チェックリスト"
 description: "ChatGPT エージェントモード（Agent Mode 2.0）を業務導入する前に知っておきたい限界と危険性。契約・送金・人事・機密情報・法務系で実際に発生したトラブル事例と、安全運用のチェックリスト。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "⚠️"
 heroGradient: "from-rose-500 via-red-500 to-orange-600"

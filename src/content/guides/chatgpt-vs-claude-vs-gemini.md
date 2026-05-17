@@ -2,7 +2,7 @@
 title: "ChatGPT・Claude・Gemini 徹底比較【2026年4月版】どれを選ぶべきか"
 description: "2026年時点の対話AI御三家を、料金・日本語精度・コーディング力・ビジネス用途など8項目で徹底比較。利用シーン別のおすすめも解説します。"
 publishedAt: 2026-04-10
-updatedAt: 2026-04-18
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "⚔️"
 heroGradient: "from-violet-500 via-fuchsia-500 to-orange-500"

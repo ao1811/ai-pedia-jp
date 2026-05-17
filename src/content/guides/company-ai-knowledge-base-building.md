@@ -2,7 +2,7 @@
 title: "社内AI活用ナレッジベースの作り方【2026年版】Notion で構築する AI ガイドライン・プロンプト集・運用ルール集"
 description: "「会社で AI 使え」と言われたけど社内に何のナレッジもない人向けの、Notion で構築する AI 活用ナレッジベースの作り方。テンプレート構成、プロンプト集、ガイドライン、FAQ まで運用してきた編集部の知見を公開。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "📚"
 heroGradient: "from-violet-500 via-blue-600 to-cyan-600"

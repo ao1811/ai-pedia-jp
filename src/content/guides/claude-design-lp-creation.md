@@ -2,7 +2,7 @@
 title: "Claude Design で LP を作る完全ガイド【2026年版】プロンプト例25個 + コンバージョン率を上げる構成術"
 description: "Claude Design でランディングページを作る手順を実例25パターンで解説。ヒーロー設計、CV最適化、A/Bテスト用バリエーション量産、Tailwind/React への書き出し、デプロイまで2026年最新版で完全網羅。デザイナー外注より速い・安い。"
 publishedAt: 2026-05-05
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🎨"
 heroGradient: "from-violet-400 via-purple-500 to-fuchsia-500"

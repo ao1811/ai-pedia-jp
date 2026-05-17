@@ -3,7 +3,7 @@ title: "政府ガバメントAI「源内（げんない）」とは？18万人�
 description: "日本政府が2026年5月から開始する大規模生成AI実証『源内（げんない）』を完全解説。国家公務員約29万人のうち18万人にアカウント配布、国産モデル含む省庁横断プロジェクトの背景・対応モデル・期待効果・公務員の業務がどう変わるかを徹底分析。"
 noIndex: true
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "🏛️"
 heroGradient: "from-red-500 via-rose-500 to-pink-600"

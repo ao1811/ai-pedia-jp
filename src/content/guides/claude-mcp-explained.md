@@ -3,7 +3,7 @@ title: "新機能「Claude MCP」(Model Context Protocol) とは？AIエージ�
 description: "Anthropic が提唱する MCP（Model Context Protocol）の全貌を徹底解説。AIツール同士が文脈を共有できる新しい標準規格の仕組み、実装例、今後の業界動向を初心者にも分かりやすく紹介。"
 noIndex: true
 publishedAt: 2026-04-20
-updatedAt: 2026-04-21
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "🔗"
 heroGradient: "from-violet-500 via-purple-500 to-fuchsia-500"

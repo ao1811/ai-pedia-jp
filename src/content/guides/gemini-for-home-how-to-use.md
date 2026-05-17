@@ -2,7 +2,7 @@
 title: "Gemini for Home 使い方完全ガイド【2026年版】Nest Hub で広がる新しいスマートホーム体験"
 description: "Gemini for Home の使い方を実例50パターンで完全網羅。基本コマンド、家電操作、家族連携、ルーティン自動化、Gemini Live モードの活用法まで2026年最新版で解説。「設定したけど何ができるかわからない」を解消します。"
 publishedAt: 2026-05-05
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🎙️"
 heroGradient: "from-indigo-400 via-blue-500 to-cyan-500"

@@ -2,7 +2,7 @@
 title: "Apple Intelligence × Shortcuts 自動化レシピ集【2026年版】個人AIで業務を10倍効率化する15の実用パターン"
 description: "Apple Intelligence と Shortcuts アプリを連携した自動化レシピを15個厳選。メール要約 → Slack 投稿、写真自動整理、議事録自動生成、クリップボード AI 整形、定時レポート自動化など、個人 AI で業務を10倍効率化する実用パターンを完全解説。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "⚡"
 heroGradient: "from-blue-500 via-purple-500 to-pink-500"

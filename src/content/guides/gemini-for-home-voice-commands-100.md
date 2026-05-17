@@ -2,7 +2,7 @@
 title: "Gemini for Home 音声コマンド100選【2026年版】朝・仕事・家事・夜・週末で使える実用フレーズ集"
 description: "Gemini for Home（Nest Mini / Nest Hub）で実際に使える音声コマンドを100個厳選。朝のルーティン、在宅ワーク、家事、子育て、夜のリラックス、週末の家族時間まで、シーン別にコピペで使えるフレーズを完全網羅。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🗣️"
 heroGradient: "from-cyan-400 via-sky-500 to-blue-600"

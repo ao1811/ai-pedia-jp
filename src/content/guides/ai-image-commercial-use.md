@@ -2,7 +2,7 @@
 title: "AI画像生成の商用利用完全ガイド【2026年版】Midjourney・DALL-E・Stable Diffusion・Adobe Firefly のライセンス・著作権・トラブル回避策"
 description: "AI画像生成ツールの商用利用ライセンスを徹底解説。Midjourney・DALL-E・Stable Diffusion・Adobe Firefly の利用規約、著作権の扱い、学習データのリスク、企業導入時の法務確認、実際のトラブル事例まで網羅。クリエイター・マーケター・法人担当者必読。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "⚖️"
 heroGradient: "from-amber-500 via-orange-500 to-red-500"

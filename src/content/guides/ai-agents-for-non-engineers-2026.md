@@ -3,7 +3,7 @@ title: "【2026年4月最新】非エンジニアでも使えるAIエージェ�
 description: "Microsoft Copilot Cowork（2026年3月発表）、Claude Computer Use、Dify、Coze、ChatGPT Agent Mode 2.0を実務目線で徹底比較。エンジニアでなくても今日から始められる業務自動化の現実解を解説します。"
 noIndex: true
 publishedAt: 2026-04-23
-updatedAt: 2026-04-23
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🤖"
 heroGradient: "from-amber-400 via-orange-500 to-rose-500"

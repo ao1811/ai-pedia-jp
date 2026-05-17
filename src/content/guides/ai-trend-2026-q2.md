@@ -3,7 +3,7 @@ title: "2026年Q2 AIツール業界トレンド：エージェント化・マル
 description: "2026年第2四半期、AIツール業界で起きている3つの大きな変化——「エージェント化」「マルチモーダル標準化」「オンデバイス化」の現在地を解説します。"
 noIndex: true
 publishedAt: 2026-04-15
-updatedAt: 2026-04-18
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "📈"
 heroGradient: "from-amber-500 via-orange-500 to-red-500"

@@ -2,7 +2,7 @@
 title: "Apple Intelligence の使い方完全ガイド【2026年版】iPhone・iPad・Mac で30分でマスターする実践チュートリアル"
 description: "Apple Intelligence の使い方を初心者向けに完全解説。有効化の手順、Writing Tools・Genmoji・Image Playground・Siri 強化の実用例、よく使うショートカット、トラブル対処まで30分で理解できる構成。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🚀"
 heroGradient: "from-slate-700 via-zinc-700 to-gray-800"

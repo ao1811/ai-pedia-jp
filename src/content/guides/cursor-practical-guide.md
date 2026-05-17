@@ -2,7 +2,7 @@
 title: "Cursor 完全実践ガイド【2026年版】｜インストールから Composer 駆動の開発フローまで"
 description: "Cursor の導入から Composer・Agent モード・マルチモデル運用まで、開発生産性を大きく押し上げる実践テクニックを、毎日使う編集部エンジニアが全公開します。"
 publishedAt: 2026-04-02
-updatedAt: 2026-04-20
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "⚡"
 heroGradient: "from-slate-400 via-zinc-500 to-neutral-700"

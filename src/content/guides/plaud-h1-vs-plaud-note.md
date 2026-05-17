@@ -2,7 +2,7 @@
 title: "AI議事録 買い切りの最適解：PLAUD H1 vs NOTE 徹底比較【2026年版】サブスク不要のハードウェア型2モデル比較"
 description: "AI議事録 買い切り型の決定版 PLAUD の2モデル（カード型 H1・ペン型 NOTE）を徹底比較。サブスク型（Notta 等）と比較した3年総コスト、価格・録音時間・AI機能・対面シーン適合性まで網羅。営業・取材・医療現場・コンサル業の用途別に買い切り選定を解説。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-28
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🎙️"
 heroGradient: "from-amber-500 via-orange-600 to-red-600"

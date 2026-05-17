@@ -2,7 +2,7 @@
 title: "ChatGPT エージェントモード vs Claude / Manus / Devin｜2026年Q2の自律型AIエージェントを5軸で徹底比較"
 description: "ChatGPT Agent Mode 2.0、Claude Code、Manus、Devin など主要な自律型AIエージェントを「対応タスク／対応SaaS／料金／信頼性／日本語精度」の5軸で比較。用途別の推奨と1年後の予測まで。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "⚔️"
 heroGradient: "from-cyan-500 via-blue-500 to-violet-600"

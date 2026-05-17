@@ -2,7 +2,7 @@
 title: "業務別AI活用プロンプト50選【2026年版】営業・マーケ・人事・経理・PdM 10部署のコピペで使える実用集"
 description: "「会社でAIを使え」と言われた非エンジニア向けの、業務別コピペで使える実用プロンプト50選。営業・マーケ・人事・経理・PdM・CS・経営企画・法務・IT・広報の10部署×5プロンプトを編集部が運用検証済み。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "📋"
 heroGradient: "from-emerald-500 via-teal-600 to-cyan-700"

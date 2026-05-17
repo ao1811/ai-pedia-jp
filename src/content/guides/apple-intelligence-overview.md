@@ -2,7 +2,7 @@
 title: "Apple Intelligence とは？2026年版完全解説｜機能・対応端末・料金・ChatGPT との違い"
 description: "Apple Intelligence の全機能を完全解説。Writing Tools・Genmoji・Image Playground・Siri 強化・ChatGPT 連携など主要機能の使い方、対応端末（iPhone 15 Pro 以降・M1 Mac 以降）、無料で使える範囲、Apple ならではの強みを徹底紹介。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "🍎"
 heroGradient: "from-gray-700 via-slate-600 to-gray-800"

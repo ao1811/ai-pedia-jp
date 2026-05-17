@@ -2,7 +2,7 @@
 title: "AI翻訳の業務活用完全ガイド【2026年版】法人・グローバル展開・契約書・技術文書の実践テクニック"
 description: "AI翻訳ツールを業務で本格活用するための完全ガイド。法人導入、グローバル展開、契約書翻訳、技術文書、Webサイト多言語化など、公式情報・主要メディアの導入事例から整理した実践テクニックを公開。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🌍"
 heroGradient: "from-violet-500 via-blue-500 to-cyan-500"

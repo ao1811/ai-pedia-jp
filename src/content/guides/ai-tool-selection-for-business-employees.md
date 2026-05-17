@@ -2,7 +2,7 @@
 title: "会社員向けAIツール選び方フローチャート【2026年版】部署別おすすめと業務シーン別の最適解"
 description: "「会社でAIツールを選べ」と言われた非エンジニアの会社員向けに、フローチャート形式で最適ツールを診断。営業・マーケ・人事・経理・PdM など部署別の推奨と、業務シーンごとのツール組み合わせを解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: guide
 heroEmoji: "🎯"
 heroGradient: "from-amber-500 via-orange-500 to-rose-500"

@@ -2,7 +2,7 @@
 title: "Claude Design の業務活用10事例｜LP・資料・スライド・ダッシュボードのコピペで使えるプロンプト集【2026年版】"
 description: "Claude Design を業務で実際に活用した10事例を紹介。LP制作、提案資料、社内スライド、管理画面UI、メール HTMLなどのコピペで使える完成プロンプトを編集部が運用検証済み。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🎯"
 heroGradient: "from-fuchsia-500 via-rose-500 to-orange-500"

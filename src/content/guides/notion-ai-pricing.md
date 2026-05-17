@@ -2,7 +2,7 @@
 title: "Notion AI 料金完全比較【2026年版】Free・Plus・Business・Enterprise の月額・機能差・ROI試算"
 description: "Notion AI の料金プランを徹底比較。Free・Plus・Business・Enterprise の月額/年額・機能差・利用枠・推奨ユーザーを表で整理。1年使った場合のコスト試算と ChatGPT・Claude との比較も。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "📓"
 heroGradient: "from-stone-500 via-zinc-600 to-slate-700"

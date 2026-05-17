@@ -2,7 +2,7 @@
 title: "Gemini for Home が使えるデバイス一覧【2026年版】Nest 系 + Matter 対応スマートホーム機器の完全ガイド"
 description: "Gemini for Home に対応する全デバイスを完全リスト化。Nest Mini / Nest Audio / Nest Hub の純正機器から、Matter 対応の Philips Hue・SwitchBot・Aqara・Nature Remo まで。価格・機能・推奨度を一表で。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: guide
 heroEmoji: "📱"
 heroGradient: "from-cyan-500 via-blue-600 to-indigo-700"

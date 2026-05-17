@@ -2,7 +2,7 @@
 title: "Claude Code に投げるべき5つの定番プロンプト集【2026年版】非エンジニアが個人サイト・自動化を作るためのコピペ用テンプレ"
 description: "Claude Code を使って個人サイト・業務自動化・スクリプトを作りたい非エンジニア向けに、編集部の利用所感をもとに整理した『すぐ動く定番プロンプト』5選を公開。プロジェクト設計・Content Collections・SEO 完璧化・記事テンプレ化・キーワードクラスター生成まで網羅。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "✨"
 heroGradient: "from-amber-400 via-orange-500 to-rose-600"

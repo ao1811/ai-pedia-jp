@@ -2,7 +2,7 @@
 title: "ChatGPT エージェントモードの業務活用10事例｜営業・マーケ・経理・採用の実例とコピペで使えるプロンプト集【2026年版】"
 description: "ChatGPT エージェントモード（Agent Mode 2.0）を業務で実際に活用した10事例を紹介。営業リスト整理、競合調査、SNS分析、経費精算、採用候補者調査などの完成プロンプトをそのままコピペで利用可能。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "💼"
 heroGradient: "from-amber-500 via-orange-500 to-rose-500"

@@ -2,7 +2,7 @@
 title: "AI翻訳 有料プラン徹底比較【2026年版】DeepL・Languise・ChatGPT・Claude の月額・文字数枠・無料との違いを完全解説"
 description: "AI翻訳の有料プラン6社の料金・月間翻訳文字数・精度を完全比較。DeepL Pro・Languise・ChatGPT Plus・Claude Pro・Google翻訳・Notta翻訳の月額/年額、無料プランとの違い、個人・法人・グローバル展開別に有料が必要な閾値を解説。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-28
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🌐"
 heroGradient: "from-blue-500 via-cyan-500 to-teal-500"

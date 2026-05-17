@@ -3,7 +3,7 @@ title: "AIエージェント最前線【2026年Q2】Claude Code・Cursor・ChatG
 description: "「質問する」から「任せる」へ。2026年Q2で本格普及期に入ったAIエージェント3本——Claude Code・Cursor・ChatGPT Agent——を、実務目線で徹底比較。"
 noIndex: true
 publishedAt: 2026-04-18
-updatedAt: 2026-04-20
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "🤖"
 heroGradient: "from-violet-500 via-fuchsia-500 to-rose-500"

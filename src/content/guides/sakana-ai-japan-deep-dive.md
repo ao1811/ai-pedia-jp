@@ -2,7 +2,7 @@
 title: "Sakana AI とは？日本発AIユニコーン完全解説【2026年4月最新】総務省 SNS誤情報対策・Series B 調達・進化的AI技術を徹底解説"
 description: "Sakana AI は2023年創業の日本発 AI スタートアップ。元 Google Brain の David Ha・Llion Jones らが立ち上げ、進化的アルゴリズムで AI モデルを最適化する独自技術で世界的注目。2026年4月、総務省 SNS 誤情報対策プロジェクトを完了し政府×生成AI 国内初の本格実装事例に。創業背景・技術・資金調達・実用例まで完全解説。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "🐟"
 heroGradient: "from-cyan-500 via-sky-500 to-blue-600"

@@ -2,7 +2,7 @@
 title: "Nest Hub vs Echo Show 5 徹底比較【2026年版】Gemini for Home と Alexa+ どちらを選ぶべきか"
 description: "Nest Hub（Gemini for Home搭載）と Echo Show 5（Alexa+搭載）を価格・AI性能・スマートホーム連携・ファミリー機能の4軸で徹底比較。Google エコシステム派 / Amazon Prime会員 / iPhone派それぞれの最適解を編集部が解説。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "⚖️"
 heroGradient: "from-blue-500 via-violet-500 to-orange-500"

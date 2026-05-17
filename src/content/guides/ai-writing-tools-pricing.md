@@ -2,7 +2,7 @@
 title: "AIライティングツールの料金完全比較【2026年版】Notion AI・Catchy・Value AI Writer・ChatGPT・Claudeの月額・年額・記事生成単価"
 description: "AIライティングツール6社の料金プラン・記事生成単価・年間コスト・ROI試算を徹底比較。Notion AI・Catchy・Value AI Writer・ChatGPT Plus・Claude Pro・Bun-ken の月額/年額と1記事あたりの実質コスト、副業・本業・法人別の最適解を編集部が試算。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "✍️"
 heroGradient: "from-blue-500 via-cyan-500 to-emerald-500"

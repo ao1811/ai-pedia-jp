@@ -2,7 +2,7 @@
 title: "Gemini の料金完全比較【2026年版】Free・Advanced・Workspace・Vertex AI の月額・利用枠・ROI試算"
 description: "Google Gemini の料金プランを徹底比較。Free・Advanced・Google Workspace・Vertex AI の月額/年額・利用枠・推奨ユーザーを表で整理。1年使った場合のコスト試算と ChatGPT・Claude との比較も。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "💎"
 heroGradient: "from-blue-500 via-cyan-500 to-emerald-500"

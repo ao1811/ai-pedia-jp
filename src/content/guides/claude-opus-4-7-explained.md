@@ -3,7 +3,7 @@ title: "Claude Opus 4.7 完全解説【2026年4月最新】SWE-bench 87.6%・Com
 description: "Anthropic が2026年4月16日にリリースした Claude Opus 4.7 を徹底解説。SWE-bench Verified 87.6% の業界最高コーディング精度、新たな『xhigh』推論モード、Claude Code デフォルト化、Computer Use 機能、価格据え置き、GPT-5.5 / Gemini 3.1 Pro との比較まで完全網羅。"
 noIndex: true
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "🧠"
 heroGradient: "from-orange-400 via-amber-500 to-yellow-600"

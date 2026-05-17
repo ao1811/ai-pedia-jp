@@ -3,7 +3,7 @@ title: "新機能「Gemini Deep Research 2.5」とは？Google の深層調査AI
 description: "Google Gemini の Deep Research 機能を徹底解説。数時間かかる調査業務を15分で終わらせる仕組み、実務活用例、Perplexity Deep Research との比較まで実例付きで紹介。"
 noIndex: true
 publishedAt: 2026-04-20
-updatedAt: 2026-04-21
+updatedAt: 2026-05-17
 category: trend
 heroEmoji: "🔎"
 heroGradient: "from-blue-400 via-indigo-500 to-purple-600"

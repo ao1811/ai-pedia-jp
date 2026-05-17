@@ -2,7 +2,7 @@
 title: "AI画像生成ツールの料金完全比較【2026年版】Midjourney・DALL-E・Stable Diffusion・Adobe Firefly・ConoHa AI Canvas の月額・生成枚数・商用利用"
 description: "AI画像生成ツール6社の料金プラン・月間生成枚数・商用利用条件を完全比較。Midjourney・DALL-E 3・Stable Diffusion・Adobe Firefly・ConoHa AI Canvas・Aiarty の月額/年額と1枚あたりの実質コスト、ブログ用・SNS用・商用利用別の最適解を編集部が試算。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "🎨"
 heroGradient: "from-pink-500 via-rose-500 to-orange-500"

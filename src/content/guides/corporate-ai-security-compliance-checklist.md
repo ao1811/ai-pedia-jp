@@ -2,7 +2,7 @@
 title: "会社でAIを使う前の必須チェックリスト【2026年版】機密情報・セキュリティ・社内ルール・プラン選びの5軸"
 description: "「会社で AI 使え」と言われたけどセキュリティが心配な人向けの必須チェックリスト。機密情報の扱い、Free / Pro プランの差、学習オプトアウト、社内ルールづくりまで、ai-pedia編集部が法務取材で整理した5軸の判断基準。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "🛡️"
 heroGradient: "from-slate-500 via-blue-700 to-indigo-800"

@@ -2,7 +2,7 @@
 title: "PLAUD Note Pin S レビュー【2026年4月最新】iF Design Award 受賞・ハードボタン搭載・ハイライト機能を徹底解説"
 description: "PLAUD Note Pin S を徹底解説。2026年3月発売の最新モデルで、ハードボタン搭載・ハイライト機能・iF Design Award 2026 受賞の最新 AI ボイスレコーダー。NOTE / NotePin / H1 との違い、価格、おすすめユーザー、Amazon 新生活セールでの最大20%OFF情報まで完全網羅。"
 publishedAt: 2026-04-27
-updatedAt: 2026-04-27
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "🎙️"
 heroGradient: "from-violet-500 via-purple-500 to-fuchsia-600"

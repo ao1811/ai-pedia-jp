@@ -2,7 +2,7 @@
 title: "Notion AI 徹底レビュー【2026年版】1ヶ月使った本音と他AIとの使い分け"
 description: "Notion AI を1ヶ月以上実務で使った編集部の本音レビュー。料金・機能・ChatGPTとの使い分け・導入前に知るべき落とし穴まで、実例付きで解説します。"
 publishedAt: 2026-04-11
-updatedAt: 2026-04-20
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "📋"
 heroGradient: "from-zinc-400 via-slate-500 to-gray-700"

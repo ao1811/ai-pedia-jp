@@ -2,7 +2,7 @@
 title: "Google Home で Gemini を設定する方法【2026年版】Nest 全機種で使える完全手順"
 description: "Google Home アプリで Gemini for Home を有効化する設定手順を画像付きで完全解説。Nest Hub・Mini・Audio・Hub Max 全対応、早期アクセスへの登録、音声認識テスト、家族アカウント設定、トラブル対処15項目まで。所要15分。"
 publishedAt: 2026-05-05
-updatedAt: 2026-05-05
+updatedAt: 2026-05-17
 category: howto
 heroEmoji: "🏠"
 heroGradient: "from-blue-400 via-cyan-500 to-teal-500"

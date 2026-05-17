@@ -2,7 +2,7 @@
 title: "Claude Design の限界とできないこと｜2026年時点で「やってはいけない」5つの依頼と現実的な使い分け"
 description: "Claude Design（Anthropic）を業務導入する前に知っておきたい限界と落とし穴。ピクセルパーフェクトの再現、ブランドガイド準拠、複雑な状態管理、独自フォント運用、プリント物デザインなど5領域での限界と回避策を、公開情報・主要メディアの解説・編集部の利用所感をもとに整理。"
 publishedAt: 2026-04-26
-updatedAt: 2026-04-26
+updatedAt: 2026-05-17
 category: review
 heroEmoji: "🛑"
 heroGradient: "from-rose-500 via-orange-500 to-amber-500"

@@ -2,7 +2,7 @@
 title: "Claude Design vs v0 vs Figma AI 徹底比較【2026年版】3社のAIデザインツールどれを選ぶか完全解説"
 description: "Anthropic Claude Design、Vercel v0、Figma AI（Figma Make）の3大AIデザインツールを料金・機能・出力品質・連携性・商用利用で徹底比較。LP制作・プロダクトUI・モックアップ・SaaSダッシュボード別に最適解を解説。"
 publishedAt: 2026-04-28
-updatedAt: 2026-04-28
+updatedAt: 2026-05-17
 category: comparison
 heroEmoji: "⚔️"
 heroGradient: "from-fuchsia-500 via-violet-500 to-blue-600"
