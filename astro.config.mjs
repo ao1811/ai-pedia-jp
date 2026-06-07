@@ -54,8 +54,33 @@ function getNoIndexGuidePaths() {
   return noIndexSlugs;
 }
 
+/**
+ * public/_redirects に定義された 301 リダイレクトの「リダイレクト元」パスを抽出。
+ * タグ統合（例: /tags/料金/ → /tags/コスパ/）の旧URLは 301 を返すため、
+ * sitemap に残すと Search Console で「リダイレクトを含むページ」エラーになる。
+ */
+function getRedirectSourcePaths() {
+  const set = new Set();
+  try {
+    const txt = readFileSync(join(process.cwd(), 'public', '_redirects'), 'utf-8');
+    for (const line of txt.split('\n')) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const src = trimmed.split(/\s+/)[0];
+      if (!src || !src.startsWith('/')) continue;
+      try {
+        set.add(decodeURIComponent(src));
+      } catch {
+        set.add(src);
+      }
+    }
+  } catch {}
+  return set;
+}
+
 const THIN_TAG_PATHS = getThinTagPaths();
 const NOINDEX_GUIDE_PATHS = getNoIndexGuidePaths();
+const REDIRECT_SOURCE_PATHS = getRedirectSourcePaths();
 
 export default defineConfig({
   site: 'https://ai-pedia.jp',
@@ -81,10 +106,16 @@ export default defineConfig({
         if (page.endsWith('/404/')) return false;
         // frontmatter で noIndex: true を指定したガイド記事も除外。
         try {
-          const pathOnly = new URL(page).pathname;
+          // URL.pathname は日本語タグを %E3%... とエンコードして返すため、
+          // デコードしてから各セット（デコード済みパス）と突き合わせる。
+          // ここを decode していなかったため、日本語タグの thin/redirect 除外が
+          // 全く効かず、noindex タグや 301 タグが sitemap に大量混入していた。
+          const pathOnly = decodeURIComponent(new URL(page).pathname);
           if (NOINDEX_GUIDE_PATHS.has(pathOnly)) return false;
           // 1記事しかないタグページも除外（thin content）。
           if (THIN_TAG_PATHS.has(pathOnly)) return false;
+          // タグ統合などで 301 リダイレクトする旧URLも除外。
+          if (REDIRECT_SOURCE_PATHS.has(pathOnly)) return false;
         } catch {}
         return true;
       },
