@@ -7,6 +7,11 @@ category: howto
 heroEmoji: "✨"
 heroGradient: "from-fuchsia-400 via-pink-500 to-rose-500"
 featured: false
+# タイトルは「100本」だが実体は約20本で51〜100番は見出しだけのプレースホルダー。
+# タイトルと中身が乖離した水増しコンテンツのため AdSense「有用性の低いコンテンツ」
+# 対策として noindex 化（2026-06-08）。将来きちんと全プロンプトを埋めるか、
+# 「実例25選」等に honest にリスケープしたら index 復帰を検討。
+noIndex: true
 relatedTools: ["claude"]
 readTimeMin: 12
 tags: ["Claude Design", "プロンプト", "AIデザイン", "テンプレ", "LP制作", "2026"]
